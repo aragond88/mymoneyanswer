@@ -1,0 +1,2079 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>What Should I Do With My Money? Free Personal Finance Tool</title>
+  <meta name="description" content="Answer 4 questions and get a free, personalized step-by-step financial plan. Find out exactly what to do with your money — whether you have $500 or $500,000." />
+  <meta name="keywords" content="what to do with my money, personal finance tool, free financial guide, what should I do with my savings, how to invest money, emergency fund calculator" />
+  <link rel="canonical" href="https://yourdomain.com/" />
+
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://yourdomain.com/" />
+  <meta property="og:title"       content="What Should I Do With My Money? Free Personal Finance Tool" />
+  <meta property="og:description" content="4 questions. Instant personalized plan. Find out exactly what to do with your money — free, no signup required." />
+  <meta property="og:image"       content="https://yourdomain.com/og-image.png" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="What Should I Do With My Money? Free Personal Finance Tool" />
+  <meta name="twitter:description"content="4 questions. Instant personalized financial plan. Free, no signup." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "What Should I Do With My Money?",
+        "description": "A free personal finance tool that gives you a personalized, step-by-step action plan based on your financial situation.",
+        "url": "https://yourdomain.com/",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What should I do with $1,000?", "acceptedAnswer": { "@type": "Answer", "text": "With $1,000, pay off high-interest debt first if you have any. If not, open a high-yield savings account for an emergency fund. Once your foundation is solid, open a Roth IRA and invest in a low-cost index fund." } },
+          { "@type": "Question", "name": "Should I pay off debt or invest?", "acceptedAnswer": { "@type": "Answer", "text": "If your debt is above 8% APR, pay it off first — no investment reliably beats that guaranteed return. Below 7%, investing while making minimums often makes sense." } },
+          { "@type": "Question", "name": "How much emergency fund do I need?", "acceptedAnswer": { "@type": "Answer", "text": "3–6 months of living expenses in a high-yield savings account earning 4–5% APY. Start with $1,000, then build to 3 months, then 6 months." } },
+          { "@type": "Question", "name": "What is the best way to invest for beginners?", "acceptedAnswer": { "@type": "Answer", "text": "Open a Roth IRA, then invest in a low-cost total market index fund like VTI or FSKAX. Automate monthly contributions and don't try to time the market." } }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" /></noscript>
+
+  <style>
+    /* ─────────────────────────────────────────────
+       TOKENS — Keel-inspired: white base, black primary, green accent
+    ───────────────────────────────────────────── */
+    :root {
+      --white:       #FFFFFF;
+      --bg:          #FAFAFA;
+      --surface:     #FFFFFF;
+
+      --border:      #E4E4E7;
+      --border-2:    #F0F0F2;
+
+      --text-1:      #09090B;
+      --text-2:      #3F3F46;
+      --text-3:      #71717A;
+      --text-4:      #A1A1AA;
+
+      --green:       #16A34A;
+      --green-dark:  #15803D;
+      --green-light: #F0FDF4;
+      --green-mid:   #BBF7D0;
+      --green-glow:  rgba(22,163,74,0.15);
+
+      --black:       #09090B;
+      --black-hover: #18181B;
+
+      --rose:        #DC2626;
+      --rose-light:  #FEF2F2;
+      --amber:       #D97706;
+      --amber-light: #FFFBEB;
+      --blue:        #2563EB;
+      --blue-light:  #EFF6FF;
+
+      --font:   'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --serif:  'Inter', -apple-system, BlinkMacSystemFont, sans-serif; /* all Inter now */
+
+      --r-sm:  6px;
+      --r-md:  10px;
+      --r-lg:  14px;
+      --r-xl:  18px;
+
+      --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04);
+
+      --ease: cubic-bezier(0.16,1,0.3,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-1);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ─── MESH GRADIENT HERO BG ──────────────────── */
+    /* Applied directly to .hero, not body */
+
+    /* ─── NAV ────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      height: 64px;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 36px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-icon {
+      width: 32px; height: 32px;
+      background: var(--black);
+      border-radius: var(--r-sm);
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      color: white;
+      flex-shrink: 0;
+    }
+    .logo-text {
+      font-family: var(--font);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-1);
+      letter-spacing: -0.4px;
+    }
+    /* Center nav links */
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .nav-link {
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-3);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: var(--r-md);
+      transition: color .12s, background .12s;
+      white-space: nowrap;
+    }
+    .nav-link:hover { color: var(--text-1); background: var(--bg); }
+    .nav-link.active { color: var(--text-1); font-weight: 600; }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .nav-badge {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--green-dark);
+      background: var(--green-light);
+      border: 1px solid var(--green-mid);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* ─── HERO ───────────────────────────────────── */
+    .hero {
+      /* Green mesh gradient — Keel style */
+      background-color: #0a2e1a;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(34,197,94,0.55) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(16,185,129,0.22) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 35% at 80% 70%, rgba(21,128,61,0.28) 0%, transparent 55%);
+      /* Dot grid on top */
+      background-size: cover, cover, cover, 22px 22px;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(34,197,94,0.55) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 20% 80%, rgba(16,185,129,0.22) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 35% at 80% 70%, rgba(21,128,61,0.28) 0%, transparent 55%),
+        radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: auto, auto, auto, 22px 22px;
+      padding: 88px 24px 140px; /* extra bottom padding — card overlaps */
+      text-align: center;
+      position: relative;
+      overflow: visible; /* let card overflow */
+    }
+    .hero-announce {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 5px 12px 5px 8px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      animation: up .5s var(--ease) .05s both;
+    }
+    .announce-dot {
+      width: 6px; height: 6px;
+      background: #4ade80;
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 0 6px rgba(74,222,128,0.8);
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.05;
+      color: #FFFFFF;
+      max-width: 720px;
+      margin: 0 auto 20px;
+      opacity: 0;
+      animation: up .6s var(--ease) .1s both;
+    }
+    .hero h1 .hl {
+      color: #4ade80;
+      font-style: italic;
+    }
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.60);
+      max-width: 400px;
+      margin: 0 auto 0; /* no bottom margin — card takes over */
+      line-height: 1.65;
+      opacity: 0;
+      animation: up .6s var(--ease) .15s both;
+    }
+
+    @keyframes up {
+      from { opacity:0; transform:translateY(10px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ─── LAYOUT — card floats over hero ────────── */
+    .wrap {
+      max-width: 600px;
+      margin: -100px auto 0; /* pulls card up into hero */
+      padding: 0 20px 80px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ─── PROGRESS — lives inside card now ──────── */
+    .prog-row { display: none; } /* outer row hidden */
+    .prog-dots { display: flex; gap: 4px; }
+    .prog-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: all .25s var(--ease);
+    }
+    .prog-dot.active {
+      background: var(--green);
+      transform: scale(1.4);
+    }
+    .prog-dot.done { background: var(--green-mid); }
+    /* ─── CARD PROGRESS STRIP ────────────────────── */
+    .card-progress {
+      padding: 22px 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-step-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-4);
+    }
+    .prog-track {
+      height: 2px;
+      background: var(--border);
+      border-radius: 99px;
+      margin: 10px 24px 0;
+      overflow: hidden;
+    }
+    .prog-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 99px;
+      transition: width .45s var(--ease);
+    }
+
+    /* ─── CARD ───────────────────────────────────── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08);
+      animation: up .3s var(--ease) both;
+    }
+
+    /* ─── QUESTION ───────────────────────────────── */
+    .q-head {
+      padding: 24px 28px 24px;
+      border-bottom: 1px solid var(--border-2);
+    }
+    .q-text {
+      font-family: var(--font);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.25;
+      color: var(--text-1);
+      margin-bottom: 8px;
+    }
+    .q-hint {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-3);
+      line-height: 1.55;
+    }
+    .q-body { padding: 20px 28px 28px; }
+
+    /* ─── OPTIONS ────────────────────────────────── */
+    .opts { display: flex; flex-direction: column; gap: 8px; }
+
+    .opt {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 15px 18px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      cursor: pointer;
+      background: var(--white);
+      width: 100%;
+      font-family: var(--font);
+      text-align: left;
+      transition: border-color .12s, background .12s, box-shadow .12s, transform .15s var(--ease);
+    }
+    .opt:hover {
+      border-color: var(--green);
+      background: var(--green-light);
+      transform: translateX(3px);
+    }
+    .opt.sel {
+      border-color: var(--green);
+      background: var(--green-light);
+      box-shadow: 0 0 0 3px var(--green-mid);
+    }
+    .opt-radio {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      transition: all .15s var(--ease);
+    }
+    .opt:hover .opt-radio, .opt.sel .opt-radio { border-color: var(--green); }
+    .opt.sel .opt-radio::after {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+    /* SVG icon wrapper */
+    .opt-icon-wrap {
+      width: 36px; height: 36px;
+      border-radius: var(--r-md);
+      background: var(--bg);
+      border: 1px solid var(--border-2);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      color: var(--text-2);
+      transition: background .12s, border-color .12s, color .12s;
+    }
+    .opt:hover .opt-icon-wrap,
+    .opt.sel .opt-icon-wrap {
+      background: white;
+      border-color: var(--green-mid);
+      color: var(--green-dark);
+    }
+    .opt-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-1);
+      line-height: 1.3;
+    }
+    .opt-desc {
+      font-size: 13px;
+      color: var(--text-3);
+      margin-top: 2px;
+      font-weight: 400;
+    }
+
+    /* ─── BUTTONS ────────────────────────────────── */
+    .btn-cta {
+      width: 100%;
+      margin-top: 18px;
+      padding: 15px 20px;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-md);
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: -0.2px;
+      transition: background .12s, transform .15s var(--ease), box-shadow .12s;
+    }
+    .btn-cta:hover:not(:disabled) {
+      background: var(--green-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px var(--green-glow);
+    }
+    .btn-cta:disabled {
+      background: var(--border);
+      color: var(--text-4);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    .btn-ghost {
+      background: none;
+      border: none;
+      color: var(--text-3);
+      font-family: var(--font);
+      font-size: 14px;
+      cursor: pointer;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 6px;
+      transition: color .12s;
+    }
+    .btn-ghost:hover { color: var(--text-1); }
+
+    /* ─── RESULT: HEADER ─────────────────────────── */
+    .r-head {
+      padding: 36px 32px 28px;
+      border-bottom: 1px solid var(--border-2);
+      position: relative;
+      overflow: hidden;
+    }
+    .r-head::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--green-light) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .r-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--green-dark);
+      background: var(--green-light);
+      border: 1px solid var(--green-mid);
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .r-title {
+      font-family: var(--font);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      line-height: 1.18;
+      color: var(--text-1);
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .r-sub {
+      font-size: 16px;
+      color: var(--text-2);
+      line-height: 1.65;
+      font-weight: 400;
+      max-width: 480px;
+      position: relative;
+    }
+
+    /* ─── SECTION ────────────────────────────────── */
+    .sec {
+      padding: 24px 28px;
+      border-bottom: 1px solid var(--border-2);
+    }
+    .sec:last-child { border-bottom: none; }
+    .sec-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-4);
+      margin-bottom: 16px;
+    }
+
+    /* ─── ALLOCATION ─────────────────────────────── */
+    .al-row {
+      display: grid;
+      grid-template-columns: 58px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .al-row:last-child { margin-bottom: 0; }
+    .al-pct {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: -0.5px;
+      text-align: right;
+    }
+    .al-bar-wrap {
+      height: 5px;
+      background: var(--border-2);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .al-bar {
+      height: 100%;
+      background: var(--green);
+      border-radius: 99px;
+      width: 0%;
+      transition: width .9s var(--ease);
+    }
+    .al-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-2);
+      text-align: right;
+      min-width: 180px;
+    }
+
+    /* ─── STEP DRAWER ────────────────────────────── */
+    .step-item {
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid var(--border-2);
+      cursor: pointer;
+    }
+    .step-item:last-child { border-bottom: none; }
+    .step-item:nth-child(1){ animation: up .35s ease .05s both; }
+    .step-item:nth-child(2){ animation: up .35s ease .10s both; }
+    .step-item:nth-child(3){ animation: up .35s ease .15s both; }
+    .step-item:nth-child(4){ animation: up .35s ease .20s both; }
+    .step-item:nth-child(5){ animation: up .35s ease .25s both; }
+
+    .step-top {
+      display: flex;
+      gap: 14px;
+      padding: 16px 0;
+      align-items: flex-start;
+    }
+    .step-num {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--black);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: background .15s;
+    }
+    .step-item.open .step-num { background: var(--green); }
+    .step-body { flex: 1; min-width: 0; }
+    .step-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-1);
+      margin-bottom: 4px;
+      letter-spacing: -0.2px;
+    }
+    .step-desc {
+      font-size: 14px;
+      color: var(--text-3);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .step-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .t-now   { background: var(--rose-light);   color: var(--rose);  }
+    .t-soon  { background: var(--amber-light);  color: var(--amber); }
+    .t-later { background: var(--blue-light);   color: var(--blue);  }
+    .t-opt   { background: var(--border-2);     color: var(--text-3);}
+
+    /* Chevron toggle */
+    .step-chevron {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      display: grid; place-items: center;
+      color: var(--text-4);
+      transition: transform .25s var(--ease), color .15s;
+      margin-top: 3px;
+    }
+    .step-item.open .step-chevron {
+      transform: rotate(180deg);
+      color: var(--green);
+    }
+    .step-item:hover .step-chevron { color: var(--text-2); }
+
+    /* Drawer panel */
+    .step-drawer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s var(--ease);
+    }
+    .step-item.open .step-drawer { max-height: 600px; }
+
+    .step-drawer-inner {
+      padding: 0 0 20px 40px; /* aligns under step-body */
+      border-top: 1px solid var(--border-2);
+      padding-top: 16px;
+    }
+    .drawer-section {
+      margin-bottom: 16px;
+    }
+    .drawer-section:last-child { margin-bottom: 0; }
+    .drawer-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+    .drawer-text {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.75;
+    }
+    .drawer-text strong { font-weight: 600; color: var(--text-1); }
+    .drawer-callout {
+      background: var(--green-light);
+      border-left: 3px solid var(--green);
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      padding: 12px 16px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--green-dark);
+      line-height: 1.65;
+    }
+    .drawer-callout strong { font-weight: 600; }
+    .drawer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+      text-decoration: none;
+      margin-top: 12px;
+      transition: gap .12s;
+    }
+    .drawer-link:hover { gap: 8px; }
+
+    /* ─── RESOURCE GRID ──────────────────────────── */
+    .res-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .res-card {
+      display: block;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 16px 18px;
+      background: var(--bg);
+      transition: all .15s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .res-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--green);
+      opacity: 0;
+      transition: opacity .15s;
+    }
+    .res-card:hover { border-color: var(--green); background: var(--green-light); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .res-card:hover::before { opacity: 1; }
+    .rc-type {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--green-dark);
+      margin-bottom: 5px;
+    }
+    .rc-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-1);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .rc-desc {
+      font-size: 13px;
+      color: var(--text-3);
+      line-height: 1.5;
+    }
+    .rc-cta {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap .12s;
+    }
+    .res-card:hover .rc-cta { gap: 7px; }
+
+    /* ─── AFFILIATE GRID ─────────────────────────── */
+    .aff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .aff-card {
+      display: block;
+      text-decoration: none;
+      border: 1.5px solid var(--green-mid);
+      border-radius: var(--r-lg);
+      padding: 16px 18px;
+      background: var(--green-light);
+      transition: all .15s var(--ease);
+    }
+    .aff-card:hover { border-color: var(--green); background: #DCFCE7; transform: translateY(-2px); box-shadow: 0 4px 12px var(--green-glow); }
+    .aff-name { font-size: 14px; font-weight: 700; color: var(--text-1); margin-bottom: 4px; }
+    .aff-desc { font-size: 13px; color: var(--text-3); line-height: 1.5; }
+    .aff-cta  { font-size: 13px; font-weight: 600; color: var(--green-dark); margin-top: 9px; display: block; }
+
+    /* ─── SHARE / ACTION BAR ─────────────────────── */
+    .share-bar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      padding: 18px 28px;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .share-btns { display: flex; gap: 8px; }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 18px;
+      border-radius: var(--r-md);
+      font-family: var(--font);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .12s var(--ease);
+      white-space: nowrap;
+    }
+    .btn-action-outline {
+      background: var(--white);
+      border: 1.5px solid var(--green);
+      color: var(--green-dark);
+    }
+    .btn-action-outline:hover {
+      background: var(--green-light);
+      border-color: var(--green-dark);
+      transform: translateY(-1px);
+    }
+    .btn-action-solid {
+      background: var(--green);
+      border: 1.5px solid var(--green);
+      color: white;
+    }
+    .btn-action-solid:hover {
+      background: var(--green-dark);
+      border-color: var(--green-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px var(--green-glow);
+    }
+
+    /* ─── SEO CONTENT ────────────────────────────── */
+    .seo-wrap {
+      max-width: 600px;
+      margin: 64px auto 0;
+      padding: 0 20px 72px;
+    }
+    .seo-sep {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 48px;
+    }
+    .seo-wrap h2 {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 400;
+      letter-spacing: -0.3px;
+      color: var(--text-1);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .seo-wrap p {
+      font-size: 15px;
+      color: var(--text-3);
+      line-height: 1.75;
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+    .seo-wrap h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.2px;
+      color: var(--text-1);
+      margin: 32px 0 10px;
+    }
+    .faq-list { margin-top: 8px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-1);
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-q::after {
+      content: '+';
+      font-size: 18px;
+      color: var(--text-3);
+      flex-shrink: 0;
+      transition: transform .2s;
+      line-height: 1;
+    }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); color: var(--green); }
+    .faq-a {
+      font-size: 13px;
+      color: var(--text-3);
+      line-height: 1.7;
+      display: none;
+      padding-bottom: 16px;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ─── FOOTER ─────────────────────────────────── */
+    footer {
+      background: var(--black);
+      padding: 56px 24px 40px;
+    }
+    .footer-inner {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 28px;
+    }
+    .footer-brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      margin-bottom: 12px;
+    }
+    .footer-brand-icon {
+      width: 26px; height: 26px;
+      background: var(--green);
+      border-radius: var(--r-sm);
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+    }
+    .footer-brand-name {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: -0.2px;
+    }
+    .footer-brand-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.65;
+      max-width: 280px;
+    }
+    .footer-col-title {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      margin-bottom: 9px;
+      transition: color .12s;
+    }
+    .footer-col a:hover { color: rgba(255,255,255,0.8); }
+
+    /* Disclaimer block */
+    .footer-disclaimer {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--r-lg);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+    }
+    .disclaimer-heading {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 10px;
+    }
+    .disclaimer-body {
+      font-size: 11px;
+      color: rgba(255,255,255,0.25);
+      line-height: 1.85;
+    }
+    .disclaimer-body strong { color: rgba(255,255,255,0.45); font-weight: 500; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
+    .footer-links-inline {
+      display: flex;
+      gap: 16px;
+    }
+    .footer-links-inline a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      text-decoration: none;
+      transition: color .12s;
+    }
+    .footer-links-inline a:hover { color: rgba(255,255,255,0.55); }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media(max-width:768px){
+      .nav-center { display: none; }
+    }
+    @media(max-width:540px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 56px 20px 60px; }
+      .hero h1 { letter-spacing: -1.2px; }
+      .q-head, .r-head, .sec { padding-left: 20px; padding-right: 20px; }
+      .q-body { padding: 18px 20px 24px; }
+      .share-bar { padding: 14px 20px; justify-content: stretch; }
+      .share-btns { width: 100%; }
+      .btn-action { flex: 1; justify-content: center; }
+      .res-grid, .aff-grid { grid-template-columns: 1fr; }
+      .al-label { min-width: 0; font-size: 13px; }
+      .step-drawer-inner { padding-left: 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .footer-links-inline { flex-wrap: wrap; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────── -->
+<nav>
+  <a class="logo" href="./index.html">
+    <div class="logo-icon">💸</div>
+    <span class="logo-text">MoneyMoves</span>
+  </a>
+  <div class="nav-center">
+    <a class="nav-link active" href="./index.html">Tool</a>
+    <a class="nav-link" href="./calculator.html">Investment Calculator</a>
+    <a class="nav-link" href="./directory.html">Money Lessons</a>
+    <a class="nav-link" href="./blog.html">Blog</a>
+  </div>
+  <div class="nav-right">
+    <span class="nav-badge">Free</span>
+  </div>
+</nav>
+
+<!-- ── HERO (green mesh gradient) ───────────────── -->
+<div class="hero">
+  <div class="hero-announce">
+    <span class="announce-dot"></span>
+    Free personal finance tool — no signup required
+  </div>
+  <h1>What should you do<br>with your <span class="hl">money?</span></h1>
+  <p class="hero-sub">4 questions. Instant personalized plan. Based on proven financial principles.</p>
+</div>
+
+<!-- ── QUIZ ──────────────────────────────────────── -->
+<div style="background:var(--bg); padding-bottom: 1px;">
+<div class="wrap">
+  <div id="app"></div>
+</div>
+
+<!-- ── RESOURCES PREVIEW ─────────────────────────── -->
+<div style="background:var(--bg); border-top:1px solid var(--border);">
+<div style="max-width:600px;margin:0 auto;padding:56px 20px 0;">
+
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:24px;flex-wrap:wrap;">
+    <div>
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--green-dark);margin-bottom:8px;">Free Resources</div>
+      <h2 style="font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:-0.3px;color:var(--text-1);line-height:1.2;">Learn from the best</h2>
+    </div>
+    <a href="./directory.html" style="font-size:13px;font-weight:600;color:var(--green);text-decoration:none;white-space:nowrap;padding-bottom:2px;border-bottom:1px solid var(--green-mid);transition:border-color .12s;">Browse all resources →</a>
+  </div>
+
+  <!-- Featured resource cards - 2 per category -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+
+    <a href="https://youtube.com/@ThePlainBagel" target="_blank" rel="noopener" style="display:block;text-decoration:none;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface);transition:all .15s;">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#DC2626;background:#FEE2E2;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px;">▶ YouTube</div>
+      <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:2px;">The Plain Bagel</div>
+      <div style="font-size:11px;color:var(--text-3);line-height:1.45;">Index funds & investing explained simply by a CFA</div>
+      <div style="font-size:10px;font-weight:500;color:var(--green);margin-top:8px;">Invest →</div>
+    </a>
+
+    <a href="https://youtube.com/@thefinancialdiet" target="_blank" rel="noopener" style="display:block;text-decoration:none;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface);transition:all .15s;">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#DC2626;background:#FEE2E2;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px;">▶ YouTube</div>
+      <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:2px;">The Financial Diet</div>
+      <div style="font-size:11px;color:var(--text-3);line-height:1.45;">Real budgeting advice for real people</div>
+      <div style="font-size:10px;font-weight:500;color:var(--green);margin-top:8px;">Save Money →</div>
+    </a>
+
+    <a href="https://www.morganhousel.com/" target="_blank" rel="noopener" style="display:block;text-decoration:none;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface);transition:all .15s;">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#CA8A04;background:#FEF9C3;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px;">📚 Book</div>
+      <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:2px;">The Psychology of Money</div>
+      <div style="font-size:11px;color:var(--text-3);line-height:1.45;">Why smart people make dumb money decisions</div>
+      <div style="font-size:10px;font-weight:500;color:var(--green);margin-top:8px;">Get Rich →</div>
+    </a>
+
+    <a href="https://www.bogleheads.org/wiki/Getting_started" target="_blank" rel="noopener" style="display:block;text-decoration:none;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface);transition:all .15s;">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#2563EB;background:#EFF6FF;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px;">📖 Guide</div>
+      <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:2px;">Bogleheads Wiki</div>
+      <div style="font-size:11px;color:var(--text-3);line-height:1.45;">The most comprehensive free investing guide online</div>
+      <div style="font-size:10px;font-weight:500;color:var(--green);margin-top:8px;">Invest →</div>
+    </a>
+
+  </div>
+
+  <a href="./directory.html" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:11px;border:1px solid var(--border);border-radius:10px;background:var(--surface);font-family:var(--font);font-size:13px;font-weight:500;color:var(--text-2);text-decoration:none;transition:all .12s;">
+    View all 30 resources across 5 categories →
+  </a>
+
+</div>
+</div>
+
+<!-- ── SEO CONTENT ──────────────────────────────── -->
+<div class="seo-wrap">
+  <div class="seo-sep"></div>
+
+  <h2>How to decide what to do with your money</h2>
+  <p>Most people know they should be doing something with their savings — but figuring out exactly what can feel overwhelming. Should you pay off debt or invest? Build an emergency fund or open a Roth IRA? The answer depends entirely on your personal financial situation, which is why generic advice rarely works.</p>
+  <p>This free tool walks you through a 4-question framework based on the same sequence used by financial advisors: assess your debt, check your emergency fund, understand your goals, and deploy your money in the right order. The sequence matters more than the amounts.</p>
+
+  <h3>The right order of operations for your money</h3>
+  <p>Financial experts broadly agree on a hierarchy: eliminate high-interest debt first, build a 3–6 month emergency fund in a high-yield savings account, maximize tax-advantaged accounts (Roth IRA, 401k), then invest additional savings in low-cost index funds. Skipping steps — investing while carrying 24% APR credit card debt, for example — is mathematically counterproductive regardless of how good the market is doing.</p>
+
+  <h3>Frequently asked questions</h3>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="faq(this)">What should I do with $1,000?</div>
+      <div class="faq-a">With $1,000, your priority depends on your situation. If you have high-interest debt, put it toward that first — it's the highest guaranteed return available. If you have no emergency fund, open a high-yield savings account. If your foundation is solid, open a Roth IRA and invest in a low-cost index fund like VTI. Use the tool above to get your specific plan.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="faq(this)">Should I pay off debt or invest?</div>
+      <div class="faq-a">If your debt carries an interest rate above 8%, pay it off first — no investment reliably beats that guaranteed return. If your debt is below 7% (mortgage, student loans), investing while making minimum payments often makes mathematical sense, since long-term stock market returns average around 7–10% annually.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="faq(this)">How much emergency fund do I need?</div>
+      <div class="faq-a">The standard recommendation is 3–6 months of living expenses in a high-yield savings account earning 4–5% APY. Start with a $1,000 starter emergency fund if you're also paying off debt, then build to 3 months, then 6 months. Self-employed people and single-income households should aim for 6+ months.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="faq(this)">What is the best way to invest for beginners?</div>
+      <div class="faq-a">Open a Roth IRA (if eligible), then invest in a low-cost total market index fund like VTI or FSKAX. Expense ratios under 0.05% mean almost all of your return stays in your pocket. Automate monthly contributions and resist the urge to react to market fluctuations — time in market beats timing the market consistently.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="faq(this)">What should I do with $10,000?</div>
+      <div class="faq-a">With $10,000 and no high-interest debt or emergency fund gaps: max your Roth IRA ($7,000 for 2025), put $2,000 in a HYSA as an emergency top-up, keep $1,000 liquid. If your Roth IRA is already maxed, open a taxable brokerage and invest in a total market index fund like VTI.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="faq(this)">Is this tool free?</div>
+      <div class="faq-a">Yes — completely free, forever. No signup, no email, no paywall. The site earns revenue through clearly-labeled affiliate partnerships with financial products we genuinely recommend. This does not affect the tool's recommendations or our editorial independence.</div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end white bg -->
+
+<!-- ── FOOTER ────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <a class="footer-brand-logo" href="./index.html">
+          <div class="footer-brand-icon">💸</div>
+          <span class="footer-brand-name">MoneyMoves</span>
+        </a>
+        <p class="footer-brand-desc">Free personal finance tools built on proven principles. No signup, no paywalls — just clear, honest financial guidance.</p>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Tools</div>
+        <a href="./index.html">What to Do With My Money</a>
+        <a href="#">Can I Afford to Quit?</a>
+        <a href="#">Emergency Fund Calculator</a>
+        <a href="#">Debt Payoff Planner</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col-title">Learn</div>
+        <a href="./directory.html">Money Lessons</a>
+        <a href="./blog.html">Blog</a>
+        <a href="https://bogleheads.org/wiki/Getting_started" target="_blank" rel="noopener">Bogleheads Wiki</a>
+        <a href="https://reddit.com/r/personalfinance/wiki" target="_blank" rel="noopener">r/personalfinance</a>
+      </div>
+    </div>
+
+    <div class="footer-disclaimer">
+      <div class="disclaimer-heading">⚠ Important Disclaimer</div>
+      <div class="disclaimer-body">
+        <strong>Not financial advice.</strong> All content on this website — including tools, calculators, and recommendations — is for <strong>general informational and educational purposes only</strong>. It does not constitute personalized financial, investment, tax, or legal advice and should not be treated as such.<br><br>
+        Results generated by our tools are based on general financial principles and the information you provide. They do not account for your complete financial situation, risk tolerance, tax circumstances, or other individual factors. <strong>Past performance of any investment is not indicative of future results.</strong><br><br>
+        MoneyMoves is not a registered investment advisor, broker-dealer, or financial planner. Before making major financial decisions, <strong>please consult a qualified, licensed financial advisor</strong> who can evaluate your specific situation.<br><br>
+        Some links on this site are <strong>affiliate links</strong>. If you click and open an account, we may earn a commission at no cost to you. We only recommend products we believe are genuinely useful. Affiliate relationships do not influence our educational content or tool recommendations.
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 MoneyMoves. All rights reserved.</span>
+      <div class="footer-links-inline">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ════════════════════════════════════════════
+// ✏️  QUESTIONS
+// ════════════════════════════════════════════
+const QS = [
+  {
+    id:"amount", step:"Question 1 of 4",
+    text:"How much money do you have to work with?",
+    hint:"Savings, bonus, inheritance, tax refund — whatever amount you want to put to work.",
+    opts:[
+      {ic:"coin",   l:"Under $1,000",          d:"Every dollar counts — let's maximize it",   v:"under1k"  },
+      {ic:"card",   l:"$1,000 – $5,000",        d:"Enough to make meaningful moves",           v:"1k_5k"    },
+      {ic:"stack",  l:"$5,000 – $20,000",       d:"Multiple strong options open up",           v:"5k_20k"   },
+      {ic:"bank",   l:"$20,000 – $100,000",     d:"Life-changing if deployed correctly",       v:"20k_100k" },
+      {ic:"rocket", l:"Over $100,000",           d:"Serious wealth-building territory",         v:"over100k" },
+    ]
+  },
+  {
+    id:"debt", step:"Question 2 of 4",
+    text:"Do you carry high-interest debt?",
+    hint:"Credit cards, payday loans, personal loans — anything above 8% APR.",
+    opts:[
+      {ic:"alert",  l:"Yes — over $1,000",     d:"Costing you more than investments earn",   v:"yes_high"},
+      {ic:"minus",  l:"Yes — under $1,000",    d:"Small balance, nearly eliminated",         v:"yes_low" },
+      {ic:"check",  l:"No high-interest debt", d:"Only mortgage / student loans or none",    v:"none"    },
+    ]
+  },
+  {
+    id:"emergency", step:"Question 3 of 4",
+    text:"How is your emergency fund?",
+    hint:"3–6 months of living expenses in an easily accessible savings account.",
+    opts:[
+      {ic:"shield",  l:"Fully funded (3–6 months)",    d:"Solid safety net in place",         v:"full"   },
+      {ic:"half",    l:"Partial (1–2 months)",          d:"Some cushion, not enough yet",      v:"partial"},
+      {ic:"empty",   l:"No emergency fund yet",         d:"Nothing set aside",                 v:"none"   },
+    ]
+  },
+  {
+    id:"goal", step:"Question 4 of 4",
+    text:"What is your primary financial goal?",
+    hint:"Be honest — this shapes your entire plan. Every answer leads somewhere useful.",
+    opts:[
+      {ic:"chart",  l:"Build long-term wealth",   d:"Investing, retirement, compounding",     v:"invest"  },
+      {ic:"home",   l:"Save for a big purchase",  d:"House, car, travel, wedding",            v:"save"    },
+      {ic:"unlock", l:"Get out of debt faster",   d:"Eliminate debt, free up cash flow",      v:"debt"    },
+      {ic:"shield", l:"Feel financially secure",  d:"Safety net, stability, peace of mind",  v:"security"},
+    ]
+  },
+];
+
+// ════════════════════════════════════════════
+// SVG ICONS — single color, minimal, modern
+// ════════════════════════════════════════════
+const ICONS = {
+  coin:   `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5a2.5 2.5 0 0 0-5 0c0 1.5 1 2 2.5 2.5s2.5 1 2.5 2.5a2.5 2.5 0 0 1-5 0"/><line x1="12" y1="7" x2="12" y2="17"/></svg>`,
+  card:   `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>`,
+  stack:  `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>`,
+  bank:   `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  rocket: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg>`,
+  alert:  `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+  minus:  `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>`,
+  check:  `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+  shield: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  half:   `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="16"/></svg>`,
+  empty:  `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>`,
+  chart:  `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>`,
+  home:   `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  unlock: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>`,
+};
+
+function icon(key) {
+  return `<span class="opt-icon-wrap">${ICONS[key]||ICONS.coin}</span>`;
+}
+// ════════════════════════════════════════════
+const RES = {
+  debt:[
+    {t:"▶ YouTube", n:"The Ramsey Show",          d:"Baby Steps for eliminating debt",                    u:"https://youtube.com/@TheRamseyShow"},
+    {t:"▶ YouTube", n:"Minority Mindset",         d:"Debt payoff & wealth-building mindset",              u:"https://youtube.com/@MinorityMindset"},
+    {t:"📖 Guide",  n:"Debt Avalanche vs Snowball",d:"Which payoff strategy is right for you",            u:"https://nerdwallet.com/article/finance/debt-avalanche-debt-snowball"},
+    {t:"🧮 Tool",   n:"Debt Payoff Calculator",   d:"Find your exact debt-free date",                     u:"https://nerdwallet.com/calculator/debt-payoff-calculator"},
+  ],
+  emergency:[
+    {t:"▶ YouTube", n:"The Financial Diet",       d:"How to build your first emergency fund",             u:"https://youtube.com/@thefinancialdiet"},
+    {t:"▶ YouTube", n:"Graham Stephan",           d:"How much to save & where to keep it",               u:"https://youtube.com/@GrahamStephan"},
+    {t:"📖 Guide",  n:"Investopedia: E-Fund",     d:"Complete emergency fund guide",                      u:"https://investopedia.com/terms/e/emergency_fund.asp"},
+    {t:"🏦 Savings", n:"Best HYSA Accounts 2025", d:"Compare top high-yield savings accounts",           u:"https://nerdwallet.com/best/banking/high-yield-online-savings-accounts"},
+  ],
+  investing:[
+    {t:"▶ YouTube", n:"The Plain Bagel",          d:"Index funds & passive investing simply explained",   u:"https://youtube.com/@ThePlainBagel"},
+    {t:"▶ YouTube", n:"Andrei Jikh",              d:"Investing & financial minimalism",                   u:"https://youtube.com/@AndreiJikh"},
+    {t:"📖 Guide",  n:"Bogleheads: Get Started",  d:"The legendary low-cost passive investing framework", u:"https://bogleheads.org/wiki/Getting_started"},
+    {t:"📖 Guide",  n:"r/personalfinance Wiki",   d:"Reddit's Prime Directive flowchart",                 u:"https://reddit.com/r/personalfinance/wiki/commontopics"},
+  ],
+  savings:[
+    {t:"▶ YouTube", n:"Mapped Out Money",         d:"Budgeting systems and savings strategies",           u:"https://youtube.com/@MappedOutMoney"},
+    {t:"▶ YouTube", n:"WhiteBoard Finance",       d:"Personal finance made visual and simple",            u:"https://youtube.com/@WhiteboardFinance"},
+    {t:"🧮 Tool",   n:"Savings Goal Calculator",  d:"How long until you reach your savings goal",        u:"https://bankrate.com/banking/savings/savings-goal-calculator/"},
+    {t:"📖 Guide",  n:"Best HYSA 2025",           d:"Compare top high-yield savings accounts",            u:"https://nerdwallet.com/best/banking/high-yield-online-savings-accounts"},
+  ],
+  wealth:[
+    {t:"▶ YouTube", n:"The Money Guy Show",       d:"Financial Order of Operations explained",            u:"https://youtube.com/@MoneyGuyShow"},
+    {t:"▶ YouTube", n:"Patrick Boyle",            d:"Advanced investing from a hedge fund manager",       u:"https://youtube.com/@PBoyle"},
+    {t:"📖 Guide",  n:"Roth IRA Explained",       d:"Why the Roth IRA is one of the best accounts ever", u:"https://investopedia.com/terms/r/rothira.asp"},
+    {t:"📖 Guide",  n:"Max Your 401(k)",          d:"Step-by-step guide to retirement accounts",          u:"https://investopedia.com/articles/retirement/08/401k-info.asp"},
+  ],
+};
+
+// ════════════════════════════════════════════
+// ✏️  SCENARIOS
+// ════════════════════════════════════════════
+function getScenario(a){
+  const hiDebt  = a.debt==="yes_high";
+  const anyDebt = a.debt==="yes_high"||a.debt==="yes_low";
+  const noEmerg = a.emergency==="none";
+  const ptEmerg = a.emergency==="partial";
+  const small   = a.amount==="under1k"||a.amount==="1k_5k";
+  const large   = a.amount==="20k_100k"||a.amount==="over100k";
+
+  if(hiDebt) return {
+    title:"Pay Off High-Interest Debt First",
+    sub:"High-interest debt costs more than any safe investment can earn. Eliminating it is the highest guaranteed return available to you right now.",
+    alloc:[{p:70,n:"High-interest debt payoff"},{p:20,n:"Emergency fund (HYSA)"},{p:10,n:"Cash buffer"}],
+    steps:[
+      {n:"Map every debt by interest rate",       d:"List balance, minimum payment, and APR for each account. This is your attack plan.", t:"t-now"},
+      {n:"Send 70% to your highest-rate debt",    d:"Don't spread it. The debt avalanche method — concentrating on the highest APR first — is mathematically optimal.", t:"t-now"},
+      {n:"Open a High-Yield Savings Account",     d:"Park your 20% here, earning 4–5% APY. Your money isn't idle while you kill debt.", t:"t-now"},
+      {n:"Set all minimums to auto-pay",          d:"Never miss a minimum. Late fees and penalty APRs can undo months of progress instantly.", t:"t-soon"},
+      {n:"Once debt-free, run this tool again",   d:"The cash flow you freed up becomes your wealth-building engine. Your plan changes completely from this point.", t:"t-later"},
+    ],
+    rk:["debt","emergency"],
+    affs:[{n:"Marcus by Goldman Sachs",d:"4.5% APY — best HYSA while paying debt",cta:"Open free account →",h:"#"},{n:"Tally",d:"Automatically optimizes your debt payoff order",cta:"Get started →",h:"#"}],
+  };
+
+  if(noEmerg&&small) return {
+    title:"Build Your Safety Net First",
+    sub:"Before investing, you need a financial floor. Without it, one car repair or medical bill forces you back into debt or forces you to sell investments at the worst time.",
+    alloc:[{p:80,n:"Emergency fund (HYSA)"},{p:20,n:"Starter investment (Roth IRA)"}],
+    steps:[
+      {n:"Open a High-Yield Savings Account",     d:"Marcus, Ally, or SoFi pay 4–5% APY with no minimums. Don't use a regular bank account earning 0.01%.", t:"t-now"},
+      {n:"Calculate your exact 3-month target",   d:"Monthly expenses × 3 = your goal. Write that specific number somewhere visible.", t:"t-now"},
+      {n:"Automate a monthly transfer",           d:"Even $50/month builds real security. Automate it — saving should be a system, not a decision.", t:"t-soon"},
+      {n:"Open a Roth IRA with your 20%",         d:"Starting your investing clock now matters more than starting later with bigger amounts. Time is the variable.", t:"t-later"},
+    ],
+    rk:["emergency","investing"],
+    affs:[{n:"Ally Bank",d:"Top-rated HYSA — no minimum balance",cta:"Open account →",h:"#"},{n:"Acorns",d:"Micro-invest automatically, even spare change",cta:"Start for free →",h:"#"}],
+  };
+
+  if(ptEmerg&&!hiDebt) return {
+    title:"Finish Your Safety Net, Then Invest",
+    sub:"You're close to financial stability. A balanced split gets you fully protected while still putting money to work immediately.",
+    alloc:[{p:50,n:"Complete emergency fund (HYSA)"},{p:30,n:"Index funds / Roth IRA"},{p:20,n:"Cash reserve"}],
+    steps:[
+      {n:"Calculate your emergency fund gap",     d:"(Monthly expenses × 3) minus what you have = the exact dollar amount still needed.", t:"t-now"},
+      {n:"Open a Roth IRA",                       d:"Up to $7,000/year. Tax-free growth forever. Best account available in your 20s–50s.", t:"t-soon"},
+      {n:"Invest in a total market index fund",   d:"VTI or FSKAX track the entire US stock market at near-zero cost. Set up once, ignore the noise.", t:"t-soon"},
+      {n:"Automate both contributions monthly",   d:"Auto-transfer to HYSA and Roth IRA on payday. Both build without willpower or decisions.", t:"t-later"},
+    ],
+    rk:["emergency","investing"],
+    affs:[{n:"Fidelity",d:"Best Roth IRA + zero-fee index funds",cta:"Open Roth IRA →",h:"#"},{n:"Marcus",d:"4.5% APY for your emergency fund",cta:"Open HYSA →",h:"#"}],
+  };
+
+  if(!anyDebt&&a.emergency!=="none"&&!large) return {
+    title:"You're Ready to Build Real Wealth",
+    sub:"No high-interest debt and an emergency fund puts you in the ideal position. The priority now is maximizing tax-advantaged accounts before anything else.",
+    alloc:[{p:60,n:"Index funds / Roth IRA"},{p:25,n:"Goal savings (HYSA)"},{p:15,n:"Emergency fund top-up"}],
+    steps:[
+      {n:"Max your Roth IRA — $7,000/year",       d:"Tax-free growth forever. $7K/year at 7% average return = over $700K in 30 years. Step one, no debate.", t:"t-now"},
+      {n:"Invest the rest in a taxable account",   d:"VTI + VXUS: the entire world stock market at near-zero cost. Simple diversification that outperforms most strategies.", t:"t-soon"},
+      {n:"Open a separate HYSA for your goal",     d:"House, car, travel — keep goal money in a separate named account so you don't accidentally invest it.", t:"t-soon"},
+      {n:"Automate monthly contributions",         d:"Dollar-cost averaging — investing the same amount monthly — consistently beats trying to time the market.", t:"t-later"},
+      {n:"Leave it alone",                         d:"The single most powerful move is not reacting to volatility. Long-term discipline is the actual strategy.", t:"t-later"},
+    ],
+    rk:["investing","wealth"],
+    affs:[{n:"Fidelity",d:"Best all-around brokerage + Roth IRA",cta:"Open account →",h:"#"},{n:"Robinhood",d:"Clean interface for index fund investing",cta:"Get started →",h:"#"}],
+  };
+
+  if(large) return {
+    title:"Deploy This Capital Strategically",
+    sub:"At this level, tax optimization matters as much as investment selection. One smart tax decision can be worth more than years of picking the right funds.",
+    alloc:[{p:50,n:"Taxable brokerage (index funds)"},{p:25,n:"Max tax-advantaged accounts"},{p:15,n:"Goal savings / REITs"},{p:10,n:"Liquid cash"}],
+    steps:[
+      {n:"Max ALL tax-advantaged accounts first",  d:"401(k) $23,000 + Roth IRA $7,000 = $30,000 shielded from taxes annually. Non-negotiable first step.", t:"t-now"},
+      {n:"Open a taxable brokerage account",       d:"VTI + VXUS: the whole world at ultra-low cost. Simple, battle-tested, proven.", t:"t-now"},
+      {n:"Consult a fee-only fiduciary advisor",   d:"One 2-hour session ($200–400) can save thousands in taxes at this amount. Worth every penny.", t:"t-soon"},
+      {n:"Don't hold more than 6 months in cash",  d:"Cash loses ~3% annually to inflation. Idle money has a real cost.", t:"t-soon"},
+      {n:"Use REITs before direct real estate",    d:"Real estate exposure without landlord complexity via REIT index funds. Start here before buying property.", t:"t-opt"},
+    ],
+    rk:["wealth","investing"],
+    affs:[{n:"Fidelity",d:"Best platform for large portfolios",cta:"Open account →",h:"#"},{n:"eToro",d:"Global investing, diverse asset access",cta:"Start investing →",h:"#"}],
+  };
+
+  if(a.goal==="security"||a.goal==="save") return {
+    title:"Build Stability First, Then Growth",
+    sub:"Financial security is a real and valid goal. Here's how to build a rock-solid foundation before shifting into growth mode.",
+    alloc:[{p:40,n:"Emergency fund (HYSA)"},{p:35,n:"Goal savings (HYSA)"},{p:25,n:"Conservative index funds"}],
+    steps:[
+      {n:"Define your security number exactly",    d:"Write the specific number that means 'secure': months of runway, account balance, paid-off debt total.", t:"t-now"},
+      {n:"Open two separate HYSA accounts",        d:"Emergency fund and goal savings in separate named accounts — psychologically and practically different pots.", t:"t-now"},
+      {n:"Start with a 60/40 portfolio",           d:"60% stocks + 40% bonds. Stability with growth. Right if peace of mind matters more than maximum returns.", t:"t-soon"},
+      {n:"Automate every transfer on payday",      d:"Pay yourself first. Saving becomes default behavior — not something done with whatever's leftover.", t:"t-later"},
+    ],
+    rk:["savings","emergency"],
+    affs:[{n:"Ally Bank",d:"Best HYSA for separate goal savings buckets",cta:"Open account →",h:"#"},{n:"Acorns",d:"Automatic, conservative investing",cta:"Get started →",h:"#"}],
+  };
+
+  return {
+    title:"A Balanced Plan That Compounds",
+    sub:"Based on your situation, here's a proven allocation to build wealth steadily without taking unnecessary risks.",
+    alloc:[{p:50,n:"Invest (index funds / Roth IRA)"},{p:30,n:"Emergency / goal savings (HYSA)"},{p:20,n:"Cash buffer"}],
+    steps:[
+      {n:"Open a Roth IRA or brokerage account",   d:"Start with Fidelity or Vanguard. If you want zero decisions, pick a target-date fund for your retirement year.", t:"t-now"},
+      {n:"Open a High-Yield Savings Account",      d:"4–5% APY on your savings portion. Your money earns real returns while staying accessible.", t:"t-now"},
+      {n:"Automate monthly contributions to both", d:"$100/month for 30 years at 7% = $113,000. The habit matters far more than the initial amount.", t:"t-soon"},
+      {n:"Review once a year, leave it alone",     d:"Set a January calendar reminder. Rebalance if needed. Otherwise close the app and live your life.", t:"t-later"},
+    ],
+    rk:["investing","savings"],
+    affs:[{n:"Fidelity",d:"Best all-around brokerage, zero fees",cta:"Open account →",h:"#"},{n:"Robinhood",d:"Simple interface for index fund investing",cta:"Get started →",h:"#"}],
+  };
+}
+
+// ════════════════════════════════════════════
+// DEEP EXPLANATIONS — shown in step drawers
+// Each step can have: why, how, callout, link
+// ════════════════════════════════════════════
+const EXPLAIN = {
+  // ── Debt payoff ──
+  debt_list: {
+    why: "Interest is silent and relentless. A credit card at 24% APR means every $1,000 you carry costs you $240/year — guaranteed. No investment returns that reliably. The debt avalanche method (highest rate first) saves the most money mathematically, while the snowball method (smallest balance first) provides psychological wins. Either works; starting is what matters.",
+    how: "Open a spreadsheet or notes app. Write three columns: <strong>Balance</strong>, <strong>Minimum payment</strong>, <strong>APR</strong>. Sort by APR descending. The top item is your target. Every dollar beyond minimums goes there until it's gone, then you 'avalanche' to the next one.",
+    callout: "💡 Your minimum payments on all other debts stay on time — missing one triggers penalty APR (often 29.99%) and can undo months of progress instantly.",
+    link: { text: "Debt avalanche vs snowball — full comparison", url: "https://nerdwallet.com/article/finance/debt-avalanche-debt-snowball" }
+  },
+  debt_attack: {
+    why: "Concentration beats distribution. Putting $500 across five debts moves all of them slowly. Putting $500 on one debt kills it faster, freeing up that minimum payment as fuel for the next one. This 'debt avalanche' effect accelerates as you go — by the time you reach the last debt, you're throwing all previous minimums at it.",
+    how: "After paying all minimums, direct every extra dollar to your highest-APR account. Set up an extra payment immediately after each paycheck — not at the end of the month when it may already be spent.",
+    callout: "📊 Example: $8,000 across two cards at 22% and 18% APR. Avalanche saves ~$1,200 in interest vs. splitting your extra payment evenly."
+  },
+  debt_hysa: {
+    why: "A High-Yield Savings Account (HYSA) earns 4–5% APY vs. the 0.01% a regular checking or savings account pays. On a $2,000 emergency fund, that's $80–100/year in free money vs. basically nothing. The money stays fully accessible — no lock-in periods.",
+    how: "Open Marcus by Goldman Sachs, Ally Bank, or SoFi (all FDIC insured up to $250k). Takes 5 minutes online. Link to your checking account. Transfer your emergency starter. Done.",
+    callout: "🏦 FDIC insured means your money is protected by the US government up to $250,000. These accounts are as safe as any bank.",
+    link: { text: "Best HYSA rates right now", url: "https://nerdwallet.com/best/banking/high-yield-online-savings-accounts" }
+  },
+  debt_autopay: {
+    why: "Penalty APR is the single biggest trap in consumer debt. One late payment can trigger a rate increase to 29.99% — even on a card you've had for years — and that rate can stay for 6+ months. Credit score damage from late payments also affects your ability to get better rates in the future.",
+    how: "Log into each credit card or loan account. Find 'AutoPay' settings. Set it to pay the <strong>minimum</strong> automatically. Then make your extra payments manually on top. This guarantees you never accidentally miss a payment while still letting you pay more than the minimum."
+  },
+  debt_redirect: {
+    why: "Once a debt is eliminated, the cash flow you were spending on it doesn't disappear — it becomes available capital. A $300/month car payment eliminated is $300/month you can redirect to investing. This is how wealth compounds: you don't need a raise, you just need to redirect freed-up money systematically.",
+    how: "The day your last high-interest debt hits $0, immediately set up a recurring transfer to your investment account for the same amount you were paying on debt. Don't let lifestyle inflation absorb it.",
+    callout: "🔄 Run this tool again once you're debt-free. Your entire recommended plan will change — you'll be starting from a much stronger position."
+  },
+
+  // ── Emergency fund ──
+  emerg_hysa: {
+    why: "Without an emergency fund, any unexpected expense — car repair, medical bill, job loss — forces you into one of two bad options: take on high-interest debt, or sell investments at a potentially bad time. An emergency fund is financial shock absorption. It's not about earning returns, it's about preventing catastrophic setbacks.",
+    how: "Open a HYSA separate from your checking account (the friction of a transfer makes it less tempting to spend). Name it 'Emergency Fund' in the app. Set an automatic monthly transfer — even $100/month adds up. Your target: 3 months of essential expenses (rent/mortgage + food + utilities + transportation).",
+    callout: "⚡ Keep this money boring and accessible. No stocks, no CDs with lock-in periods. The whole point is that you can get to it in 24 hours.",
+    link: { text: "Emergency fund complete guide", url: "https://investopedia.com/terms/e/emergency_fund.asp" }
+  },
+  emerg_target: {
+    why: "Vague goals don't get funded. 'I should save more' doesn't work. '$8,400 by March' does. 3 months of expenses is the minimum — it covers most job losses and emergencies. 6 months is better if you're self-employed, in a volatile industry, or a single-income household.",
+    how: "Add up your non-negotiable monthly expenses: rent, utilities, groceries, insurance, minimum debt payments, transportation. Multiply by 3. That's your number. Write it somewhere visible. Subtract what you already have saved. That's your gap.",
+    callout: "📋 Don't include subscriptions, dining out, or entertainment in this calculation. Emergency fund = survival costs only."
+  },
+  emerg_auto: {
+    why: "Willpower is finite. The people who save consistently aren't more disciplined — they've set up systems that remove the decision. When saving is automatic, you adapt to spending whatever's left. When it requires a conscious choice, it always loses to more immediate wants.",
+    how: "Set up a recurring transfer on payday — the same day your paycheck hits. Transfer $X to your HYSA before you can see it as spendable money. Start with what feels slightly uncomfortable but doable, not with the 'perfect' amount."
+  },
+  emerg_roth: {
+    why: "A Roth IRA is funded with after-tax dollars, meaning your money grows tax-free forever. Withdrawals in retirement are also tax-free. The contribution limit is $7,000/year (2025). The biggest advantage is time — $100 invested today has decades to compound. Starting with even a small amount matters more than waiting until you have 'enough' to start.",
+    how: "Open a Roth IRA at Fidelity or Vanguard (both free, no minimums). Choose a <strong>target-date fund</strong> matching your retirement year (e.g., 'Fidelity Freedom Index 2055' if you're ~30 years old). This automatically adjusts its risk level as you age. Set up automatic monthly contributions.",
+    callout: "⏰ Roth IRA contributions can be withdrawn penalty-free at any time (just not the earnings). This makes it a hybrid emergency + retirement account for beginners.",
+    link: { text: "Roth IRA explained — Investopedia", url: "https://investopedia.com/terms/r/rothira.asp" }
+  },
+
+  // ── Partial emergency ──
+  emerg_gap: {
+    why: "Knowing your exact gap makes the goal feel achievable instead of abstract. 'Build an emergency fund' is overwhelming. 'Save $3,200 more over 8 months at $400/month' is a plan you can execute.",
+    how: "Formula: (Monthly essential expenses × 3) − current savings balance = your gap. Monthly essentials = rent + utilities + groceries + insurance + minimum payments. Nothing else.",
+    callout: "🎯 Once you hit 3 months, keep going to 6. But 3 months is a meaningful milestone that changes your financial risk profile."
+  },
+  roth_open: {
+    why: "Traditional 401k and brokerage accounts are taxed when you withdraw money. Roth IRA is the opposite — you pay tax now (when you presumably have less money) and never again. A Roth IRA with $100,000 in it at retirement is worth more than $100,000 in a traditional account because every dollar is yours, not pre-tax.",
+    how: "Eligibility: income under $146k single / $230k married (2024). Go to fidelity.com or vanguard.com. Open Roth IRA. Choose a target-date fund for your approximate retirement year. Set up monthly auto-contributions. That's the entire setup.",
+    callout: "💡 If your employer offers a 401k with a match, contribute enough to get the full match first — that's a 50–100% instant return. Then open the Roth IRA.",
+    link: { text: "Roth IRA: rules, limits, and how to open one", url: "https://investopedia.com/terms/r/rothira.asp" }
+  },
+  index_fund: {
+    why: "An index fund buys tiny pieces of hundreds or thousands of companies at once. Instead of betting on one company, you own a slice of the entire market. Over any 15-year period in history, a broad US index fund has been positive. Individual stock picking consistently underperforms index funds after fees — even professional fund managers fail to beat the market 80%+ of the time.",
+    how: "VTI (Vanguard Total Market ETF) or FSKAX (Fidelity Total Market Index) are both excellent. Expense ratios under 0.05% — meaning you keep 99.95% of your returns. Buy through your Roth IRA or brokerage account. Set up monthly auto-invest.",
+    callout: "📈 The S&P 500 has returned ~10% annually on average over the last 100 years. Past performance doesn't guarantee future results — but no alternative has a better long-term track record.",
+    link: { text: "Bogleheads: the three-fund portfolio", url: "https://bogleheads.org/wiki/Three-fund_portfolio" }
+  },
+  automate_both: {
+    why: "Automating removes the biggest enemy of investing: yourself. Studies show investors who trade frequently underperform those who set up automatic contributions and never touch them. When markets drop, automated investors keep buying at cheaper prices. Manual investors panic-sell at the bottom.",
+    how: "Set two recurring transfers on payday: one to your HYSA, one to your Roth IRA or brokerage. Both should feel slightly uncomfortably large — if it feels easy, you're probably not contributing enough.",
+    callout: "🤖 'Set it and forget it' isn't laziness — it's the scientifically proven optimal strategy for most individual investors."
+  },
+
+  // ── Solid foundation ──
+  roth_max: {
+    why: "The Roth IRA annual limit is $7,000 (2025). That's $7,000 of after-tax money that grows tax-free forever. Over 30 years at 7% average return, maxing your Roth IRA every year builds to over $700,000 — completely tax-free. Missing a year means you can't go back and make it up. The contribution window closes every December 31.",
+    how: "Divide $7,000 by 12 = $583/month. Set up automatic monthly contributions of $583 to your Roth IRA starting now. If you can't do the full amount, contribute whatever you can — the habit and the compounding both matter.",
+    callout: "🔒 The Roth IRA's tax-free growth is one of the most powerful wealth-building tools available to individuals. Use the full limit if at all possible.",
+    link: { text: "2025 Roth IRA contribution limits", url: "https://www.irs.gov/retirement-plans/roth-iras" }
+  },
+  taxable_invest: {
+    why: "Once your Roth IRA is maxed ($7,000/year), additional money goes into a taxable brokerage account. You'll owe capital gains tax when you sell, but long-term gains (assets held 1+ year) are taxed at 0–20% vs. ordinary income rates of up to 37%. Still much better than not investing.",
+    how: "Open a taxable brokerage at Fidelity, Vanguard, or Schwab. Invest in VTI (US total market) + VXUS (international). This two-fund combination gives you exposure to the entire world economy. Set up auto-invest monthly.",
+    callout: "🌍 VTI + VXUS covers ~9,000 companies across 50+ countries. This is what 'diversified' actually means."
+  },
+  goal_hysa: {
+    why: "Mixing goal savings with emergency funds or investments is a behavioral trap — you'll either dip into your emergency fund thinking 'I'll replace it', or you'll invest money you need in 2 years and be forced to sell at a bad time. Separate accounts with clear purpose prevents this.",
+    how: "Open a second HYSA account (most banks let you have multiple). Name it explicitly: 'House Down Payment', 'Wedding Fund', 'Car Replacement'. The psychological distance makes it easier to protect.",
+    callout: "🏦 If your goal is 3+ years away, consider Series I Bonds (ibonds.gov) — they currently yield 4–5% APY with government backing and some inflation protection."
+  },
+  dca: {
+    why: "Dollar-cost averaging (DCA) means investing a fixed amount at regular intervals regardless of market conditions. When prices are high, your fixed amount buys fewer shares. When prices are low, it buys more. Over time, this averages out to a lower cost per share than trying to time the market. And you won't — no one consistently does.",
+    how: "Set a fixed amount to invest monthly — $200, $500, $1,000 — whatever fits your budget. Schedule it to auto-invest on the same day each month. Don't change it based on market news. This is the most important investment decision you'll make.",
+    callout: "📅 Missing just 10 of the best market days in any given decade can cut your returns in half. Those days often happen right after major drops — exactly when scared investors sell."
+  },
+  leave_alone: {
+    why: "The average investor significantly underperforms the market they're investing in — not because they pick bad funds, but because they react emotionally. They sell during crashes and buy during euphoria. The S&P 500 returned ~9% annually from 2000–2020; the average investor in those same funds returned ~5% due to bad timing.",
+    how: "Remove market apps from your phone's home screen. Set a calendar reminder for January 1 to rebalance if needed (if one asset class is more than 5% off your target allocation). Otherwise, close everything and go live your life.",
+    callout: "🧠 Legendary investor Warren Buffett has said that most investors would be better off buying an S&P 500 index fund and literally never looking at it again."
+  },
+
+  // ── Large amount ──
+  tax_accounts: {
+    why: "401k contributions reduce your taxable income today (traditional) or grow tax-free (Roth 401k). Either way, you're keeping money away from taxes. The annual limit is $23,000 (2025, under 50). Combined with a Roth IRA ($7,000), that's $30,000/year in tax-advantaged space. At a 24% tax rate, maxing these saves $7,200/year in federal taxes alone.",
+    how: "Log into your employer's HR portal. Find 401k settings. Set your contribution to the maximum ($1,917/month to hit $23,000/year). Then open/max your Roth IRA at Fidelity or Vanguard ($583/month for $7,000/year). Do both before putting money in taxable accounts.",
+    callout: "⚡ If your employer matches 401k contributions, that's free money — always contribute at least enough to get the full match before anything else.",
+    link: { text: "2025 401k contribution limits — IRS", url: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits" }
+  },
+  taxable_large: {
+    why: "After maxing tax-advantaged accounts, a taxable brokerage is the most flexible wealth-building vehicle. No contribution limits, no withdrawal restrictions, accessible at any age. You pay capital gains tax on profits, but at the preferential long-term rate if you hold for over a year.",
+    how: "Open at Fidelity, Vanguard, or Schwab. Invest in VTI (US) + VXUS (international) in roughly a 60/40 split. Reinvest dividends automatically. Tax-loss harvest annually — sell positions that have lost value to offset gains elsewhere.",
+    callout: "🌍 At this level, consider working with a fee-only fiduciary to optimize asset location — putting different asset types in the right account types for maximum tax efficiency."
+  },
+  fiduciary: {
+    why: "There are two types of financial advisors: fiduciaries (legally required to act in your best interest) and non-fiduciaries (only required to offer 'suitable' products, which may include high-fee funds that benefit them). The difference in outcomes over 30 years can be hundreds of thousands of dollars.",
+    how: "Search NAPFA.org (National Association of Personal Financial Advisors) for fee-only fiduciary advisors in your area. Look for a CFP (Certified Financial Planner) designation. Expect to pay $200–400 for a one-time planning session. Avoid anyone paid by commission.",
+    callout: "⚠️ If an advisor ever mentions annuities, whole life insurance, or actively managed mutual funds — ask about their fees and whether they're a fiduciary. Get it in writing.",
+    link: { text: "Find a fee-only fiduciary advisor — NAPFA", url: "https://www.napfa.org/financial-planning/find-a-planner" }
+  },
+  cash_idle: {
+    why: "Cash earning 0.01% in a checking account loses real purchasing power every year. Inflation of ~3% means $100,000 in cash is worth only $97,000 in real terms after one year. Money not invested has a cost — the opportunity cost of not putting it to work.",
+    how: "Keep 3–6 months of expenses as liquid cash (HYSA). Everything above that should be invested. If you have a large cash position for a specific purpose (house purchase in 12 months), keep it in a HYSA or short-term Treasury bills via TreasuryDirect.gov.",
+    callout: "💰 Short-term Treasury bills (T-bills) currently yield ~5% with zero default risk and are backed by the US government. Better than most savings accounts for money you won't need for 4–52 weeks."
+  },
+
+  // ── Security/savings ──
+  security_number: {
+    why: "Vague anxiety about money never goes away on its own. It dissolves when you replace it with a specific target. 'Being financially secure' means something different to everyone — for some it's 6 months of savings, for others it's no consumer debt, for others it's a paid-off mortgage. Without knowing your specific number, you'll always feel like it's not enough.",
+    how: "Write down: What would make you feel financially secure? What specific number, account balance, or milestone would let you sleep better at night? That's your first goal. Everything else comes after.",
+    callout: "✍️ Your security number is personal — it doesn't have to match any rule of thumb. What matters is that it's specific, measurable, and meaningful to you."
+  },
+  two_hysa: {
+    why: "The same way a 'vacation fund' is mentally different from a checking account even if the money is the same, separate named accounts create psychological ownership over each goal. You're far less likely to raid your 'Emergency Fund' when it's visibly distinct from your 'House Fund'.",
+    how: "Most online banks (Ally, Marcus, SoFi) let you open multiple savings accounts with custom names. Create one labeled 'Emergency Fund' and one labeled with your specific goal. Transfer automatically to both on payday.",
+    callout: "🏷️ Some banks let you set a target amount and show a progress bar for each account. This gamification effect is surprisingly effective at building momentum."
+  },
+  conservative_port: {
+    why: "A 60/40 portfolio (60% stocks, 40% bonds) is less volatile than pure stocks. In 2022, the S&P 500 dropped 19.4%. A 60/40 dropped ~16%. In 2008, the S&P dropped 37%. A 60/40 dropped ~25%. The tradeoff is lower long-term returns in exchange for lower stress and smaller drawdowns.",
+    how: "At Fidelity: 'Fidelity Freedom Index' target-date funds automatically maintain the 60/40 ratio and rebalance themselves. At Vanguard: VBINX (Vanguard Balanced Index Fund) does the same. Buy either one and never touch the allocation.",
+    callout: "📊 If a 25% portfolio drop would cause you to sell, you're overexposed to risk. Lower volatility means you're more likely to stay invested during downturns — which matters more than optimization."
+  },
+  pay_first: {
+    why: "Humans are terrible at saving what's 'left over' — because nothing is usually left over. We expand spending to fill available income. The fix is to pay yourself first: move savings before you can see it as spendable. What you never see, you don't miss.",
+    how: "Set up automatic transfers on the same day as your paycheck — ideally within 24 hours. Amount goes directly to HYSA and investments before it ever sits in your checking account. Adjust your spending to whatever remains.",
+    callout: "🔁 Even $100/month invested at 7% for 30 years = $113,000. The amount matters less than the consistency and timing."
+  },
+
+  // ── Default ──
+  open_roth: {
+    why: "The Roth IRA is the single best retirement account available to most Americans. You contribute after-tax dollars, and all growth is tax-free forever. The flexibility is also unique — contributions (not earnings) can be withdrawn penalty-free at any time, making it a hybrid emergency fund for beginners.",
+    how: "Go to fidelity.com or vanguard.com. Open account → Roth IRA. Fund it → choose a target-date fund (e.g., Fidelity Freedom Index 2055 if you're ~30). Set up auto-invest monthly. Total setup time: 10–15 minutes.",
+    callout: "💡 Target-date funds automatically shift from aggressive (mostly stocks) to conservative (more bonds) as you approach retirement. Zero ongoing decisions required.",
+    link: { text: "How to open a Roth IRA — Fidelity guide", url: "https://www.fidelity.com/retirement-ira/roth-ira" }
+  },
+  open_hysa: {
+    why: "Your emergency savings deserve to earn real returns. The average traditional savings account pays 0.01% APY. High-yield savings accounts from online banks pay 4–5% APY — 400–500x more — with the same FDIC insurance and the same access to your money.",
+    how: "Top options: Marcus by Goldman Sachs, Ally Bank, SoFi, or Discover Online Savings. All FDIC-insured, no monthly fees, no minimum balance, instant transfers to your checking account. Takes 5 minutes to open.",
+    callout: "📈 On $10,000 saved: 0.01% APY = $1/year. 4.5% APY = $450/year. Same risk, same access. The only difference is which bank you use.",
+    link: { text: "Compare best HYSA rates", url: "https://nerdwallet.com/best/banking/high-yield-online-savings-accounts" }
+  },
+  auto_monthly: {
+    why: "The most important investment decision isn't what you buy — it's that you keep buying consistently. Dollar-cost averaging into an index fund over 30 years has outperformed almost every other strategy, including tactical allocation managed by professionals.",
+    how: "In your Roth IRA: set up a monthly auto-invest. In your HYSA: set up a recurring transfer on payday. Both should happen automatically without you thinking about it. Review once a year.",
+    callout: "📅 $200/month for 30 years at 7% average return = $226,000. $500/month = $566,000. The habit is the strategy."
+  },
+  review_yearly: {
+    why: "Overmonitoring your portfolio leads to worse outcomes. People who check their investments daily are more likely to make emotional decisions — selling during drops, buying during peaks. The data is clear: passive, infrequent investors outperform active ones.",
+    how: "Put a recurring calendar event every January 1: 'Rebalance portfolio.' Check if your target allocation has drifted by more than 5%. If stocks went up a lot, sell a little and buy more bonds to rebalance. Takes 20 minutes. Then close everything and don't open it again until next January.",
+    callout: "🧘 You do not need to understand market cycles, interest rate policy, or macroeconomics to build wealth. You need an index fund, automatic contributions, and patience."
+  },
+};
+
+// Helper to get explanation for a step — matches by keyword in step name
+function getExplain(stepName, scenarioKey) {
+  // Map step names to explanation keys
+  const map = {
+    "map every debt":           EXPLAIN.debt_list,
+    "list every debt":          EXPLAIN.debt_list,
+    "send 70%":                 EXPLAIN.debt_attack,
+    "direct 70%":               EXPLAIN.debt_attack,
+    "open a high-yield":        EXPLAIN.debt_hysa,
+    "set all minimums":         EXPLAIN.debt_autopay,
+    "auto-pay":                 EXPLAIN.debt_autopay,
+    "once debt-free":           EXPLAIN.debt_redirect,
+    "calculate your":           scenarioKey==='partial' ? EXPLAIN.emerg_gap : EXPLAIN.emerg_target,
+    "exact 3-month":            EXPLAIN.emerg_target,
+    "3-month target":           EXPLAIN.emerg_target,
+    "automate a monthly":       EXPLAIN.emerg_auto,
+    "open a roth ira with":     EXPLAIN.emerg_roth,
+    "open a roth ira":          scenarioKey==='partial' ? EXPLAIN.roth_open : EXPLAIN.open_roth,
+    "roth ira":                 EXPLAIN.roth_max,
+    "max your roth":            EXPLAIN.roth_max,
+    "max out your roth":        EXPLAIN.roth_max,
+    "automate both":            EXPLAIN.automate_both,
+    "invest the rest":          EXPLAIN.taxable_invest,
+    "open a separate":          EXPLAIN.goal_hysa,
+    "dollar-cost":              EXPLAIN.dca,
+    "automate monthly":         EXPLAIN.dca,
+    "leave it alone":           EXPLAIN.leave_alone,
+    "don't touch":              EXPLAIN.leave_alone,
+    "max all":                  EXPLAIN.tax_accounts,
+    "open a taxable":           EXPLAIN.taxable_large,
+    "fee-only":                 EXPLAIN.fiduciary,
+    "fiduciary":                EXPLAIN.fiduciary,
+    "don't hold more":          EXPLAIN.cash_idle,
+    "idle":                     EXPLAIN.cash_idle,
+    "define your security":     EXPLAIN.security_number,
+    "open two separate":        EXPLAIN.two_hysa,
+    "60/40":                    EXPLAIN.conservative_port,
+    "pay yourself first":       EXPLAIN.pay_first,
+    "automate every":           EXPLAIN.pay_first,
+    "open a roth ira or":       EXPLAIN.open_roth,
+    "open a high-yield savings account":EXPLAIN.open_hysa,
+    "review once":              EXPLAIN.review_yearly,
+    "index fund":               EXPLAIN.index_fund,
+    "total market":             EXPLAIN.index_fund,
+  };
+  const lower = stepName.toLowerCase();
+  for (const [key, val] of Object.entries(map)) {
+    if (lower.includes(key.toLowerCase())) return val;
+  }
+  return null;
+}
+// ════════════════════════════════════════════
+let step=0, ans={};
+const TAGS = {
+  "t-now":  {l:"Do first",   c:"t-now"},
+  "t-soon": {l:"Next step",  c:"t-soon"},
+  "t-later":{l:"Long-term",  c:"t-later"},
+  "t-opt":  {l:"Optional",   c:"t-opt"},
+};
+
+function dots(){
+  return `<div class="prog-dots">${QS.map((_,i)=>`<div class="prog-dot ${i<step?'done':i===step?'active':''}"></div>`).join('')}</div>`;
+}
+
+function renderQ(i){
+  const q=QS[i], pct=((i+1)/QS.length)*100;
+  document.getElementById('app').innerHTML=`
+    <div class="card">
+      <div class="card-progress">
+        <span class="card-step-label">${q.step}</span>
+        <div class="prog-dots">${QS.map((_,j)=>`<div class="prog-dot ${j<i?'done':j===i?'active':''}"></div>`).join('')}</div>
+      </div>
+      <div class="prog-track"><div class="prog-fill" style="width:${pct}%"></div></div>
+      <div class="q-head">
+        <div class="q-text">${q.text}</div>
+        <div class="q-hint">${q.hint}</div>
+      </div>
+      <div class="q-body">
+        <div class="opts">
+          ${q.opts.map(o=>`
+            <button class="opt ${ans[q.id]===o.v?'sel':''}" onclick="pick('${q.id}','${o.v}',this)">
+              <div class="opt-radio"></div>
+              ${icon(o.ic)}
+              <div>
+                <div class="opt-label">${o.l}</div>
+                <div class="opt-desc">${o.d}</div>
+              </div>
+            </button>
+          `).join('')}
+        </div>
+        <button class="btn-cta" id="nxt" onclick="goNext()" ${ans[q.id]?'':'disabled'}>
+          ${i<QS.length-1?'Continue →':'See My Plan →'}
+        </button>
+        ${i>0?`<button class="btn-ghost" onclick="goBack()">← Back</button>`:''}
+      </div>
+    </div>`;
+}
+
+function renderResult(){
+  const sc=getScenario(ans);
+  const resources=[...(RES[sc.rk[0]]||[]),...(RES[sc.rk[1]]||[])].slice(0,4);
+
+  document.getElementById('app').innerHTML=`
+    <div class="card">
+      <div class="card-progress">
+        <span class="card-step-label">Your Plan</span>
+        <div class="prog-dots">${QS.map(()=>`<div class="prog-dot done"></div>`).join('')}</div>
+      </div>
+      <div class="prog-track"><div class="prog-fill" style="width:100%"></div></div>
+      <div class="r-head">
+        <div class="r-kicker">✦ Personalized Plan</div>
+        <div class="r-title">${sc.title}</div>
+        <div class="r-sub">${sc.sub}</div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-label">Recommended Allocation</div>
+        ${sc.alloc.map(a=>`
+          <div class="al-row">
+            <div class="al-pct">${a.p}%</div>
+            <div class="al-bar-wrap"><div class="al-bar" data-w="${a.p}%"></div></div>
+            <div class="al-label">${a.n}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="sec">
+        <div class="sec-label">Action Plan — tap each step to learn more</div>
+        ${sc.steps.map((s,i)=>{
+          const tg=TAGS[s.t]||TAGS["t-soon"];
+          const ex=getExplain(s.n, sc._key||'');
+          const chevron=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>`;
+          const drawerHTML = ex ? `
+            <div class="step-drawer">
+              <div class="step-drawer-inner">
+                ${ex.why?`<div class="drawer-section"><div class="drawer-label">Why this matters</div><div class="drawer-text">${ex.why}</div></div>`:''}
+                ${ex.how?`<div class="drawer-section"><div class="drawer-label">How to actually do it</div><div class="drawer-text">${ex.how}</div></div>`:''}
+                ${ex.callout?`<div class="drawer-callout">${ex.callout}</div>`:''}
+                ${ex.link?`<a class="drawer-link" href="${ex.link.url}" target="_blank" rel="noopener">${ex.link.text} →</a>`:''}
+              </div>
+            </div>` : '';
+          return`
+            <div class="step-item" onclick="toggleStep(this)">
+              <div class="step-top">
+                <div class="step-num">${i+1}</div>
+                <div class="step-body">
+                  <div class="step-name">${s.n}</div>
+                  <div class="step-desc">${s.d}</div>
+                  <span class="step-tag ${tg.c}">${tg.l}</span>
+                </div>
+                ${ex?`<div class="step-chevron">${chevron}</div>`:''}
+              </div>
+              ${drawerHTML}
+            </div>
+          `;
+        }).join('')}
+      </div>
+
+      <div class="sec">
+        <div class="sec-label">Free Learning Resources</div>
+        <div class="res-grid">
+          ${resources.map(r=>`
+            <a class="res-card" href="${r.u}" target="_blank" rel="noopener noreferrer">
+              <div class="rc-type">${r.t}</div>
+              <div class="rc-name">${r.n}</div>
+              <div class="rc-desc">${r.d}</div>
+              <span class="rc-cta">Open resource →</span>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-label">Recommended Tools</div>
+        <div class="aff-grid">
+          ${sc.affs.map(a=>`
+            <a class="aff-card" href="${a.h}" target="_blank" rel="noopener">
+              <div class="aff-name">${a.n}</div>
+              <div class="aff-desc">${a.d}</div>
+              <span class="aff-cta">${a.cta}</span>
+            </a>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="share-bar">
+        <div class="share-btns">
+          <button class="btn-action btn-action-outline" onclick="restart()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.68"/></svg>
+            Start Over
+          </button>
+          <button class="btn-action btn-action-solid" onclick="downloadPDF()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download Plan
+          </button>
+        </div>
+      </div>
+    </div>`;
+
+  requestAnimationFrame(()=>setTimeout(()=>{
+    document.querySelectorAll('.al-bar').forEach(b=>{ b.style.width=b.dataset.w; });
+  },80));
+}
+
+function downloadPDF(){
+  const sc   = getScenario(ans);
+  const date = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+
+  // Map answers to human-readable labels
+  const answerLabels = {
+    amount:    { under1k:'Under $1,000', '1k_5k':'$1,000 – $5,000', '5k_20k':'$5,000 – $20,000', '20k_100k':'$20,000 – $100,000', over100k:'Over $100,000' },
+    debt:      { yes_high:'Yes — over $1,000 in high-interest debt', yes_low:'Yes — under $1,000', none:'No high-interest debt' },
+    emergency: { full:'Fully funded (3–6 months)', partial:'Partially built (1–2 months)', none:'No emergency fund yet' },
+    goal:      { invest:'Build long-term wealth', save:'Save for a big purchase', debt:'Get out of debt faster', security:'Feel financially secure' },
+  };
+  const questionLabels = {
+    amount:'Amount available', debt:'High-interest debt', emergency:'Emergency fund status', goal:'Primary financial goal'
+  };
+
+  // Build allocation rows
+  const allocHTML = sc.alloc.map(a => `
+    <div class="alloc-row">
+      <div class="alloc-pct">${a.p}%</div>
+      <div class="alloc-bar-wrap"><div class="alloc-bar" style="width:${a.p}%"></div></div>
+      <div class="alloc-name">${a.n}</div>
+    </div>`).join('');
+
+  // Build steps with full drawer explanations
+  const stepsHTML = sc.steps.map((s,i) => {
+    const ex  = getExplain(s.n, sc._key||'');
+    const tag = TAGS[s.t]||TAGS['t-soon'];
+    const tagColors = {
+      't-now':  {bg:'#FEF2F2',color:'#DC2626'},
+      't-soon': {bg:'#FFFBEB',color:'#D97706'},
+      't-later':{bg:'#EFF6FF',color:'#2563EB'},
+      't-opt':  {bg:'#F4F4F5',color:'#71717A'},
+    };
+    const tc = tagColors[s.t] || tagColors['t-soon'];
+    return `
+    <div class="step-block">
+      <div class="step-header">
+        <div class="step-circle">${i+1}</div>
+        <div class="step-main">
+          <div class="step-title">${s.n}</div>
+          <div class="step-summary">${s.d}</div>
+          <span class="step-tag" style="background:${tc.bg};color:${tc.color}">${tag.l}</span>
+        </div>
+      </div>
+      ${ex ? `
+      <div class="step-detail">
+        ${ex.why ? `
+          <div class="detail-block">
+            <div class="detail-label">Why this matters</div>
+            <div class="detail-text">${ex.why}</div>
+          </div>` : ''}
+        ${ex.how ? `
+          <div class="detail-block">
+            <div class="detail-label">How to actually do it</div>
+            <div class="detail-text">${ex.how}</div>
+          </div>` : ''}
+        ${ex.callout ? `<div class="callout">${ex.callout}</div>` : ''}
+        ${ex.link ? `<div class="detail-link">→ <a href="${ex.link.url}">${ex.link.text}</a></div>` : ''}
+      </div>` : ''}
+    </div>`;
+  }).join('');
+
+  // Build resources
+  const resources = [...(RES[sc.rk[0]]||[]),...(RES[sc.rk[1]]||[])].slice(0,4);
+  const resourcesHTML = resources.map(r => `
+    <div class="resource-row">
+      <span class="res-badge">${r.t}</span>
+      <div>
+        <div class="res-name">${r.n}</div>
+        <div class="res-desc">${r.d}</div>
+        <div class="res-url">${r.u}</div>
+      </div>
+    </div>`).join('');
+
+  // Build tools
+  const toolsHTML = sc.affs.map(a => `
+    <div class="tool-row">
+      <div class="tool-name">${a.n}</div>
+      <div class="tool-desc">${a.d}</div>
+    </div>`).join('');
+
+  // Build answers summary
+  const answersHTML = Object.entries(ans).map(([k,v]) => `
+    <div class="answer-row">
+      <span class="answer-q">${questionLabels[k]||k}:</span>
+      <span class="answer-a">${answerLabels[k]?.[v]||v}</span>
+    </div>`).join('');
+
+  const printHTML = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MoneyMoves — ${sc.title}</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:#09090B;background:white;font-size:14px;line-height:1.5;}
+  @page{margin:18mm 16mm;size:A4;}
+
+  /* HEADER */
+  .doc-header{display:flex;justify-content:space-between;align-items:flex-start;padding:0 0 24px;border-bottom:2px solid #09090B;margin-bottom:28px;}
+  .brand{display:flex;align-items:center;gap:8px;}
+  .brand-icon{width:32px;height:32px;background:#16A34A;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;}
+  .brand-name{font-size:18px;font-weight:800;color:#09090B;letter-spacing:-0.3px;}
+  .doc-meta{text-align:right;font-size:11px;color:#71717A;line-height:1.6;}
+
+  /* PLAN TITLE */
+  .plan-title-block{margin-bottom:28px;}
+  .plan-badge{display:inline-block;background:#16A34A;color:white;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:4px;margin-bottom:10px;}
+  .plan-title{font-size:26px;font-weight:800;letter-spacing:-0.5px;line-height:1.15;color:#09090B;margin-bottom:8px;}
+  .plan-sub{font-size:14px;color:#3F3F46;line-height:1.65;max-width:560px;}
+
+  /* YOUR ANSWERS */
+  .section{margin-bottom:28px;}
+  .section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#A1A1AA;margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid #E4E4E7;}
+  .answer-row{display:flex;gap:12px;padding:6px 0;border-bottom:1px solid #F4F4F5;font-size:13px;}
+  .answer-row:last-child{border-bottom:none;}
+  .answer-q{font-weight:600;color:#3F3F46;min-width:180px;flex-shrink:0;}
+  .answer-a{color:#09090B;}
+
+  /* ALLOCATION */
+  .alloc-row{display:flex;align-items:center;gap:14px;margin-bottom:10px;}
+  .alloc-row:last-child{margin-bottom:0;}
+  .alloc-pct{font-size:20px;font-weight:800;color:#16A34A;min-width:52px;text-align:right;}
+  .alloc-bar-wrap{flex:1;height:6px;background:#F4F4F5;border-radius:99px;overflow:hidden;}
+  .alloc-bar{height:100%;background:#16A34A;border-radius:99px;}
+  .alloc-name{font-size:13px;font-weight:500;color:#3F3F46;min-width:180px;text-align:right;}
+
+  /* STEPS */
+  .step-block{margin-bottom:24px;break-inside:avoid;}
+  .step-block:last-child{margin-bottom:0;}
+  .step-header{display:flex;gap:14px;margin-bottom:10px;}
+  .step-circle{width:28px;height:28px;background:#09090B;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px;}
+  .step-main{flex:1;}
+  .step-title{font-size:15px;font-weight:700;color:#09090B;margin-bottom:4px;}
+  .step-summary{font-size:13px;color:#71717A;line-height:1.6;margin-bottom:6px;}
+  .step-tag{display:inline-block;font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;text-transform:uppercase;letter-spacing:0.4px;}
+  .step-detail{margin-left:42px;border-left:2px solid #BBF7D0;padding-left:16px;}
+  .detail-block{margin-bottom:12px;}
+  .detail-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#15803D;margin-bottom:5px;}
+  .detail-text{font-size:13px;color:#3F3F46;line-height:1.7;}
+  .detail-text strong{font-weight:600;color:#09090B;}
+  .callout{background:#F0FDF4;border-left:3px solid #16A34A;padding:10px 14px;margin:10px 0;font-size:12px;color:#15803D;line-height:1.6;border-radius:0 4px 4px 0;}
+  .detail-link{margin-top:8px;font-size:12px;color:#16A34A;font-weight:500;}
+  .detail-link a{color:#16A34A;text-decoration:none;}
+
+  /* RESOURCES */
+  .resource-row{display:flex;gap:14px;padding:10px 0;border-bottom:1px solid #F4F4F5;align-items:flex-start;}
+  .resource-row:last-child{border-bottom:none;}
+  .res-badge{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;white-space:nowrap;background:#F0FDF4;color:#15803D;padding:3px 7px;border-radius:4px;margin-top:1px;flex-shrink:0;}
+  .res-name{font-size:13px;font-weight:600;color:#09090B;margin-bottom:2px;}
+  .res-desc{font-size:12px;color:#71717A;margin-bottom:2px;}
+  .res-url{font-size:11px;color:#16A34A;}
+
+  /* TOOLS */
+  .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .tool-row{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;padding:12px 14px;}
+  .tool-name{font-size:13px;font-weight:700;color:#09090B;margin-bottom:3px;}
+  .tool-desc{font-size:12px;color:#3F3F46;}
+
+  /* FOOTER */
+  .doc-footer{margin-top:32px;padding-top:16px;border-top:1px solid #E4E4E7;font-size:10px;color:#A1A1AA;line-height:1.7;}
+
+  /* Print: page breaks */
+  .page-break{page-break-before:always;}
+
+  /* Print button — hidden when printing */
+  .print-btn-wrap{text-align:center;padding:24px;background:#F9F9F9;border-bottom:1px solid #E4E4E7;}
+  .print-btn{background:#16A34A;color:white;border:none;padding:12px 32px;font-family:inherit;font-size:15px;font-weight:600;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;}
+  .print-btn:hover{background:#15803D;}
+  @media print{.print-btn-wrap{display:none;}}
+</style>
+</head>
+<body>
+
+<div class="print-btn-wrap">
+  <button class="print-btn" onclick="window.print()">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    Save as PDF (Ctrl+P)
+  </button>
+  <p style="margin-top:10px;font-size:12px;color:#71717A;">Click the button above, then choose "Save as PDF" in the print dialog</p>
+</div>
+
+<div style="max-width:720px;margin:0 auto;padding:32px;">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="brand">
+      <div class="brand-icon">💸</div>
+      <span class="brand-name">MoneyMoves</span>
+    </div>
+    <div class="doc-meta">
+      Personalized Financial Plan<br>
+      Generated: ${date}<br>
+      moneymoves.com
+    </div>
+  </div>
+
+  <!-- PLAN TITLE -->
+  <div class="plan-title-block">
+    <div class="plan-badge">Your Personalized Plan</div>
+    <h1 class="plan-title">${sc.title}</h1>
+    <p class="plan-sub">${sc.sub}</p>
+  </div>
+
+  <!-- YOUR SITUATION -->
+  <div class="section">
+    <div class="section-title">Your Situation — How You Answered</div>
+    ${answersHTML}
+  </div>
+
+  <!-- ALLOCATION -->
+  <div class="section">
+    <div class="section-title">Recommended Allocation</div>
+    ${allocHTML}
+  </div>
+
+  <!-- ACTION PLAN — full with explanations -->
+  <div class="section page-break">
+    <div class="section-title">Action Plan — Step by Step</div>
+    ${stepsHTML}
+  </div>
+
+  <!-- RESOURCES -->
+  <div class="section">
+    <div class="section-title">Free Learning Resources</div>
+    ${resourcesHTML}
+  </div>
+
+  <!-- TOOLS -->
+  <div class="section">
+    <div class="section-title">Recommended Tools</div>
+    <div class="tools-grid">${toolsHTML}</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <strong>Important Disclaimer:</strong> This plan was generated by MoneyMoves (moneymoves.com) and is provided for general educational purposes only. It does not constitute personalized financial, investment, tax, or legal advice. The recommendations are based on general financial principles and the answers you provided — they do not account for your complete financial situation, risk tolerance, tax circumstances, or other individual factors. Past performance of any investment is not indicative of future results. Before making any major financial decisions, please consult a qualified, licensed financial advisor who can evaluate your specific situation. MoneyMoves is not a registered investment advisor, broker-dealer, or financial planner.
+  </div>
+
+</div>
+</body>
+</html>`;
+
+  const win = window.open('','_blank','width=800,height=900');
+  win.document.write(printHTML);
+  win.document.close();
+}
+
+function toggleStep(el){
+  el.parentElement.querySelectorAll('.step-item.open').forEach(s=>{ if(s!==el) s.classList.remove('open'); });
+  el.classList.toggle('open');
+}
+function pick(qId,val,el){
+  ans[qId]=val;
+  document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  const btn=document.getElementById('nxt');
+  if(btn) btn.disabled=false;
+}
+function goNext(){ if(!ans[QS[step].id])return; step++; step>=QS.length?renderResult():renderQ(step); }
+function goBack(){ if(step>0){step--;renderQ(step);} }
+function restart(){ step=0;ans={};renderQ(0);window.scrollTo({top:0,behavior:'smooth'}); }
+function copyLink(e){ navigator.clipboard.writeText(window.location.href).then(()=>{e.target.textContent='✓ Copied!';setTimeout(()=>{e.target.textContent='🔗 Copy link';},2000);}); }
+function faq(el){ el.parentElement.classList.toggle('open'); }
+
+renderQ(0);
+</script>
+</body>
+</html>

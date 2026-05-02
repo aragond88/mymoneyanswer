@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon — MoneyMoves</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',-apple-system,sans-serif;background:#FAFAFA;color:#09090B;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;}
+    nav{height:64px;background:rgba(255,255,255,0.94);backdrop-filter:blur(12px);border-bottom:1px solid #E4E4E7;display:flex;align-items:center;justify-content:space-between;padding:0 36px;position:sticky;top:0;z-index:100;}
+    .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .logo-icon{width:32px;height:32px;background:#09090B;border-radius:6px;display:grid;place-items:center;font-size:16px;color:white;}
+    .logo-text{font-size:17px;font-weight:700;color:#09090B;letter-spacing:-0.4px;}
+    .nav-center{display:flex;align-items:center;gap:4px;position:absolute;left:50%;transform:translateX(-50%);}
+    .nav-link{font-size:15px;font-weight:500;color:#71717A;text-decoration:none;padding:6px 14px;border-radius:10px;transition:color .12s,background .12s;}
+    .nav-link:hover{color:#09090B;background:#F4F4F5;}
+    .nav-badge{font-size:12px;font-weight:500;color:#15803D;background:#F0FDF4;border:1px solid #BBF7D0;padding:4px 12px;border-radius:20px;}
+    main{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 24px;}
+    .card{background:white;border:1px solid #E4E4E7;border-radius:20px;padding:56px 48px;text-align:center;max-width:480px;box-shadow:0 4px 20px rgba(0,0,0,0.07);}
+    .badge{display:inline-block;background:#F0FDF4;color:#15803D;border:1px solid #BBF7D0;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:4px 12px;border-radius:20px;margin-bottom:20px;}
+    h1{font-size:28px;font-weight:800;letter-spacing:-0.6px;margin-bottom:12px;color:#09090B;}
+    p{font-size:15px;color:#71717A;line-height:1.65;margin-bottom:28px;}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:#16A34A;color:white;border:none;border-radius:10px;font-family:inherit;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;transition:background .12s,transform .12s;}
+    .btn:hover{background:#15803D;transform:translateY(-1px);}
+    @media(max-width:600px){.nav-center{display:none;}.card{padding:36px 24px;}}
+  </style>
+</head>
+<body>
+  <nav>
+    <a class="logo" href="./index.html">
+      <div class="logo-icon">💸</div>
+      <span class="logo-text">MoneyMoves</span>
+    </a>
+    <div class="nav-center">
+      <a class="nav-link" href="./index.html">Tool</a>
+      <a class="nav-link" href="./calculator.html">Investment Calculator</a>
+      <a class="nav-link" href="./directory.html">Money Lessons</a>
+      <a class="nav-link" href="./blog.html">Blog</a>
+    </div>
+    <div><span class="nav-badge">Free</span></div>
+  </nav>
+  <main>
+    <div class="card">
+      <div class="badge">Coming Soon</div>
+      <h1 id="page-title">This page is in progress</h1>
+      <p id="page-desc">We're building something great here. In the meantime, use our free financial planning tool to get your personalized money plan.</p>
+      <a class="btn" href="./index.html">← Back to the Tool</a>
+    </div>
+  </main>
+  <script>
+    const path = window.location.pathname;
+    if(path.includes('calculator')){
+      document.getElementById('page-title').textContent = 'Investment Calculator';
+      document.getElementById('page-desc').textContent = 'See exactly how much your investments will grow over time. Enter an amount, a rate of return, and a time horizon — we show you the math.';
+      document.title = 'Investment Calculator — MoneyMoves';
+    } else if(path.includes('blog')){
+      document.getElementById('page-title').textContent = 'Blog';
+      document.getElementById('page-desc').textContent = 'In-depth guides on saving money, investing, getting out of debt, and building wealth. Written in plain English, not financial jargon.';
+      document.title = 'Blog — MoneyMoves';
+    }
+  </script>
+</body>
+</html>

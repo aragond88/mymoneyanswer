@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Investment Calculator — See How Your Money Grows | MoneyMoves</title>
+  <meta name="description" content="Free investment calculator. Enter an amount, monthly contribution, and time horizon to see exactly how compound interest grows your money over time." />
+  <link rel="canonical" href="https://yourdomain.com/calculator.html" />
+  <meta property="og:title" content="Investment Calculator — MoneyMoves" />
+  <meta property="og:description" content="See exactly how compound interest grows your money. Free, instant, no signup." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Investment Calculator",
+    "description": "Free compound interest calculator showing how investments grow over time.",
+    "url": "https://yourdomain.com/calculator.html",
+    "applicationCategory": "FinanceApplication",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" /></noscript>
+
+  <style>
+    :root {
+      --bg:          #FAFAFA;
+      --surface:     #FFFFFF;
+      --border:      #E4E4E7;
+      --border-2:    #F0F0F2;
+      --text-1:      #09090B;
+      --text-2:      #3F3F46;
+      --text-3:      #71717A;
+      --text-4:      #A1A1AA;
+      --green:       #16A34A;
+      --green-dark:  #15803D;
+      --green-light: #F0FDF4;
+      --green-mid:   #BBF7D0;
+      --green-glow:  rgba(22,163,74,0.15);
+      --black:       #09090B;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-xl: 18px; --r-2xl: 24px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+      --ease: cubic-bezier(0.16,1,0.3,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text-1); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      height: 64px;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 36px;
+    }
+    .logo { display:flex; align-items:center; gap:10px; text-decoration:none; flex-shrink:0; }
+    .logo-icon { width:32px; height:32px; background:var(--black); border-radius:var(--r-sm); display:grid; place-items:center; font-size:16px; color:white; }
+    .logo-text { font-size:17px; font-weight:700; color:var(--text-1); letter-spacing:-0.4px; }
+    .nav-center { display:flex; align-items:center; gap:4px; position:absolute; left:50%; transform:translateX(-50%); }
+    .nav-link { font-size:15px; font-weight:500; color:var(--text-3); text-decoration:none; padding:6px 14px; border-radius:var(--r-md); transition:color .12s,background .12s; white-space:nowrap; }
+    .nav-link:hover { color:var(--text-1); background:var(--bg); }
+    .nav-link.active { color:var(--text-1); font-weight:600; }
+    .nav-badge { font-size:12px; font-weight:500; color:var(--green-dark); background:var(--green-light); border:1px solid var(--green-mid); padding:4px 12px; border-radius:20px; }
+
+    /* ── HERO ── */
+    .hero {
+      background-color: #0a2e1a;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(34,197,94,0.55) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(16,185,129,0.2) 0%, transparent 55%),
+        radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: auto, auto, 22px 22px;
+      padding: 72px 24px 120px;
+      text-align: center;
+    }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      padding: 5px 12px 5px 8px; border-radius: 20px; margin-bottom: 20px;
+    }
+    .kicker-dot { width:6px; height:6px; background:#4ade80; border-radius:50%; box-shadow:0 0 6px rgba(74,222,128,0.8); }
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 56px);
+      font-weight: 800; letter-spacing: -1.5px; line-height: 1.06;
+      color: white; max-width: 640px; margin: 0 auto 16px;
+    }
+    .hero h1 em { color: #4ade80; font-style: italic; }
+    .hero-sub { font-size: 17px; color: rgba(255,255,255,0.58); max-width: 420px; margin: 0 auto; line-height: 1.65; }
+
+    /* ── LAYOUT ── */
+    .wrap {
+      max-width: 960px;
+      margin: -80px auto 0;
+      padding: 0 20px 80px;
+      position: relative; z-index: 10;
+    }
+
+    /* ── MODE TABS ── */
+    .mode-tabs {
+      display: flex; gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 6px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+    }
+    .mode-tab {
+      flex: 1; padding: 10px 16px; border: none;
+      border-radius: var(--r-lg); font-family: var(--font);
+      font-size: 14px; font-weight: 500; color: var(--text-3);
+      cursor: pointer; transition: all .15s var(--ease);
+      text-align: center; background: transparent;
+    }
+    .mode-tab:hover { background: var(--bg); color: var(--text-1); }
+    .mode-tab.active { background: var(--black); color: white; font-weight: 600; }
+
+    /* ── MAIN CARD ── */
+    .calc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-2xl);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+
+    /* ── INPUTS + RESULTS split ── */
+    .calc-body {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+    }
+
+    /* ── INPUT PANEL ── */
+    .input-panel {
+      padding: 32px 28px;
+      border-right: 1px solid var(--border-2);
+    }
+    .panel-title {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-4); margin-bottom: 24px;
+    }
+
+    .field { margin-bottom: 20px; }
+    .field:last-of-type { margin-bottom: 0; }
+    .field-label {
+      font-size: 13px; font-weight: 600; color: var(--text-2);
+      margin-bottom: 6px; display: flex; justify-content: space-between; align-items: center;
+    }
+    .field-hint { font-size: 11px; font-weight: 400; color: var(--text-4); }
+
+    .input-wrap {
+      display: flex; align-items: center;
+      border: 1.5px solid var(--border); border-radius: var(--r-md);
+      background: var(--surface); overflow: hidden;
+      transition: border-color .15s;
+    }
+    .input-wrap:focus-within { border-color: var(--green); box-shadow: 0 0 0 3px var(--green-mid); }
+    .input-prefix, .input-suffix {
+      padding: 0 12px; font-size: 15px; font-weight: 600;
+      color: var(--text-3); background: var(--bg);
+      border-right: 1px solid var(--border-2); height: 44px;
+      display: flex; align-items: center; white-space: nowrap; flex-shrink: 0;
+    }
+    .input-suffix { border-right: none; border-left: 1px solid var(--border-2); }
+    input[type="number"], input[type="range"] {
+      border: none; outline: none; background: transparent;
+      font-family: var(--font); font-size: 15px; font-weight: 600;
+      color: var(--text-1); padding: 0 12px; height: 44px; width: 100%;
+    }
+    input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+
+    /* Range slider */
+    .range-wrap { padding: 4px 0 8px; }
+    input[type="range"] {
+      height: auto; padding: 0; cursor: pointer;
+      accent-color: var(--green);
+    }
+    .range-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-4); margin-top: 4px; }
+
+    /* Preset buttons */
+    .presets { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+    .preset-btn {
+      padding: 5px 12px; border: 1.5px solid var(--border); border-radius: 20px;
+      font-family: var(--font); font-size: 12px; font-weight: 500; color: var(--text-3);
+      cursor: pointer; background: var(--surface); transition: all .12s;
+    }
+    .preset-btn:hover { border-color: var(--green); color: var(--green-dark); background: var(--green-light); }
+    .preset-btn.active { border-color: var(--green); color: var(--green-dark); background: var(--green-light); font-weight: 600; }
+
+    .calc-btn {
+      width: 100%; margin-top: 24px; padding: 14px;
+      background: var(--green); color: white; border: none;
+      border-radius: var(--r-md); font-family: var(--font);
+      font-size: 15px; font-weight: 600; cursor: pointer;
+      transition: background .12s, transform .15s var(--ease), box-shadow .12s;
+    }
+    .calc-btn:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 4px 16px var(--green-glow); }
+
+    /* ── RESULTS PANEL ── */
+    .results-panel { padding: 32px 28px; display: flex; flex-direction: column; gap: 24px; }
+
+    /* Big result numbers */
+    .result-cards {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px;
+    }
+    .result-card {
+      background: var(--bg); border: 1px solid var(--border-2);
+      border-radius: var(--r-lg); padding: 14px 16px;
+    }
+    .result-card.highlight {
+      background: var(--green-light); border-color: var(--green-mid);
+    }
+    .result-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-4); margin-bottom: 6px; }
+    .result-card.highlight .result-label { color: var(--green-dark); }
+    .result-value { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--text-1); line-height: 1; }
+    .result-card.highlight .result-value { color: var(--green); }
+    .result-sub { font-size: 11px; color: var(--text-4); margin-top: 4px; }
+
+    /* Growth chart */
+    .chart-wrap {
+      flex: 1; min-height: 220px; position: relative;
+    }
+    .chart-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-4); margin-bottom: 12px; }
+    canvas { width: 100% !important; }
+
+    /* Breakdown table */
+    .breakdown { border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+    .breakdown-header {
+      display: grid; grid-template-columns: 60px 1fr 1fr 1fr;
+      background: var(--bg); padding: 8px 14px;
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.6px; color: var(--text-4);
+      border-bottom: 1px solid var(--border);
+    }
+    .breakdown-row {
+      display: grid; grid-template-columns: 60px 1fr 1fr 1fr;
+      padding: 9px 14px; font-size: 13px; border-bottom: 1px solid var(--border-2);
+      transition: background .1s;
+    }
+    .breakdown-row:last-child { border-bottom: none; }
+    .breakdown-row:hover { background: var(--green-light); }
+    .breakdown-row .yr { font-weight: 600; color: var(--text-2); }
+    .breakdown-row .contrib { color: var(--text-3); }
+    .breakdown-row .interest { color: var(--green-dark); font-weight: 500; }
+    .breakdown-row .total { font-weight: 700; color: var(--text-1); }
+
+    /* Insights */
+    .insights { display: flex; flex-direction: column; gap: 8px; }
+    .insight {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: var(--bg); border: 1px solid var(--border-2);
+      border-radius: var(--r-md); padding: 12px 14px;
+    }
+    .insight-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .insight-text { font-size: 13px; color: var(--text-2); line-height: 1.55; }
+    .insight-text strong { font-weight: 600; color: var(--text-1); }
+
+    /* ── EXPLAINER SECTION ── */
+    .explainer {
+      max-width: 960px; margin: 48px auto; padding: 0 20px 80px;
+    }
+    .explainer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 24px; }
+    .exp-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--r-xl); padding: 24px;
+    }
+    .exp-icon { font-size: 24px; margin-bottom: 12px; }
+    .exp-title { font-size: 15px; font-weight: 700; color: var(--text-1); margin-bottom: 8px; letter-spacing: -0.2px; }
+    .exp-text { font-size: 14px; color: var(--text-3); line-height: 1.65; }
+    .section-heading { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--text-1); }
+    .section-sub { font-size: 15px; color: var(--text-3); margin-top: 6px; line-height: 1.6; }
+
+    /* ── FAQ ── */
+    .faq-list { margin-top: 16px; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 16px; padding: 16px 0; font-size: 15px; font-weight: 500;
+      color: var(--text-1); cursor: pointer; user-select: none;
+    }
+    .faq-q::after { content: '+'; font-size: 18px; color: var(--text-3); flex-shrink: 0; transition: transform .2s; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); color: var(--green); }
+    .faq-a { font-size: 14px; color: var(--text-3); line-height: 1.7; display: none; padding-bottom: 16px; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--black); padding: 40px 24px 32px; }
+    .footer-inner { max-width: 960px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+    .footer-logo { display:flex; align-items:center; gap:8px; text-decoration:none; }
+    .footer-logo-icon { width:26px;height:26px;background:var(--green);border-radius:5px;display:grid;place-items:center;font-size:13px; }
+    .footer-logo-name { font-size:15px;font-weight:700;color:rgba(255,255,255,0.75); }
+    .footer-links { display:flex; gap:20px; flex-wrap:wrap; }
+    .footer-links a { font-size:13px; color:rgba(255,255,255,0.35); text-decoration:none; transition:color .12s; }
+    .footer-links a:hover { color:rgba(255,255,255,0.7); }
+    .footer-disc { font-size:11px; color:rgba(255,255,255,0.2); max-width:480px; line-height:1.6; text-align:right; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px) { .nav-center { display:none; } }
+    @media(max-width:700px) {
+      .calc-body { grid-template-columns: 1fr; }
+      .input-panel { border-right: none; border-bottom: 1px solid var(--border-2); }
+      .result-cards { grid-template-columns: 1fr 1fr; }
+      .explainer-grid { grid-template-columns: 1fr; }
+    }
+    @media(max-width:520px) {
+      nav { padding: 0 20px; }
+      .hero { padding: 56px 20px 100px; }
+      .wrap { padding: 0 16px 60px; }
+      .mode-tabs { flex-wrap: wrap; }
+      .result-cards { grid-template-columns: 1fr; }
+      .breakdown-header, .breakdown-row { grid-template-columns: 50px 1fr 1fr; }
+      .breakdown-header span:nth-child(3),
+      .breakdown-row .interest { display: none; }
+      .footer-disc { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="./index.html">
+    <div class="logo-icon">💸</div>
+    <span class="logo-text">MoneyMoves</span>
+  </a>
+  <div class="nav-center">
+    <a class="nav-link" href="./index.html">Tool</a>
+    <a class="nav-link active" href="./calculator.html">Investment Calculator</a>
+    <a class="nav-link" href="./directory.html">Money Lessons</a>
+    <a class="nav-link" href="./blog.html">Blog</a>
+  </div>
+  <div><span class="nav-badge">Free</span></div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-kicker"><span class="kicker-dot"></span> Free Investment Calculator</div>
+  <h1>See how your money <em>grows</em></h1>
+  <p class="hero-sub">Enter any amount, any monthly contribution, and any time horizon — and watch compound interest do its work.</p>
+</div>
+
+<!-- MAIN -->
+<div class="wrap">
+
+  <!-- MODE TABS -->
+  <div class="mode-tabs">
+    <button class="mode-tab active" onclick="setMode('growth',this)">📈 Investment Growth</button>
+    <button class="mode-tab" onclick="setMode('goal',this)">🎯 Goal Calculator</button>
+    <button class="mode-tab" onclick="setMode('monthly',this)">📅 Monthly Contribution</button>
+  </div>
+
+  <!-- CALCULATOR CARD -->
+  <div class="calc-card">
+    <div class="calc-body">
+
+      <!-- INPUT PANEL -->
+      <div class="input-panel">
+        <div class="panel-title" id="panel-title">Inputs</div>
+
+        <div id="inputs-growth">
+
+          <div class="field">
+            <div class="field-label">
+              Initial Investment
+              <span class="field-hint">Amount you invest today</span>
+            </div>
+            <div class="input-wrap">
+              <span class="input-prefix">$</span>
+              <input type="number" id="g-initial" value="10000" min="0" oninput="calculate()" />
+            </div>
+            <div class="presets">
+              <button class="preset-btn" onclick="setField('g-initial',1000,this)">$1K</button>
+              <button class="preset-btn" onclick="setField('g-initial',5000,this)">$5K</button>
+              <button class="preset-btn active" onclick="setField('g-initial',10000,this)">$10K</button>
+              <button class="preset-btn" onclick="setField('g-initial',50000,this)">$50K</button>
+              <button class="preset-btn" onclick="setField('g-initial',100000,this)">$100K</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">
+              Monthly Contribution
+              <span class="field-hint">How much you add each month</span>
+            </div>
+            <div class="input-wrap">
+              <span class="input-prefix">$</span>
+              <input type="number" id="g-monthly" value="500" min="0" oninput="calculate()" />
+            </div>
+            <div class="presets">
+              <button class="preset-btn" onclick="setField('g-monthly',0,this)">$0</button>
+              <button class="preset-btn" onclick="setField('g-monthly',100,this)">$100</button>
+              <button class="preset-btn" onclick="setField('g-monthly',300,this)">$300</button>
+              <button class="preset-btn active" onclick="setField('g-monthly',500,this)">$500</button>
+              <button class="preset-btn" onclick="setField('g-monthly',1000,this)">$1K</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">
+              Annual Return Rate
+              <span class="field-hint" id="g-rate-hint">7% — Historical average</span>
+            </div>
+            <div class="input-wrap">
+              <input type="number" id="g-rate" value="7" min="0" max="30" step="0.5" oninput="updateRateHint();calculate()" />
+              <span class="input-suffix">% per year</span>
+            </div>
+            <div class="range-wrap">
+              <input type="range" id="g-rate-range" min="1" max="15" step="0.5" value="7" oninput="syncRange('g-rate','g-rate-range');updateRateHint();calculate()" />
+              <div class="range-labels"><span>1%</span><span>Conservative 4–6%</span><span>Aggressive 10–12%</span><span>15%</span></div>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">
+              Time Horizon
+              <span class="field-hint" id="g-years-hint">20 years</span>
+            </div>
+            <div class="input-wrap">
+              <input type="number" id="g-years" value="20" min="1" max="50" oninput="syncRangeFromInput('g-years','g-years-range');calculate()" />
+              <span class="input-suffix">years</span>
+            </div>
+            <div class="range-wrap">
+              <input type="range" id="g-years-range" min="1" max="50" value="20" oninput="syncRange('g-years','g-years-range');calculate()" />
+              <div class="range-labels"><span>1 yr</span><span>10</span><span>20</span><span>30</span><span>50 yrs</span></div>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label">
+              Compound Frequency
+              <span class="field-hint">How often interest compounds</span>
+            </div>
+            <div class="input-wrap" style="padding:0 12px;height:44px;">
+              <select id="g-freq" onchange="calculate()" style="border:none;outline:none;background:transparent;font-family:var(--font);font-size:14px;font-weight:500;color:var(--text-1);width:100%;cursor:pointer;">
+                <option value="12" selected>Monthly (most common)</option>
+                <option value="4">Quarterly</option>
+                <option value="1">Annually</option>
+                <option value="365">Daily</option>
+              </select>
+            </div>
+          </div>
+
+        </div><!-- end inputs-growth -->
+
+        <div id="inputs-goal" style="display:none">
+
+          <div class="field">
+            <div class="field-label">Financial Goal <span class="field-hint">Target amount you want to reach</span></div>
+            <div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="goal-target" value="1000000" min="0" oninput="calculateGoal()" /></div>
+            <div class="presets">
+              <button class="preset-btn" onclick="setField('goal-target',100000,this);calculateGoal()">$100K</button>
+              <button class="preset-btn" onclick="setField('goal-target',250000,this);calculateGoal()">$250K</button>
+              <button class="preset-btn" onclick="setField('goal-target',500000,this);calculateGoal()">$500K</button>
+              <button class="preset-btn active" onclick="setField('goal-target',1000000,this);calculateGoal()">$1M</button>
+            </div>
+          </div>
+          <div class="field">
+            <div class="field-label">Starting Amount <span class="field-hint">What you have today</span></div>
+            <div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="goal-initial" value="10000" min="0" oninput="calculateGoal()" /></div>
+          </div>
+          <div class="field">
+            <div class="field-label">Monthly Contribution <span class="field-hint">Amount you can add each month</span></div>
+            <div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="goal-monthly" value="500" min="0" oninput="calculateGoal()" /></div>
+          </div>
+          <div class="field">
+            <div class="field-label">Expected Annual Return <span class="field-hint">7% is the stock market historical average</span></div>
+            <div class="input-wrap"><input type="number" id="goal-rate" value="7" min="1" max="20" step="0.5" oninput="calculateGoal()" /><span class="input-suffix">% per year</span></div>
+          </div>
+
+        </div><!-- end inputs-goal -->
+
+        <div id="inputs-monthly" style="display:none">
+
+          <div class="field">
+            <div class="field-label">Target Amount <span class="field-hint">How much you want to end up with</span></div>
+            <div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="monthly-target" value="500000" min="0" oninput="calculateMonthly()" /></div>
+          </div>
+          <div class="field">
+            <div class="field-label">Starting Amount <span class="field-hint">What you have today</span></div>
+            <div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="monthly-initial" value="0" min="0" oninput="calculateMonthly()" /></div>
+          </div>
+          <div class="field">
+            <div class="field-label">Time Horizon <span class="field-hint">Years until you need the money</span></div>
+            <div class="input-wrap"><input type="number" id="monthly-years" value="20" min="1" max="50" oninput="calculateMonthly()" /><span class="input-suffix">years</span></div>
+          </div>
+          <div class="field">
+            <div class="field-label">Expected Annual Return <span class="field-hint">7% is the stock market historical average</span></div>
+            <div class="input-wrap"><input type="number" id="monthly-rate" value="7" min="1" max="20" step="0.5" oninput="calculateMonthly()" /><span class="input-suffix">% per year</span></div>
+          </div>
+
+        </div><!-- end inputs-monthly -->
+
+      </div><!-- end input-panel -->
+
+      <!-- RESULTS PANEL -->
+      <div class="results-panel">
+
+        <div class="result-cards" id="result-cards">
+          <!-- filled by JS -->
+        </div>
+
+        <div class="chart-wrap">
+          <div class="chart-title" id="chart-title">Investment Growth Over Time</div>
+          <canvas id="chart" height="200"></canvas>
+        </div>
+
+        <div>
+          <div class="chart-title">Year-by-Year Breakdown</div>
+          <div class="breakdown">
+            <div class="breakdown-header">
+              <span>Year</span>
+              <span>Total Contributed</span>
+              <span>Interest Earned</span>
+              <span>Balance</span>
+            </div>
+            <div id="breakdown-rows">
+              <!-- filled by JS -->
+            </div>
+          </div>
+        </div>
+
+        <div class="insights" id="insights">
+          <!-- filled by JS -->
+        </div>
+
+      </div><!-- end results-panel -->
+
+    </div><!-- end calc-body -->
+  </div><!-- end calc-card -->
+
+</div><!-- end wrap -->
+
+<!-- EXPLAINER -->
+<div class="explainer">
+  <div class="section-heading">How compound interest actually works</div>
+  <p class="section-sub">The most powerful force in personal finance — explained without jargon.</p>
+
+  <div class="explainer-grid">
+    <div class="exp-card">
+      <div class="exp-icon">🌱</div>
+      <div class="exp-title">What is compound interest?</div>
+      <div class="exp-text">Simple interest pays you interest only on your original deposit. Compound interest pays you interest on your deposit <em>and</em> on all the interest you have already earned. Over time, the difference becomes enormous.</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon">📅</div>
+      <div class="exp-title">Why time is the most important variable</div>
+      <div class="exp-text">$10,000 invested for 10 years at 7% grows to $19,672. The same $10,000 invested for 30 years grows to $76,123. The extra 20 years adds almost $57,000 — without investing a single additional dollar. Starting earlier matters more than investing more later.</div>
+    </div>
+    <div class="exp-card">
+      <div class="exp-icon">📈</div>
+      <div class="exp-title">What return rate should you use?</div>
+      <div class="exp-text">The United States stock market has returned an average of approximately 10% per year before inflation, and roughly 7% after adjusting for inflation. For conservative estimates, use 6–7%. For aggressive scenarios, use 9–10%. Avoid anything above 12% — it is not realistic long-term.</div>
+    </div>
+  </div>
+
+  <div style="margin-top:48px;">
+    <div class="section-heading">Frequently asked questions</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is a realistic annual return to expect?</div>
+        <div class="faq-a">The historical average annual return of the United States stock market (specifically the S&P 500) is approximately 10% before inflation, or 7% after adjusting for inflation. For a diversified portfolio of index funds, 6–8% is a reasonable long-term expectation. More conservative portfolios with bonds typically return 4–6%. Never plan around returns above 12% for long-term projections.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does monthly compounding differ from annual compounding?</div>
+        <div class="faq-a">With annual compounding, interest is calculated once per year on your balance. With monthly compounding, interest is calculated 12 times per year — meaning each month's interest earns interest the following month. On a $10,000 investment at 7% annual rate over 20 years, monthly compounding yields approximately $400 more than annual compounding. The difference grows significantly with larger amounts and longer time horizons.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this calculator accounting for taxes and inflation?</div>
+        <div class="faq-a">No — this calculator shows nominal growth without adjusting for taxes or inflation. In reality: (1) Investments in taxable accounts are subject to capital gains tax when sold; (2) Investments in a Roth IRA grow tax-free; (3) Inflation of approximately 2–3% per year erodes purchasing power. To get an inflation-adjusted estimate, subtract 2–3 percentage points from your expected return rate. For tax-advantaged accounts like a Roth IRA, the numbers shown are closer to your real take-home result.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the best way to invest money long-term?</div>
+        <div class="faq-a">For most people, the most proven strategy is: (1) Open a Roth IRA and contribute up to $7,000 per year; (2) Invest in a low-cost total market index fund such as VTI or FSKAX, with an expense ratio under 0.05%; (3) Set up automatic monthly contributions; (4) Never stop contributing during market downturns — that is when shares are on sale. This approach has outperformed most actively managed funds over any 15-year period in history.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much should I invest each month?</div>
+        <div class="faq-a">A common starting guideline is 15% of your gross income toward retirement. However, the most important thing is consistency — even $100 per month invested starting at age 25 grows to approximately $263,000 by age 65 at a 7% annual return. Use the Monthly Contribution calculator above to find the exact amount you need to reach any specific goal.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a class="footer-logo" href="./index.html">
+      <div class="footer-logo-icon">💸</div>
+      <span class="footer-logo-name">MoneyMoves</span>
+    </a>
+    <div class="footer-links">
+      <a href="./index.html">Financial Plan Tool</a>
+      <a href="./directory.html">Money Lessons</a>
+      <a href="./blog.html">Blog</a>
+    </div>
+    <p class="footer-disc">For educational purposes only. Not financial advice. Past returns do not guarantee future results.</p>
+  </div>
+</footer>
+
+<script>
+// ════════════════════════════════════════════
+// UTILITIES
+// ════════════════════════════════════════════
+const fmt  = n => '$' + Math.round(n).toLocaleString('en-US');
+const fmtK = n => n >= 1000000 ? '$' + (n/1000000).toFixed(2) + 'M' : n >= 1000 ? '$' + (n/1000).toFixed(1) + 'K' : '$' + Math.round(n);
+
+function get(id){ return parseFloat(document.getElementById(id).value)||0; }
+
+function syncRange(inputId, rangeId){
+  const v = document.getElementById(rangeId).value;
+  document.getElementById(inputId).value = v;
+}
+function syncRangeFromInput(inputId, rangeId){
+  const v = document.getElementById(inputId).value;
+  document.getElementById(rangeId).value = v;
+}
+
+function setField(id, val, btn){
+  document.getElementById(id).value = val;
+  // Update active preset in same group
+  btn.closest('.presets').querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function updateRateHint(){
+  const r = get('g-rate');
+  const hints = {
+    1:'Very conservative (e.g. savings account)',
+    2:'Conservative',
+    3:'Conservative portfolio',
+    4:'Conservative portfolio (bonds heavy)',
+    5:'Moderate conservative',
+    6:'Moderate (60/40 stocks + bonds)',
+    7:'Historical inflation-adjusted average',
+    8:'Moderate aggressive (mostly index funds)',
+    9:'Aggressive (heavy stocks)',
+    10:'Historical nominal average (S&P 500)',
+    11:'Above average — optimistic scenario',
+    12:'Very optimistic',
+  };
+  document.getElementById('g-rate-hint').textContent = hints[Math.round(r)] || (r > 12 ? 'Very high — use cautiously' : '');
+  document.getElementById('g-rate-range').value = Math.min(r, 15);
+}
+
+// ════════════════════════════════════════════
+// MODE SWITCHING
+// ════════════════════════════════════════════
+let currentMode = 'growth';
+function setMode(mode, btn){
+  currentMode = mode;
+  document.querySelectorAll('.mode-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('inputs-growth').style.display = mode==='growth' ? '' : 'none';
+  document.getElementById('inputs-goal').style.display   = mode==='goal'   ? '' : 'none';
+  document.getElementById('inputs-monthly').style.display= mode==='monthly'? '' : 'none';
+  if(mode==='growth')  calculate();
+  if(mode==='goal')    calculateGoal();
+  if(mode==='monthly') calculateMonthly();
+}
+
+// ════════════════════════════════════════════
+// CORE CALCULATION — compound growth
+// ════════════════════════════════════════════
+function compoundGrowth(principal, monthlyContrib, annualRate, years, freqPerYear){
+  const r = (annualRate/100) / freqPerYear;
+  const n = Math.round(years * freqPerYear);
+  const monthsPerPeriod = 12 / freqPerYear;
+
+  let balance = principal;
+  const data = [{year:0, balance, contributed:principal, interest:0}];
+
+  let totalContributed = principal;
+
+  for(let yr=1; yr<=years; yr++){
+    for(let p=0; p<freqPerYear; p++){
+      balance = balance * (1+r) + monthlyContrib * monthsPerPeriod;
+      totalContributed += monthlyContrib * monthsPerPeriod;
+    }
+    data.push({
+      year: yr,
+      balance: Math.round(balance),
+      contributed: Math.round(totalContributed),
+      interest: Math.round(balance - totalContributed)
+    });
+  }
+  return data;
+}
+
+// ════════════════════════════════════════════
+// GROWTH MODE
+// ════════════════════════════════════════════
+function calculate(){
+  const initial  = get('g-initial');
+  const monthly  = get('g-monthly');
+  const rate     = get('g-rate');
+  const years    = Math.round(get('g-years'));
+  const freq     = get('g-freq') || 12;
+
+  document.getElementById('g-years-hint').textContent = years + (years===1?' year':' years');
+
+  const data = compoundGrowth(initial, monthly, rate, years, freq);
+  const final = data[data.length-1];
+  const totalContrib = final.contributed;
+  const totalInterest = final.interest;
+  const finalBalance = final.balance;
+
+  renderResultCards([
+    { label:'Final Balance',           value: fmtK(finalBalance),    sub:'After '+years+' years', highlight:true },
+    { label:'Total Contributed',       value: fmtK(totalContrib),     sub:'Your actual money in'  },
+    { label:'Interest Earned',         value: fmtK(totalInterest),    sub:'Pure compound growth'  },
+  ]);
+
+  renderChart(data, 'Investment Growth Over Time');
+  renderBreakdown(data, years);
+  renderInsights(initial, monthly, rate, years, finalBalance, totalContrib, totalInterest);
+}
+
+// ════════════════════════════════════════════
+// GOAL MODE — how long to reach target
+// ════════════════════════════════════════════
+function calculateGoal(){
+  const target  = get('goal-target');
+  const initial = get('goal-initial');
+  const monthly = get('goal-monthly');
+  const rate    = get('goal-rate');
+
+  if(!target || !rate) return;
+
+  // Find years needed
+  let years = 0;
+  let balance = initial;
+  const r = (rate/100)/12;
+  while(balance < target && years < 200){
+    balance = balance * (1+r) + monthly;
+    years++;
+  }
+  const yearsNeeded = (years/12).toFixed(1);
+  const data = compoundGrowth(initial, monthly, rate, Math.ceil(years/12), 12);
+  const final = data[data.length-1];
+
+  renderResultCards([
+    { label:'Years to Goal',          value: yearsNeeded + ' yrs',      sub:'To reach '+fmt(target),        highlight:true },
+    { label:'Total Contributed',      value: fmtK(final.contributed),   sub:'Your money invested'           },
+    { label:'Interest Earned',        value: fmtK(final.interest),      sub:'Compound growth added'         },
+  ]);
+
+  document.getElementById('chart-title').textContent = 'Path to ' + fmt(target);
+  renderChart(data, 'Path to ' + fmt(target));
+  renderBreakdown(data, Math.ceil(years/12));
+
+  document.getElementById('insights').innerHTML = `
+    <div class="insight">
+      <span class="insight-icon">🎯</span>
+      <div class="insight-text">
+        At <strong>${rate}% annual return</strong> with <strong>${fmt(monthly)}/month</strong> contributions starting from <strong>${fmt(initial)}</strong>,
+        you will reach <strong>${fmt(target)}</strong> in approximately <strong>${yearsNeeded} years</strong>.
+      </div>
+    </div>
+    <div class="insight">
+      <span class="insight-icon">⚡</span>
+      <div class="insight-text">
+        Increasing your monthly contribution by just <strong>${fmt(monthly*0.2)}/month</strong> (20% more) would shave off
+        <strong>several years</strong> from your timeline. Small increases compound over time.
+      </div>
+    </div>`;
+}
+
+// ════════════════════════════════════════════
+// MONTHLY MODE — how much per month to reach target
+// ════════════════════════════════════════════
+function calculateMonthly(){
+  const target  = get('monthly-target');
+  const initial = get('monthly-initial');
+  const years   = get('monthly-years');
+  const rate    = get('monthly-rate');
+
+  if(!target || !rate || !years) return;
+
+  const r = (rate/100)/12;
+  const n = years * 12;
+  // FV = P*(1+r)^n + PMT * [((1+r)^n - 1)/r]
+  // Solve for PMT: PMT = (FV - P*(1+r)^n) / [((1+r)^n - 1)/r]
+  const growth = Math.pow(1+r, n);
+  const pmt = (target - initial * growth) / ((growth - 1) / r);
+  const monthly = Math.max(0, pmt);
+
+  const data = compoundGrowth(initial, monthly, rate, years, 12);
+  const final = data[data.length-1];
+
+  renderResultCards([
+    { label:'Monthly Needed',         value: fmt(monthly),             sub:'Per month for '+years+' years', highlight:true },
+    { label:'Total You Invest',       value: fmtK(final.contributed),  sub:'Your actual money out'          },
+    { label:'Compound Growth Added',  value: fmtK(final.interest),     sub:'Interest does the rest'         },
+  ]);
+
+  renderChart(data, 'Growth Path to ' + fmt(target));
+  renderBreakdown(data, years);
+
+  document.getElementById('insights').innerHTML = `
+    <div class="insight">
+      <span class="insight-icon">📅</span>
+      <div class="insight-text">
+        To reach <strong>${fmt(target)}</strong> in <strong>${years} years</strong> at <strong>${rate}% annual return</strong>,
+        you need to invest <strong>${fmt(monthly)} per month</strong>.
+        That is <strong>${fmt(monthly*12)} per year</strong> or <strong>${fmt(monthly/4.33)} per week</strong>.
+      </div>
+    </div>
+    <div class="insight">
+      <span class="insight-icon">💡</span>
+      <div class="insight-text">
+        Of your <strong>${fmt(target)}</strong> goal, you personally contribute <strong>${fmtK(final.contributed)}</strong>.
+        Compound interest provides the remaining <strong>${fmtK(final.interest)}</strong> — that is <strong>${Math.round(final.interest/target*100)}%</strong> for free.
+      </div>
+    </div>`;
+}
+
+// ════════════════════════════════════════════
+// RENDER HELPERS
+// ════════════════════════════════════════════
+function renderResultCards(cards){
+  document.getElementById('result-cards').innerHTML = cards.map(c=>`
+    <div class="result-card ${c.highlight?'highlight':''}">
+      <div class="result-label">${c.label}</div>
+      <div class="result-value">${c.value}</div>
+      <div class="result-sub">${c.sub}</div>
+    </div>`).join('');
+}
+
+function renderBreakdown(data, years){
+  // Show milestones: every 5 years for long horizons, every year for short
+  const step = years <= 10 ? 1 : years <= 20 ? 2 : 5;
+  const rows = data.filter(d => d.year > 0 && (d.year % step === 0 || d.year === years));
+  document.getElementById('breakdown-rows').innerHTML = rows.map(d=>`
+    <div class="breakdown-row">
+      <span class="yr">Year ${d.year}</span>
+      <span class="contrib">${fmtK(d.contributed)}</span>
+      <span class="interest">+${fmtK(d.interest)}</span>
+      <span class="total">${fmtK(d.balance)}</span>
+    </div>`).join('');
+}
+
+function renderInsights(initial, monthly, rate, years, finalBalance, totalContrib, totalInterest){
+  const multiplier = (finalBalance / (initial||1)).toFixed(1);
+  const doubleYears = (72/rate).toFixed(1);
+  const interestPct = Math.round(totalInterest/finalBalance*100);
+
+  document.getElementById('insights').innerHTML = `
+    <div class="insight">
+      <span class="insight-icon">🚀</span>
+      <div class="insight-text">
+        Your money grows <strong>${multiplier}× in ${years} years</strong>.
+        Of your final balance of <strong>${fmtK(finalBalance)}</strong>,
+        <strong>${interestPct}% comes from compound interest</strong> — not from money you deposited.
+        That is <strong>${fmtK(totalInterest)}</strong> earned without working for it.
+      </div>
+    </div>
+    <div class="insight">
+      <span class="insight-icon">⏱️</span>
+      <div class="insight-text">
+        At <strong>${rate}% annual return</strong>, your investment doubles approximately every <strong>${doubleYears} years</strong>.
+        This is called the <strong>Rule of 72</strong> — divide 72 by your return rate to find your doubling time.
+      </div>
+    </div>
+    ${monthly > 0 ? `
+    <div class="insight">
+      <span class="insight-icon">📅</span>
+      <div class="insight-text">
+        Your monthly contribution of <strong>${fmt(monthly)}</strong> adds up to <strong>${fmtK(monthly*12*years)}</strong> over ${years} years.
+        But with compound interest, it generates <strong>${fmtK(totalContrib - initial + totalInterest - (initial * (Math.pow(1+rate/100,years)-1)))}</strong> in additional growth on top of that.
+      </div>
+    </div>` : ''}`;
+}
+
+// ════════════════════════════════════════════
+// CHART — pure canvas, no library needed
+// ════════════════════════════════════════════
+function renderChart(data, title){
+  document.getElementById('chart-title').textContent = title;
+  const canvas = document.getElementById('chart');
+  const ctx    = canvas.getContext('2d');
+  const dpr    = window.devicePixelRatio || 1;
+
+  const W = canvas.parentElement.offsetWidth;
+  const H = 220;
+  canvas.width  = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width  = W + 'px';
+  canvas.style.height = H + 'px';
+  ctx.scale(dpr, dpr);
+
+  const pad = {top:16, right:16, bottom:36, left:64};
+  const cW  = W - pad.left - pad.right;
+  const cH  = H - pad.top  - pad.bottom;
+
+  ctx.clearRect(0, 0, W, H);
+
+  const maxVal = data[data.length-1].balance;
+  const years  = data[data.length-1].year;
+
+  // Grid lines
+  ctx.strokeStyle = '#F0F0F2';
+  ctx.lineWidth   = 1;
+  for(let i=0; i<=4; i++){
+    const y = pad.top + cH - (i/4)*cH;
+    ctx.beginPath(); ctx.moveTo(pad.left,y); ctx.lineTo(pad.left+cW,y); ctx.stroke();
+    ctx.fillStyle   = '#A1A1AA';
+    ctx.font        = '11px Inter, sans-serif';
+    ctx.textAlign   = 'right';
+    ctx.fillText(fmtK(maxVal*(i/4)), pad.left-6, y+4);
+  }
+
+  // X axis labels
+  ctx.fillStyle = '#A1A1AA';
+  ctx.textAlign = 'center';
+  ctx.font = '11px Inter, sans-serif';
+  const labelStep = years <= 10 ? 1 : years <= 20 ? 5 : 10;
+  for(let yr=0; yr<=years; yr+=labelStep){
+    const x = pad.left + (yr/years)*cW;
+    ctx.fillText('Yr '+yr, x, H-pad.bottom+16);
+  }
+
+  // Fill area — contributions
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top+cH);
+  data.forEach(d=>{
+    const x = pad.left + (d.year/years)*cW;
+    const y = pad.top + cH - (d.contributed/maxVal)*cH;
+    ctx.lineTo(x, y);
+  });
+  ctx.lineTo(pad.left+cW, pad.top+cH);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(187,247,208,0.6)';
+  ctx.fill();
+
+  // Fill area — total balance (above contributions = interest)
+  ctx.beginPath();
+  ctx.moveTo(pad.left, pad.top+cH);
+  data.forEach(d=>{
+    const x = pad.left + (d.year/years)*cW;
+    const y = pad.top + cH - (d.balance/maxVal)*cH;
+    ctx.lineTo(x, y);
+  });
+  ctx.lineTo(pad.left+cW, pad.top+cH);
+  ctx.closePath();
+  ctx.fillStyle = 'rgba(22,163,74,0.15)';
+  ctx.fill();
+
+  // Line — total balance
+  ctx.beginPath();
+  data.forEach((d,i)=>{
+    const x = pad.left + (d.year/years)*cW;
+    const y = pad.top + cH - (d.balance/maxVal)*cH;
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.strokeStyle = '#16A34A';
+  ctx.lineWidth   = 2.5;
+  ctx.lineJoin    = 'round';
+  ctx.stroke();
+
+  // Line — contributions
+  ctx.beginPath();
+  data.forEach((d,i)=>{
+    const x = pad.left + (d.year/years)*cW;
+    const y = pad.top + cH - (d.contributed/maxVal)*cH;
+    i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+  });
+  ctx.strokeStyle = '#BBF7D0';
+  ctx.lineWidth   = 1.5;
+  ctx.setLineDash([4,4]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // End dot
+  const lastX = pad.left + cW;
+  const lastY = pad.top + cH - (data[data.length-1].balance/maxVal)*cH;
+  ctx.beginPath(); ctx.arc(lastX, lastY, 5, 0, Math.PI*2);
+  ctx.fillStyle = '#16A34A'; ctx.fill();
+  ctx.strokeStyle = 'white'; ctx.lineWidth = 2; ctx.stroke();
+
+  // Legend
+  const lx = pad.left + 8;
+  const ly = pad.top + 14;
+  ctx.fillStyle = '#16A34A';
+  ctx.fillRect(lx, ly-8, 12, 3);
+  ctx.fillStyle = '#71717A';
+  ctx.font = '11px Inter, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('Total Balance', lx+16, ly);
+
+  ctx.setLineDash([4,4]);
+  ctx.strokeStyle = '#BBF7D0';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(lx+100, ly-6); ctx.lineTo(lx+112, ly-6); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#71717A';
+  ctx.fillText('Contributions', lx+116, ly);
+}
+
+// ── INIT ──
+window.addEventListener('resize', ()=>{ if(currentMode==='growth') calculate(); });
+calculate();
+</script>
+</body>
+</html>
