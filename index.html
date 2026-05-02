@@ -1022,6 +1022,32 @@
       .footer-bottom { flex-direction: column; align-items: flex-start; }
       .footer-links-inline { flex-wrap: wrap; gap: 12px; }
     }
+    .feat-card {
+      display: block;
+      text-decoration: none;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      transition: all .15s;
+      position: relative;
+      overflow: hidden;
+    }
+    .feat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--green);
+      opacity: 0;
+      transition: opacity .15s;
+    }
+    .feat-card:hover {
+      border-color: var(--green);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+    }
+    .feat-card:hover::before { opacity: 1; }
   </style>
 </head>
 <body>
@@ -1074,28 +1100,28 @@
   <!-- Featured resource cards - 2 per category -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
 
-    <a href="https://youtube.com/@ThePlainBagel" target="_blank" rel="noopener" style="display:block;text-decoration:none;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface);transition:all .15s;">
+    <a href="https://youtube.com/@ThePlainBagel" target="_blank" rel="noopener" class="feat-card">
       <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#DC2626;background:#FEE2E2;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px;">▶ YouTube</div>
       <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:2px;">The Plain Bagel</div>
       <div style="font-size:11px;color:var(--text-3);line-height:1.45;">Index funds & investing explained simply by a CFA</div>
       <div style="font-size:10px;font-weight:500;color:var(--green);margin-top:8px;">Invest →</div>
     </a>
 
-    <a href="https://youtube.com/@thefinancialdiet" target="_blank" rel="noopener" style="display:block;text-decoration:none;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface);transition:all .15s;">
+    <a href="https://youtube.com/@thefinancialdiet" target="_blank" rel="noopener" class="feat-card">
       <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#DC2626;background:#FEE2E2;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px;">▶ YouTube</div>
       <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:2px;">The Financial Diet</div>
       <div style="font-size:11px;color:var(--text-3);line-height:1.45;">Real budgeting advice for real people</div>
       <div style="font-size:10px;font-weight:500;color:var(--green);margin-top:8px;">Save Money →</div>
     </a>
 
-    <a href="https://www.morganhousel.com/" target="_blank" rel="noopener" style="display:block;text-decoration:none;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface);transition:all .15s;">
+    <a href="https://www.morganhousel.com/" target="_blank" rel="noopener" class="feat-card">
       <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#CA8A04;background:#FEF9C3;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px;">📚 Book</div>
       <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:2px;">The Psychology of Money</div>
       <div style="font-size:11px;color:var(--text-3);line-height:1.45;">Why smart people make dumb money decisions</div>
       <div style="font-size:10px;font-weight:500;color:var(--green);margin-top:8px;">Get Rich →</div>
     </a>
 
-    <a href="https://www.bogleheads.org/wiki/Getting_started" target="_blank" rel="noopener" style="display:block;text-decoration:none;padding:14px 16px;border:1px solid var(--border);border-radius:12px;background:var(--surface);transition:all .15s;">
+    <a href="https://www.bogleheads.org/wiki/Getting_started" target="_blank" rel="noopener" class="feat-card">
       <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#2563EB;background:#EFF6FF;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px;">📖 Guide</div>
       <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:2px;">Bogleheads Wiki</div>
       <div style="font-size:11px;color:var(--text-3);line-height:1.45;">The most comprehensive free investing guide online</div>
