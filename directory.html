@@ -195,8 +195,21 @@
       display: flex; align-items: center; justify-content: center;
       position: relative; overflow: hidden; flex-shrink: 0;
     }
+    .ch-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid rgba(255,255,255,0.3);
+      position: relative; z-index: 1;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
     .ch-thumb-initial {
-      font-size: 36px; font-weight: 800; color: rgba(255,255,255,0.9);
+      display: none;
+      width: 80px; height: 80px; border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 3px solid rgba(255,255,255,0.3);
+      align-items: center; justify-content: center;
+      font-size: 28px; font-weight: 800; color: rgba(255,255,255,0.9);
       letter-spacing: -1px; text-shadow: 0 2px 8px rgba(0,0,0,0.3);
       position: relative; z-index: 1;
     }
@@ -483,6 +496,10 @@ function renderSection(cat) {
       ${items.map(ch => `
         <div class="ch-card">
           <div class="ch-thumb" style="background:${gradient}">
+            <img class="ch-avatar"
+              src="https://unavatar.io/youtube/${ch.handle.replace('@','')}"
+              alt="${ch.name}"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
             <span class="ch-thumb-initial">${initials(ch.name)}</span>
             <span class="ch-thumb-play">▶</span>
           </div>
