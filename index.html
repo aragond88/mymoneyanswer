@@ -1024,32 +1024,34 @@
       .footer-bottom { flex-direction: column; align-items: flex-start; }
       .footer-links-inline { flex-wrap: wrap; gap: 12px; }
     }
-    .feat-card {
-      display: block;
-      text-decoration: none;
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
+    /* ── CHANNEL CARDS (resources section) ─────────── */
+    .ch-card {
       background: var(--surface);
-      transition: all .15s;
-      position: relative;
-      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 16px 16px 14px;
+      display: flex; flex-direction: column; gap: 10px;
+      transition: transform .18s var(--ease), box-shadow .18s var(--ease), border-color .18s;
     }
-    .feat-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--green);
-      opacity: 0;
-      transition: opacity .15s;
-    }
-    .feat-card:hover {
-      border-color: var(--green);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(0,0,0,.08);
-    }
-    .feat-card:hover::before { opacity: 1; }
+    .ch-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,.08); border-color: var(--green-mid); }
+    .ch-header { display: flex; align-items: center; gap: 10px; }
+    .ch-avatar-wrap { flex-shrink: 0; }
+    .ch-avatar { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); display: block; }
+    .ch-avatar-fallback { display: none; width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--border); background: var(--bg); align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: var(--text-3); }
+    .ch-meta { flex: 1; min-width: 0; }
+    .ch-name { font-size: 13px; font-weight: 700; color: var(--text-1); line-height: 1.25; letter-spacing: -0.2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .ch-handle { font-size: 10px; color: var(--text-4); margin-top: 1px; margin-bottom: 4px; }
+    .ch-tag { display: inline-block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; padding: 2px 6px; border-radius: 4px; }
+    .tag-save   { background: #EFF6FF; color: #1D4ED8; }
+    .tag-make   { background: #F5F3FF; color: #6D28D9; }
+    .tag-rich   { background: #FEF3C7; color: #B45309; }
+    .tag-invest { background: #F0FDF4; color: #15803D; }
+    .tag-online { background: #FDF2F8; color: #BE185D; }
+    .ch-desc { font-size: 11px; color: var(--text-3); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .ch-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .ch-subs { font-size: 10px; font-weight: 500; color: var(--text-4); }
+    .ch-watch { display: inline-flex; align-items: center; gap: 4px; font-family: var(--font); font-size: 10px; font-weight: 600; color: white; background: #DC2626; padding: 4px 10px; border-radius: 5px; text-decoration: none; transition: background .12s; flex-shrink: 0; }
+    .ch-watch:hover { background: #B91C1C; }
   </style>
 </head>
 <body>
@@ -1099,41 +1101,89 @@
     <a href="./directory.html" style="font-size:13px;font-weight:600;color:var(--green);text-decoration:none;white-space:nowrap;padding-bottom:2px;border-bottom:1px solid var(--green-mid);transition:border-color .12s;">Browse all resources →</a>
   </div>
 
-  <!-- Featured resource cards - 2 per category -->
+  <!-- Featured channel cards -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
 
-    <a href="https://youtube.com/@ThePlainBagel" target="_blank" rel="noopener" class="feat-card">
-      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#DC2626;background:#FEE2E2;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px;">▶ YouTube</div>
-      <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:2px;">The Plain Bagel</div>
-      <div style="font-size:11px;color:var(--text-3);line-height:1.45;">Index funds & investing explained simply by a CFA</div>
-      <div style="font-size:10px;font-weight:500;color:var(--green);margin-top:8px;">Invest →</div>
-    </a>
+    <div class="ch-card">
+      <div class="ch-header">
+        <div class="ch-avatar-wrap">
+          <img class="ch-avatar" src="https://unavatar.io/youtube/thefinancialdiet" alt="The Financial Diet" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <span class="ch-avatar-fallback">TF</span>
+        </div>
+        <div class="ch-meta">
+          <div class="ch-name">The Financial Diet</div>
+          <div class="ch-handle">@thefinancialdiet</div>
+          <span class="ch-tag tag-save">Save Money</span>
+        </div>
+      </div>
+      <div class="ch-desc">Practical money advice for real people, not spreadsheet nerds.</div>
+      <div class="ch-footer">
+        <span class="ch-subs">1.3M subscribers</span>
+        <a class="ch-watch" href="https://youtube.com/@thefinancialdiet" target="_blank" rel="noopener">▶ Watch</a>
+      </div>
+    </div>
 
-    <a href="https://youtube.com/@thefinancialdiet" target="_blank" rel="noopener" class="feat-card">
-      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#DC2626;background:#FEE2E2;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px;">▶ YouTube</div>
-      <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:2px;">The Financial Diet</div>
-      <div style="font-size:11px;color:var(--text-3);line-height:1.45;">Real budgeting advice for real people</div>
-      <div style="font-size:10px;font-weight:500;color:var(--green);margin-top:8px;">Save Money →</div>
-    </a>
+    <div class="ch-card">
+      <div class="ch-header">
+        <div class="ch-avatar-wrap">
+          <img class="ch-avatar" src="https://unavatar.io/youtube/ThePlainBagel" alt="The Plain Bagel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <span class="ch-avatar-fallback">PB</span>
+        </div>
+        <div class="ch-meta">
+          <div class="ch-name">The Plain Bagel</div>
+          <div class="ch-handle">@ThePlainBagel</div>
+          <span class="ch-tag tag-invest">Invest</span>
+        </div>
+      </div>
+      <div class="ch-desc">A CFA explains index funds, ETFs and market concepts without the jargon.</div>
+      <div class="ch-footer">
+        <span class="ch-subs">530K subscribers</span>
+        <a class="ch-watch" href="https://youtube.com/@ThePlainBagel" target="_blank" rel="noopener">▶ Watch</a>
+      </div>
+    </div>
 
-    <a href="https://www.morganhousel.com/" target="_blank" rel="noopener" class="feat-card">
-      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#CA8A04;background:#FEF9C3;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px;">📚 Book</div>
-      <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:2px;">The Psychology of Money</div>
-      <div style="font-size:11px;color:var(--text-3);line-height:1.45;">Why smart people make dumb money decisions</div>
-      <div style="font-size:10px;font-weight:500;color:var(--green);margin-top:8px;">Get Rich →</div>
-    </a>
+    <div class="ch-card">
+      <div class="ch-header">
+        <div class="ch-avatar-wrap">
+          <img class="ch-avatar" src="https://unavatar.io/youtube/ramitsethi" alt="Ramit Sethi" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <span class="ch-avatar-fallback">RS</span>
+        </div>
+        <div class="ch-meta">
+          <div class="ch-name">Ramit Sethi</div>
+          <div class="ch-handle">@ramitsethi</div>
+          <span class="ch-tag tag-make">Make Money</span>
+        </div>
+      </div>
+      <div class="ch-desc">Salary negotiation, automation and living a rich life on your terms.</div>
+      <div class="ch-footer">
+        <span class="ch-subs">1.0M subscribers</span>
+        <a class="ch-watch" href="https://youtube.com/@ramitsethi" target="_blank" rel="noopener">▶ Watch</a>
+      </div>
+    </div>
 
-    <a href="https://www.bogleheads.org/wiki/Getting_started" target="_blank" rel="noopener" class="feat-card">
-      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#2563EB;background:#EFF6FF;padding:2px 7px;border-radius:4px;display:inline-block;margin-bottom:6px;">📖 Guide</div>
-      <div style="font-size:13px;font-weight:600;color:var(--text-1);margin-bottom:2px;">Bogleheads Wiki</div>
-      <div style="font-size:11px;color:var(--text-3);line-height:1.45;">The most comprehensive free investing guide online</div>
-      <div style="font-size:10px;font-weight:500;color:var(--green);margin-top:8px;">Invest →</div>
-    </a>
+    <div class="ch-card">
+      <div class="ch-header">
+        <div class="ch-avatar-wrap">
+          <img class="ch-avatar" src="https://unavatar.io/youtube/GrahamStephan" alt="Graham Stephan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <span class="ch-avatar-fallback">GS</span>
+        </div>
+        <div class="ch-meta">
+          <div class="ch-name">Graham Stephan</div>
+          <div class="ch-handle">@GrahamStephan</div>
+          <span class="ch-tag tag-rich">Get Rich</span>
+        </div>
+      </div>
+      <div class="ch-desc">Real estate, investing and transparent wealth-building from a self-made millionaire.</div>
+      <div class="ch-footer">
+        <span class="ch-subs">4.8M subscribers</span>
+        <a class="ch-watch" href="https://youtube.com/@GrahamStephan" target="_blank" rel="noopener">▶ Watch</a>
+      </div>
+    </div>
 
   </div>
 
   <a href="./directory.html" style="display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:11px;border:1px solid var(--border);border-radius:10px;background:var(--surface);font-family:var(--font);font-size:13px;font-weight:500;color:var(--text-2);text-decoration:none;transition:all .12s;">
-    View all 30 resources across 5 categories →
+    Browse all 40 YouTube channels →
   </a>
 
 </div>
@@ -1197,9 +1247,7 @@
       <div class="footer-col">
         <div class="footer-col-title">Tools</div>
         <a href="./index.html">What to Do With My Money</a>
-        <a href="#">Can I Afford to Quit?</a>
-        <a href="#">Emergency Fund Calculator</a>
-        <a href="#">Debt Payoff Planner</a>
+        <a href="./calculator.html">Investment Calculator</a>
       </div>
 
       <div class="footer-col">
