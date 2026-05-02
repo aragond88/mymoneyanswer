@@ -263,12 +263,25 @@
     .footer-links-inline a { font-size:12px; color:rgba(255,255,255,0.25); text-decoration:none; transition:color .12s; }
     .footer-links-inline a:hover { color:rgba(255,255,255,0.55); }
 
+    /* ── MOBILE NAV ───────────────────────────────── */
+    .nav-burger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:1.5px solid var(--border); border-radius:var(--r-md); cursor:pointer; padding:8px; flex-shrink:0; }
+    .nav-burger span { display:block; height:1.5px; background:var(--text-1); border-radius:2px; transition:transform .2s,opacity .2s; }
+    .nav-burger.open span:nth-child(1) { transform:rotate(45deg) translate(4px,4px); }
+    .nav-burger.open span:nth-child(2) { opacity:0; }
+    .nav-burger.open span:nth-child(3) { transform:rotate(-45deg) translate(4px,-4px); }
+    .mobile-menu { display:none; position:absolute; top:64px; left:0; right:0; background:rgba(255,255,255,0.98); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:8px 20px 16px; flex-direction:column; box-shadow:0 4px 16px rgba(0,0,0,0.08); z-index:199; }
+    .mobile-menu.open { display:flex; }
+    .mob-link { font-size:15px; font-weight:500; color:var(--text-1); text-decoration:none; padding:11px 12px; border-radius:var(--r-md); transition:background .12s; }
+    .mob-link:hover { background:var(--bg); }
+    .mob-link.active { font-weight:600; color:var(--green); }
+
     /* ── RESPONSIVE ───────────────────────────────── */
     @media(max-width:900px) {
       .ch-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media(max-width:768px) {
       .nav-center { display: none; }
+      .nav-burger { display: flex; }
       .filter-wrap { padding: 0 16px; }
       .section-header { flex-direction: column; gap: 4px; }
       .section-desc { text-align: left; }
@@ -302,6 +315,13 @@
   </div>
   <div class="nav-right">
     <span class="nav-badge">Free</span>
+    <button class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a class="mob-link" href="./index.html">Tool</a>
+    <a class="mob-link" href="./calculator.html">Investment Calculator</a>
+    <a class="mob-link active" href="./directory.html">Money Lessons</a>
+    <a class="mob-link" href="./blog.html">Blog</a>
   </div>
 </nav>
 
@@ -514,6 +534,9 @@ function filter(cat, btn) {
   });
   history.replaceState(null, '', cat === 'all' ? location.pathname : '#' + cat);
 }
+
+// ── MOBILE MENU ───────────────────────────────────────
+function toggleMenu(){ document.getElementById('burger').classList.toggle('open'); document.getElementById('mobile-menu').classList.toggle('open'); }
 
 // ── INIT ──────────────────────────────────────────────
 ['save','make','invest','rich','online'].forEach(renderSection);

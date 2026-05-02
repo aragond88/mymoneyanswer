@@ -25,7 +25,17 @@
     p{font-size:15px;color:#71717A;line-height:1.65;margin-bottom:28px;}
     .btn{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;background:#16A34A;color:white;border:none;border-radius:10px;font-family:inherit;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;transition:background .12s,transform .12s;}
     .btn:hover{background:#15803D;transform:translateY(-1px);}
-    @media(max-width:600px){.nav-center{display:none;}.card{padding:36px 24px;}}
+    .nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:1.5px solid #E4E4E7;border-radius:10px;cursor:pointer;padding:8px;flex-shrink:0;}
+    .nav-burger span{display:block;height:1.5px;background:#09090B;border-radius:2px;transition:transform .2s,opacity .2s;}
+    .nav-burger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px);}
+    .nav-burger.open span:nth-child(2){opacity:0;}
+    .nav-burger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px);}
+    .mobile-menu{display:none;position:absolute;top:64px;left:0;right:0;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);border-bottom:1px solid #E4E4E7;padding:8px 20px 16px;flex-direction:column;box-shadow:0 4px 16px rgba(0,0,0,0.08);z-index:99;}
+    .mobile-menu.open{display:flex;}
+    .mob-link{font-size:15px;font-weight:500;color:#09090B;text-decoration:none;padding:11px 12px;border-radius:10px;transition:background .12s;}
+    .mob-link:hover{background:#FAFAFA;}
+    .mob-link.active{font-weight:600;color:#16A34A;}
+    @media(max-width:600px){.nav-center{display:none;}.nav-burger{display:flex;}.card{padding:36px 24px;}}
   </style>
 </head>
 <body>
@@ -40,7 +50,16 @@
       <a class="nav-link" href="./directory.html">Money Lessons</a>
       <a class="nav-link active" href="./blog.html">Blog</a>
     </div>
-    <div class="nav-right"><span class="nav-badge">Free</span></div>
+    <div class="nav-right">
+      <span class="nav-badge">Free</span>
+      <button class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a class="mob-link" href="./index.html">Tool</a>
+      <a class="mob-link" href="./calculator.html">Investment Calculator</a>
+      <a class="mob-link" href="./directory.html">Money Lessons</a>
+      <a class="mob-link active" href="./blog.html">Blog</a>
+    </div>
   </nav>
   <main>
     <div class="card">
@@ -51,6 +70,7 @@
     </div>
   </main>
   <script>
+    function toggleMenu(){ document.getElementById('burger').classList.toggle('open'); document.getElementById('mobile-menu').classList.toggle('open'); }
     const path = window.location.pathname;
     if(path.includes('calculator')){
       document.getElementById('page-title').textContent = 'Investment Calculator';

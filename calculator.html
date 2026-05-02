@@ -305,8 +305,20 @@
     .footer-links a:hover { color:rgba(255,255,255,0.7); }
     .footer-disc { font-size:11px; color:rgba(255,255,255,0.2); max-width:480px; line-height:1.6; text-align:right; }
 
+    /* ── MOBILE NAV ── */
+    .nav-burger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:1.5px solid var(--border); border-radius:var(--r-md); cursor:pointer; padding:8px; flex-shrink:0; }
+    .nav-burger span { display:block; height:1.5px; background:var(--text-1); border-radius:2px; transition:transform .2s,opacity .2s; }
+    .nav-burger.open span:nth-child(1) { transform:rotate(45deg) translate(4px,4px); }
+    .nav-burger.open span:nth-child(2) { opacity:0; }
+    .nav-burger.open span:nth-child(3) { transform:rotate(-45deg) translate(4px,-4px); }
+    .mobile-menu { display:none; position:absolute; top:64px; left:0; right:0; background:rgba(255,255,255,0.98); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:8px 20px 16px; flex-direction:column; box-shadow:0 4px 16px rgba(0,0,0,0.08); z-index:199; }
+    .mobile-menu.open { display:flex; }
+    .mob-link { font-size:15px; font-weight:500; color:var(--text-1); text-decoration:none; padding:11px 12px; border-radius:var(--r-md); transition:background .12s; }
+    .mob-link:hover { background:var(--bg); }
+    .mob-link.active { font-weight:600; color:var(--green); }
+
     /* ── RESPONSIVE ── */
-    @media(max-width:768px) { .nav-center { display:none; } }
+    @media(max-width:768px) { .nav-center { display:none; } .nav-burger { display:flex; } }
     @media(max-width:700px) {
       .calc-body { grid-template-columns: 1fr; }
       .input-panel { border-right: none; border-bottom: 1px solid var(--border-2); }
@@ -340,7 +352,16 @@
     <a class="nav-link" href="./directory.html">Money Lessons</a>
     <a class="nav-link" href="./blog.html">Blog</a>
   </div>
-  <div><span class="nav-badge">Free</span></div>
+  <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
+    <span class="nav-badge">Free</span>
+    <button class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a class="mob-link" href="./index.html">Tool</a>
+    <a class="mob-link active" href="./calculator.html">Investment Calculator</a>
+    <a class="mob-link" href="./directory.html">Money Lessons</a>
+    <a class="mob-link" href="./blog.html">Blog</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -995,6 +1016,8 @@ function renderChart(data, title){
   ctx.fillStyle = '#71717A';
   ctx.fillText('Contributions', lx+116, ly);
 }
+
+function toggleMenu(){ document.getElementById('burger').classList.toggle('open'); document.getElementById('mobile-menu').classList.toggle('open'); }
 
 // ── INIT ──
 window.addEventListener('resize', ()=>{ if(currentMode==='growth') calculate(); });
