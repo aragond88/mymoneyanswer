@@ -60,7 +60,7 @@
       padding: 0 36px;
     }
     .logo { display:flex; align-items:center; gap:10px; text-decoration:none; flex-shrink:0; }
-    .logo-icon { width:32px; height:32px; background:var(--black); border-radius:var(--r-sm); display:grid; place-items:center; font-size:16px; color:white; flex-shrink:0; }
+    .logo-icon { width:32px; height:32px; background:var(--green); border-radius:var(--r-sm); display:grid; place-items:center; font-size:16px; color:white; flex-shrink:0; }
     .logo-text { font-family:var(--font); font-size:17px; font-weight:700; color:var(--text-1); letter-spacing:-0.4px; }
     .nav-center { display:flex; align-items:center; gap:4px; position:absolute; left:50%; transform:translateX(-50%); }
     .nav-link { font-family:var(--font); font-size:15px; font-weight:500; color:var(--text-3); text-decoration:none; padding:6px 14px; border-radius:var(--r-md); transition:color .12s,background .12s; white-space:nowrap; }
@@ -133,7 +133,7 @@
       white-space: nowrap;
     }
     .filter-btn:hover { background: var(--bg); color: var(--text-1); }
-    .filter-btn.active { background: var(--black); color: white; border-color: var(--black); font-weight: 600; }
+    .filter-btn.active { background: var(--green); color: white; border-color: var(--green); font-weight: 600; }
 
     /* ── MAIN CONTENT ─────────────────────────────── */
     .content { max-width: 1100px; margin: 0 auto; padding: 48px 24px 80px; }
@@ -291,7 +291,7 @@
 <!-- ── NAV ──────────────────────────────────────────── -->
 <nav>
   <a class="logo" href="./index.html">
-    <div class="logo-icon">💸</div>
+    <div class="logo-icon">$</div>
     <span class="logo-text">MyMoneyAnswer</span>
   </a>
   <div class="nav-center">
@@ -319,11 +319,11 @@
 <div class="filter-wrap">
   <div class="filter-inner">
     <button class="filter-btn active" onclick="filter('all',this)">All Channels</button>
-    <button class="filter-btn" onclick="filter('save',this)">💰 Save Money</button>
-    <button class="filter-btn" onclick="filter('make',this)">💼 Make Money</button>
-    <button class="filter-btn" onclick="filter('invest',this)">📈 Invest</button>
-    <button class="filter-btn" onclick="filter('rich',this)">🚀 Get Rich</button>
-    <button class="filter-btn" onclick="filter('online',this)">🌐 Make Money Online</button>
+    <button class="filter-btn" onclick="filter('save',this)">Save Money</button>
+    <button class="filter-btn" onclick="filter('make',this)">Make Money</button>
+    <button class="filter-btn" onclick="filter('invest',this)">Invest</button>
+    <button class="filter-btn" onclick="filter('rich',this)">Get Rich</button>
+    <button class="filter-btn" onclick="filter('online',this)">Make Money Online</button>
   </div>
 </div>
 
@@ -342,7 +342,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a class="footer-brand-logo" href="./index.html">
-          <div class="footer-brand-icon">💸</div>
+          <div class="footer-brand-icon">$</div>
           <span class="footer-brand-name">MyMoneyAnswer</span>
         </a>
         <p class="footer-brand-desc">Free personal finance tools built on proven principles. No signup, no paywalls — just clear, honest financial guidance.</p>
@@ -361,7 +361,7 @@
       </div>
     </div>
     <div class="footer-disclaimer">
-      <div class="disclaimer-heading">⚠ Important Disclaimer</div>
+      <div class="disclaimer-heading">Important Disclaimer</div>
       <div class="disclaimer-body">
         <strong>Not financial advice.</strong> All content on this website — including tools, calculators, and channel recommendations — is for <strong>general informational and educational purposes only</strong>. It does not constitute personalized financial, investment, tax, or legal advice.<br><br>
         MyMoneyAnswer is not a registered investment advisor, broker-dealer, or financial planner. Before making major financial decisions, <strong>please consult a qualified, licensed financial advisor</strong> who can evaluate your specific situation.<br><br>
@@ -382,11 +382,11 @@
 <script>
 // ── CHANNEL DATA ──────────────────────────────────────
 const SECTIONS = {
-  save:   { label: 'Save Money',        icon: '💰', desc: 'Budgeting, spending less and building real savings habits.' },
-  make:   { label: 'Make Money',        icon: '💼', desc: 'Income strategies, salary growth and financial frameworks.' },
-  invest: { label: 'Invest',            icon: '📈', desc: 'Evidence-based investing, ETFs, index funds and market analysis.' },
-  rich:   { label: 'Get Rich',          icon: '🚀', desc: 'Wealth building, real estate and long-term financial independence.' },
-  online: { label: 'Make Money Online', icon: '🌐', desc: 'Content creation, niche sites, passive income and the creator economy.' },
+  save:   { label: 'Save Money',        desc: 'Budgeting, spending less and building real savings habits.' },
+  make:   { label: 'Make Money',        desc: 'Income strategies, salary growth and financial frameworks.' },
+  invest: { label: 'Invest',            desc: 'Evidence-based investing, ETFs, index funds and market analysis.' },
+  rich:   { label: 'Get Rich',          desc: 'Wealth building, real estate and long-term financial independence.' },
+  online: { label: 'Make Money Online', desc: 'Content creation, niche sites, passive income and the creator economy.' },
 };
 
 // Gradient themes per category
@@ -468,7 +468,7 @@ function renderSection(cat) {
   sec.innerHTML = `
     <div class="section-header">
       <div class="section-title">
-        ${meta.icon} ${meta.label}
+        ${meta.label}
         <span class="section-count">${items.length} channels</span>
       </div>
       <div class="section-desc">${meta.desc}</div>

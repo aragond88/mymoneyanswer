@@ -63,7 +63,7 @@
       padding: 0 36px;
     }
     .logo { display:flex; align-items:center; gap:10px; text-decoration:none; flex-shrink:0; }
-    .logo-icon { width:32px; height:32px; background:var(--black); border-radius:var(--r-sm); display:grid; place-items:center; font-size:16px; color:white; }
+    .logo-icon { width:32px; height:32px; background:var(--green); border-radius:var(--r-sm); display:grid; place-items:center; font-size:16px; color:white; }
     .logo-text { font-size:17px; font-weight:700; color:var(--text-1); letter-spacing:-0.4px; }
     .nav-center { display:flex; align-items:center; gap:4px; position:absolute; left:50%; transform:translateX(-50%); }
     .nav-link { font-size:15px; font-weight:500; color:var(--text-3); text-decoration:none; padding:6px 14px; border-radius:var(--r-md); transition:color .12s,background .12s; white-space:nowrap; }
@@ -123,7 +123,7 @@
       text-align: center; background: transparent;
     }
     .mode-tab:hover { background: var(--bg); color: var(--text-1); }
-    .mode-tab.active { background: var(--black); color: white; font-weight: 600; }
+    .mode-tab.active { background: var(--green); color: white; font-weight: 600; }
 
     /* ── MAIN CARD ── */
     .calc-card {
@@ -331,7 +331,7 @@
 <!-- NAV -->
 <nav>
   <a class="logo" href="./index.html">
-    <div class="logo-icon">💸</div>
+    <div class="logo-icon">$</div>
     <span class="logo-text">MyMoneyAnswer</span>
   </a>
   <div class="nav-center">
@@ -355,9 +355,9 @@
 
   <!-- MODE TABS -->
   <div class="mode-tabs">
-    <button class="mode-tab active" onclick="setMode('growth',this)">📈 Investment Growth</button>
-    <button class="mode-tab" onclick="setMode('goal',this)">🎯 Goal Calculator</button>
-    <button class="mode-tab" onclick="setMode('monthly',this)">📅 Monthly Contribution</button>
+    <button class="mode-tab active" onclick="setMode('growth',this)">Investment Growth</button>
+    <button class="mode-tab" onclick="setMode('goal',this)">Goal Calculator</button>
+    <button class="mode-tab" onclick="setMode('monthly',this)">Monthly Contribution</button>
   </div>
 
   <!-- CALCULATOR CARD -->
@@ -548,17 +548,14 @@
 
   <div class="explainer-grid">
     <div class="exp-card">
-      <div class="exp-icon">🌱</div>
       <div class="exp-title">What is compound interest?</div>
       <div class="exp-text">Simple interest pays you interest only on your original deposit. Compound interest pays you interest on your deposit <em>and</em> on all the interest you have already earned. Over time, the difference becomes enormous.</div>
     </div>
     <div class="exp-card">
-      <div class="exp-icon">📅</div>
       <div class="exp-title">Why time is the most important variable</div>
       <div class="exp-text">$10,000 invested for 10 years at 7% grows to $19,672. The same $10,000 invested for 30 years grows to $76,123. The extra 20 years adds almost $57,000 — without investing a single additional dollar. Starting earlier matters more than investing more later.</div>
     </div>
     <div class="exp-card">
-      <div class="exp-icon">📈</div>
       <div class="exp-title">What return rate should you use?</div>
       <div class="exp-text">The United States stock market has returned an average of approximately 10% per year before inflation, and roughly 7% after adjusting for inflation. For conservative estimates, use 6–7%. For aggressive scenarios, use 9–10%. Avoid anything above 12% — it is not realistic long-term.</div>
     </div>
@@ -595,7 +592,7 @@
 <footer>
   <div class="footer-inner">
     <a class="footer-logo" href="./index.html">
-      <div class="footer-logo-icon">💸</div>
+      <div class="footer-logo-icon">$</div>
       <span class="footer-logo-name">MyMoneyAnswer</span>
     </a>
     <div class="footer-links">
@@ -760,14 +757,12 @@ function calculateGoal(){
 
   document.getElementById('insights').innerHTML = `
     <div class="insight">
-      <span class="insight-icon">🎯</span>
       <div class="insight-text">
         At <strong>${rate}% annual return</strong> with <strong>${fmt(monthly)}/month</strong> contributions starting from <strong>${fmt(initial)}</strong>,
         you will reach <strong>${fmt(target)}</strong> in approximately <strong>${yearsNeeded} years</strong>.
       </div>
     </div>
     <div class="insight">
-      <span class="insight-icon">⚡</span>
       <div class="insight-text">
         Increasing your monthly contribution by just <strong>${fmt(monthly*0.2)}/month</strong> (20% more) would shave off
         <strong>several years</strong> from your timeline. Small increases compound over time.
@@ -808,7 +803,6 @@ function calculateMonthly(){
 
   document.getElementById('insights').innerHTML = `
     <div class="insight">
-      <span class="insight-icon">📅</span>
       <div class="insight-text">
         To reach <strong>${fmt(target)}</strong> in <strong>${years} years</strong> at <strong>${rate}% annual return</strong>,
         you need to invest <strong>${fmt(monthly)} per month</strong>.
@@ -816,7 +810,6 @@ function calculateMonthly(){
       </div>
     </div>
     <div class="insight">
-      <span class="insight-icon">💡</span>
       <div class="insight-text">
         Of your <strong>${fmt(target)}</strong> goal, you personally contribute <strong>${fmtK(final.contributed)}</strong>.
         Compound interest provides the remaining <strong>${fmtK(final.interest)}</strong> — that is <strong>${Math.round(final.interest/target*100)}%</strong> for free.
@@ -856,7 +849,6 @@ function renderInsights(initial, monthly, rate, years, finalBalance, totalContri
 
   document.getElementById('insights').innerHTML = `
     <div class="insight">
-      <span class="insight-icon">🚀</span>
       <div class="insight-text">
         Your money grows <strong>${multiplier}× in ${years} years</strong>.
         Of your final balance of <strong>${fmtK(finalBalance)}</strong>,
@@ -865,7 +857,6 @@ function renderInsights(initial, monthly, rate, years, finalBalance, totalContri
       </div>
     </div>
     <div class="insight">
-      <span class="insight-icon">⏱️</span>
       <div class="insight-text">
         At <strong>${rate}% annual return</strong>, your investment doubles approximately every <strong>${doubleYears} years</strong>.
         This is called the <strong>Rule of 72</strong> — divide 72 by your return rate to find your doubling time.
@@ -873,7 +864,6 @@ function renderInsights(initial, monthly, rate, years, finalBalance, totalContri
     </div>
     ${monthly > 0 ? `
     <div class="insight">
-      <span class="insight-icon">📅</span>
       <div class="insight-text">
         Your monthly contribution of <strong>${fmt(monthly)}</strong> adds up to <strong>${fmtK(monthly*12*years)}</strong> over ${years} years.
         But with compound interest, it generates <strong>${fmtK(totalContrib - initial + totalInterest - (initial * (Math.pow(1+rate/100,years)-1)))}</strong> in additional growth on top of that.
