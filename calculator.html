@@ -303,16 +303,7 @@
     .faq-item.open .faq-a { display: block; }
 
     /* ── FOOTER ── */
-    footer { background: var(--black); padding: 40px 24px 32px; }
-    .footer-inner { max-width: 960px; margin: 0 auto; display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:32px; }
-    .footer-left { display:flex; flex-direction:column; gap:12px; }
-    .footer-logo { display:flex; align-items:center; gap:8px; text-decoration:none; flex-shrink:0; }
-    .footer-logo-icon { width:26px;height:26px;background:var(--green);border-radius:var(--r-sm);display:grid;place-items:center;font-size:13px;color:white; }
-    .footer-logo-name { font-size:15px;font-weight:700;color:rgba(255,255,255,0.75); }
-    .footer-links { display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end; max-width:440px; }
-    .footer-links a { font-size:13px; color:rgba(255,255,255,0.4); text-decoration:none; transition:color .12s; }
-    .footer-links a:hover { color:rgba(255,255,255,0.75); }
-    .footer-disc { font-size:11px; color:rgba(255,255,255,0.5); max-width:280px; line-height:1.6; }
+    
 
     /* ── COUNTRY TOGGLE + OPEN AN ACCOUNT ── */
     .ctry-toggle { display:flex; gap:8px; margin-bottom:6px; }
@@ -359,9 +350,10 @@
       .breakdown-header, .breakdown-row { grid-template-columns: 50px 1fr 1fr; }
       .breakdown-header span:nth-child(3),
       .breakdown-row .interest { display: none; }
-      .footer-disc { text-align: left; }
+      
     }
   </style>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 
@@ -638,9 +630,9 @@
   <div class="footer-inner">
     <div class="footer-left">
       <a class="footer-logo" href="./index.html">
-      <div class="footer-logo-icon">$</div>
-      <span class="footer-logo-name">MyMoneyAnswer</span>
-    </a>
+        <div class="footer-logo-icon">$</div>
+        <span class="footer-logo-name">MyMoneyAnswer</span>
+      </a>
       <p class="footer-disc">For general educational information only. Results and examples are not guarantees.</p>
     </div>
     <div class="footer-links">
@@ -673,12 +665,12 @@ function setCountry(c){
 }
 const CALC_AFFS = {
   US: [
-    { n:"Fidelity",   d:"Best all-around brokerage — zero fees, Roth IRA & index funds", cta:"Open account →",      h:"https://fidelity.com/open-account" },
-    { n:"Robinhood",  d:"Simple, clean interface for starting with index funds",          cta:"Get started →",       h:"https://robinhood.com" },
+    { n:"Beginner investing guide", d:"Learn how index funds, account types, fees, and contribution habits work before choosing a platform.", cta:"Read guide →", h:"./blog.html#index-funds" },
+    { n:"Tax account guide", d:"Compare Roth Individual Retirement Accounts, Tax-Free Savings Accounts, and taxable accounts at a high level.", cta:"Read account guide →", h:"./blog.html#roth-vs-tfsa" },
   ],
   CA: [
-    { n:"Wealthsimple", d:"Best TFSA & RRSP investing in Canada — commission-free ETFs", cta:"Open account →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
-    { n:"Questrade",    d:"Low-cost ETF investing for Canadians — free to buy ETFs",     cta:"Get started →",  h:"https://questrade.com/trading/open-an-account" },
+    { n:"Wealthsimple", d:"Canadian investing platform with Tax-Free Savings Account and Registered Retirement Savings Plan options. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
+    { n:"Beginner investing guide", d:"Understand index funds, contribution habits, and platform tradeoffs before opening an account.", cta:"Read guide →", h:"./blog.html#index-funds" },
   ],
 };
 function renderOpenAccount(){
@@ -688,7 +680,7 @@ function renderOpenAccount(){
       <button class="ctry-btn ${country==='US'?'active':''}" data-c="US" onclick="setCountry('US')">🇺🇸 United States</button>
       <button class="ctry-btn ${country==='CA'?'active':''}" data-c="CA" onclick="setCountry('CA')">🇨🇦 Canada</button>
     </div>
-    <div class="open-acct-label">Ready to invest? Open an account — ${country==='CA'?'🇨🇦 Canada':'🇺🇸 United States'}</div>
+    <div class="open-acct-label">Ready to invest? Account resources — ${country==='CA'?'🇨🇦 Canada':'🇺🇸 United States'}</div>
     <div class="open-acct-grid">
       ${cards.map(a=>`
         <a class="open-acct-card" href="${a.h}" target="_blank" rel="noopener noreferrer">
