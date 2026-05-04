@@ -789,7 +789,7 @@
     .ctry-btn:hover:not(.active) { background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.85); }
 
     /* ─── PAGE-LEVEL OPEN AN ACCOUNT ─────────── */
-    .page-acct-wrap { max-width:600px; margin:0 auto; padding:48px 20px 0; border-top:1px solid var(--border); }
+    .page-acct-wrap { max-width:600px; margin:0 auto; padding:48px 20px 0; }
     .page-acct-header { display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
     .page-acct-title { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--green-dark); margin-bottom:8px; }
     .page-acct-heading { font-size:22px; font-weight:600; letter-spacing:-0.3px; color:var(--text-1); line-height:1.2; }
@@ -857,14 +857,6 @@
       max-width: 600px;
       margin: 0 auto;
       padding: 48px 20px 72px;
-      border-top: 1px solid var(--border);
-    }
-    /* ─── CHANNEL CARDS GRID ────────────────────── */
-    .ch-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 16px;
     }
     .seo-wrap h2 {
       font-family: var(--serif);
@@ -982,7 +974,7 @@
       .share-bar { padding: 14px 20px; justify-content: stretch; }
       .share-btns { width: 100%; }
       .btn-action { flex: 1; justify-content: center; }
-      .res-grid, .aff-grid, .open-acct-grid, .ch-grid { grid-template-columns: 1fr; }
+      .res-grid, .aff-grid, .open-acct-grid { grid-template-columns: 1fr; }
       .al-label { min-width: 0; font-size: 13px; }
       .step-drawer-inner { padding-left: 20px; }
     }
@@ -1065,7 +1057,7 @@
 </div>
 
 <!-- ── OPEN AN ACCOUNT ───────────────────────────── -->
-<div style="background:var(--bg);">
+<div style="background:var(--bg); border-top:1px solid var(--border);">
   <div class="page-acct-wrap">
     <div class="page-acct-header">
       <div>
@@ -1080,8 +1072,8 @@
 </div>
 
 <!-- ── RESOURCES PREVIEW ─────────────────────────── -->
-<div style="background:var(--bg);">
-<div style="max-width:600px;margin:0 auto;padding:56px 20px 0;border-top:1px solid var(--border);">
+<div style="background:var(--bg); border-top:1px solid var(--border);">
+<div style="max-width:600px;margin:0 auto;padding:56px 20px 0;">
 
   <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:24px;flex-wrap:wrap;">
     <div>
@@ -1092,7 +1084,7 @@
   </div>
 
   <!-- Featured channel cards -->
-  <div class="ch-grid">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
 
     <div class="ch-card">
       <div class="ch-header">
@@ -1178,7 +1170,7 @@
 </div>
 
 <!-- ── SEO CONTENT ──────────────────────────────── -->
-<div>
+<div style="border-top:1px solid var(--border);">
 <div class="seo-wrap">
   <h2>How to decide what to do with your money</h2>
   <p>Most people know they should be doing something with their savings — but figuring out exactly what can feel overwhelming. Should you pay off debt or invest? Build an emergency fund or open a Roth IRA? The answer depends entirely on your personal financial situation, which is why generic advice rarely works.</p>
