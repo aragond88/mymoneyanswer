@@ -1,0 +1,12 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.claude/
+.vercel/
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+npm-debug.log*
