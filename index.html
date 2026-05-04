@@ -790,6 +790,7 @@
 
     /* ─── PAGE-LEVEL OPEN AN ACCOUNT ─────────── */
     .page-acct-wrap { max-width:600px; margin:0 auto; padding:48px 20px 0; }
+    .sect-rule { border-top:1px solid var(--border); margin-bottom:40px; }
     .page-acct-header { display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
     .page-acct-title { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--green-dark); margin-bottom:8px; }
     .page-acct-heading { font-size:22px; font-weight:600; letter-spacing:-0.3px; color:var(--text-1); line-height:1.2; }
@@ -856,7 +857,7 @@
     .seo-wrap {
       max-width: 600px;
       margin: 0 auto;
-      padding: 48px 20px 72px;
+      padding: 48px 20px 72px; /* top padding = space above the sect-rule line */
     }
     .seo-wrap h2 {
       font-family: var(--serif);
@@ -1057,8 +1058,9 @@
 </div>
 
 <!-- ── OPEN AN ACCOUNT ───────────────────────────── -->
-<div style="background:var(--bg); border-top:1px solid var(--border);">
+<div style="background:var(--bg);">
   <div class="page-acct-wrap">
+    <div class="sect-rule"></div>
     <div class="page-acct-header">
       <div>
         <div class="page-acct-title">Ready to take action?</div>
@@ -1072,9 +1074,9 @@
 </div>
 
 <!-- ── RESOURCES PREVIEW ─────────────────────────── -->
-<div style="background:var(--bg); border-top:1px solid var(--border);">
-<div style="max-width:600px;margin:0 auto;padding:56px 20px 0;">
-
+<div style="background:var(--bg);">
+<div style="max-width:600px;margin:0 auto;padding:48px 20px 0;">
+  <div class="sect-rule"></div>
   <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:24px;flex-wrap:wrap;">
     <div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--green-dark);margin-bottom:8px;">Free Resources</div>
@@ -1170,8 +1172,9 @@
 </div>
 
 <!-- ── SEO CONTENT ──────────────────────────────── -->
-<div style="border-top:1px solid var(--border);">
+<div>
 <div class="seo-wrap">
+  <div class="sect-rule"></div>
   <h2>How to decide what to do with your money</h2>
   <p>Most people know they should be doing something with their savings — but figuring out exactly what can feel overwhelming. Should you pay off debt or invest? Build an emergency fund or open a Roth IRA? The answer depends entirely on your personal financial situation, which is why generic advice rarely works.</p>
   <p>This free tool walks you through a 4-question framework based on the same sequence used by financial advisors: assess your debt, check your emergency fund, understand your goals, and deploy your money in the right order. The sequence matters more than the amounts.</p>
