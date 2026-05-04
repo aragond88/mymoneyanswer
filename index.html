@@ -798,6 +798,7 @@
     /* ─── OPEN AN ACCOUNT SECTION ───────────── */
     .open-acct-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-3); margin-bottom:12px; }
     .open-acct-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .ch-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
     .open-acct-card { display:flex; flex-direction:column; border:1.5px solid var(--green-mid); border-radius:var(--r-lg); padding:16px 18px; background:var(--green-light); text-decoration:none; transition:all .15s var(--ease); }
     .open-acct-card:hover { border-color:var(--green); background:#DCFCE7; transform:translateY(-2px); box-shadow:0 4px 12px var(--green-glow); }
     .open-acct-name { font-size:14px; font-weight:700; color:var(--text-1); margin-bottom:4px; }
@@ -975,7 +976,7 @@
       .share-bar { padding: 14px 20px; justify-content: stretch; }
       .share-btns { width: 100%; }
       .btn-action { flex: 1; justify-content: center; }
-      .res-grid, .aff-grid, .open-acct-grid { grid-template-columns: 1fr; }
+      .res-grid, .aff-grid, .open-acct-grid, .ch-grid { grid-template-columns: 1fr; }
       .al-label { min-width: 0; font-size: 13px; }
       .step-drawer-inner { padding-left: 20px; }
     }
@@ -1086,7 +1087,7 @@
   </div>
 
   <!-- Featured channel cards -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px;">
+  <div class="ch-grid">
 
     <div class="ch-card">
       <div class="ch-header">
