@@ -782,6 +782,23 @@
     .aff-desc { font-size: 13px; color: var(--text-3); line-height: 1.5; }
     .aff-cta  { font-size: 13px; font-weight: 600; color: var(--green-dark); margin-top: 9px; display: block; }
 
+    /* ─── COUNTRY TOGGLE ─────────────────────── */
+    .ctry-toggle { display:flex; gap:8px; margin-bottom:20px; }
+    .ctry-btn { display:flex; align-items:center; gap:6px; padding:7px 16px; border-radius:20px; border:1.5px solid var(--border); background:white; font-family:var(--font); font-size:13px; font-weight:500; color:var(--text-3); cursor:pointer; transition:all .15s; }
+    .ctry-btn.active { background:var(--green-light); border-color:var(--green-mid); color:var(--green-dark); font-weight:600; }
+    .ctry-btn:hover:not(.active) { border-color:var(--text-4); color:var(--text-1); }
+
+    /* ─── OPEN AN ACCOUNT SECTION ───────────── */
+    .open-acct-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-3); margin-bottom:12px; }
+    .open-acct-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .open-acct-card { display:flex; flex-direction:column; border:1.5px solid var(--green-mid); border-radius:var(--r-lg); padding:16px 18px; background:var(--green-light); text-decoration:none; transition:all .15s var(--ease); }
+    .open-acct-card:hover { border-color:var(--green); background:#DCFCE7; transform:translateY(-2px); box-shadow:0 4px 12px var(--green-glow); }
+    .open-acct-name { font-size:14px; font-weight:700; color:var(--text-1); margin-bottom:4px; }
+    .open-acct-desc { font-size:12px; color:var(--text-3); line-height:1.5; flex:1; }
+    .open-acct-cta { display:inline-block; margin-top:12px; padding:9px 16px; background:var(--green); color:white; border-radius:var(--r-sm); font-size:13px; font-weight:600; transition:background .12s; text-align:center; }
+    .open-acct-card:hover .open-acct-cta { background:var(--green-dark); }
+    .open-acct-badge { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; background:#FEF9C3; color:#854D0E; border:1px solid #FDE68A; border-radius:4px; padding:2px 6px; margin-left:6px; vertical-align:middle; }
+
     /* ─── SHARE / ACTION BAR ─────────────────────── */
     .share-bar {
       display: flex;
@@ -956,7 +973,7 @@
       .share-bar { padding: 14px 20px; justify-content: stretch; }
       .share-btns { width: 100%; }
       .btn-action { flex: 1; justify-content: center; }
-      .res-grid, .aff-grid { grid-template-columns: 1fr; }
+      .res-grid, .aff-grid, .open-acct-grid { grid-template-columns: 1fr; }
       .al-label { min-width: 0; font-size: 13px; }
       .step-drawer-inner { padding-left: 20px; }
     }
@@ -1321,7 +1338,7 @@ function getScenario(a){
       {n:"Once debt-free, run this tool again",   d:"The cash flow you freed up becomes your wealth-building engine. Your plan changes completely from this point.", t:"t-later"},
     ],
     rk:["debt","emergency"],
-    affs:[{n:"Marcus by Goldman Sachs",d:"4.5% APY — best HYSA while paying debt",cta:"Open free account →",h:"#"},{n:"Tally",d:"Automatically optimizes your debt payoff order",cta:"Get started →",h:"#"}],
+    affKey:'savings',
   };
 
   if(noEmerg&&small) return {
@@ -1335,7 +1352,7 @@ function getScenario(a){
       {n:"Open a Roth IRA with your 20%",         d:"Starting your investing clock now matters more than starting later with bigger amounts. Time is the variable.", t:"t-later"},
     ],
     rk:["emergency","investing"],
-    affs:[{n:"Ally Bank",d:"Top-rated HYSA — no minimum balance",cta:"Open account →",h:"#"},{n:"Acorns",d:"Micro-invest automatically, even spare change",cta:"Start for free →",h:"#"}],
+    affKey:'debt',
   };
 
   if(ptEmerg&&!hiDebt) return {
@@ -1349,7 +1366,7 @@ function getScenario(a){
       {n:"Automate both contributions monthly",   d:"Auto-transfer to HYSA and Roth IRA on payday. Both build without willpower or decisions.", t:"t-later"},
     ],
     rk:["emergency","investing"],
-    affs:[{n:"Fidelity",d:"Best Roth IRA + zero-fee index funds",cta:"Open Roth IRA →",h:"#"},{n:"Marcus",d:"4.5% APY for your emergency fund",cta:"Open HYSA →",h:"#"}],
+    affKey:'savings',
   };
 
   if(!anyDebt&&a.emergency!=="none"&&!large) return {
@@ -1364,7 +1381,7 @@ function getScenario(a){
       {n:"Leave it alone",                         d:"The single most powerful move is not reacting to volatility. Long-term discipline is the actual strategy.", t:"t-later"},
     ],
     rk:["investing","wealth"],
-    affs:[{n:"Fidelity",d:"Best all-around brokerage + Roth IRA",cta:"Open account →",h:"#"},{n:"Robinhood",d:"Clean interface for index fund investing",cta:"Get started →",h:"#"}],
+    affKey:'investing',
   };
 
   if(large) return {
@@ -1379,7 +1396,7 @@ function getScenario(a){
       {n:"Use REITs before direct real estate",    d:"Real estate exposure without landlord complexity via REIT index funds. Start here before buying property.", t:"t-opt"},
     ],
     rk:["wealth","investing"],
-    affs:[{n:"Fidelity",d:"Best platform for large portfolios",cta:"Open account →",h:"#"},{n:"eToro",d:"Global investing, diverse asset access",cta:"Start investing →",h:"#"}],
+    affKey:'large',
   };
 
   if(a.goal==="security"||a.goal==="save") return {
@@ -1393,7 +1410,7 @@ function getScenario(a){
       {n:"Automate every transfer on payday",      d:"Pay yourself first. Saving becomes default behavior — not something done with whatever's leftover.", t:"t-later"},
     ],
     rk:["savings","emergency"],
-    affs:[{n:"Ally Bank",d:"Best HYSA for separate goal savings buckets",cta:"Open account →",h:"#"},{n:"Acorns",d:"Automatic, conservative investing",cta:"Get started →",h:"#"}],
+    affKey:'savings',
   };
 
   return {
@@ -1407,7 +1424,7 @@ function getScenario(a){
       {n:"Review once a year, leave it alone",     d:"Set a January calendar reminder. Rebalance if needed. Otherwise close the app and live your life.", t:"t-later"},
     ],
     rk:["investing","savings"],
-    affs:[{n:"Fidelity",d:"Best all-around brokerage, zero fees",cta:"Open account →",h:"#"},{n:"Robinhood",d:"Simple interface for index fund investing",cta:"Get started →",h:"#"}],
+    affKey:'investing',
   };
 }
 
@@ -1642,6 +1659,58 @@ function getExplain(stepName, scenarioKey) {
   return null;
 }
 // ════════════════════════════════════════════
+// ════════════════════════════════════════════
+// COUNTRY — US or CA, persisted in localStorage
+// ════════════════════════════════════════════
+let country = localStorage.getItem('mma_country') || 'US';
+function setCountry(c) {
+  country = c;
+  localStorage.setItem('mma_country', c);
+  if(Object.keys(ans).length === QS.length) renderResult();
+  else renderQ(step);
+}
+
+// Affiliate / account cards by country and scenario type
+// affKey options: 'savings' | 'investing' | 'large' | 'debt'
+const AFFS = {
+  US: {
+    savings: [
+      { n:"Ally Bank",  d:"Best HYSA — 4.5% APY, FDIC insured, no minimum balance",      cta:"Open free account →", h:"https://ally.com" },
+      { n:"Acorns",     d:"Automatically invest spare change — perfect for beginners",      cta:"Start for free →",    h:"https://acorns.com" },
+    ],
+    investing: [
+      { n:"Fidelity",   d:"Best all-around brokerage — zero fees, Roth IRA & index funds", cta:"Open account →",      h:"https://fidelity.com/open-account" },
+      { n:"Robinhood",  d:"Simple, clean interface for starting with index funds",          cta:"Get started →",       h:"https://robinhood.com" },
+    ],
+    large: [
+      { n:"Fidelity",   d:"Best for large portfolios — Roth IRA, 401k, taxable accounts",  cta:"Open account →",      h:"https://fidelity.com/open-account" },
+      { n:"Vanguard",   d:"Gold standard for index fund investing — ultra-low fees",        cta:"Get started →",       h:"https://investor.vanguard.com/accounts-plans/open-account" },
+    ],
+    debt: [
+      { n:"Ally Bank",  d:"Park your emergency fund here while paying debt — 4.5% APY",    cta:"Open free account →", h:"https://ally.com" },
+      { n:"Acorns",     d:"Start micro-investing automatically once debt is cleared",        cta:"Start for free →",    h:"https://acorns.com" },
+    ],
+  },
+  CA: {
+    savings: [
+      { n:"Wealthsimple", d:"Best TFSA savings account in Canada — top interest rates",    cta:"Open account →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
+      { n:"EQ Bank",      d:"Consistently highest HISA rates in Canada — no fees",         cta:"Open account →", h:"https://eqbank.ca" },
+    ],
+    investing: [
+      { n:"Wealthsimple", d:"Best TFSA & RRSP investing in Canada — commission-free ETFs", cta:"Open account →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
+      { n:"Questrade",    d:"Low-cost ETF investing for Canadians — free to buy ETFs",     cta:"Get started →",  h:"https://questrade.com/trading/open-an-account" },
+    ],
+    large: [
+      { n:"Wealthsimple", d:"TFSA + RRSP + taxable investing — all in one platform",       cta:"Open account →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
+      { n:"Questrade",    d:"Best for large Canadian portfolios — lowest ETF fees",         cta:"Get started →",  h:"https://questrade.com/trading/open-an-account" },
+    ],
+    debt: [
+      { n:"Wealthsimple", d:"Open a TFSA savings account while clearing debt — earn interest", cta:"Open account →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
+      { n:"EQ Bank",      d:"Top HISA rates for building your emergency fund",                  cta:"Open account →", h:"https://eqbank.ca" },
+    ],
+  },
+};
+
 let step=0, ans={};
 const TAGS = {
   "t-now":  {l:"Do first",   c:"t-now"},
@@ -1658,6 +1727,10 @@ function renderQ(i){
   const q=QS[i], pct=((i+1)/QS.length)*100;
   document.getElementById('app').innerHTML=`
     <div class="card">
+      <div class="ctry-toggle">
+        <button class="ctry-btn ${country==='US'?'active':''}" onclick="setCountry('US')">🇺🇸 United States</button>
+        <button class="ctry-btn ${country==='CA'?'active':''}" onclick="setCountry('CA')">🇨🇦 Canada</button>
+      </div>
       <div class="card-progress">
         <span class="card-step-label">${q.step}</span>
         <div class="prog-dots">${QS.map((_,j)=>`<div class="prog-dot ${j<i?'done':j===i?'active':''}"></div>`).join('')}</div>
@@ -1692,8 +1765,13 @@ function renderResult(){
   const sc=getScenario(ans);
   const resources=[...(RES[sc.rk[0]]||[]),...(RES[sc.rk[1]]||[])].slice(0,4);
 
+  const acctCards = AFFS[country][sc.affKey];
   document.getElementById('app').innerHTML=`
     <div class="card">
+      <div class="ctry-toggle">
+        <button class="ctry-btn ${country==='US'?'active':''}" onclick="setCountry('US')">🇺🇸 United States</button>
+        <button class="ctry-btn ${country==='CA'?'active':''}" onclick="setCountry('CA')">🇨🇦 Canada</button>
+      </div>
       <div class="card-progress">
         <span class="card-step-label">Your Plan</span>
         <div class="prog-dots">${QS.map(()=>`<div class="prog-dot done"></div>`).join('')}</div>
@@ -1763,13 +1841,13 @@ function renderResult(){
       </div>
 
       <div class="sec">
-        <div class="sec-label">Recommended Tools</div>
-        <div class="aff-grid">
-          ${sc.affs.map(a=>`
-            <a class="aff-card" href="${a.h}" target="_blank" rel="noopener">
-              <div class="aff-name">${a.n}</div>
-              <div class="aff-desc">${a.d}</div>
-              <span class="aff-cta">${a.cta}</span>
+        <div class="open-acct-label">Open an Account — ${country==='CA'?'🇨🇦 Canada':'🇺🇸 United States'}</div>
+        <div class="open-acct-grid">
+          ${acctCards.map(a=>`
+            <a class="open-acct-card" href="${a.h}" target="_blank" rel="noopener noreferrer">
+              <div class="open-acct-name">${a.n}${a.aff?`<span class="open-acct-badge">Affiliate</span>`:''}</div>
+              <div class="open-acct-desc">${a.d}</div>
+              <span class="open-acct-cta">${a.cta}</span>
             </a>
           `).join('')}
         </div>
