@@ -302,15 +302,15 @@
 
     /* ── FOOTER ── */
     footer { background: var(--black); padding: 40px 24px 32px; }
-    .footer-inner { max-width: 960px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .footer-inner { max-width: 960px; margin: 0 auto; display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:32px; }
+    .footer-left { display:flex; flex-direction:column; gap:12px; }
     .footer-logo { display:flex; align-items:center; gap:8px; text-decoration:none; flex-shrink:0; }
     .footer-logo-icon { width:26px;height:26px;background:var(--green);border-radius:var(--r-sm);display:grid;place-items:center;font-size:13px;color:white; }
     .footer-logo-name { font-size:15px;font-weight:700;color:rgba(255,255,255,0.75); }
-    .footer-links { display:flex; gap:20px; flex-wrap:wrap; }
+    .footer-links { display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end; max-width:440px; }
     .footer-links a { font-size:13px; color:rgba(255,255,255,0.4); text-decoration:none; transition:color .12s; }
     .footer-links a:hover { color:rgba(255,255,255,0.75); }
-    .footer-disc { font-size:11px; color:rgba(255,255,255,0.5); max-width:300px; line-height:1.6; text-align:right; }
-    @media(max-width:600px){ .footer-disc { text-align:left; } }
+    .footer-disc { font-size:11px; color:rgba(255,255,255,0.5); max-width:280px; line-height:1.6; }
 
     /* ── COUNTRY TOGGLE + OPEN AN ACCOUNT ── */
     .ctry-toggle { display:flex; gap:8px; margin-bottom:6px; }
@@ -634,22 +634,19 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <a class="footer-logo" href="./index.html">
-      <div class="footer-logo-icon">$</div>
-      <span class="footer-logo-name">MyMoneyAnswer</span>
-    </a>
+    <div class="footer-left">
+      <a class="footer-logo" href="./index.html">
+        <div class="footer-logo-icon">$</div>
+        <span class="footer-logo-name">MyMoneyAnswer</span>
+      </a>
+      <p class="footer-disc">For educational purposes only. Not financial advice.<br>Past returns do not guarantee future results.</p>
+    </div>
     <div class="footer-links">
       <a href="./index.html">Financial Plan Tool</a>
       <a href="./calculator.html">Investment Calculator</a>
       <a href="./directory.html">Money Lessons</a>
       <a href="./blog.html">Blog</a>
-      <a href="./about.html">About</a>
-      <a href="./contact.html">Contact</a>
-      <a href="./privacy-policy.html">Privacy</a>
-      <a href="./terms.html">Terms</a>
-      <a href="./disclaimer.html">Disclaimer</a>
     </div>
-    <p class="footer-disc">For general educational information only. Results and examples are not guarantees.</p>
   </div>
 </footer>
 
