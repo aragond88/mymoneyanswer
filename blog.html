@@ -49,22 +49,21 @@
     .blog-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
 
     /* ── ARTICLE CARD ── */
-    .article-card{background:white;border:1px solid #E4E4E7;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s;text-decoration:none;color:inherit;}
+    .article-card{background:white;border:1px solid #E4E4E7;border-top:3px solid #16A34A;border-radius:0 0 18px 18px;display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s;text-decoration:none;color:inherit;}
     .article-card:hover{box-shadow:0 8px 28px rgba(0,0,0,0.09);transform:translateY(-3px);}
-    .article-card.featured{grid-column:span 2;}
-    .article-img{height:200px;background:linear-gradient(135deg,#0a2e1a 0%,#16A34A 100%);display:flex;align-items:center;justify-content:center;font-size:48px;flex-shrink:0;}
-    .article-card.featured .article-img{height:240px;}
-    .article-body{padding:24px 26px;display:flex;flex-direction:column;flex:1;}
-    .article-tags{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+    .article-card.featured{grid-column:span 2;border-top-color:#0a2e1a;}
+    .article-card.ca-article{border-top-color:#C2410C;}
+    .article-body{padding:26px 28px;display:flex;flex-direction:column;flex:1;}
+    .article-tags{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
     .tag{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.6px;padding:3px 10px;border-radius:20px;background:#F0FDF4;color:#15803D;border:1px solid #BBF7D0;}
     .tag.us{background:#EFF6FF;color:#1D4ED8;border-color:#BFDBFE;}
     .tag.ca{background:#FFF7ED;color:#C2410C;border-color:#FED7AA;}
     .tag.both{background:#F5F3FF;color:#6D28D9;border-color:#DDD6FE;}
     .article-title{font-size:20px;font-weight:700;letter-spacing:-0.4px;margin-bottom:10px;line-height:1.35;color:#09090B;}
-    .article-card.featured .article-title{font-size:24px;}
+    .article-card.featured .article-title{font-size:26px;letter-spacing:-0.6px;}
     .article-excerpt{font-size:14px;color:#71717A;line-height:1.65;flex:1;margin-bottom:18px;}
-    .article-meta{font-size:12px;color:#A1A1AA;display:flex;gap:16px;align-items:center;}
-    .article-cta{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:#16A34A;margin-top:14px;}
+    .article-meta{font-size:12px;color:#A1A1AA;display:flex;gap:16px;align-items:center;border-top:1px solid #F4F4F5;padding-top:14px;margin-top:auto;}
+    .article-cta{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:#16A34A;margin-left:auto;}
 
     /* ── ARTICLE PAGE ── */
     .article-page{display:none;max-width:720px;margin:0 auto;padding:48px 24px 80px;}
@@ -170,57 +169,47 @@
     <div class="blog-grid">
 
       <a class="article-card featured" href="#" onclick="showArticle('roth-vs-tfsa');return false;">
-        <div class="article-img">⚖️</div>
         <div class="article-body">
           <div class="article-tags"><span class="tag both">US & Canada</span><span class="tag">Investing</span></div>
           <div class="article-title">Roth IRA vs TFSA: Which Is Better for Tax-Free Growth?</div>
           <div class="article-excerpt">Both accounts let your money grow tax-free — but they work very differently. If you live in the US or Canada, one of these accounts is probably your most powerful wealth-building tool. Here's exactly how each one works and when to use which.</div>
-          <div class="article-meta"><span>8 min read</span><span>Investing · Retirement</span></div>
-          <span class="article-cta">Read article →</span>
+          <div class="article-meta"><span>8 min read</span><span>Investing · Retirement</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
 
       <a class="article-card" href="#" onclick="showArticle('emergency-fund');return false;">
-        <div class="article-img">🛡️</div>
         <div class="article-body">
           <div class="article-tags"><span class="tag both">US & Canada</span><span class="tag">Savings</span></div>
           <div class="article-title">How to Build an Emergency Fund — Step by Step</div>
           <div class="article-excerpt">An emergency fund is the most important financial tool most people don't have. Here is how to build one fast, where to keep it, and how much you actually need.</div>
-          <div class="article-meta"><span>6 min read</span><span>Savings · Beginner</span></div>
-          <span class="article-cta">Read article →</span>
+          <div class="article-meta"><span>6 min read</span><span>Savings · Beginner</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
 
       <a class="article-card" href="#" onclick="showArticle('index-funds');return false;">
-        <div class="article-img">📈</div>
         <div class="article-body">
           <div class="article-tags"><span class="tag both">US & Canada</span><span class="tag">Investing</span></div>
           <div class="article-title">Index Funds for Beginners: How to Start Investing With $100</div>
           <div class="article-excerpt">You don't need thousands of dollars or a finance degree to start investing. Index funds let you own a tiny piece of hundreds of companies at once — at near-zero cost.</div>
-          <div class="article-meta"><span>7 min read</span><span>Investing · Beginner</span></div>
-          <span class="article-cta">Read article →</span>
+          <div class="article-meta"><span>7 min read</span><span>Investing · Beginner</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
 
       <a class="article-card" href="#" onclick="showArticle('debt-avalanche');return false;">
-        <div class="article-img">⛰️</div>
         <div class="article-body">
           <div class="article-tags"><span class="tag both">US & Canada</span><span class="tag">Debt</span></div>
           <div class="article-title">Debt Avalanche vs Debt Snowball: Which Pays Off Debt Faster?</div>
           <div class="article-excerpt">Two proven methods for eliminating debt — one saves you the most money, the other keeps you most motivated. Here's which one to choose based on your personality.</div>
-          <div class="article-meta"><span>6 min read</span><span>Debt · Strategy</span></div>
-          <span class="article-cta">Read article →</span>
+          <div class="article-meta"><span>6 min read</span><span>Debt · Strategy</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
 
-      <a class="article-card" href="#" onclick="showArticle('wealthsimple-review');return false;">
-        <div class="article-img">🍁</div>
+      <a class="article-card ca-article" href="#" onclick="showArticle('wealthsimple-review');return false;">
         <div class="article-body">
           <div class="article-tags"><span class="tag ca">Canada</span><span class="tag">Investing</span></div>
           <div class="article-title">Wealthsimple Review 2025: Is It the Best Investing App in Canada?</div>
           <div class="article-excerpt">Wealthsimple has become Canada's most popular investing app. But is it actually the best option for your TFSA and RRSP? We break down the fees, features, and who it's best for.</div>
-          <div class="article-meta"><span>7 min read</span><span>Canada · Review</span></div>
-          <span class="article-cta">Read article →</span>
+          <div class="article-meta"><span>7 min read</span><span>Canada · Review</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
 

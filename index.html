@@ -782,11 +782,17 @@
     .aff-desc { font-size: 13px; color: var(--text-3); line-height: 1.5; }
     .aff-cta  { font-size: 13px; font-weight: 600; color: var(--green-dark); margin-top: 9px; display: block; }
 
-    /* ─── COUNTRY TOGGLE ─────────────────────── */
-    .ctry-toggle { display:flex; gap:8px; margin-bottom:20px; }
-    .ctry-btn { display:flex; align-items:center; gap:6px; padding:7px 16px; border-radius:20px; border:1.5px solid var(--border); background:white; font-family:var(--font); font-size:13px; font-weight:500; color:var(--text-3); cursor:pointer; transition:all .15s; }
-    .ctry-btn.active { background:var(--green-light); border-color:var(--green-mid); color:var(--green-dark); font-weight:600; }
-    .ctry-btn:hover:not(.active) { border-color:var(--text-4); color:var(--text-1); }
+    /* ─── COUNTRY TOGGLE (hero level) ───────── */
+    .hero-ctry { display:flex; justify-content:center; gap:8px; margin-top:24px; }
+    .ctry-btn { display:flex; align-items:center; gap:6px; padding:8px 18px; border-radius:20px; border:1.5px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.08); font-family:var(--font); font-size:13px; font-weight:500; color:rgba(255,255,255,0.6); cursor:pointer; transition:all .15s; backdrop-filter:blur(4px); }
+    .ctry-btn.active { background:rgba(255,255,255,0.18); border-color:rgba(255,255,255,0.5); color:white; font-weight:600; }
+    .ctry-btn:hover:not(.active) { background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.85); }
+
+    /* ─── PAGE-LEVEL OPEN AN ACCOUNT ─────────── */
+    .page-acct-wrap { max-width:600px; margin:0 auto; padding:48px 20px 0; }
+    .page-acct-header { display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:20px; flex-wrap:wrap; }
+    .page-acct-title { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--green-dark); margin-bottom:8px; }
+    .page-acct-heading { font-size:22px; font-weight:600; letter-spacing:-0.3px; color:var(--text-1); line-height:1.2; }
 
     /* ─── OPEN AN ACCOUNT SECTION ───────────── */
     .open-acct-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-3); margin-bottom:12px; }
@@ -1043,12 +1049,31 @@
   </div>
   <h1>What should you do<br>with your <span class="hl">money?</span></h1>
   <p class="hero-sub">4 questions. Instant personalized plan. Based on proven financial principles.</p>
+  <div class="hero-ctry">
+    <button class="ctry-btn active" id="ctry-us" data-c="US" onclick="setCountry('US')">🇺🇸 United States</button>
+    <button class="ctry-btn" id="ctry-ca" data-c="CA" onclick="setCountry('CA')">🇨🇦 Canada</button>
+  </div>
 </div>
 
 <!-- ── QUIZ ──────────────────────────────────────── -->
 <div style="background:var(--bg); padding-bottom: 1px;">
 <div class="wrap">
   <div id="app"></div>
+</div>
+
+<!-- ── OPEN AN ACCOUNT ───────────────────────────── -->
+<div style="background:var(--bg); border-top:1px solid var(--border);">
+  <div class="page-acct-wrap">
+    <div class="page-acct-header">
+      <div>
+        <div class="page-acct-title">Ready to take action?</div>
+        <div class="page-acct-heading" id="page-acct-heading">Open an account — 🇺🇸 United States</div>
+      </div>
+    </div>
+    <div class="open-acct-grid" id="page-acct-grid">
+      <!-- filled by JS -->
+    </div>
+  </div>
 </div>
 
 <!-- ── RESOURCES PREVIEW ─────────────────────────── -->
@@ -1666,8 +1691,25 @@ let country = localStorage.getItem('mma_country') || 'US';
 function setCountry(c) {
   country = c;
   localStorage.setItem('mma_country', c);
+  // Sync hero toggle buttons
+  document.querySelectorAll('.ctry-btn').forEach(b => b.classList.toggle('active', b.dataset.c === c));
+  // Re-render page account section
+  renderPageAccounts();
+  // Re-render quiz result if user is on results screen
   if(Object.keys(ans).length === QS.length) renderResult();
-  else renderQ(step);
+}
+function renderPageAccounts(){
+  const cards = AFFS[country]['investing']; // show investing accounts on the page-level CTA
+  const heading = document.getElementById('page-acct-heading');
+  const grid    = document.getElementById('page-acct-grid');
+  if(!heading || !grid) return;
+  heading.textContent = 'Open an account — ' + (country==='CA' ? '🇨🇦 Canada' : '🇺🇸 United States');
+  grid.innerHTML = cards.map(a=>`
+    <a class="open-acct-card" href="${a.h}" target="_blank" rel="noopener noreferrer">
+      <div class="open-acct-name">${a.n}${a.aff?'<span class="open-acct-badge">Affiliate</span>':''}</div>
+      <div class="open-acct-desc">${a.d}</div>
+      <span class="open-acct-cta">${a.cta}</span>
+    </a>`).join('');
 }
 
 // Affiliate / account cards by country and scenario type
@@ -1727,10 +1769,6 @@ function renderQ(i){
   const q=QS[i], pct=((i+1)/QS.length)*100;
   document.getElementById('app').innerHTML=`
     <div class="card">
-      <div class="ctry-toggle">
-        <button class="ctry-btn ${country==='US'?'active':''}" onclick="setCountry('US')">🇺🇸 United States</button>
-        <button class="ctry-btn ${country==='CA'?'active':''}" onclick="setCountry('CA')">🇨🇦 Canada</button>
-      </div>
       <div class="card-progress">
         <span class="card-step-label">${q.step}</span>
         <div class="prog-dots">${QS.map((_,j)=>`<div class="prog-dot ${j<i?'done':j===i?'active':''}"></div>`).join('')}</div>
@@ -1768,10 +1806,6 @@ function renderResult(){
   const acctCards = AFFS[country][sc.affKey];
   document.getElementById('app').innerHTML=`
     <div class="card">
-      <div class="ctry-toggle">
-        <button class="ctry-btn ${country==='US'?'active':''}" onclick="setCountry('US')">🇺🇸 United States</button>
-        <button class="ctry-btn ${country==='CA'?'active':''}" onclick="setCountry('CA')">🇨🇦 Canada</button>
-      </div>
       <div class="card-progress">
         <span class="card-step-label">Your Plan</span>
         <div class="prog-dots">${QS.map(()=>`<div class="prog-dot done"></div>`).join('')}</div>
@@ -2139,6 +2173,9 @@ function copyLink(e){ navigator.clipboard.writeText(window.location.href).then((
 function faq(el){ el.parentElement.classList.toggle('open'); }
 function toggleMenu(){ document.getElementById('burger').classList.toggle('open'); document.getElementById('mobile-menu').classList.toggle('open'); }
 
+// Sync hero toggle and page accounts on load
+document.querySelectorAll('.ctry-btn').forEach(b => b.classList.toggle('active', b.dataset.c === country));
+renderPageAccounts();
 renderQ(0);
 </script>
 </body>
