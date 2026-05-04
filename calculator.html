@@ -195,7 +195,10 @@
     }
     input[type="range"]::-moz-range-track { height: 4px; background: var(--border); border-radius: 2px; }
     input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; background: var(--green); border-radius: 50%; border: 2px solid white; box-shadow: 0 1px 4px rgba(0,0,0,0.15); }
-    .range-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--text-3); margin-top: 4px; }
+    .range-labels { position: relative; font-size: 11px; color: var(--text-3); margin-top: 4px; height: 16px; }
+    .range-labels span { position: absolute; transform: translateX(-50%); }
+    .range-labels span:first-child { transform: translateX(0); }
+    .range-labels span:last-child { transform: translateX(-100%); }
 
     .calc-btn {
       width: 100%; margin-top: 24px; padding: 14px;
@@ -427,7 +430,12 @@
             </div>
             <div class="range-wrap">
               <input type="range" id="g-rate-range" min="1" max="15" step="0.5" value="7" oninput="syncRange('g-rate','g-rate-range');updateRateHint();calculate()" />
-              <div class="range-labels"><span>1%</span><span>Conservative 4–6%</span><span>Aggressive 10–12%</span><span>15%</span></div>
+              <div class="range-labels">
+                <span style="left:0%">1%</span>
+                <span style="left:28.6%">Conservative 4–6%</span>
+                <span style="left:71.4%">Aggressive 10–12%</span>
+                <span style="left:100%">15%</span>
+              </div>
             </div>
           </div>
 
@@ -442,7 +450,13 @@
             </div>
             <div class="range-wrap">
               <input type="range" id="g-years-range" min="1" max="50" value="20" oninput="syncRange('g-years','g-years-range');calculate()" />
-              <div class="range-labels"><span>1 yr</span><span>10</span><span>20</span><span>30</span><span>50 yrs</span></div>
+              <div class="range-labels">
+                <span style="left:0%">1 yr</span>
+                <span style="left:18.4%">10</span>
+                <span style="left:38.8%">20</span>
+                <span style="left:59.2%">30</span>
+                <span style="left:100%">50 yrs</span>
+              </div>
             </div>
           </div>
 
