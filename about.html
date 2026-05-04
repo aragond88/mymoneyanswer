@@ -54,18 +54,11 @@
     .btn-primary:hover{background:#15803D;border-color:#15803D;}
     .btn-secondary{background:white;color:#15803D;border:1px solid #16A34A;}
     .btn-secondary:hover{background:#F0FDF4;}
-    footer{background:#09090B;padding:40px 24px 32px;}
-    .footer-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
-    .footer-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0;}
-    .footer-logo-icon{width:26px;height:26px;background:#16A34A;border-radius:5px;display:grid;place-items:center;font-size:13px;color:white;font-weight:700;}
-    .footer-logo-name{font-size:15px;font-weight:700;color:rgba(255,255,255,0.75);}
-    .footer-links{display:flex;gap:18px;flex-wrap:wrap;}
-    .footer-links a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .12s;}
-    .footer-links a:hover{color:rgba(255,255,255,0.78);}
-    .footer-disc{font-size:11px;color:rgba(255,255,255,0.5);max-width:320px;line-height:1.6;text-align:right;}
+    
     @media(max-width:768px){nav{padding:0 20px;}.nav-center{display:none;}.nav-burger{display:flex;}.hero h1{font-size:34px;}.hero-sub{font-size:16px;}.wrap{padding:40px 18px 64px;}.card{padding:22px;}}
-    @media(max-width:640px){.footer-disc{text-align:left;}.footer-inner{align-items:flex-start;flex-direction:column;}.footer-links{gap:12px 18px;}}
+    
   </style>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
   <nav>
@@ -117,12 +110,15 @@
       <div class="note">MyMoneyAnswer is still growing. New pages, tools, and editorial policies will be improved over time with a focus on clarity, trust, and usefulness.</div>
     </div>
   </main>
-  <footer>
+<footer>
   <div class="footer-inner">
-    <a class="footer-logo" href="./index.html">
-      <div class="footer-logo-icon">$</div>
-      <span class="footer-logo-name">MyMoneyAnswer</span>
-    </a>
+    <div class="footer-left">
+      <a class="footer-logo" href="./index.html">
+        <div class="footer-logo-icon">$</div>
+        <span class="footer-logo-name">MyMoneyAnswer</span>
+      </a>
+      <p class="footer-disc">For general educational information only. Results and examples are not guarantees.</p>
+    </div>
     <div class="footer-links">
       <a href="./index.html">Financial Plan Tool</a>
       <a href="./calculator.html">Investment Calculator</a>
@@ -136,7 +132,6 @@
       <a href="./affiliate-disclosure.html">Affiliate Disclosure</a>
       <a href="./editorial-policy.html">Editorial Policy</a>
     </div>
-    <p class="footer-disc">For general educational information only. Results and examples are not guarantees.</p>
   </div>
 </footer>
   <script>

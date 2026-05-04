@@ -917,16 +917,7 @@
     .faq-item.open .faq-a { display: block; }
 
     /* ─── FOOTER ─────────────────────────────────── */
-    footer { background: var(--black); padding: 40px 24px 32px; }
-    .footer-inner { max-width: 960px; margin: 0 auto; display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:32px; }
-    .footer-left { display:flex; flex-direction:column; gap:12px; }
-    .footer-logo { display:flex; align-items:center; gap:8px; text-decoration:none; flex-shrink:0; }
-    .footer-logo-icon { width:26px; height:26px; background:var(--green); border-radius:var(--r-sm); display:grid; place-items:center; font-size:13px; color:white; }
-    .footer-logo-name { font-size:15px; font-weight:700; color:rgba(255,255,255,0.75); }
-    .footer-links { display:flex; gap:16px; flex-wrap:wrap; justify-content:flex-end; max-width:440px; }
-    .footer-links a { font-size:13px; color:rgba(255,255,255,0.4); text-decoration:none; transition:color .12s; }
-    .footer-links a:hover { color:rgba(255,255,255,0.75); }
-    .footer-disc { font-size:11px; color:rgba(255,255,255,0.5); max-width:280px; line-height:1.6; }
+    
 
     /* ─── BROWSE CTA LINKS ───────────────────────── */
     .link-see-all {
@@ -1010,6 +1001,7 @@
     .ch-watch { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font); font-size: 11px; font-weight: 700; color: white; background: #DC2626; width: 28px; height: 28px; border-radius: 50%; text-decoration: none; transition: background .12s; flex-shrink: 0; }
     .ch-watch:hover { background: #B91C1C; }
   </style>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 
@@ -1219,9 +1211,9 @@
   <div class="footer-inner">
     <div class="footer-left">
       <a class="footer-logo" href="./index.html">
-      <div class="footer-logo-icon">$</div>
-      <span class="footer-logo-name">MyMoneyAnswer</span>
-    </a>
+        <div class="footer-logo-icon">$</div>
+        <span class="footer-logo-name">MyMoneyAnswer</span>
+      </a>
       <p class="footer-disc">For general educational information only. Results and examples are not guarantees.</p>
     </div>
     <div class="footer-links">
@@ -1325,7 +1317,7 @@ const RES = {
     {t:"▶ YouTube", n:"The Financial Diet",       d:"How to build your first emergency fund",             u:"https://youtube.com/@thefinancialdiet"},
     {t:"▶ YouTube", n:"Graham Stephan",           d:"How much to save & where to keep it",               u:"https://youtube.com/@GrahamStephan"},
     {t:"Guide",  n:"Investopedia: E-Fund",     d:"Complete emergency fund guide",                      u:"https://investopedia.com/terms/e/emergency_fund.asp"},
-    {t:"Savings", n:"Best HYSA Accounts 2025", d:"Compare top high-yield savings accounts",           u:"https://nerdwallet.com/best/banking/high-yield-online-savings-accounts"},
+    {t:"Savings", n:"High-yield savings account guide", d:"Compare current high-yield savings account options", u:"https://nerdwallet.com/best/banking/high-yield-online-savings-accounts"},
   ],
   investing:[
     {t:"▶ YouTube", n:"The Plain Bagel",          d:"Index funds & passive investing simply explained",   u:"https://youtube.com/@ThePlainBagel"},
@@ -1337,7 +1329,7 @@ const RES = {
     {t:"▶ YouTube", n:"Mapped Out Money",         d:"Budgeting systems and savings strategies",           u:"https://youtube.com/@MappedOutMoney"},
     {t:"▶ YouTube", n:"WhiteBoard Finance",       d:"Personal finance made visual and simple",            u:"https://youtube.com/@WhiteboardFinance"},
     {t:"Tool",   n:"Savings Goal Calculator",  d:"How long until you reach your savings goal",        u:"https://bankrate.com/banking/savings/savings-goal-calculator/"},
-    {t:"Guide",  n:"Best HYSA 2025",           d:"Compare top high-yield savings accounts",            u:"https://nerdwallet.com/best/banking/high-yield-online-savings-accounts"},
+    {t:"Guide",  n:"High-yield savings account comparison", d:"Compare current savings account options", u:"https://nerdwallet.com/best/banking/high-yield-online-savings-accounts"},
   ],
   wealth:[
     {t:"▶ YouTube", n:"The Money Guy Show",       d:"Financial Order of Operations explained",            u:"https://youtube.com/@MoneyGuyShow"},
@@ -1450,7 +1442,7 @@ function getScenario(a){
     sub:"Based on your situation, here's a proven allocation to build wealth steadily without taking unnecessary risks.",
     alloc:[{p:50,n:"Invest (index funds / Roth IRA)"},{p:30,n:"Emergency / goal savings (HYSA)"},{p:20,n:"Cash buffer"}],
     steps:[
-      {n:"Open a Roth IRA or brokerage account",   d:"Start with Fidelity or Vanguard. If you want zero decisions, pick a target-date fund for your retirement year.", t:"t-now"},
+      {n:"Compare Roth IRA or brokerage account options", d:"Compare fees, account rules, investment choices, and automation tools. If you want fewer ongoing decisions, research target-date index funds for your retirement year.", t:"t-now"},
       {n:"Open a High-Yield Savings Account",      d:"4–5% APY on your savings portion. Your money earns real returns while staying accessible.", t:"t-now"},
       {n:"Automate monthly contributions to both", d:"$100/month for 30 years at 7% = $113,000. The habit matters far more than the initial amount.", t:"t-soon"},
       {n:"Review once a year, leave it alone",     d:"Set a January calendar reminder. Rebalance if needed. Otherwise close the app and live your life.", t:"t-later"},
@@ -1479,9 +1471,9 @@ const EXPLAIN = {
   },
   debt_hysa: {
     why: "A High-Yield Savings Account (HYSA) may earn meaningfully more than a regular checking or savings account. On a $2,000 emergency fund, that difference can add up while the money stays accessible. Rates change, so compare current offers before opening an account.",
-    how: "Open Marcus by Goldman Sachs, Ally Bank, or SoFi (all FDIC insured up to $250k). Takes 5 minutes online. Link to your checking account. Transfer your emergency starter. Done.",
+    how: "Compare high-yield savings accounts by insurance coverage, fees, transfer speed, withdrawal limits, and current rate. Keep the account separate from daily spending so the money stays reserved for emergencies.",
     callout: "🏦 FDIC insured means your money is protected by the US government up to $250,000. These accounts are as safe as any bank.",
-    link: { text: "Best HYSA rates right now", url: "https://nerdwallet.com/best/banking/high-yield-online-savings-accounts" }
+    link: { text: "Compare current high-yield savings account options", url: "https://nerdwallet.com/best/banking/high-yield-online-savings-accounts" }
   },
   debt_autopay: {
     why: "Penalty APR is the single biggest trap in consumer debt. One late payment can trigger a rate increase to 29.99% — even on a card you've had for years — and that rate can stay for 6+ months. Credit score damage from late payments also affects your ability to get better rates in the future.",
@@ -1511,7 +1503,7 @@ const EXPLAIN = {
   },
   emerg_roth: {
     why: "A Roth IRA is funded with after-tax dollars, meaning your money grows tax-free forever. Withdrawals in retirement are also tax-free. The contribution limit is $7,000/year (2025). The biggest advantage is time — $100 invested today has decades to compound. Starting with even a small amount matters more than waiting until you have 'enough' to start.",
-    how: "Open a Roth IRA at Fidelity or Vanguard (both free, no minimums). Choose a <strong>target-date fund</strong> matching your retirement year (e.g., 'Fidelity Freedom Index 2055' if you're ~30 years old). This automatically adjusts its risk level as you age. Set up automatic monthly contributions.",
+    how: "Compare reputable providers by fees, investment choices, account minimums, and automation tools. A target-date index fund matching your retirement year can automatically adjust its risk level as you age. Set up automatic monthly contributions if the account fits your situation.",
     callout: "⏰ Roth IRA contributions can be withdrawn penalty-free at any time (just not the earnings). This makes it a hybrid emergency + retirement account for beginners.",
     link: { text: "Roth IRA explained — Investopedia", url: "https://investopedia.com/terms/r/rothira.asp" }
   },
@@ -1524,7 +1516,7 @@ const EXPLAIN = {
   },
   roth_open: {
     why: "Traditional 401k and brokerage accounts are taxed when you withdraw money. Roth IRA is the opposite — you pay tax now (when you presumably have less money) and never again. A Roth IRA with $100,000 in it at retirement is worth more than $100,000 in a traditional account because every dollar is yours, not pre-tax.",
-    how: "Eligibility: income under $146k single / $230k married (2024). Go to fidelity.com or vanguard.com. Open Roth IRA. Choose a target-date fund for your approximate retirement year. Set up monthly auto-contributions. That's the entire setup.",
+    how: "Check current eligibility and contribution limits first. Then compare reputable providers by fees, investment choices, account minimums, and automatic contribution options. A target-date index fund can be a simple starting point for many beginners.",
     callout: "💡 If your employer offers a 401k with a match, contributing enough to get the full match is often a high-priority benefit. Then you can compare whether a Roth IRA fits your situation.",
     link: { text: "Roth IRA: rules, limits, and how to open one", url: "https://investopedia.com/terms/r/rothira.asp" }
   },
@@ -1617,14 +1609,14 @@ const EXPLAIN = {
   // ── Default ──
   open_roth: {
     why: "The Roth IRA is the single best retirement account available to most Americans. You contribute after-tax dollars, and all growth is tax-free forever. The flexibility is also unique — contributions (not earnings) can be withdrawn penalty-free at any time, making it a hybrid emergency fund for beginners.",
-    how: "Go to fidelity.com or vanguard.com. Open account → Roth IRA. Fund it → choose a target-date fund (e.g., Fidelity Freedom Index 2055 if you're ~30). Set up auto-invest monthly. Total setup time: 10–15 minutes.",
+    how: "Check current Roth IRA eligibility and contribution rules, compare reputable providers, choose a low-cost diversified option such as a target-date index fund if appropriate, and set up automatic contributions.",
     callout: "💡 Target-date funds automatically shift from aggressive (mostly stocks) to conservative (more bonds) as you approach retirement. Zero ongoing decisions required.",
-    link: { text: "How to open a Roth IRA — Fidelity guide", url: "https://www.fidelity.com/retirement-ira/roth-ira" }
+    link: { text: "Roth IRA rules and overview", url: "https://investopedia.com/terms/r/rothira.asp" }
   },
   open_hysa: {
     why: "Your emergency savings can often earn more in a high-yield savings account than in a traditional savings account. Rates change over time, so compare current offers and insurance coverage before choosing where to keep cash.",
-    how: "Top options: Marcus by Goldman Sachs, Ally Bank, SoFi, or Discover Online Savings. All FDIC-insured, no monthly fees, no minimum balance, instant transfers to your checking account. Takes 5 minutes to open.",
-    callout: "📈 On $10,000 saved: 0.01% APY = $1/year. 4.5% APY = $450/year. Same risk, same access. The only difference is which bank you use.",
+    how: "Compare account insurance, fees, transfer timing, withdrawal limits, minimum balances, and current rates. The right account should keep your emergency savings boring, liquid, and separate from daily spending.",
+    callout: "📈 Rates change over time. A higher-yield account can help emergency savings keep pace better than a traditional low-rate account, but liquidity and safety still matter most.",
     link: { text: "Compare best HYSA rates", url: "https://nerdwallet.com/best/banking/high-yield-online-savings-accounts" }
   },
   auto_monthly: {
@@ -1710,7 +1702,7 @@ function renderPageAccounts(){
   const heading = document.getElementById('page-acct-heading');
   const grid    = document.getElementById('page-acct-grid');
   if(!heading || !grid) return;
-  heading.textContent = 'Open an account — ' + (country==='CA' ? '🇨🇦 Canada' : '🇺🇸 United States');
+  heading.textContent = 'Account resources — ' + (country==='CA' ? '🇨🇦 Canada' : '🇺🇸 United States');
   grid.innerHTML = cards.map(a=>`
     <a class="open-acct-card" href="${a.h}" target="_blank" rel="noopener noreferrer">
       <div class="open-acct-name">${a.n}${a.aff?'<span class="open-acct-badge">Affiliate</span>':''}</div>
@@ -1724,38 +1716,38 @@ function renderPageAccounts(){
 const AFFS = {
   US: {
     savings: [
-      { n:"Ally Bank",  d:"Best HYSA — 4.5% APY, FDIC insured, no minimum balance",      cta:"Open free account →", h:"https://ally.com" },
-      { n:"Acorns",     d:"Automatically invest spare change — perfect for beginners",      cta:"Start for free →",    h:"https://acorns.com" },
+      { n:"Savings account checklist", d:"Compare insurance coverage, fees, access, transfer speed, and current rates before choosing where to keep cash.", cta:"Read emergency fund guide →", h:"./blog.html#emergency-fund" },
+      { n:"Debt payoff guide", d:"Use the debt avalanche or debt snowball method before comparing financial products.", cta:"Compare payoff methods →", h:"./blog.html#debt-avalanche" },
     ],
     investing: [
-      { n:"Fidelity",   d:"Best all-around brokerage — zero fees, Roth IRA & index funds", cta:"Open account →",      h:"https://fidelity.com/open-account" },
-      { n:"Robinhood",  d:"Simple, clean interface for starting with index funds",          cta:"Get started →",       h:"https://robinhood.com" },
+      { n:"Beginner investing guide", d:"Learn how index funds, account types, fees, and contribution habits work before choosing a platform.", cta:"Read index fund guide →", h:"./blog.html#index-funds" },
+      { n:"Investment calculator", d:"Model long-term contributions and return assumptions before opening or funding an account.", cta:"Use calculator →", h:"./calculator.html" },
     ],
     large: [
-      { n:"Fidelity",   d:"Best for large portfolios — Roth IRA, 401k, taxable accounts",  cta:"Open account →",      h:"https://fidelity.com/open-account" },
-      { n:"Vanguard",   d:"Gold standard for index fund investing — ultra-low fees",        cta:"Get started →",       h:"https://investor.vanguard.com/accounts-plans/open-account" },
+      { n:"Tax account guide", d:"Understand Roth Individual Retirement Accounts, Tax-Free Savings Accounts, and taxable accounts before comparing providers.", cta:"Read account guide →", h:"./blog.html#roth-vs-tfsa" },
+      { n:"Long-term calculator", d:"Stress-test contribution amounts, timelines, and expected return assumptions.", cta:"Open calculator →", h:"./calculator.html" },
     ],
     debt: [
-      { n:"Ally Bank",  d:"Park your emergency fund here while paying debt — 4.5% APY",    cta:"Open free account →", h:"https://ally.com" },
-      { n:"Acorns",     d:"Start micro-investing automatically once debt is cleared",        cta:"Start for free →",    h:"https://acorns.com" },
+      { n:"Emergency fund guide", d:"Keep starter emergency savings liquid and separate while paying down high-interest debt.", cta:"Read guide →", h:"./blog.html#emergency-fund" },
+      { n:"Debt payoff guide", d:"Compare payoff strategies and choose a repeatable plan.", cta:"Compare methods →", h:"./blog.html#debt-avalanche" },
     ],
   },
   CA: {
     savings: [
-      { n:"Wealthsimple", d:"Best TFSA savings account in Canada — top interest rates",    cta:"Open account →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
-      { n:"EQ Bank",      d:"Consistently highest HISA rates in Canada — no fees",         cta:"Open account →", h:"https://eqbank.ca" },
+      { n:"Wealthsimple", d:"Canadian cash, investing, Tax-Free Savings Account, and Registered Retirement Savings Plan options. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
+      { n:"Emergency fund guide", d:"Learn how to evaluate liquidity, account rules, fees, and current rates before choosing where to keep savings.", cta:"Read guide →", h:"./blog.html#emergency-fund" },
     ],
     investing: [
-      { n:"Wealthsimple", d:"Best TFSA & RRSP investing in Canada — commission-free ETFs", cta:"Open account →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
-      { n:"Questrade",    d:"Low-cost ETF investing for Canadians — free to buy ETFs",     cta:"Get started →",  h:"https://questrade.com/trading/open-an-account" },
+      { n:"Wealthsimple", d:"Canadian investing platform with Tax-Free Savings Account and Registered Retirement Savings Plan options. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
+      { n:"Beginner investing guide", d:"Understand index funds, contribution habits, and platform tradeoffs before opening an account.", cta:"Read guide →", h:"./blog.html#index-funds" },
     ],
     large: [
-      { n:"Wealthsimple", d:"TFSA + RRSP + taxable investing — all in one platform",       cta:"Open account →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
-      { n:"Questrade",    d:"Best for large Canadian portfolios — lowest ETF fees",         cta:"Get started →",  h:"https://questrade.com/trading/open-an-account" },
+      { n:"Wealthsimple", d:"Canadian platform for cash, investing, and registered account options. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
+      { n:"Account guide", d:"Compare registered accounts, taxable accounts, fees, currency conversion, and investment choices.", cta:"Read account guide →", h:"./blog.html#roth-vs-tfsa" },
     ],
     debt: [
-      { n:"Wealthsimple", d:"Open a TFSA savings account while clearing debt — earn interest", cta:"Open account →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
-      { n:"EQ Bank",      d:"Top HISA rates for building your emergency fund",                  cta:"Open account →", h:"https://eqbank.ca" },
+      { n:"Wealthsimple", d:"Canadian cash and account options to research while building emergency savings. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
+      { n:"Debt payoff guide", d:"Compare payoff strategies before redirecting money toward investing.", cta:"Compare methods →", h:"./blog.html#debt-avalanche" },
     ],
   },
 };
