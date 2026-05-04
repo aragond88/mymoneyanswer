@@ -35,7 +35,16 @@
     .mob-link{font-size:15px;font-weight:500;color:#09090B;text-decoration:none;padding:11px 12px;border-radius:10px;transition:background .12s;}
     .mob-link:hover{background:#FAFAFA;}
     .mob-link.active{font-weight:600;color:#16A34A;}
-    @media(max-width:600px){.nav-center{display:none;}.nav-burger{display:flex;}.card{padding:36px 24px;}}
+    @media(max-width:600px){.nav-center{display:none;}.nav-burger{display:flex;}.card{padding:36px 24px;}.footer-disc{text-align:left;}}
+    footer{background:#09090B;padding:40px 24px 32px;}
+    .footer-inner{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+    .footer-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0;}
+    .footer-logo-icon{width:26px;height:26px;background:#16A34A;border-radius:5px;display:grid;place-items:center;font-size:13px;color:white;}
+    .footer-logo-name{font-size:15px;font-weight:700;color:rgba(255,255,255,0.75);}
+    .footer-links{display:flex;gap:20px;flex-wrap:wrap;}
+    .footer-links a{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .12s;}
+    .footer-links a:hover{color:rgba(255,255,255,0.75);}
+    .footer-disc{font-size:11px;color:rgba(255,255,255,0.2);max-width:300px;line-height:1.6;text-align:right;}
   </style>
 </head>
 <body>
@@ -69,6 +78,21 @@
       <a class="btn" href="./index.html">← Back to the Tool</a>
     </div>
   </main>
+  <footer>
+    <div class="footer-inner">
+      <a class="footer-logo" href="./index.html">
+        <div class="footer-logo-icon">$</div>
+        <span class="footer-logo-name">MyMoneyAnswer</span>
+      </a>
+      <div class="footer-links">
+        <a href="./index.html">Financial Plan Tool</a>
+        <a href="./calculator.html">Investment Calculator</a>
+        <a href="./directory.html">Money Lessons</a>
+        <a href="./blog.html">Blog</a>
+      </div>
+      <p class="footer-disc">For educational purposes only. Not financial advice. Past returns do not guarantee future results.</p>
+    </div>
+  </footer>
   <script>
     function toggleMenu(){ document.getElementById('burger').classList.toggle('open'); document.getElementById('mobile-menu').classList.toggle('open'); }
     const path = window.location.pathname;

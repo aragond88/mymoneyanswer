@@ -898,110 +898,16 @@
     .faq-item.open .faq-a { display: block; }
 
     /* ─── FOOTER ─────────────────────────────────── */
-    footer {
-      background: var(--black);
-      padding: 56px 24px 40px;
-    }
-    .footer-inner {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 48px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      margin-bottom: 28px;
-    }
-    .footer-brand-logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      margin-bottom: 12px;
-    }
-    .footer-brand-icon {
-      width: 26px; height: 26px;
-      background: var(--green);
-      border-radius: var(--r-sm);
-      display: grid;
-      place-items: center;
-      font-size: 13px;
-    }
-    .footer-brand-name {
-      font-family: var(--serif);
-      font-size: 16px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.8);
-      letter-spacing: -0.2px;
-    }
-    .footer-brand-desc {
-      font-size: 13px;
-      color: rgba(255,255,255,0.35);
-      line-height: 1.65;
-      max-width: 280px;
-    }
-    .footer-col-title {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: rgba(255,255,255,0.35);
-      margin-bottom: 14px;
-    }
-    .footer-col a {
-      display: block;
-      font-size: 13px;
-      color: rgba(255,255,255,0.45);
-      text-decoration: none;
-      margin-bottom: 9px;
-      transition: color .12s;
-    }
-    .footer-col a:hover { color: rgba(255,255,255,0.8); }
-
-    /* Disclaimer block */
-    .footer-disclaimer {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--r-lg);
-      padding: 20px 24px;
-      margin-bottom: 24px;
-    }
-    .disclaimer-heading {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: rgba(255,255,255,0.3);
-      margin-bottom: 10px;
-    }
-    .disclaimer-body {
-      font-size: 11px;
-      color: rgba(255,255,255,0.25);
-      line-height: 1.85;
-    }
-    .disclaimer-body strong { color: rgba(255,255,255,0.45); font-weight: 500; }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.2); }
-    .footer-links-inline {
-      display: flex;
-      gap: 16px;
-    }
-    .footer-links-inline a {
-      font-size: 12px;
-      color: rgba(255,255,255,0.25);
-      text-decoration: none;
-      transition: color .12s;
-    }
-    .footer-links-inline a:hover { color: rgba(255,255,255,0.55); }
+    footer { background: var(--black); padding: 40px 24px 32px; }
+    .footer-inner { max-width: 960px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .footer-logo { display:flex; align-items:center; gap:8px; text-decoration:none; flex-shrink:0; }
+    .footer-logo-icon { width:26px; height:26px; background:var(--green); border-radius:var(--r-sm); display:grid; place-items:center; font-size:13px; color:white; }
+    .footer-logo-name { font-size:15px; font-weight:700; color:rgba(255,255,255,0.75); }
+    .footer-links { display:flex; gap:20px; flex-wrap:wrap; }
+    .footer-links a { font-size:13px; color:rgba(255,255,255,0.4); text-decoration:none; transition:color .12s; }
+    .footer-links a:hover { color:rgba(255,255,255,0.75); }
+    .footer-disc { font-size:11px; color:rgba(255,255,255,0.2); max-width:300px; line-height:1.6; text-align:right; }
+    @media(max-width:600px){ .footer-disc { text-align:left; } }
 
     /* ─── BROWSE CTA LINKS ───────────────────────── */
     .link-see-all {
@@ -1053,9 +959,6 @@
       .res-grid, .aff-grid { grid-template-columns: 1fr; }
       .al-label { min-width: 0; font-size: 13px; }
       .step-drawer-inner { padding-left: 20px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; }
-      .footer-links-inline { flex-wrap: wrap; gap: 12px; }
     }
     /* ── CHANNEL CARDS (resources section) ─────────── */
     .ch-card {
@@ -1274,49 +1177,17 @@
 <!-- ── FOOTER ────────────────────────────────────── -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-grid">
-
-      <div class="footer-brand">
-        <a class="footer-brand-logo" href="./index.html">
-          <div class="footer-brand-icon">$</div>
-          <span class="footer-brand-name">MyMoneyAnswer</span>
-        </a>
-        <p class="footer-brand-desc">Free personal finance tools built on proven principles. No signup, no paywalls — just clear, honest financial guidance.</p>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col-title">Tools</div>
-        <a href="./index.html">What to Do With My Money</a>
-        <a href="./calculator.html">Investment Calculator</a>
-      </div>
-
-      <div class="footer-col">
-        <div class="footer-col-title">Learn</div>
-        <a href="./directory.html">Money Lessons</a>
-        <a href="./blog.html">Blog</a>
-        <a href="https://bogleheads.org/wiki/Getting_started" target="_blank" rel="noopener">Bogleheads Wiki</a>
-        <a href="https://reddit.com/r/personalfinance/wiki" target="_blank" rel="noopener">r/personalfinance</a>
-      </div>
+    <a class="footer-logo" href="./index.html">
+      <div class="footer-logo-icon">$</div>
+      <span class="footer-logo-name">MyMoneyAnswer</span>
+    </a>
+    <div class="footer-links">
+      <a href="./index.html">Financial Plan Tool</a>
+      <a href="./calculator.html">Investment Calculator</a>
+      <a href="./directory.html">Money Lessons</a>
+      <a href="./blog.html">Blog</a>
     </div>
-
-    <div class="footer-disclaimer">
-      <div class="disclaimer-heading">Important Disclaimer</div>
-      <div class="disclaimer-body">
-        <strong>Not financial advice.</strong> All content on this website — including tools, calculators, and recommendations — is for <strong>general informational and educational purposes only</strong>. It does not constitute personalized financial, investment, tax, or legal advice and should not be treated as such.<br><br>
-        Results generated by our tools are based on general financial principles and the information you provide. They do not account for your complete financial situation, risk tolerance, tax circumstances, or other individual factors. <strong>Past performance of any investment is not indicative of future results.</strong><br><br>
-        MyMoneyAnswer is not a registered investment advisor, broker-dealer, or financial planner. Before making major financial decisions, <strong>please consult a qualified, licensed financial advisor</strong> who can evaluate your specific situation.<br><br>
-        Some links on this site are <strong>affiliate links</strong>. If you click and open an account, we may earn a commission at no cost to you. We only recommend products we believe are genuinely useful. Affiliate relationships do not influence our educational content or tool recommendations.
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2025 MyMoneyAnswer. All rights reserved.</span>
-      <div class="footer-links-inline">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Contact</a>
-      </div>
-    </div>
+    <p class="footer-disc">For educational purposes only. Not financial advice. Past returns do not guarantee future results.</p>
   </div>
 </footer>
 

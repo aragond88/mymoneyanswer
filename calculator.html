@@ -302,14 +302,15 @@
 
     /* ── FOOTER ── */
     footer { background: var(--black); padding: 40px 24px 32px; }
-    .footer-inner { max-width: 960px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
-    .footer-logo { display:flex; align-items:center; gap:8px; text-decoration:none; }
-    .footer-logo-icon { width:26px;height:26px;background:var(--green);border-radius:5px;display:grid;place-items:center;font-size:13px; }
+    .footer-inner { max-width: 960px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .footer-logo { display:flex; align-items:center; gap:8px; text-decoration:none; flex-shrink:0; }
+    .footer-logo-icon { width:26px;height:26px;background:var(--green);border-radius:var(--r-sm);display:grid;place-items:center;font-size:13px;color:white; }
     .footer-logo-name { font-size:15px;font-weight:700;color:rgba(255,255,255,0.75); }
     .footer-links { display:flex; gap:20px; flex-wrap:wrap; }
-    .footer-links a { font-size:13px; color:rgba(255,255,255,0.35); text-decoration:none; transition:color .12s; }
-    .footer-links a:hover { color:rgba(255,255,255,0.7); }
-    .footer-disc { font-size:11px; color:rgba(255,255,255,0.2); max-width:480px; line-height:1.6; text-align:right; }
+    .footer-links a { font-size:13px; color:rgba(255,255,255,0.4); text-decoration:none; transition:color .12s; }
+    .footer-links a:hover { color:rgba(255,255,255,0.75); }
+    .footer-disc { font-size:11px; color:rgba(255,255,255,0.2); max-width:300px; line-height:1.6; text-align:right; }
+    @media(max-width:600px){ .footer-disc { text-align:left; } }
 
     /* ── MOBILE NAV ── */
     .nav-burger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:1.5px solid var(--border); border-radius:var(--r-md); cursor:pointer; padding:8px; flex-shrink:0; }
@@ -619,6 +620,7 @@
     </a>
     <div class="footer-links">
       <a href="./index.html">Financial Plan Tool</a>
+      <a href="./calculator.html">Investment Calculator</a>
       <a href="./directory.html">Money Lessons</a>
       <a href="./blog.html">Blog</a>
     </div>
