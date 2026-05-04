@@ -110,84 +110,6 @@
 
     /* ─── MESH GRADIENT HERO BG ──────────────────── */
     /* Applied directly to .hero, not body */
-
-    /* ─── NAV ────────────────────────────────────── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      height: 64px;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 36px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      flex-shrink: 0;
-    }
-    .logo-icon {
-      width: 32px; height: 32px;
-      background: var(--green);
-      border-radius: var(--r-sm);
-      display: grid;
-      place-items: center;
-      font-size: 16px;
-      color: white;
-      flex-shrink: 0;
-    }
-    .logo-text {
-      font-family: var(--font);
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text-1);
-      letter-spacing: -0.4px;
-    }
-    /* Center nav links */
-    .nav-center {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    .nav-link {
-      font-family: var(--font);
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-3);
-      text-decoration: none;
-      padding: 6px 14px;
-      border-radius: var(--r-md);
-      transition: color .12s, background .12s;
-      white-space: nowrap;
-    }
-    .nav-link:hover { color: var(--text-1); background: var(--bg); }
-    .nav-link.active { color: var(--text-1); font-weight: 600; }
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-    .nav-badge {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--green-dark);
-      background: var(--green-light);
-      border: 1px solid var(--green-mid);
-      padding: 4px 12px;
-      border-radius: 20px;
-    }
-
     /* ─── HERO ───────────────────────────────────── */
     .hero {
       /* Green mesh gradient — Keel style */
@@ -917,7 +839,6 @@
     .faq-item.open .faq-a { display: block; }
 
     /* ─── FOOTER ─────────────────────────────────── */
-    
 
     /* ─── BROWSE CTA LINKS ───────────────────────── */
     .link-see-all {
@@ -937,26 +858,10 @@
       transition: all .15s var(--ease);
     }
     .btn-browse:hover { background: var(--green-light); border-color: var(--green); transform: translateY(-1px); }
-
-    /* ─── MOBILE NAV ─────────────────────────────── */
-    .nav-burger { display:none; flex-direction:column; justify-content:center; gap:5px; width:36px; height:36px; background:none; border:1.5px solid var(--border); border-radius:var(--r-md); cursor:pointer; padding:8px; flex-shrink:0; }
-    .nav-burger span { display:block; height:1.5px; background:var(--text-1); border-radius:2px; transition:transform .2s,opacity .2s; }
-    .nav-burger.open span:nth-child(1) { transform:rotate(45deg) translate(4px,4px); }
-    .nav-burger.open span:nth-child(2) { opacity:0; }
-    .nav-burger.open span:nth-child(3) { transform:rotate(-45deg) translate(4px,-4px); }
-    .mobile-menu { display:none; position:absolute; top:64px; left:0; right:0; background:rgba(255,255,255,0.98); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:8px 20px 16px; flex-direction:column; box-shadow:0 4px 16px rgba(0,0,0,0.08); z-index:199; }
-    .mobile-menu.open { display:flex; }
-    .mob-link { font-size:15px; font-weight:500; color:var(--text-1); text-decoration:none; padding:11px 12px; border-radius:var(--r-md); transition:background .12s; }
-    .mob-link:hover { background:var(--bg); }
-    .mob-link.active { font-weight:600; color:var(--green); }
-
     /* ─── RESPONSIVE ─────────────────────────────── */
-    @media(max-width:768px){
-      .nav-center { display: none; }
-      .nav-burger { display: flex; }
-    }
+
     @media(max-width:540px) {
-      nav { padding: 0 20px; }
+
       .hero { padding: 48px 20px 80px; }
       .hero h1 { font-size: 34px; letter-spacing: -0.8px; line-height: 1.1; }
       .hero-sub { font-size: 15px; }
