@@ -44,6 +44,7 @@
   <style>
     :root {
       --bg:          #FAFAFA;
+      --soft-bg:     #F7F7F8;
       --surface:     #FFFFFF;
       --border:      #E4E4E7;
       --border-2:    #F0F0F2;
@@ -65,7 +66,7 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font); background: var(--bg); color: var(--text-1); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); background: var(--soft-bg); color: var(--text-1); min-height: 100vh; -webkit-font-smoothing: antialiased; }
     /* ── HERO ── */
     .hero {
       background-color: #0a2e1a;
@@ -139,13 +140,21 @@
     .input-panel {
       padding: 32px 28px;
       border-right: 1px solid var(--border-2);
+      background: var(--soft-bg);
     }
     .panel-title {
       font-size: 11px; font-weight: 700; text-transform: uppercase;
       letter-spacing: 1px; color: var(--text-3); margin-bottom: 24px;
     }
 
-    .field { margin-bottom: 20px; }
+    .field {
+      margin-bottom: 14px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      background: #FFFFFF;
+      box-shadow: 0 8px 24px rgba(9,9,11,0.06);
+    }
     .field:last-of-type { margin-bottom: 0; }
     .field-label {
       font-size: 13px; font-weight: 600; color: var(--text-2);
@@ -259,7 +268,7 @@
     .insights { display: flex; flex-direction: column; gap: 8px; }
     .insight {
       display: flex; align-items: flex-start; gap: 10px;
-      background: var(--bg); border: 1px solid var(--border-2);
+      background: #FFFFFF; border: 1px solid var(--border);
       border-radius: var(--r-md); padding: 12px 14px;
     }
     .insight-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
@@ -274,6 +283,7 @@
     .exp-card {
       background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--r-xl); padding: 24px;
+      box-shadow: 0 8px 24px rgba(9,9,11,0.04);
     }
     .exp-icon { font-size: 24px; margin-bottom: 12px; }
     .exp-title { font-size: 15px; font-weight: 700; color: var(--text-1); margin-bottom: 8px; letter-spacing: -0.2px; }
@@ -304,7 +314,7 @@
     .ctry-btn:hover:not(.active) { border-color:var(--text-4); color:var(--text-1); }
     .open-acct-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-3); margin-bottom:12px; margin-top:6px; }
     .open-acct-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-    .open-acct-card { display:flex; flex-direction:column; border:1.5px solid var(--green-mid); border-radius:var(--r-lg); padding:16px 18px; background:var(--green-light); text-decoration:none; transition:all .15s var(--ease); }
+    .open-acct-card { display:flex; flex-direction:column; border:1.5px solid var(--green-mid); border-radius:var(--r-lg); padding:16px 18px; background:var(--green-light); text-decoration:none; transition:all .15s var(--ease); box-shadow:0 8px 20px rgba(22,163,74,0.08); }
     .open-acct-card:hover { border-color:var(--green); background:#DCFCE7; transform:translateY(-2px); box-shadow:0 4px 12px var(--green-glow); }
     .open-acct-name { font-size:14px; font-weight:700; color:var(--text-1); margin-bottom:4px; }
     .open-acct-desc { font-size:12px; color:var(--text-3); line-height:1.5; flex:1; }

@@ -158,7 +158,7 @@
     .wrap { max-width: 960px; margin: -80px auto 0; padding: 0 20px 80px; position: relative; z-index: 10; }
     .tool-grid { display: grid; grid-template-columns: 420px 1fr; align-items: stretch; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-2xl); box-shadow: var(--shadow); overflow: hidden; }
     .panel { background: var(--surface); }
-    .form-panel { padding: 32px 28px; border-right: 1px solid var(--border-2); }
+    .form-panel { padding: 32px 28px; border-right: 1px solid var(--border-2); background: #F7F7F8; }
     .result-panel { padding: 32px 28px; display: flex; flex-direction: column; gap: 24px; }
     .panel-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-3); margin-bottom: 10px; }
     .panel-copy { color: var(--text-3); font-size: 13px; line-height: 1.55; margin-bottom: 20px; }
@@ -166,13 +166,25 @@
     .country-btn { display: flex; align-items: center; justify-content: center; gap: 6px; border: 1.5px solid var(--border); border-radius: 20px; padding: 7px 16px; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--text-3); background: #FFFFFF; cursor: pointer; transition: all .15s var(--ease); }
     .country-btn:hover:not(.active) { border-color: var(--text-3); color: var(--text-1); }
     .country-btn.active { color: var(--green-dark); border-color: var(--green-mid); background: var(--green-light); font-weight: 600; }
-    .country-note { border: 1px solid var(--border-2); border-radius: var(--r-md); background: var(--bg); color: var(--text-2); font-size: 13px; line-height: 1.55; padding: 12px 14px; margin-bottom: 20px; }
+    .country-note { border: 1px solid var(--border); border-radius: var(--r-md); background: #FFFFFF; color: var(--text-2); font-size: 13px; line-height: 1.55; padding: 12px 14px; margin-bottom: 20px; }
     .country-note strong { color: var(--green); }
-    .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .input-card {
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      background: #FFFFFF;
+      padding: 18px;
+      box-shadow: 0 8px 24px rgba(9,9,11,0.06);
+      margin-bottom: 14px;
+    }
+    .input-card-head { margin-bottom: 14px; }
+    .input-card-eyebrow { color: var(--green); font-size: 10px; font-weight: 800; letter-spacing: 0.9px; text-transform: uppercase; margin-bottom: 4px; }
+    .input-card-title { color: var(--text-1); font-size: 17px; font-weight: 800; letter-spacing: -0.2px; line-height: 1.25; }
+    .input-card-summary { color: var(--text-3); font-size: 12px; line-height: 1.45; margin-top: 4px; }
+    .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 16px; align-items: start; }
     .field { display: flex; flex-direction: column; gap: 6px; }
     .field.full { grid-column: 1 / -1; }
     label { font-size: 13px; font-weight: 600; color: var(--text-2); }
-    .hint { font-size: 11px; line-height: 1.45; color: var(--text-3); }
+    .input-card label { min-height: 34px; display: flex; align-items: flex-end; line-height: 1.25; }
     .input-wrap {
       display: flex;
       align-items: center;
@@ -229,8 +241,11 @@
     }
     .btn-primary { border: 1px solid var(--green-main); background: var(--green-main); color: #FFFFFF; }
     .btn-primary:hover { background: var(--green-dark); border-color: var(--green-dark); transform: translateY(-1px); box-shadow: 0 4px 16px var(--green-glow); }
-    .btn-secondary { border: 1px solid var(--green-main); background: #FFFFFF; color: var(--green); }
-    .btn-secondary:hover { background: var(--green-light); }
+    .btn-secondary { border: 1.5px solid var(--green-main); background: #FFFFFF; color: var(--green); }
+    .btn-secondary:hover { background: var(--green-light); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(22,163,74,0.1); }
+    .btn:disabled { cursor: not-allowed; opacity: 0.55; transform: none; box-shadow: none; }
+    .result-action { width: 100%; background: var(--green-main); color: #FFFFFF; box-shadow: 0 8px 20px rgba(22,163,74,0.18); }
+    .result-action:hover { background: var(--green-dark); color: #FFFFFF; border-color: var(--green-dark); }
     .metric-main { background: #DCFCE7; border: 1px solid var(--green-mid); border-radius: var(--r-lg); padding: 18px; }
     .metric-label { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 12px; }
     .metric-value { font-size: clamp(34px, 5vw, 44px); line-height: 1; font-weight: 800; letter-spacing: -1px; color: var(--green-main); }
@@ -273,6 +288,7 @@
       .wrap { padding: 0 16px 64px; }
       .form-panel, .result-panel { padding: 22px; }
       .input-grid, .summary-grid, .related-grid { grid-template-columns: 1fr; }
+      .input-card label { min-height: 0; }
       .country-toggle { flex-direction: column; }
     }
   </style>
@@ -319,83 +335,98 @@
         </div>
         <div class="country-note" id="country-note"><strong>United States view:</strong> Amounts are shown in United States dollars. Compare liquid savings accounts, transfer speed, fees, and bank or credit union insurance coverage.</div>
 
-        <div class="input-grid">
-          <div class="field">
-            <label for="housing">Rent or mortgage</label>
-            <div class="input-wrap">
-              <span class="input-prefix currency-prefix">US$</span>
-              <input id="housing" name="housing" type="number" min="0" inputmode="decimal" value="1800" />
+        <div class="input-card">
+          <div class="input-card-head">
+            <div class="input-card-eyebrow">Step 1</div>
+            <h3 class="input-card-title">Essential monthly expenses</h3>
+            <p class="input-card-summary">Use bills you would still need to pay during an income interruption, including electricity, water, internet, and phone service.</p>
+          </div>
+          <div class="input-grid">
+            <div class="field">
+              <label for="housing">Rent or mortgage</label>
+              <div class="input-wrap">
+                <span class="input-prefix currency-prefix">US$</span>
+                <input id="housing" name="housing" type="number" min="0" inputmode="decimal" value="1800" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="utilities">Utilities</label>
+              <div class="input-wrap">
+                <span class="input-prefix currency-prefix">US$</span>
+                <input id="utilities" name="utilities" type="number" min="0" inputmode="decimal" value="250" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="groceries">Groceries</label>
+              <div class="input-wrap">
+                <span class="input-prefix currency-prefix">US$</span>
+                <input id="groceries" name="groceries" type="number" min="0" inputmode="decimal" value="600" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="transportation">Transportation</label>
+              <div class="input-wrap">
+                <span class="input-prefix currency-prefix">US$</span>
+                <input id="transportation" name="transportation" type="number" min="0" inputmode="decimal" value="450" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="insurance">Insurance</label>
+              <div class="input-wrap">
+                <span class="input-prefix currency-prefix">US$</span>
+                <input id="insurance" name="insurance" type="number" min="0" inputmode="decimal" value="180" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="debt">Minimum debt payments</label>
+              <div class="input-wrap">
+                <span class="input-prefix currency-prefix">US$</span>
+                <input id="debt" name="debt" type="number" min="0" inputmode="decimal" value="250" />
+              </div>
+            </div>
+            <div class="field full">
+              <label for="other">Other essentials</label>
+              <div class="input-wrap">
+                <span class="input-prefix currency-prefix">US$</span>
+                <input id="other" name="other" type="number" min="0" inputmode="decimal" value="150" />
+              </div>
             </div>
           </div>
-          <div class="field">
-            <label for="utilities">Utilities</label>
-            <div class="input-wrap">
-              <span class="input-prefix currency-prefix">US$</span>
-              <input id="utilities" name="utilities" type="number" min="0" inputmode="decimal" value="250" />
+        </div>
+
+        <div class="input-card">
+          <div class="input-card-head">
+            <div class="input-card-eyebrow">Step 2</div>
+            <h3 class="input-card-title">Savings status</h3>
+            <p class="input-card-summary">Add what you already have saved and what you can set aside each month.</p>
+          </div>
+          <div class="input-grid">
+            <div class="field">
+              <label for="current">Current emergency savings</label>
+              <div class="input-wrap">
+                <span class="input-prefix currency-prefix">US$</span>
+                <input id="current" name="current" type="number" min="0" inputmode="decimal" value="1000" />
+              </div>
             </div>
-            <div class="hint">Electricity, water, internet, phone.</div>
-          </div>
-          <div class="field">
-            <label for="groceries">Groceries</label>
-            <div class="input-wrap">
-              <span class="input-prefix currency-prefix">US$</span>
-              <input id="groceries" name="groceries" type="number" min="0" inputmode="decimal" value="600" />
+            <div class="field">
+              <label for="monthly">Monthly amount you can save</label>
+              <div class="input-wrap">
+                <span class="input-prefix currency-prefix">US$</span>
+                <input id="monthly" name="monthly" type="number" min="0" inputmode="decimal" value="300" />
+              </div>
             </div>
-          </div>
-          <div class="field">
-            <label for="transportation">Transportation</label>
-            <div class="input-wrap">
-              <span class="input-prefix currency-prefix">US$</span>
-              <input id="transportation" name="transportation" type="number" min="0" inputmode="decimal" value="450" />
-            </div>
-          </div>
-          <div class="field">
-            <label for="insurance">Insurance</label>
-            <div class="input-wrap">
-              <span class="input-prefix currency-prefix">US$</span>
-              <input id="insurance" name="insurance" type="number" min="0" inputmode="decimal" value="180" />
-            </div>
-          </div>
-          <div class="field">
-            <label for="debt">Minimum debt payments</label>
-            <div class="input-wrap">
-              <span class="input-prefix currency-prefix">US$</span>
-              <input id="debt" name="debt" type="number" min="0" inputmode="decimal" value="250" />
-            </div>
-          </div>
-          <div class="field">
-            <label for="other">Other essentials</label>
-            <div class="input-wrap">
-              <span class="input-prefix currency-prefix">US$</span>
-              <input id="other" name="other" type="number" min="0" inputmode="decimal" value="150" />
-            </div>
-          </div>
-          <div class="field">
-            <label for="current">Current emergency savings</label>
-            <div class="input-wrap">
-              <span class="input-prefix currency-prefix">US$</span>
-              <input id="current" name="current" type="number" min="0" inputmode="decimal" value="1000" />
-            </div>
-          </div>
-          <div class="field full">
-            <label for="stability">Income stability</label>
-            <select id="stability" name="stability">
-              <option value="stable">Stable income or two-income household</option>
-              <option value="variable">Variable income or single-income household</option>
-              <option value="self">Self-employed, contractor, or commission income</option>
-            </select>
-          </div>
-          <div class="field full">
-            <label for="monthly">Monthly amount you can save</label>
-            <div class="input-wrap">
-              <span class="input-prefix currency-prefix">US$</span>
-              <input id="monthly" name="monthly" type="number" min="0" inputmode="decimal" value="300" />
+            <div class="field full">
+              <label for="stability">Income stability</label>
+              <select id="stability" name="stability">
+                <option value="stable">Stable income or two-income household</option>
+                <option value="variable">Variable income or single-income household</option>
+                <option value="self">Self-employed, contractor, or commission income</option>
+              </select>
             </div>
           </div>
         </div>
 
         <div class="actions">
-          <button class="btn btn-primary" type="button" id="calculate-btn">Calculate target</button>
           <button class="btn btn-secondary" type="button" id="reset-btn">Reset example</button>
         </div>
       </form>
@@ -424,6 +455,7 @@
             <div class="summary-value" id="timeline">0 months</div>
           </div>
         </div>
+        <button class="btn btn-secondary result-action" type="button" id="download-results-btn">Download results</button>
         <div class="plan-box">
           <h2>Your monthly plan</h2>
           <p id="plan-copy">Enter your numbers to see a monthly savings plan.</p>
@@ -511,7 +543,9 @@
 <script>
 const fields = ['housing','utilities','groceries','transportation','insurance','debt','other','current','monthly'];
 const countryButtons = document.querySelectorAll('.country-btn');
+const downloadResultsButton = document.getElementById('download-results-btn');
 let country = localStorage.getItem('mma_country') || 'US';
+let latestEmergencyResult = null;
 
 const countrySettings = {
   US: {
@@ -591,12 +625,25 @@ function calculate() {
   const target = monthlyEssentials * months;
   const gap = Math.max(0, target - current);
   const monthsToTarget = monthly > 0 ? Math.ceil(gap / monthly) : 0;
+  latestEmergencyResult = {
+    settings: settings,
+    monthlyEssentials: monthlyEssentials,
+    current: current,
+    monthly: monthly,
+    stability: stability,
+    target3: target3,
+    target6: target6,
+    target: target,
+    gap: gap,
+    monthsToTarget: monthsToTarget
+  };
 
   document.getElementById('three-month').textContent = money(target3);
   document.getElementById('six-month').textContent = money(target6);
   document.getElementById('recommended-target').textContent = money(target);
   document.getElementById('gap').textContent = money(gap);
   document.getElementById('timeline').textContent = gap === 0 ? 'Funded' : (monthly > 0 ? `${monthsToTarget} month${monthsToTarget === 1 ? '' : 's'}` : 'Set savings');
+  downloadResultsButton.disabled = monthlyEssentials === 0;
 
   const stabilityText = stability === 'stable' ? 'a 3-month target may be a practical first milestone' : (stability === 'variable' ? 'a 5-month target may provide more room for variable income' : 'a 6-month target may better fit self-employment or commission income');
   document.getElementById('recommended-copy').textContent = `Based on ${money(monthlyEssentials)} in monthly essentials, ${stabilityText}. This ${settings.countryName} view uses ${settings.currencyName}.`;
@@ -622,12 +669,48 @@ fields.forEach(function(id) {
   document.getElementById(id).addEventListener('input', calculate);
 });
 document.getElementById('stability').addEventListener('change', calculate);
-document.getElementById('calculate-btn').addEventListener('click', calculate);
 document.getElementById('reset-btn').addEventListener('click', function() {
   const values = { housing: 1800, utilities: 250, groceries: 600, transportation: 450, insurance: 180, debt: 250, other: 150, current: 1000, monthly: 300 };
   Object.keys(values).forEach(function(id) { document.getElementById(id).value = values[id]; });
   document.getElementById('stability').value = 'stable';
   calculate();
+});
+
+downloadResultsButton.addEventListener('click', function() {
+  calculate();
+  if (!latestEmergencyResult || latestEmergencyResult.monthlyEssentials === 0) return;
+  const result = latestEmergencyResult;
+  const stabilityLabel = {
+    stable: 'Stable income or two-income household',
+    variable: 'Variable income or single-income household',
+    self: 'Self-employed, contractor, or commission income'
+  }[result.stability] || 'Income stability not specified';
+  const timeline = result.gap === 0 ? 'Funded' : (result.monthly > 0 ? `${result.monthsToTarget} month${result.monthsToTarget === 1 ? '' : 's'}` : 'Set a monthly savings amount');
+  const output = [
+    'MyMoneyAnswer Emergency Fund Calculator Results',
+    '',
+    `Country: ${result.settings.countryName}`,
+    `Monthly essentials: ${money(result.monthlyEssentials)}`,
+    `3-month target: ${money(result.target3)}`,
+    `6-month target: ${money(result.target6)}`,
+    `Recommended target: ${money(result.target)}`,
+    `Current emergency savings: ${money(result.current)}`,
+    `Current gap: ${money(result.gap)}`,
+    `Monthly amount you can save: ${money(result.monthly)}`,
+    `Estimated time to target: ${timeline}`,
+    `Income stability: ${stabilityLabel}`,
+    '',
+    'Educational information only: This estimate uses simple assumptions and does not include taxes, benefit programs, insurance details, or every household need.'
+  ].join('\n');
+  const blob = new Blob([output], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'mymoneyanswer-emergency-fund-results.txt';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
 });
 
 document.querySelectorAll('.faq-q').forEach(function(button) {
