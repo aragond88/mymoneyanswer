@@ -1071,7 +1071,7 @@
           <div class="prog-dot"></div>
         </div>
       </div>
-      <div class="prog-track"><div class="prog-fill" style="width:25%"></div></div>
+      <div class="prog-track"><div class="prog-fill" style="width:0%"></div></div>
       <div class="q-head">
         <div class="q-text">How much money do you have to work with?</div>
         <div class="q-hint">Savings, bonus, inheritance, tax refund — whatever amount you want to put to work.</div>
@@ -2130,17 +2130,40 @@ const TAGS = {
   "t-opt":  {l:"Optional",   c:"t-opt"},
 };
 
+function answeredCount(){
+  return QS.reduce((total,q)=>total+(ans[q.id]?1:0),0);
+}
+
+function progressPercent(isResult=false){
+  return isResult ? 100 : answeredCount() * 25;
+}
+
+function progressDots(isResult=false){
+  const completed = isResult ? QS.length : answeredCount();
+  return QS.map((_,i)=>{
+    const cls = i < completed ? 'done' : (!isResult && i === completed ? 'active' : '');
+    return `<div class="prog-dot ${cls}"></div>`;
+  }).join('');
+}
+
+function updateProgress(isResult=false){
+  const fill = document.querySelector('.prog-fill');
+  const dots = document.querySelector('.prog-dots');
+  if (fill) fill.style.width = `${progressPercent(isResult)}%`;
+  if (dots) dots.innerHTML = progressDots(isResult);
+}
+
 function dots(){
-  return `<div class="prog-dots">${QS.map((_,i)=>`<div class="prog-dot ${i<step?'done':i===step?'active':''}"></div>`).join('')}</div>`;
+  return `<div class="prog-dots">${progressDots(false)}</div>`;
 }
 
 function renderQ(i){
-  const q=QS[i], pct=((i+1)/QS.length)*100;
+  const q=QS[i], pct=progressPercent(false);
   document.getElementById('app').innerHTML=`
     <div class="card">
       <div class="card-progress">
         <span class="card-step-label">${q.step}</span>
-        <div class="prog-dots">${QS.map((_,j)=>`<div class="prog-dot ${j<i?'done':j===i?'active':''}"></div>`).join('')}</div>
+        <div class="prog-dots">${progressDots(false)}</div>
       </div>
       <div class="prog-track"><div class="prog-fill" style="width:${pct}%"></div></div>
       <div class="q-head">
@@ -2180,7 +2203,7 @@ function renderResult(){
     <div class="card">
       <div class="card-progress">
         <span class="card-step-label">Your Plan</span>
-        <div class="prog-dots">${QS.map(()=>`<div class="prog-dot done"></div>`).join('')}</div>
+        <div class="prog-dots">${progressDots(true)}</div>
       </div>
       <div class="prog-track"><div class="prog-fill" style="width:100%"></div></div>
       <div class="r-head">
@@ -2560,6 +2583,7 @@ function pick(qId,val,el){
   ans[qId]=val;
   document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
   el.classList.add('sel');
+  updateProgress(false);
   const btn=document.getElementById('nxt');
   if(btn) btn.disabled=false;
 }
