@@ -370,6 +370,39 @@ footer {
 .print-btn:hover {
   background: #166534;
   border-color: #166534;
+  color: white;
+}
+
+.btn-cta:hover:not(:disabled) {
+  background: #166534;
+  border-color: #166534;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(21, 128, 61, 0.22);
+}
+
+.btn-cta:disabled {
+  background: #E4E4E7;
+  border-color: #E4E4E7;
+  color: #52525B;
+}
+
+.hero-ctry .ctry-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.36);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-ctry .ctry-btn.active {
+  background: white;
+  border-color: white;
+  color: #14532D;
+}
+
+.hero-ctry .ctry-btn:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.58);
+  color: white;
 }
 
 .alloc-pct,
