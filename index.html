@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>What Should I Do With My Money? Free Personal Finance Tool</title>
-  <meta name="description" content="Answer 4 questions and get a free educational money plan. Find out your next best money move in 5 minutes — whether you have $500 or $500,000." />
-  <meta name="keywords" content="what to do with my money, personal finance tool, free financial guide, what should I do with my savings, how to invest money, emergency fund calculator" />
+  <meta name="description" content="Answer 4 questions and get a free country-aware educational money plan for the United States or Canada. Compare debt payoff, emergency savings, and beginner investing next steps." />
+  <meta name="keywords" content="what to do with my money, personal finance tool, free financial guide, what should I do with my savings, how to invest money, emergency fund calculator, debt payoff plan" />
   <link rel="canonical" href="https://mymoneyanswer.com/" />
 
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://mymoneyanswer.com/" />
   <meta property="og:title"       content="What Should I Do With My Money? Free Personal Finance Tool" />
-  <meta property="og:description" content="4 questions. Get a free educational money plan and find your next best money move in 5 minutes." />
+  <meta property="og:description" content="4 questions. Get a free United States or Canada educational money plan and find your next best money move in 5 minutes." />
   <meta name="twitter:card"       content="summary" />
   <meta name="twitter:title"      content="What Should I Do With My Money? Free Personal Finance Tool" />
-  <meta name="twitter:description"content="4 questions. Free educational money plan. No signup." />
+  <meta name="twitter:description"content="4 questions. Free country-aware educational money plan. No signup." />
 
   <script type="application/ld+json">
   {
@@ -24,7 +24,7 @@
       {
         "@type": "WebApplication",
         "name": "What Should I Do With My Money?",
-        "description": "A free personal finance tool that gives beginners general educational next steps based on a few money questions.",
+        "description": "A free personal finance tool that gives beginners general educational next steps for debt payoff, emergency savings, and investing in the United States or Canada.",
         "url": "https://mymoneyanswer.com/",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
@@ -36,7 +36,9 @@
           { "@type": "Question", "name": "What should I do with $1,000?", "acceptedAnswer": { "@type": "Answer", "text": "With $1,000, pay off high-interest debt first if you have any. If not, build emergency savings in a separate savings account. Once your foundation is solid, learn about tax-advantaged accounts such as a Roth Individual Retirement Account in the United States or a Tax-Free Savings Account in Canada, then compare low-cost index funds." } },
           { "@type": "Question", "name": "Should I pay off debt or invest?", "acceptedAnswer": { "@type": "Answer", "text": "If your debt has a high annual percentage rate, paying it down is often the strongest first step because the interest cost can be difficult for typical investments to overcome. Lower-rate debt can require a more balanced decision." } },
           { "@type": "Question", "name": "How much emergency fund do I need?", "acceptedAnswer": { "@type": "Answer", "text": "A common educational rule of thumb is 3–6 months of essential living expenses in a separate, accessible savings account. Start with a small starter fund, then build toward 3 months, then 6 months." } },
-          { "@type": "Question", "name": "What is the best way to invest for beginners?", "acceptedAnswer": { "@type": "Answer", "text": "Many beginners start by learning about tax-advantaged accounts, diversified index funds, fees, and automatic contributions. The right account depends on whether you are in the United States or Canada." } }
+          { "@type": "Question", "name": "What is the best way to invest for beginners?", "acceptedAnswer": { "@type": "Answer", "text": "Many beginners start by learning about tax-advantaged accounts, diversified index funds, fees, and automatic contributions. The right account depends on whether you are in the United States or Canada." } },
+          { "@type": "Question", "name": "Does this tool work for Canada and the United States?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool includes a manual country toggle for the United States and Canada. Results use country-specific language for savings accounts, retirement accounts, and account rules." } },
+          { "@type": "Question", "name": "Does this replace a qualified professional?", "acceptedAnswer": { "@type": "Answer", "text": "No. MyMoneyAnswer provides general educational information only. It does not replace a qualified professional who can review your full financial, tax, legal, or investment situation." } }
         ]
       }
     ]
@@ -450,6 +452,29 @@
       color: var(--text-4);
       margin-bottom: 16px;
     }
+    .result-insight {
+      background: var(--green-light);
+      border: 1px solid var(--green-mid);
+      border-radius: var(--r-lg);
+      padding: 16px 18px;
+    }
+    .result-insight-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-1);
+      margin-bottom: 6px;
+    }
+    .result-insight-text {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+    .result-disclaimer {
+      font-size: 12px;
+      color: var(--text-3);
+      line-height: 1.6;
+      margin-top: 10px;
+    }
 
     /* ─── ALLOCATION ─────────────────────────────── */
     .al-row {
@@ -641,7 +666,7 @@
       overflow: hidden;
     }
     .res-card::before {
-      content: '';
+      content: none;
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 3px;
@@ -650,7 +675,7 @@
       transition: opacity .15s;
     }
     .res-card:hover { border-color: var(--green); background: var(--green-light); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
-    .res-card:hover::before { opacity: 1; }
+    .res-card:hover::before { opacity: 0; }
     .rc-type {
       font-size: 10px;
       font-weight: 700;
@@ -682,6 +707,46 @@
       transition: gap .12s;
     }
     .res-card:hover .rc-cta { gap: 7px; }
+    .next-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .next-card {
+      display: block;
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 16px 18px;
+      background: var(--white);
+      transition: all .15s var(--ease);
+    }
+    .next-card:hover {
+      border-color: var(--green);
+      background: var(--green-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .next-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+    .next-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-1);
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+    .next-desc {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.5;
+    }
 
     /* ─── AFFILIATE GRID ─────────────────────────── */
     .aff-grid {
@@ -724,9 +789,18 @@
     .open-acct-card:hover { border-color:var(--green); background:#DCFCE7; transform:translateY(-2px); box-shadow:0 4px 12px var(--green-glow); }
     .open-acct-name { font-size:14px; font-weight:700; color:var(--text-1); margin-bottom:4px; }
     .open-acct-desc { font-size:12px; color:var(--text-3); line-height:1.5; flex:1; }
-    .open-acct-cta { display:inline-block; margin-top:12px; padding:9px 16px; background:var(--green); color:white; border-radius:var(--r-sm); font-size:13px; font-weight:600; transition:background .12s; text-align:center; }
+    .open-acct-cta { display:flex; align-items:center; justify-content:center; gap:6px; margin-top:12px; min-height:40px; padding:9px 12px; background:var(--green); color:white; border-radius:var(--r-sm); font-size:13px; font-weight:600; line-height:1.3; transition:background .12s; text-align:center; white-space:normal; }
+    .open-acct-cta-text { min-width:0; overflow-wrap:normal; text-wrap:balance; }
+    .open-acct-cta-arrow { flex-shrink:0; line-height:1; }
     .open-acct-card:hover .open-acct-cta { background:var(--green-dark); }
     .open-acct-badge { display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; background:#FEF9C3; color:#854D0E; border:1px solid #FDE68A; border-radius:4px; padding:2px 6px; margin-left:6px; vertical-align:middle; }
+    .affiliate-note {
+      font-size: 12px;
+      color: var(--text-3);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+    .affiliate-note:empty { display: none; }
 
     /* ─── SHARE / ACTION BAR ─────────────────────── */
     .share-bar {
@@ -805,6 +879,35 @@
       color: var(--text-1);
       margin: 32px 0 10px;
     }
+    .seo-wrap a {
+      color: var(--green-dark);
+      font-weight: 600;
+    }
+    .method-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 18px 0 22px;
+    }
+    .method-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 16px 18px;
+    }
+    .method-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--green-dark);
+      margin-bottom: 7px;
+    }
+    .method-copy {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
     .faq-list { margin-top: 8px; }
     .faq-item { border-bottom: 1px solid var(--border); }
     .faq-item:first-child { border-top: 1px solid var(--border); }
@@ -871,7 +974,7 @@
       .share-bar { padding: 14px 20px; justify-content: stretch; }
       .share-btns { width: 100%; }
       .btn-action { flex: 1; justify-content: center; }
-      .res-grid, .aff-grid, .open-acct-grid, .ch-grid { grid-template-columns: 1fr; }
+      .res-grid, .aff-grid, .open-acct-grid, .ch-grid, .next-grid, .method-list { grid-template-columns: 1fr; }
       .al-label { min-width: 0; font-size: 13px; }
       .step-drawer-inner { padding-left: 20px; }
     }
@@ -941,7 +1044,7 @@
     Free personal finance tool — no signup required
   </div>
   <h1>What should you do<br>with your <span class="hl">money?</span></h1>
-  <p class="hero-sub">4 questions. Educational next steps. Based on general financial principles.</p>
+  <p class="hero-sub">4 questions. Country-aware educational next steps for debt, savings, and investing.</p>
   <div class="hero-ctry">
     <button type="button" class="ctry-btn active" id="ctry-us" data-c="US" onclick="setCountry('US')">🇺🇸 United States</button>
     <button type="button" class="ctry-btn" id="ctry-ca" data-c="CA" onclick="setCountry('CA')">🇨🇦 Canada</button>
@@ -964,6 +1067,7 @@
         <div class="page-acct-heading" id="page-acct-heading">Open an account — 🇺🇸 United States</div>
       </div>
     </div>
+    <div class="affiliate-note" id="page-acct-note"></div>
     <div class="open-acct-grid" id="page-acct-grid">
       <!-- filled by JS -->
     </div>
@@ -1074,10 +1178,33 @@
   <div class="sect-rule"></div>
   <h2>How to decide what to do with your money</h2>
   <p>Most people know they should be doing something with their savings — but figuring out the next step can feel overwhelming. Should you pay off debt or invest? Build an emergency fund or learn about tax-advantaged accounts? The answer depends on your country and situation, which is why generic money tips can feel hard to apply.</p>
-  <p>This free tool walks you through a 4-question framework based on the same sequence used by financial advisors: assess your debt, check your emergency fund, understand your goals, and deploy your money in the right order. The sequence matters more than the amounts.</p>
+  <p>This free tool walks you through a 4-question educational framework: assess your debt, check your emergency fund, understand your goals, and deploy your money in the right order. The sequence matters more than the amounts.</p>
+
+  <h3>What this tool checks first</h3>
+  <div class="method-list">
+    <div class="method-item">
+      <div class="method-label">Debt pressure</div>
+      <div class="method-copy">High-interest debt can change the best first move because interest costs may outweigh typical investment growth.</div>
+    </div>
+    <div class="method-item">
+      <div class="method-label">Emergency savings</div>
+      <div class="method-copy">A cash buffer helps prevent one surprise expense from turning into new debt or forcing a bad investment sale.</div>
+    </div>
+    <div class="method-item">
+      <div class="method-label">Country rules</div>
+      <div class="method-copy">United States and Canada users see different account language, savings terms, and retirement account examples.</div>
+    </div>
+    <div class="method-item">
+      <div class="method-label">Goal timing</div>
+      <div class="method-copy">Money needed soon usually belongs somewhere more stable than money meant for long-term investing.</div>
+    </div>
+  </div>
 
   <h3>The right order of operations for your money</h3>
   <p>Many educational money frameworks follow a similar order: reduce high-interest debt, build a 3–6 month emergency fund, understand tax-advantaged accounts, then invest additional savings in low-cost diversified funds. In the United States, that may include accounts such as a Roth Individual Retirement Account or a 401(k) retirement plan. In Canada, that may include a Tax-Free Savings Account or Registered Retirement Savings Plan. Skipping steps — investing while carrying high-interest credit card debt, for example — can be mathematically counterproductive regardless of how good the market is doing.</p>
+
+  <h3>Where to go after your result</h3>
+  <p>Your result connects to related learning pages so you can keep moving without guessing. Start with the <a href="./calculator.html">investment calculator</a> if you want to model long-term contributions, browse <a href="./money-lessons.html">money lessons</a> for beginner topics, or use the <a href="./directory.html">YouTube channel directory</a> to find plain-English finance videos.</p>
 
   <h3>Frequently asked questions</h3>
   <div class="faq-list">
@@ -1104,6 +1231,14 @@
     <div class="faq-item">
       <button type="button" class="faq-q" onclick="faq(this)">Is this tool free?</button>
       <div class="faq-a">Yes — completely free. No signup, no email, no paywall. If the site uses affiliate links in the future, they should be clearly labeled and should not affect the educational steps shown by the tool.</div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" onclick="faq(this)">Does this tool work for Canada and the United States?</button>
+      <div class="faq-a">Yes. Use the country toggle above the quiz. United States results use terms such as high-yield savings account, Roth Individual Retirement Account, and 401(k) retirement plan. Canada results use terms such as high-interest savings account, Tax-Free Savings Account, and Registered Retirement Savings Plan.</div>
+    </div>
+    <div class="faq-item">
+      <button type="button" class="faq-q" onclick="faq(this)">Does this replace a qualified professional?</button>
+      <div class="faq-a">No. MyMoneyAnswer provides general educational information only. It does not replace a qualified professional who can review your full financial, tax, legal, or investment situation.</div>
     </div>
   </div>
 </div>
@@ -1280,6 +1415,65 @@ const RES_CA = {
 function getLearningResources(sc){
   const source = country === "CA" ? RES_CA : RES;
   return [...(source[sc.rk[0]]||[]),...(source[sc.rk[1]]||[])].slice(0,4);
+}
+
+function getPlanInsight(sc){
+  const isCA = country === "CA";
+  const countryText = isCA ? "Canada" : "the United States";
+  const accountText = isCA ? "Tax-Free Savings Accounts and Registered Retirement Savings Plans" : "Roth Individual Retirement Accounts, 401(k) retirement plans, and taxable brokerage accounts";
+  const savingsText = isCA ? "high-interest savings accounts" : "high-yield savings accounts";
+  const insights = {
+    debt: `This plan starts with debt because high annual percentage rate balances can quietly drain cash flow. In ${countryText}, the first job is to reduce expensive interest, keep minimum payments current, and protect a starter emergency fund in ${savingsText}.`,
+    no_emergency: `This plan starts with emergency savings because investing before you have a cash buffer can force bad decisions later. In ${countryText}, keep short-term safety money separate from long-term investing money.`,
+    partial: `This plan balances stability and growth because you already have some protection. The next move is to finish the emergency fund while learning how ${accountText} may fit longer-term goals.`,
+    wealth: `This plan moves toward wealth building because your foundation is mostly in place. In ${countryText}, the account order matters, so the next step is learning account rules before adding more money.`,
+    large: `This plan slows down on purpose. Larger balances make taxes, account limits, fees, and timing more important, so research and professional review can be worth more than rushing into one product.`,
+    security: `This plan respects stability as the goal. Short-term money should stay accessible, while longer-term money can be organized around conservative growth only after the safety target is clear.`,
+    balanced: `This plan uses a simple split because your answers point to more than one priority. The goal is to keep cash stable, build the habit of investing, and avoid overcommitting to one path too early.`
+  };
+  return insights[sc._key] || insights.balanced;
+}
+
+function getNextPages(sc){
+  const common = [
+    {label:"Tool", title:"Investment calculator", desc:"Model monthly contributions, time horizon, and long-term growth assumptions.", url:"./calculator.html"},
+    {label:"Lessons", title:"Money lessons", desc:"Browse beginner topics in a structured order.", url:"./money-lessons.html"},
+    {label:"Directory", title:"YouTube channel directory", desc:"Find beginner-friendly finance videos by topic.", url:"./directory.html"},
+  ];
+  const sets = {
+    debt: [
+      {label:"Guide", title:"Debt payoff methods", desc:"Compare the debt avalanche and debt snowball methods.", url:"./blog.html#debt-avalanche"},
+      {label:"Guide", title:"Emergency fund guide", desc:"Build a starter cash buffer while paying down debt.", url:"./blog.html#emergency-fund"},
+      common[0],
+    ],
+    no_emergency: [
+      {label:"Guide", title:"Emergency fund guide", desc:"Learn how much cash to keep and where to keep it.", url:"./blog.html#emergency-fund"},
+      common[1],
+      common[2],
+    ],
+    partial: [
+      {label:"Guide", title:"Emergency fund guide", desc:"Finish your safety net before increasing risk.", url:"./blog.html#emergency-fund"},
+      {label:"Guide", title:"Index funds for beginners", desc:"Learn the basics before choosing investments.", url:"./blog.html#index-funds"},
+      common[0],
+    ],
+    wealth: [
+      {label:"Guide", title:"Index funds for beginners", desc:"Understand diversified funds, fees, and automation.", url:"./blog.html#index-funds"},
+      {label:"Guide", title:"Roth Individual Retirement Account vs Tax-Free Savings Account", desc:"Compare tax-free account concepts for United States and Canada readers.", url:"./blog.html#roth-vs-tfsa"},
+      common[0],
+    ],
+    large: [
+      {label:"Guide", title:"Account comparison guide", desc:"Review account types before moving a large balance.", url:"./blog.html#roth-vs-tfsa"},
+      common[0],
+      common[1],
+    ],
+    security: [
+      {label:"Guide", title:"Emergency fund guide", desc:"Separate safety money from goal money.", url:"./blog.html#emergency-fund"},
+      common[1],
+      common[2],
+    ],
+    balanced: common,
+  };
+  return sets[sc._key] || common;
 }
 
 // ════════════════════════════════════════════
@@ -1755,6 +1949,9 @@ function getExplain(stepName, scenarioKey) {
 // COUNTRY — US or CA, persisted in localStorage
 // ════════════════════════════════════════════
 let country = localStorage.getItem('mma_country') || 'US';
+function renderCtaText(text) {
+  return `<span class="open-acct-cta-text">${text.replace(/\s*→\s*$/, '')}</span><span class="open-acct-cta-arrow">→</span>`;
+}
 function setCountry(c) {
   country = c;
   localStorage.setItem('mma_country', c);
@@ -1768,14 +1965,20 @@ function setCountry(c) {
 function renderPageAccounts(){
   const cards = AFFS[country]['investing']; // show investing accounts on the page-level CTA
   const heading = document.getElementById('page-acct-heading');
+  const note    = document.getElementById('page-acct-note');
   const grid    = document.getElementById('page-acct-grid');
   if(!heading || !grid) return;
   heading.textContent = 'Account resources — ' + (country==='CA' ? '🇨🇦 Canada' : '🇺🇸 United States');
+  if(note) {
+    note.textContent = cards.some(a=>a.aff)
+      ? 'Affiliate disclosure: this section may include affiliate links. The educational steps above do not depend on commissions.'
+      : '';
+  }
   grid.innerHTML = cards.map(a=>`
     <a class="open-acct-card" href="${a.h}" target="_blank" rel="noopener noreferrer">
       <div class="open-acct-name">${a.n}${a.aff?'<span class="open-acct-badge">Affiliate</span>':''}</div>
       <div class="open-acct-desc">${a.d}</div>
-      <span class="open-acct-cta">${a.cta}</span>
+      <span class="open-acct-cta">${renderCtaText(a.cta)}</span>
     </a>`).join('');
 }
 
@@ -1784,7 +1987,7 @@ function renderPageAccounts(){
 const AFFS = {
   US: {
     savings: [
-      { n:"Savings account checklist", d:"Compare insurance coverage, fees, access, transfer speed, and current rates before choosing where to keep cash.", cta:"Read emergency fund guide →", h:"./blog.html#emergency-fund" },
+      { n:"Savings account checklist", d:"Compare insurance coverage, fees, access, transfer speed, and current rates before choosing where to keep cash.", cta:"Emergency fund guide →", h:"./blog.html#emergency-fund" },
       { n:"Debt payoff guide", d:"Use the debt avalanche or debt snowball method before comparing financial products.", cta:"Compare payoff methods →", h:"./blog.html#debt-avalanche" },
     ],
     investing: [
@@ -1869,9 +2072,11 @@ function renderQ(i){
 function renderResult(){
   const sc=getScenario(ans);
   const resources=getLearningResources(sc);
+  const nextPages=getNextPages(sc);
   const countryLabel = country === "CA" ? "Canada" : "United States";
 
   const acctCards = AFFS[country][sc.affKey] || [];
+  const hasAffiliate = acctCards.some(a=>a.aff);
   document.getElementById('app').innerHTML=`
     <div class="card">
       <div class="card-progress">
@@ -1886,6 +2091,15 @@ function renderResult(){
       </div>
 
       <div class="sec">
+        <div class="sec-label">Why this plan</div>
+        <div class="result-insight">
+          <div class="result-insight-title">This result is based on your debt, emergency fund, goal, and country.</div>
+          <div class="result-insight-text">${getPlanInsight(sc)}</div>
+          <div class="result-disclaimer">This is general educational information only. It is not personalized financial, tax, legal, or investment advice.</div>
+        </div>
+      </div>
+
+      <div class="sec">
         <div class="sec-label">Recommended Allocation</div>
         ${sc.alloc.map(a=>`
           <div class="al-row">
@@ -1894,6 +2108,19 @@ function renderResult(){
             <div class="al-label">${a.n}</div>
           </div>
         `).join('')}
+      </div>
+
+      <div class="sec">
+        <div class="sec-label">Next pages to read</div>
+        <div class="next-grid">
+          ${nextPages.map(p=>`
+            <a class="next-card" href="${p.url}">
+              <div class="next-label">${p.label}</div>
+              <div class="next-title">${p.title}</div>
+              <div class="next-desc">${p.desc}</div>
+            </a>
+          `).join('')}
+        </div>
       </div>
 
       <div class="sec">
@@ -1944,12 +2171,13 @@ function renderResult(){
 
       <div class="sec">
         <div class="open-acct-label">Open an Account — ${country==='CA'?'🇨🇦 Canada':'🇺🇸 United States'}</div>
+        ${hasAffiliate?`<div class="affiliate-note">Affiliate disclosure: this section may include affiliate links. The educational plan above stays useful even if affiliate links are removed.</div>`:''}
         <div class="open-acct-grid">
           ${acctCards.map(a=>`
             <a class="open-acct-card" href="${a.h}" target="_blank" rel="noopener noreferrer">
               <div class="open-acct-name">${a.n}${a.aff?`<span class="open-acct-badge">Affiliate</span>`:''}</div>
               <div class="open-acct-desc">${a.d}</div>
-              <span class="open-acct-cta">${a.cta}</span>
+              <span class="open-acct-cta">${renderCtaText(a.cta)}</span>
             </a>
           `).join('')}
         </div>
