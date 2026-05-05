@@ -93,6 +93,7 @@
       --r-md:  10px;
       --r-lg:  14px;
       --r-xl:  18px;
+      --r-2xl: 24px;
 
       --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.07), 0 1px 2px rgba(0,0,0,0.04);
@@ -240,7 +241,7 @@
     .card {
       background: var(--white);
       border: 1px solid var(--border);
-      border-radius: var(--r-xl);
+      border-radius: var(--r-2xl);
       overflow: hidden;
       box-shadow: 0 8px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08);
     }
@@ -249,6 +250,7 @@
     .q-head {
       padding: 24px 28px 24px;
       border-bottom: 1px solid var(--border-2);
+      background: #FFFFFF;
     }
     .q-text {
       font-family: var(--font);
@@ -265,7 +267,7 @@
       color: var(--text-3);
       line-height: 1.55;
     }
-    .q-body { padding: 20px 28px 28px; }
+    .q-body { padding: 20px 28px 28px; background: #F7F7F8; }
 
     /* ─── OPTIONS ────────────────────────────────── */
     .opts { display: flex; flex-direction: column; gap: 8px; }
@@ -314,7 +316,7 @@
     .opt-icon-wrap {
       width: 36px; height: 36px;
       border-radius: var(--r-md);
-      background: var(--bg);
+      background: #FFFFFF;
       border: 1px solid var(--border-2);
       display: grid;
       place-items: center;
@@ -788,7 +790,7 @@
     .open-acct-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--text-3); margin-bottom:12px; }
     .open-acct-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
     .ch-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:16px; }
-    .open-acct-card { display:flex; flex-direction:column; border:1.5px solid var(--green-mid); border-radius:var(--r-lg); padding:16px 18px; background:var(--green-light); text-decoration:none; transition:all .15s var(--ease); }
+    .open-acct-card { display:flex; flex-direction:column; border:1.5px solid var(--green-mid); border-radius:var(--r-lg); padding:16px 18px; background:var(--green-light); text-decoration:none; transition:all .15s var(--ease); box-shadow:0 8px 20px rgba(22,163,74,0.08); }
     .open-acct-card:hover { border-color:var(--green); background:#DCFCE7; transform:translateY(-2px); box-shadow:0 4px 12px var(--green-glow); }
     .open-acct-name { font-size:14px; font-weight:700; color:var(--text-1); margin-bottom:4px; }
     .open-acct-desc { font-size:12px; color:var(--text-3); line-height:1.5; flex:1; }
@@ -1056,7 +1058,7 @@
 </div>
 
 <!-- ── QUIZ ──────────────────────────────────────── -->
-<div style="background:var(--bg); padding-bottom: 1px;">
+<div style="background:#F7F7F8; padding-bottom: 1px;">
 <div class="wrap">
   <div id="app">
     <div class="card">
@@ -1134,7 +1136,7 @@
 </div>
 
 <!-- ── OPEN AN ACCOUNT ───────────────────────────── -->
-<div style="background:var(--bg);">
+<div style="background:#F7F7F8;">
   <div class="page-acct-wrap">
     <div class="sect-rule"></div>
     <div class="page-acct-header">
@@ -1151,7 +1153,7 @@
 </div>
 
 <!-- ── RESOURCES PREVIEW ─────────────────────────── -->
-<div class="resources-preview" style="background:var(--bg);">
+<div class="resources-preview" style="background:#F7F7F8;">
 <div style="max-width:600px;margin:0 auto;padding:48px 20px 0;">
   <div class="sect-rule"></div>
   <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:24px;flex-wrap:wrap;">
@@ -1447,8 +1449,8 @@ const RES = {
   debt:[
     {t:"▶ YouTube", n:"The Ramsey Show",          d:"Baby Steps for eliminating debt",                    u:"https://youtube.com/@TheRamseyShow"},
     {t:"▶ YouTube", n:"Minority Mindset",         d:"Debt payoff & wealth-building mindset",              u:"https://youtube.com/@MinorityMindset"},
-    {t:"Guide",  n:"Debt Avalanche vs Snowball",d:"Which payoff strategy may fit your situation",       u:"./debt-avalanche-vs-snowball.html"},
-    {t:"Guide",  n:"Debt payoff guide",      d:"Compare payoff methods before choosing a strategy",  u:"./debt-avalanche-vs-snowball.html"},
+    {t:"Tool",  n:"Debt payoff calculator",d:"Estimate your payoff timeline and compare strategies",       u:"./debt-payoff-calculator.html"},
+    {t:"Guide",  n:"Debt Avalanche vs Snowball",      d:"Compare payoff methods before choosing a strategy",  u:"./debt-avalanche-vs-snowball.html"},
   ],
   emergency:[
     {t:"▶ YouTube", n:"The Financial Diet",       d:"How to build your first emergency fund",             u:"https://youtube.com/@thefinancialdiet"},
@@ -1478,7 +1480,7 @@ const RES = {
 
 const RES_CA = {
   debt:[
-    {t:"Guide", n:"Debt payoff guide", d:"Compare the debt avalanche and debt snowball methods before redirecting money toward investing.", u:"./debt-avalanche-vs-snowball.html"},
+    {t:"Tool", n:"Debt payoff calculator", d:"Estimate your payoff timeline and compare avalanche versus snowball methods.", u:"./debt-payoff-calculator.html"},
     {t:"Guide", n:"Emergency fund guide", d:"Build a starter cash buffer while paying down high-interest debt.", u:"./how-to-build-emergency-fund.html"},
     {t:"Directory", n:"YouTube channel directory", d:"Browse beginner-friendly videos about debt, budgeting, and cash flow.", u:"./directory.html"},
     {t:"Tool", n:"Investment calculator", d:"Use the calculator after high-interest debt and emergency savings are under control.", u:"./calculator.html"},
@@ -1497,7 +1499,7 @@ const RES_CA = {
   ],
   savings:[
     {t:"Guide", n:"Emergency fund guide", d:"Learn how to separate emergency savings from goal savings.", u:"./how-to-build-emergency-fund.html"},
-    {t:"Guide", n:"Debt payoff guide", d:"Compare debt payoff methods before investing extra cash.", u:"./debt-avalanche-vs-snowball.html"},
+    {t:"Tool", n:"Debt payoff calculator", d:"Compare payoff methods before investing extra cash.", u:"./debt-payoff-calculator.html"},
     {t:"Directory", n:"YouTube channel directory", d:"Browse practical videos about budgeting and saving.", u:"./directory.html"},
     {t:"Tool", n:"Investment calculator", d:"Model investing after near-term cash needs are covered.", u:"./calculator.html"},
   ],
@@ -1539,7 +1541,7 @@ function getNextPages(sc){
   ];
   const sets = {
     debt: [
-      {label:"Guide", title:"Debt payoff methods", desc:"Compare the debt avalanche and debt snowball methods.", url:"./debt-avalanche-vs-snowball.html"},
+      {label:"Tool", title:"Debt payoff calculator", desc:"Estimate your payoff timeline and compare the debt avalanche and debt snowball methods.", url:"./debt-payoff-calculator.html"},
       {label:"Guide", title:"Emergency fund guide", desc:"Build a starter cash buffer while paying down debt.", url:"./how-to-build-emergency-fund.html"},
       common[0],
     ],
@@ -2085,7 +2087,7 @@ const AFFS = {
   US: {
     savings: [
       { n:"Emergency fund calculator", d:"Estimate your 3-month and 6-month cash targets before choosing where to keep savings.", cta:"Calculate target →", h:"./emergency-fund-calculator.html" },
-      { n:"Debt payoff guide", d:"Use the debt avalanche or debt snowball method before comparing financial products.", cta:"Compare payoff methods →", h:"./debt-avalanche-vs-snowball.html" },
+      { n:"Debt payoff calculator", d:"Estimate payoff timelines before comparing financial products.", cta:"Calculate payoff →", h:"./debt-payoff-calculator.html" },
     ],
     investing: [
       { n:"Beginner investing guide", d:"Learn how index funds, account types, fees, and contribution habits work before choosing a platform.", cta:"Read index fund guide →", h:"./index-funds-for-beginners.html" },
@@ -2097,7 +2099,7 @@ const AFFS = {
     ],
     debt: [
       { n:"Emergency fund calculator", d:"Estimate a starter cash buffer while paying down high-interest debt.", cta:"Calculate target →", h:"./emergency-fund-calculator.html" },
-      { n:"Debt payoff guide", d:"Compare payoff strategies and choose a repeatable plan.", cta:"Compare methods →", h:"./debt-avalanche-vs-snowball.html" },
+      { n:"Debt payoff calculator", d:"Compare payoff strategies and choose a repeatable plan.", cta:"Calculate payoff →", h:"./debt-payoff-calculator.html" },
     ],
   },
   CA: {
@@ -2115,7 +2117,7 @@ const AFFS = {
     ],
     debt: [
       { n:"Wealthsimple", d:"Canadian cash and account options to research while building emergency savings. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
-      { n:"Emergency fund calculator", d:"Estimate a starter cash buffer before redirecting money toward investing.", cta:"Calculate target →", h:"./emergency-fund-calculator.html" },
+      { n:"Debt payoff calculator", d:"Estimate payoff timelines before redirecting money toward investing.", cta:"Calculate payoff →", h:"./debt-payoff-calculator.html" },
     ],
   },
 };
