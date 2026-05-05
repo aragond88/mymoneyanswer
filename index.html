@@ -97,7 +97,7 @@
       --blue-light:  #EFF6FF;
 
       --font:   'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --serif:  'Inter', -apple-system, BlinkMacSystemFont, sans-serif; /* all Inter now */
+      --display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
       --r-sm:  6px;
       --r-md:  10px;
@@ -170,7 +170,7 @@
       box-shadow: 0 0 6px rgba(74,222,128,0.8);
     }
     .hero h1 {
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: clamp(40px, 6vw, 68px);
       font-weight: 700;
       letter-spacing: -1px;
@@ -869,7 +869,7 @@
       padding: 48px 20px 72px; /* top padding = space above the sect-rule line */
     }
     .seo-wrap h2 {
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: 28px;
       font-weight: 400;
       letter-spacing: -0.3px;
@@ -885,7 +885,7 @@
       font-weight: 400;
     }
     .seo-wrap h3 {
-      font-family: var(--serif);
+      font-family: var(--display);
       font-size: 20px;
       font-weight: 400;
       letter-spacing: -0.2px;
@@ -1005,8 +1005,7 @@
     .ch-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--green-mid); }
     .ch-header { display: flex; align-items: center; gap: 12px; }
     .ch-avatar-wrap { flex-shrink: 0; position: relative; }
-    .ch-avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); display: block; }
-    .ch-avatar-fallback { display: none; width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--border); background: var(--bg); align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: var(--text-3); letter-spacing: -0.5px; }
+    .ch-avatar-fallback { display: flex; width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--border); background: var(--bg); align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: var(--text-3); letter-spacing: -0.5px; }
     .ch-meta { flex: 1; min-width: 0; }
     .ch-name { font-size: 14px; font-weight: 700; color: var(--text-1); line-height: 1.25; letter-spacing: -0.2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .ch-handle { font-size: 11px; color: var(--text-3); margin-top: 1px; margin-bottom: 5px; }
@@ -1093,7 +1092,7 @@
   <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:24px;flex-wrap:wrap;">
     <div>
       <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--green-dark);margin-bottom:8px;">Free Resources</div>
-      <h2 style="font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:-0.3px;color:var(--text-1);line-height:1.2;">Learn from the best</h2>
+      <h2 style="font-family:var(--display);font-size:22px;font-weight:600;letter-spacing:-0.3px;color:var(--text-1);line-height:1.2;">Learn from the best</h2>
     </div>
     <a href="./directory.html" class="link-see-all">Browse all resources →</a>
   </div>
@@ -1104,7 +1103,6 @@
     <div class="ch-card">
       <div class="ch-header">
         <div class="ch-avatar-wrap">
-          <img class="ch-avatar" src="https://unavatar.io/youtube/thefinancialdiet" alt="The Financial Diet" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <span class="ch-avatar-fallback">TF</span>
         </div>
         <div class="ch-meta">
@@ -1123,7 +1121,6 @@
     <div class="ch-card">
       <div class="ch-header">
         <div class="ch-avatar-wrap">
-          <img class="ch-avatar" src="https://unavatar.io/youtube/ThePlainBagel" alt="The Plain Bagel" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <span class="ch-avatar-fallback">PB</span>
         </div>
         <div class="ch-meta">
@@ -1132,7 +1129,7 @@
           <span class="ch-tag tag-invest">Invest</span>
         </div>
       </div>
-      <div class="ch-desc">A CFA explains index funds, ETFs and market concepts without the jargon.</div>
+      <div class="ch-desc">A Chartered Financial Analyst explains index funds, exchange-traded funds, and market concepts without the jargon.</div>
       <div class="ch-footer">
         <span class="ch-subs">530K subscribers</span>
         <a class="ch-watch" href="https://youtube.com/@ThePlainBagel" target="_blank" rel="noopener">▶</a>
@@ -1142,7 +1139,6 @@
     <div class="ch-card">
       <div class="ch-header">
         <div class="ch-avatar-wrap">
-          <img class="ch-avatar" src="https://unavatar.io/youtube/ramitsethi" alt="Ramit Sethi" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <span class="ch-avatar-fallback">RS</span>
         </div>
         <div class="ch-meta">
@@ -1161,7 +1157,6 @@
     <div class="ch-card">
       <div class="ch-header">
         <div class="ch-avatar-wrap">
-          <img class="ch-avatar" src="https://unavatar.io/youtube/GrahamStephan" alt="Graham Stephan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <span class="ch-avatar-fallback">GS</span>
         </div>
         <div class="ch-meta">
@@ -1285,7 +1280,7 @@
 
 <script>
 // ════════════════════════════════════════════
-// ✏️  QUESTIONS
+// QUESTIONS
 // ════════════════════════════════════════════
 const QS = [
   {
@@ -1361,32 +1356,32 @@ const RES = {
   debt:[
     {t:"▶ YouTube", n:"The Ramsey Show",          d:"Baby Steps for eliminating debt",                    u:"https://youtube.com/@TheRamseyShow"},
     {t:"▶ YouTube", n:"Minority Mindset",         d:"Debt payoff & wealth-building mindset",              u:"https://youtube.com/@MinorityMindset"},
-    {t:"Guide",  n:"Debt Avalanche vs Snowball",d:"Which payoff strategy is right for you",            u:"https://nerdwallet.com/article/finance/debt-avalanche-debt-snowball"},
-    {t:"Tool",   n:"Debt Payoff Calculator",   d:"Find your exact debt-free date",                     u:"https://nerdwallet.com/calculator/debt-payoff-calculator"},
+    {t:"Guide",  n:"Debt Avalanche vs Snowball",d:"Which payoff strategy may fit your situation",       u:"./debt-avalanche-vs-snowball.html"},
+    {t:"Guide",  n:"Debt payoff guide",      d:"Compare payoff methods before choosing a strategy",  u:"./debt-avalanche-vs-snowball.html"},
   ],
   emergency:[
     {t:"▶ YouTube", n:"The Financial Diet",       d:"How to build your first emergency fund",             u:"https://youtube.com/@thefinancialdiet"},
     {t:"▶ YouTube", n:"Graham Stephan",           d:"How much to save & where to keep it",               u:"https://youtube.com/@GrahamStephan"},
-    {t:"Guide",  n:"Investopedia: E-Fund",     d:"Complete emergency fund guide",                      u:"https://investopedia.com/terms/e/emergency_fund.asp"},
-    {t:"Savings", n:"High-yield savings account guide", d:"Compare current high-yield savings account options", u:"https://nerdwallet.com/best/banking/high-yield-online-savings-accounts"},
+    {t:"Guide",  n:"Emergency fund guide",   d:"Learn how much to save and where to keep it",       u:"./how-to-build-emergency-fund.html"},
+    {t:"Guide",  n:"Savings account checklist", d:"Compare liquidity, fees, insurance, and access",  u:"./how-to-build-emergency-fund.html"},
   ],
   investing:[
     {t:"▶ YouTube", n:"The Plain Bagel",          d:"Index funds & passive investing simply explained",   u:"https://youtube.com/@ThePlainBagel"},
     {t:"▶ YouTube", n:"Andrei Jikh",              d:"Investing & financial minimalism",                   u:"https://youtube.com/@AndreiJikh"},
-    {t:"Guide",  n:"Bogleheads: Get Started",  d:"The legendary low-cost passive investing framework", u:"https://bogleheads.org/wiki/Getting_started"},
-    {t:"Guide",  n:"r/personalfinance Wiki",   d:"Reddit's Prime Directive flowchart",                 u:"https://reddit.com/r/personalfinance/wiki/commontopics"},
+    {t:"Guide",  n:"Index funds for beginners", d:"Learn low-cost diversification in plain English",   u:"./index-funds-for-beginners.html"},
+    {t:"Lessons", n:"Money lessons",          d:"Browse beginner money topics in one place",        u:"./money-lessons.html"},
   ],
   savings:[
     {t:"▶ YouTube", n:"Mapped Out Money",         d:"Budgeting systems and savings strategies",           u:"https://youtube.com/@MappedOutMoney"},
     {t:"▶ YouTube", n:"WhiteBoard Finance",       d:"Personal finance made visual and simple",            u:"https://youtube.com/@WhiteboardFinance"},
-    {t:"Tool",   n:"Savings Goal Calculator",  d:"How long until you reach your savings goal",        u:"https://bankrate.com/banking/savings/savings-goal-calculator/"},
-    {t:"Guide",  n:"High-yield savings account comparison", d:"Compare current savings account options", u:"https://nerdwallet.com/best/banking/high-yield-online-savings-accounts"},
+    {t:"Guide",  n:"Emergency fund guide",   d:"Separate emergency savings from goal savings",     u:"./how-to-build-emergency-fund.html"},
+    {t:"Guide",  n:"Savings account checklist", d:"Compare account rules before choosing where to save", u:"./how-to-build-emergency-fund.html"},
   ],
   wealth:[
     {t:"▶ YouTube", n:"The Money Guy Show",       d:"Financial Order of Operations explained",            u:"https://youtube.com/@MoneyGuyShow"},
     {t:"▶ YouTube", n:"Patrick Boyle",            d:"Advanced investing from a hedge fund manager",       u:"https://youtube.com/@PBoyle"},
-    {t:"Guide",  n:"Roth Individual Retirement Account explained", d:"Learn how this United States account type works", u:"https://investopedia.com/terms/r/rothira.asp"},
-    {t:"Guide",  n:"401(k) retirement plan basics", d:"Step-by-step guide to workplace retirement accounts", u:"https://investopedia.com/articles/retirement/08/401k-info.asp"},
+    {t:"Guide",  n:"Roth Individual Retirement Account vs Tax-Free Savings Account", d:"Compare tax-free account concepts", u:"./roth-ira-vs-tfsa.html"},
+    {t:"Guide",  n:"Account comparison guide", d:"Review account types before choosing where to invest", u:"./roth-ira-vs-tfsa.html"},
   ],
 };
 
@@ -1488,7 +1483,7 @@ function getNextPages(sc){
 }
 
 // ════════════════════════════════════════════
-// ✏️  SCENARIOS
+// SCENARIOS
 // ════════════════════════════════════════════
 function getScenario(a, selectedCountry = country){
   const isCA = selectedCountry === "CA";
@@ -1563,7 +1558,7 @@ function getScenario(a, selectedCountry = country){
       {n:`Invest the rest in a ${taxableAccount}`, d:`Use ${indexExamples} for simple diversification after your tax-advantaged account priorities are clear.`, t:"t-soon"},
       {n:`Open a separate ${savingsAccount} for your goal`, d:"House, car, travel — keep goal money in a separate named account so you don't accidentally invest money you may need soon.", t:"t-soon"},
       {n:"Automate monthly contributions",         d:"Dollar-cost averaging means investing the same amount on a regular schedule instead of trying to time the market.", t:"t-later"},
-      {n:"Leave it alone",                         d:"The single most powerful move is not reacting to volatility. Long-term discipline is the actual strategy.", t:"t-later"},
+      {n:"Leave it alone",                         d:"A useful move is avoiding emotional reactions to volatility. Long-term discipline is part of the strategy.", t:"t-later"},
     ],
     rk:["investing","wealth"],
     affKey:'investing',
@@ -1578,7 +1573,7 @@ function getScenario(a, selectedCountry = country){
       {n:"Review tax-advantaged accounts first",   d:`${taxAccounts} may help reduce or manage taxes. Contribution limits and eligibility rules vary, so verify current rules before acting.`, t:"t-now"},
       {n:`Open a ${taxableAccount}`,               d:`Use ${indexExamples} for simple diversification after account priorities and taxes are clear.`, t:"t-now"},
       {n:`Consult a ${advisorType}`,               d:isCA ? "A planner familiar with Canadian taxes, registered accounts, and cross-border issues can help you avoid expensive mistakes." : "A planner familiar with tax planning and investment accounts can help you avoid expensive mistakes.", t:"t-soon"},
-      {n:"Don't hold more than 6 months in cash",  d:"Cash loses ~3% annually to inflation. Idle money has a real cost.", t:"t-soon"},
+      {n:"Don't hold more than 6 months in cash",  d:"Cash can lose purchasing power to inflation over time. Idle money should still have a clear job.", t:"t-soon"},
       {n:"Research real estate funds before direct real estate", d:"Real estate funds can provide exposure without the complexity of buying and managing a property directly.", t:"t-opt"},
     ],
     rk:["wealth","investing"],
@@ -1603,7 +1598,7 @@ function getScenario(a, selectedCountry = country){
   return {
     _key:"balanced",
     title:"A Balanced Plan That Compounds",
-    sub:"Based on your situation, here's a proven allocation to build wealth steadily without taking unnecessary risks.",
+    sub:"Based on your situation, here is a balanced educational framework for building stability and long-term growth.",
     alloc:[{p:50,n:`Invest (${starterAccount} / index funds)`},{p:30,n:`Emergency / goal savings (${savingsAccount})`},{p:20,n:"Cash buffer"}],
     steps:[
       {n:isCA ? "Compare Tax-Free Savings Account or taxable account options" : "Compare Roth Individual Retirement Account or brokerage account options", d:"Compare fees, account rules, investment choices, and automation tools. If you want fewer ongoing decisions, research diversified index fund options.", t:"t-now"},
@@ -1626,7 +1621,7 @@ const EXPLAIN = {
     why: "Interest is silent and relentless. A credit card with a high annual percentage rate can be difficult for typical investment returns to overcome. The debt avalanche method, which targets the highest rate first, usually saves the most money mathematically, while the snowball method, which targets the smallest balance first, can provide psychological wins. Either can work; starting is what matters.",
     how: "Open a spreadsheet or notes app. Write three columns: <strong>Balance</strong>, <strong>Minimum payment</strong>, <strong>Annual percentage rate</strong>. Sort by annual percentage rate from highest to lowest. The top item is your target. Every dollar beyond minimums goes there until it is gone, then you avalanche to the next one.",
     callout: "Your minimum payments on all other debts stay on time. Missing one can trigger a penalty annual percentage rate and undo months of progress.",
-    link: { text: "Debt avalanche vs snowball — full comparison", url: "https://nerdwallet.com/article/finance/debt-avalanche-debt-snowball" }
+    link: { text: "Debt avalanche vs snowball — full comparison", url: "./debt-avalanche-vs-snowball.html" }
   },
   debt_attack: {
     why: "Concentration beats distribution. Putting $500 across five debts moves all of them slowly. Putting $500 on one debt kills it faster, freeing up that minimum payment as fuel for the next one. This 'debt avalanche' effect accelerates as you go — by the time you reach the last debt, you're throwing all previous minimums at it.",
@@ -1636,8 +1631,8 @@ const EXPLAIN = {
   debt_hysa: {
     why: "A high-yield savings account may earn meaningfully more than a regular checking or savings account while the money stays accessible. Rates change, so compare current offers before opening an account.",
     how: "Compare high-yield savings accounts by insurance coverage, fees, transfer speed, withdrawal limits, and current rate. Keep the account separate from daily spending so the money stays reserved for emergencies.",
-    callout: "🏦 FDIC insured means your money is protected by the US government up to $250,000. These accounts are as safe as any bank.",
-    link: { text: "Compare current high-yield savings account options", url: "https://nerdwallet.com/best/banking/high-yield-online-savings-accounts" }
+    callout: "Federal Deposit Insurance Corporation coverage may protect eligible deposits up to applicable limits. Always verify coverage, fees, and account rules before opening an account.",
+    link: { text: "Read the emergency fund guide", url: "./how-to-build-emergency-fund.html" }
   },
   debt_autopay: {
     why: "Penalty annual percentage rates are one of the biggest traps in consumer debt. One late payment can trigger a much higher rate, and credit score damage from late payments can affect your ability to get better rates in the future.",
@@ -1646,20 +1641,20 @@ const EXPLAIN = {
   debt_redirect: {
     why: "Once a debt is eliminated, the cash flow you were spending on it doesn't disappear — it becomes available capital. A $300/month car payment eliminated is $300/month you can redirect to investing. This is how wealth compounds: you don't need a raise, you just need to redirect freed-up money systematically.",
     how: "The day your last high-interest debt hits $0, immediately set up a recurring transfer to your investment account for the same amount you were paying on debt. Don't let lifestyle inflation absorb it.",
-    callout: "🔄 Run this tool again once you're debt-free. Your entire recommended plan will change — you'll be starting from a much stronger position."
+    callout: "Run this tool again once you are debt-free. Your recommended educational plan may change because your cash flow and risk profile will be different."
   },
 
   // ── Emergency fund ──
   emerg_hysa: {
     why: "Without an emergency fund, any unexpected expense — car repair, medical bill, job loss — forces you into one of two bad options: take on high-interest debt, or sell investments at a potentially bad time. An emergency fund is financial shock absorption. It's not about earning returns, it's about preventing catastrophic setbacks.",
     how: "Open a high-yield savings account separate from your checking account. Name it Emergency Fund in the app. Set an automatic monthly transfer. Your target: 3 months of essential expenses such as housing, food, utilities, and transportation.",
-    callout: "⚡ Keep this money boring and accessible. No stocks, no CDs with lock-in periods. The whole point is that you can get to it in 24 hours.",
-    link: { text: "Emergency fund complete guide", url: "https://investopedia.com/terms/e/emergency_fund.asp" }
+    callout: "Keep this money boring and accessible. Avoid market risk for emergency savings. The point is to reach it quickly when needed.",
+    link: { text: "Emergency fund complete guide", url: "./how-to-build-emergency-fund.html" }
   },
   emerg_target: {
     why: "Vague goals don't get funded. 'I should save more' doesn't work. '$8,400 by March' does. 3 months of expenses is the minimum — it covers most job losses and emergencies. 6 months is better if you're self-employed, in a volatile industry, or a single-income household.",
     how: "Add up your non-negotiable monthly expenses: rent, utilities, groceries, insurance, minimum debt payments, transportation. Multiply by 3. That's your number. Write it somewhere visible. Subtract what you already have saved. That's your gap.",
-    callout: "📋 Don't include subscriptions, dining out, or entertainment in this calculation. Emergency fund = survival costs only."
+    callout: "Do not include subscriptions, dining out, or entertainment in this calculation. Emergency fund means essential costs only."
   },
   emerg_auto: {
     why: "Willpower is finite. The people who save consistently aren't more disciplined — they've set up systems that remove the decision. When saving is automatic, you adapt to spending whatever's left. When it requires a conscious choice, it always loses to more immediate wants.",
@@ -1669,31 +1664,31 @@ const EXPLAIN = {
     why: "A Roth Individual Retirement Account is funded with after-tax dollars, and eligible growth and retirement withdrawals can be tax-free under current rules. The biggest advantage is time — money invested earlier has more time to compound. Starting with even a small amount can matter more than waiting until you have enough to start.",
     how: "Compare reputable providers by fees, investment choices, account minimums, and automation tools. A target-date index fund matching your retirement year can automatically adjust its risk level as you age. Set up automatic monthly contributions if the account fits your situation.",
     callout: "Roth Individual Retirement Account contribution rules are flexible compared with many retirement accounts, but earnings and eligibility rules still matter.",
-    link: { text: "Roth Individual Retirement Account explained — Investopedia", url: "https://investopedia.com/terms/r/rothira.asp" }
+    link: { text: "Roth Individual Retirement Account vs Tax-Free Savings Account", url: "./roth-ira-vs-tfsa.html" }
   },
 
   // ── Partial emergency ──
   emerg_gap: {
     why: "Knowing your exact gap makes the goal feel achievable instead of abstract. 'Build an emergency fund' is overwhelming. 'Save $3,200 more over 8 months at $400/month' is a plan you can execute.",
     how: "Formula: (Monthly essential expenses × 3) − current savings balance = your gap. Monthly essentials = rent + utilities + groceries + insurance + minimum payments. Nothing else.",
-    callout: "🎯 Once you hit 3 months, keep going to 6. But 3 months is a meaningful milestone that changes your financial risk profile."
+    callout: "Once you hit 3 months, you can decide whether 6 months fits your job stability, household needs, and comfort level."
   },
   roth_open: {
     why: "Traditional retirement accounts and brokerage accounts can be taxed differently from a Roth Individual Retirement Account. Understanding the tax treatment helps you choose the account that fits your income, timeline, and goals.",
     how: "Check current eligibility and contribution limits first. Then compare reputable providers by fees, investment choices, account minimums, and automatic contribution options. A target-date index fund can be a simple starting point for many beginners.",
     callout: "If your employer offers a 401(k) retirement plan with a match, contributing enough to get the full match is often a high-priority benefit. Then you can compare whether a Roth Individual Retirement Account fits your situation.",
-    link: { text: "Roth Individual Retirement Account rules and overview", url: "https://investopedia.com/terms/r/rothira.asp" }
+    link: { text: "Roth Individual Retirement Account vs Tax-Free Savings Account", url: "./roth-ira-vs-tfsa.html" }
   },
   index_fund: {
-    why: "An index fund buys tiny pieces of hundreds or thousands of companies at once. Instead of betting on one company, you own a slice of the entire market. Over any 15-year period in history, a broad US index fund has been positive. Individual stock picking consistently underperforms index funds after fees — even professional fund managers fail to beat the market 80%+ of the time.",
+    why: "An index fund buys tiny pieces of hundreds or thousands of companies at once. Instead of betting on one company, you own a slice of the entire market. Broad index funds spread money across many companies, which can reduce single-company risk. Many investors choose them because they are diversified, low-cost, and easier to maintain than a portfolio of individual stocks.",
     how: "Compare broad, low-cost index funds by fees, diversification, account type, and whether they fit your time horizon. Buy through the account type that fits your situation and set up monthly automatic investing if appropriate.",
-    callout: "📈 The S&P 500 has returned about 10% annually on average over long periods before inflation. Past performance does not guarantee future results, and investments can lose value.",
-    link: { text: "Bogleheads: the three-fund portfolio", url: "https://bogleheads.org/wiki/Three-fund_portfolio" }
+    callout: "Broad stock indexes have historically rewarded long holding periods, but past performance does not guarantee future results and investments can lose value.",
+    link: { text: "Index funds for beginners", url: "./index-funds-for-beginners.html" }
   },
   automate_both: {
     why: "Automating removes the biggest enemy of investing: yourself. Studies show investors who trade frequently underperform those who set up automatic contributions and never touch them. When markets drop, automated investors keep buying at cheaper prices. Manual investors panic-sell at the bottom.",
     how: "Set two recurring transfers on payday: one to your high-yield savings account and one to your Roth Individual Retirement Account or brokerage account if investing fits your situation.",
-    callout: "🤖 'Set it and forget it' isn't laziness — it's the scientifically proven optimal strategy for most individual investors."
+    callout: "A simple automatic contribution plan can reduce emotional decision-making and make consistency easier."
   },
 
   // ── Solid foundation ──
@@ -1714,14 +1709,14 @@ const EXPLAIN = {
     callout: "If your goal is near term, liquidity and safety usually matter more than chasing a higher return."
   },
   dca: {
-    why: "Dollar-cost averaging (DCA) means investing a fixed amount at regular intervals regardless of market conditions. When prices are high, your fixed amount buys fewer shares. When prices are low, it buys more. Over time, this averages out to a lower cost per share than trying to time the market. And you won't — no one consistently does.",
+    why: "Dollar-cost averaging (DCA) means investing a fixed amount at regular intervals regardless of market conditions. When prices are high, your fixed amount buys fewer shares. When prices are low, it buys more. Over time, this averages out to a lower cost per share than trying to time the market. Timing the market is difficult, especially for beginners.",
     how: "Set a fixed amount to invest monthly — $200, $500, $1,000 — whatever fits your budget. Schedule it to auto-invest on the same day each month. Don't change it based on market news. This is the most important investment decision you'll make.",
-    callout: "📅 Missing just 10 of the best market days in any given decade can cut your returns in half. Those days often happen right after major drops — exactly when scared investors sell."
+    callout: "Large market gains can happen close to large drops, which is one reason timing the market is difficult for beginners."
   },
   leave_alone: {
-    why: "The average investor significantly underperforms the market they're investing in — not because they pick bad funds, but because they react emotionally. They sell during crashes and buy during euphoria. The S&P 500 returned ~9% annually from 2000–2020; the average investor in those same funds returned ~5% due to bad timing.",
+    why: "The average investor significantly underperforms the market they're investing in — not because they pick bad funds, but because they react emotionally. They may sell during drops and buy after markets have already risen, which can hurt long-term results.",
     how: "Remove market apps from your phone's home screen. Set a calendar reminder for January 1 to rebalance if needed (if one asset class is more than 5% off your target allocation). Otherwise, close everything and go live your life.",
-    callout: "🧠 Legendary investor Warren Buffett has said that most investors would be better off buying an S&P 500 index fund and literally never looking at it again."
+    callout: "Many long-term investors choose broad index funds because they reduce the need to pick individual stocks or react to daily market news."
   },
 
   // ── Large amount ──
@@ -1734,13 +1729,13 @@ const EXPLAIN = {
   taxable_large: {
     why: "After maxing tax-advantaged accounts, a taxable brokerage is the most flexible wealth-building vehicle. No contribution limits, no withdrawal restrictions, accessible at any age. You pay capital gains tax on profits, but at the preferential long-term rate if you hold for over a year.",
     how: "Compare reputable brokerage providers by fees, investment choices, automation, and tax reporting. Use diversified funds that fit your timeline and risk tolerance.",
-    callout: "🌍 At this level, consider working with a fee-only fiduciary to optimize asset location — putting different asset types in the right account types for maximum tax efficiency."
+    callout: "At this level, consider professional guidance on asset location, taxes, and account types before making large moves."
   },
   fiduciary: {
-    why: "There are two types of financial advisors: fiduciaries (legally required to act in your best interest) and non-fiduciaries (only required to offer 'suitable' products, which may include high-fee funds that benefit them). The difference in outcomes over 30 years can be hundreds of thousands of dollars.",
+    why: "There are two types of financial advisors: fiduciaries (legally required to act in your best interest) and non-fiduciaries (only required to offer 'suitable' products, which may include high-fee funds that benefit them). The difference in fees, incentives, and product recommendations can matter over long periods.",
     how: "Search for fee-only fiduciary advisors in your area. Look for a Certified Financial Planner designation. Ask how they are paid and avoid anyone who cannot clearly explain fees and incentives.",
-    callout: "⚠️ If an advisor ever mentions annuities, whole life insurance, or actively managed mutual funds — ask about their fees and whether they're a fiduciary. Get it in writing.",
-    link: { text: "Find a fee-only fiduciary advisor", url: "https://www.napfa.org/financial-planning/find-a-planner" }
+    callout: "If a professional recommends complex products, ask how they are paid, what fees apply, and whether they are required to act as a fiduciary.",
+    link: { text: "Read the educational disclaimer", url: "./disclaimer.html" }
   },
   cash_idle: {
     why: "Cash earning 0.01% in a checking account loses real purchasing power every year. Inflation of ~3% means $100,000 in cash is worth only $97,000 in real terms after one year. Money not invested has a cost — the opportunity cost of not putting it to work.",
@@ -1752,46 +1747,46 @@ const EXPLAIN = {
   security_number: {
     why: "Vague anxiety about money never goes away on its own. It dissolves when you replace it with a specific target. 'Being financially secure' means something different to everyone — for some it's 6 months of savings, for others it's no consumer debt, for others it's a paid-off mortgage. Without knowing your specific number, you'll always feel like it's not enough.",
     how: "Write down: What would make you feel financially secure? What specific number, account balance, or milestone would let you sleep better at night? That's your first goal. Everything else comes after.",
-    callout: "✍️ Your security number is personal — it doesn't have to match any rule of thumb. What matters is that it's specific, measurable, and meaningful to you."
+    callout: "Your security number is personal. It does not have to match any rule of thumb. What matters is that it is specific, measurable, and meaningful to you."
   },
   two_hysa: {
     why: "The same way a 'vacation fund' is mentally different from a checking account even if the money is the same, separate named accounts create psychological ownership over each goal. You're far less likely to raid your 'Emergency Fund' when it's visibly distinct from your 'House Fund'.",
     how: "Many online banks let you open multiple savings accounts with custom names. Create one labeled Emergency Fund and one labeled with your specific goal. Transfer automatically to both on payday.",
-    callout: "🏷️ Some banks let you set a target amount and show a progress bar for each account. This gamification effect is surprisingly effective at building momentum."
+    callout: "Some banks let you set a target amount and show a progress bar for each account, which can make saving feel more concrete."
   },
   conservative_port: {
     why: "A 60/40 portfolio (60% stocks, 40% bonds) is less volatile than pure stocks. In 2022, the S&P 500 dropped 19.4%. A 60/40 dropped ~16%. In 2008, the S&P dropped 37%. A 60/40 dropped ~25%. The tradeoff is lower long-term returns in exchange for lower stress and smaller drawdowns.",
     how: "At Fidelity: 'Fidelity Freedom Index' target-date funds automatically maintain the 60/40 ratio and rebalance themselves. At Vanguard: VBINX (Vanguard Balanced Index Fund) does the same. Buy either one and never touch the allocation.",
-    callout: "📊 If a 25% portfolio drop would cause you to sell, you're overexposed to risk. Lower volatility means you're more likely to stay invested during downturns — which matters more than optimization."
+    callout: "If a large portfolio drop would cause you to sell, your allocation may be too aggressive for your risk tolerance."
   },
   pay_first: {
     why: "Humans are terrible at saving what's 'left over' — because nothing is usually left over. We expand spending to fill available income. The fix is to pay yourself first: move savings before you can see it as spendable. What you never see, you don't miss.",
     how: "Set up automatic transfers on the same day as your paycheck. Money goes directly to savings and investments before it sits in your checking account. Adjust your spending to whatever remains.",
-    callout: "🔁 Even $100/month invested at 7% for 30 years = $113,000. The amount matters less than the consistency and timing."
+    callout: "Even small monthly contributions can become meaningful over long periods. Results depend on return assumptions, fees, taxes, and time."
   },
 
   // ── Default ──
   open_roth: {
     why: "A Roth Individual Retirement Account can be useful for many United States investors because eligible growth and retirement withdrawals may be tax-free under current rules.",
     how: "Check current eligibility and contribution rules, compare reputable providers, choose a low-cost diversified option if appropriate, and set up automatic contributions.",
-    callout: "💡 Target-date funds automatically shift from aggressive (mostly stocks) to conservative (more bonds) as you approach retirement. Zero ongoing decisions required.",
-    link: { text: "Roth Individual Retirement Account rules and overview", url: "https://investopedia.com/terms/r/rothira.asp" }
+    callout: "Target-date funds automatically shift from more aggressive to more conservative allocations as the target year approaches. Review fees and holdings before choosing one.",
+    link: { text: "Roth Individual Retirement Account vs Tax-Free Savings Account", url: "./roth-ira-vs-tfsa.html" }
   },
   open_hysa: {
     why: "Your emergency savings can often earn more in a high-yield savings account than in a traditional savings account. Rates change over time, so compare current offers and insurance coverage before choosing where to keep cash.",
     how: "Compare account insurance, fees, transfer timing, withdrawal limits, minimum balances, and current rates. The right account should keep your emergency savings boring, liquid, and separate from daily spending.",
-    callout: "📈 Rates change over time. A higher-yield account can help emergency savings keep pace better than a traditional low-rate account, but liquidity and safety still matter most.",
-    link: { text: "Compare high-yield savings account rates", url: "https://nerdwallet.com/best/banking/high-yield-online-savings-accounts" }
+    callout: "Rates change over time. A higher-yield account may help emergency savings keep pace better than a traditional low-rate account, but liquidity and safety still matter most.",
+    link: { text: "Read the emergency fund guide", url: "./how-to-build-emergency-fund.html" }
   },
   auto_monthly: {
     why: "One of the most important investment habits is consistency. Dollar-cost averaging into a diversified index fund over long periods is a common beginner-friendly strategy, though it still carries market risk.",
     how: "In your investment account, set up monthly automatic investing if appropriate. In your high-yield savings account, set up a recurring transfer on payday. Review once a year.",
-    callout: "📅 $200/month for 30 years at 7% average return = $226,000. $500/month = $566,000. The habit is the strategy."
+    callout: "Monthly investing examples depend on assumptions. The habit matters, but actual results can be higher or lower."
   },
   review_yearly: {
     why: "Overmonitoring your portfolio leads to worse outcomes. People who check their investments daily are more likely to make emotional decisions — selling during drops, buying during peaks. The data is clear: passive, infrequent investors outperform active ones.",
     how: "Put a recurring calendar event every January 1: 'Rebalance portfolio.' Check if your target allocation has drifted by more than 5%. If stocks went up a lot, sell a little and buy more bonds to rebalance. Takes 20 minutes. Then close everything and don't open it again until next January.",
-    callout: "🧘 You do not need to understand market cycles, interest rate policy, or macroeconomics to build wealth. You need an index fund, automatic contributions, and patience."
+    callout: "You do not need to understand every market cycle to start learning. A simple plan, automatic contributions, and patience can help beginners stay consistent."
   },
 };
 
@@ -2096,7 +2091,7 @@ function renderResult(){
       </div>
       <div class="prog-track"><div class="prog-fill" style="width:100%"></div></div>
       <div class="r-head">
-        <div class="r-kicker">✦ Educational Plan — ${countryLabel}</div>
+        <div class="r-kicker">Educational Plan — ${countryLabel}</div>
         <div class="r-title">${sc.title}</div>
         <div class="r-sub">${sc.sub}</div>
       </div>
@@ -2106,7 +2101,7 @@ function renderResult(){
         <div class="result-insight">
           <div class="result-insight-title">This result is based on your debt, emergency fund, goal, and country.</div>
           <div class="result-insight-text">${getPlanInsight(sc)}</div>
-          <div class="result-disclaimer">This is general educational information only. It is not personalized financial, tax, legal, or investment advice.</div>
+          <div class="result-disclaimer">This is general educational information only. It does not replace guidance from a qualified professional who can review your full situation.</div>
         </div>
       </div>
 
@@ -2478,7 +2473,7 @@ function pick(qId,val,el){
 function goNext(){ if(!ans[QS[step].id])return; step++; step>=QS.length?renderResult():renderQ(step); }
 function goBack(){ if(step>0){step--;renderQ(step);} }
 function restart(){ step=0;ans={};renderQ(0);window.scrollTo({top:0,behavior:'smooth'}); }
-function copyLink(e){ navigator.clipboard.writeText(window.location.href).then(()=>{e.target.textContent='✓ Copied!';setTimeout(()=>{e.target.textContent='🔗 Copy link';},2000);}); }
+function copyLink(e){ navigator.clipboard.writeText(window.location.href).then(()=>{e.target.textContent='Copied';setTimeout(()=>{e.target.textContent='Copy link';},2000);}); }
 function faq(el){ el.parentElement.classList.toggle('open'); }
 // Sync hero toggle and page accounts on load
 document.querySelectorAll('.ctry-btn').forEach(b => b.classList.toggle('active', b.dataset.c === country));

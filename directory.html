@@ -181,15 +181,8 @@
     /* header row: avatar + name/handle/tag */
     .ch-header { display: flex; align-items: center; gap: 12px; }
     .ch-avatar-wrap { flex-shrink: 0; position: relative; }
-    .ch-avatar {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--border);
-      display: block;
-    }
     .ch-avatar-fallback {
-      display: none;
+      display: flex;
       width: 52px; height: 52px; border-radius: 50%;
       border: 2px solid var(--border);
       background: var(--bg);
@@ -341,7 +334,7 @@
 const SECTIONS = {
   save:   { label: 'Save Money',        desc: 'Budgeting, spending less and building real savings habits.' },
   make:   { label: 'Make Money',        desc: 'Income strategies, salary growth and financial frameworks.' },
-  invest: { label: 'Invest',            desc: 'Evidence-based investing, ETFs, index funds and market analysis.' },
+  invest: { label: 'Invest',            desc: 'Evidence-based investing, exchange-traded funds, index funds, and market analysis.' },
   rich:   { label: 'Get Rich',          desc: 'Wealth building, real estate and long-term financial independence.' },
   online: { label: 'Make Money Online', desc: 'Content creation, niche sites, passive income and the creator economy.' },
 };
@@ -364,7 +357,7 @@ const channels = [
   { cat:'save',   name:'Frugal Living',                handle:'@FrugalLiving',        url:'https://youtube.com/@FrugalLiving',        subs:'620K',  desc:'Minimalist approach to spending less without sacrificing quality of life.' },
   { cat:'save',   name:'Nate O\'Brien',                handle:'@NateOBrien',          url:'https://youtube.com/@NateOBrien',          subs:'870K',  desc:'Minimalism, frugality and building wealth on a normal income.' },
   { cat:'save',   name:'Debt Free Millennials',        handle:'@debtfreemillennials', url:'https://youtube.com/@debtfreemillennials', subs:'230K',  desc:'Getting out of debt and building savings in your 20s and 30s.' },
-  { cat:'save',   name:'Two Cents PBS',                handle:'@TwoCentsPBS',         url:'https://youtube.com/@TwoCentsPBS',         subs:'780K',  desc:'Smart, research-backed personal finance from PBS.' },
+  { cat:'save',   name:'Two Cents PBS',                handle:'@TwoCentsPBS',         url:'https://youtube.com/@TwoCentsPBS',         subs:'780K',  desc:'Smart, research-backed personal finance from Public Broadcasting Service creators.' },
   { cat:'save',   name:'Tiffany Aliche',               handle:'@TiffanyAliche',       url:'https://youtube.com/@TiffanyAliche',       subs:'340K',  desc:'Budgeting and financial empowerment, especially for women.' },
   { cat:'save',   name:'Finance with Vincent',         handle:'@FinancewithVincent',  url:'https://youtube.com/@FinancewithVincent',  subs:'110K',  desc:'Simple and actionable personal finance for beginners.' },
 
@@ -378,14 +371,14 @@ const channels = [
   { cat:'make',   name:'Nischa',                       handle:'@nischa',              url:'https://youtube.com/@nischa',              subs:'820K',  desc:'Modern personal finance from a London-based ex-investment banker.' },
 
   // ── INVEST ──────────────────────────────────────────
-  { cat:'invest', name:'The Plain Bagel',              handle:'@ThePlainBagel',       url:'https://youtube.com/@ThePlainBagel',       subs:'530K',  desc:'A CFA explains index funds, ETFs and market concepts without the jargon.' },
+  { cat:'invest', name:'The Plain Bagel',              handle:'@ThePlainBagel',       url:'https://youtube.com/@ThePlainBagel',       subs:'530K',  desc:'A Chartered Financial Analyst explains index funds, exchange-traded funds, and market concepts without the jargon.' },
   { cat:'invest', name:'The Money Guy Show',           handle:'@MoneyGuyShow',        url:'https://youtube.com/@MoneyGuyShow',        subs:'1.3M',  desc:'The Financial Order of Operations — exactly where to put each dollar.' },
   { cat:'invest', name:'Andrei Jikh',                  handle:'@AndreiJikh',          url:'https://youtube.com/@AndreiJikh',          subs:'1.1M',  desc:'Visual-first investing and dividend income explained beautifully.' },
   { cat:'invest', name:'Patrick Boyle',                handle:'@PBoyle',              url:'https://youtube.com/@PBoyle',              subs:'650K',  desc:'Advanced market analysis and investing from a hedge fund manager.' },
   { cat:'invest', name:'Ben Felix',                    handle:'@BenFelixCSI',         url:'https://youtube.com/@BenFelixCSI',         subs:'470K',  desc:'Evidence-based investing and factor investing explained rigorously.' },
   { cat:'invest', name:'Joseph Carlson',               handle:'@JosephCarlsonShow',   url:'https://youtube.com/@JosephCarlsonShow',   subs:'390K',  desc:'Portfolio building and dividend investing with full transparency.' },
   { cat:'invest', name:'Jarrad Morrow',                handle:'@JarradMorrow',        url:'https://youtube.com/@JarradMorrow',        subs:'280K',  desc:'Index fund investing and long-term wealth building for beginners.' },
-  { cat:'invest', name:'Aswath Damodaran',             handle:'@AswathDamodaran',     url:'https://youtube.com/@AswathDamodaran',     subs:'430K',  desc:'NYU professor teaching corporate finance and stock valuation at the highest level.' },
+  { cat:'invest', name:'Aswath Damodaran',             handle:'@AswathDamodaran',     url:'https://youtube.com/@AswathDamodaran',     subs:'430K',  desc:'New York University professor teaching corporate finance and stock valuation at the highest level.' },
   { cat:'invest', name:'Sven Carlin',                  handle:'@SvenCarlin',          url:'https://youtube.com/@SvenCarlin',          subs:'320K',  desc:'Deep value investing research and long-term portfolio management.' },
 
   // ── GET RICH ────────────────────────────────────────
@@ -394,17 +387,17 @@ const channels = [
   { cat:'rich',   name:'Meet Kevin',                   handle:'@MeetKevin',           url:'https://youtube.com/@MeetKevin',           subs:'2.1M',  desc:'Real estate strategies, market analysis and daily financial news.' },
   { cat:'rich',   name:'Codie Sanchez',                handle:'@CodieSanchez',        url:'https://youtube.com/@CodieSanchez',        subs:'1.2M',  desc:'Buying boring businesses and building unconventional wealth.' },
   { cat:'rich',   name:'Alex Hormozi',                 handle:'@AlexHormozi',         url:'https://youtube.com/@AlexHormozi',         subs:'5.1M',  desc:'Business building and wealth creation through relentless value delivery.' },
-  { cat:'rich',   name:'Erin Talks Money',             handle:'@ErinTalksMoney',      url:'https://youtube.com/@ErinTalksMoney',      subs:'310K',  desc:'FIRE movement, index fund investing and early retirement strategies.' },
+  { cat:'rich',   name:'Erin Talks Money',             handle:'@ErinTalksMoney',      url:'https://youtube.com/@ErinTalksMoney',      subs:'310K',  desc:'Financial Independence, Retire Early movement, index fund investing, and early retirement strategies.' },
   { cat:'rich',   name:'BiggerPockets',                handle:'@BiggerPockets',       url:'https://youtube.com/@BiggerPockets',       subs:'1.4M',  desc:'The largest real estate investing community and education platform.' },
   { cat:'rich',   name:'Kris Krohn',                   handle:'@KrisKrohn',           url:'https://youtube.com/@KrisKrohn',           subs:'780K',  desc:'Real estate investing strategies for building generational wealth.' },
 
   // ── MAKE MONEY ONLINE ───────────────────────────────
   { cat:'online', name:'Income School',                handle:'@IncomeschoolYT',      url:'https://youtube.com/@IncomeschoolYT',      subs:'400K',  desc:'Building niche websites and content businesses with real income reports.' },
   { cat:'online', name:'Ali Abdaal',                   handle:'@aliabdaal',           url:'https://youtube.com/@aliabdaal',           subs:'5.4M',  desc:'From doctor to full-time creator — YouTube growth and online business.' },
-  { cat:'online', name:'Matt Diggity',                 handle:'@MattDiggity',         url:'https://youtube.com/@MattDiggity',         subs:'150K',  desc:'SEO and affiliate marketing strategies that actually generate income.' },
+  { cat:'online', name:'Matt Diggity',                 handle:'@MattDiggity',         url:'https://youtube.com/@MattDiggity',         subs:'150K',  desc:'Search Engine Optimization and affiliate marketing education for online businesses.' },
   { cat:'online', name:'Nick Nimmin',                  handle:'@NickNimmin',          url:'https://youtube.com/@NickNimmin',          subs:'960K',  desc:'YouTube growth tactics and creator economy business strategies.' },
   { cat:'online', name:'Pat Flynn',                    handle:'@PatFlynn',            url:'https://youtube.com/@PatFlynn',            subs:'380K',  desc:'The original passive income creator with 15 years of transparent income reports.' },
-  { cat:'online', name:'Niche Pursuits',               handle:'@NichePursuits',       url:'https://youtube.com/@NichePursuits',       subs:'210K',  desc:'Building niche sites, Amazon FBA and online business from scratch.' },
+  { cat:'online', name:'Niche Pursuits',               handle:'@NichePursuits',       url:'https://youtube.com/@NichePursuits',       subs:'210K',  desc:'Building niche sites, Amazon fulfillment businesses, and online projects from scratch.' },
   { cat:'online', name:'Charlie Chang',                handle:'@CharleChang',         url:'https://youtube.com/@CharleChang',         subs:'680K',  desc:'Side hustles, passive income and financial independence strategies.' },
   { cat:'online', name:'Anastasia Blogger',            handle:'@AnastasiaBlogger',    url:'https://youtube.com/@AnastasiaBlogger',    subs:'440K',  desc:'Pinterest marketing and blogging for passive income.' },
 ];
@@ -435,10 +428,6 @@ function renderSection(cat) {
         <div class="ch-card">
           <div class="ch-header">
             <div class="ch-avatar-wrap">
-              <img class="ch-avatar"
-                src="https://unavatar.io/youtube/${ch.handle.replace('@','')}"
-                alt="${ch.name}"
-                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
               <span class="ch-avatar-fallback">${initials(ch.name)}</span>
             </div>
             <div class="ch-meta">
