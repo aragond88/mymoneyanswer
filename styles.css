@@ -267,3 +267,125 @@ footer {
     display: flex;
   }
 }
+
+/* Accessibility refinements */
+:root {
+  --green: #15803D;
+  --green-dark: #166534;
+  --text-3: #52525B;
+  --text-4: #52525B;
+}
+
+.logo-icon,
+.footer-logo-icon {
+  background: #15803D;
+}
+
+.mob-link.active {
+  color: #15803D;
+}
+
+.footer-logo-name,
+.footer-disc {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-links a:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.faq-q {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  font-family: inherit;
+  text-align: left;
+}
+
+.article-meta,
+.a-meta {
+  color: #52525B;
+}
+
+.article-card {
+  border-radius: 18px;
+  border-top-width: 1px;
+}
+
+.article-excerpt,
+.faq-a,
+.result-sub,
+.chart-title,
+.chart-legend-item,
+.breakdown-header,
+.breakdown-row .contrib,
+.exp-text,
+.section-sub,
+.ctry-btn,
+.open-acct-label,
+.open-acct-desc,
+.field-hint,
+.range-labels,
+.input-prefix,
+.input-suffix,
+.panel-title {
+  color: #52525B;
+}
+
+.article-cta,
+.a-kicker,
+.a-body a,
+.faq-q:hover,
+.faq-item.open .faq-q,
+.lesson-link,
+.contact-link,
+.detail-link,
+.detail-link a,
+.res-url {
+  color: #15803D;
+}
+
+.btn-primary,
+.btn-cta,
+.btn-action-solid,
+.open-acct-cta,
+.print-btn,
+.filter-btn.active,
+.mode-tab.active,
+.plan-badge,
+.alloc-bar {
+  background: #15803D;
+  border-color: #15803D;
+  color: white;
+}
+
+.btn-primary:hover,
+.btn-cta:hover,
+.btn-action-solid:hover,
+.open-acct-card:hover .open-acct-cta,
+.print-btn:hover {
+  background: #166534;
+  border-color: #166534;
+}
+
+.alloc-pct,
+.rc-primary .result-value {
+  color: #15803D;
+}
+
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+.opt:focus-visible,
+.step-item:focus-visible,
+.faq-q:focus-visible,
+.ch-card:focus-visible,
+.lesson-card:focus-visible,
+.article-card:focus-visible {
+  outline: 3px solid #86EFAC;
+  outline-offset: 3px;
+}
