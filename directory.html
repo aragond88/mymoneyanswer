@@ -112,7 +112,7 @@
     }
     .filter-inner {
       max-width: 1100px; margin: 0 auto;
-      display: flex; align-items: center; gap: 6px;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
       padding: 12px 0; overflow-x: auto;
       scrollbar-width: none;
     }
@@ -171,6 +171,8 @@
       position: relative;
       cursor: pointer;
       user-select: none;
+      color: inherit;
+      text-decoration: none;
     }
     .ch-card:hover {
       transform: translateY(-2px);
@@ -190,6 +192,14 @@
       font-size: 16px; font-weight: 800; color: var(--text-3);
       letter-spacing: -0.5px;
     }
+    .ch-avatar-img {
+      display: block;
+      width: 52px; height: 52px; border-radius: 50%;
+      border: 2px solid var(--border);
+      object-fit: cover;
+      background: var(--bg);
+    }
+    .ch-avatar-img + .ch-avatar-fallback { display: none; }
     .ch-meta { flex: 1; min-width: 0; }
     .ch-name {
       font-size: 14px; font-weight: 700; color: var(--text-1);
@@ -224,7 +234,7 @@
       transition: background .12s;
       flex-shrink: 0;
     }
-    .ch-watch:hover { background: #B91C1C; }
+    .ch-card:hover .ch-watch { background: #B91C1C; }
 
     /* ── FOOTER ───────────────────────────────────── */
     /* ── RESPONSIVE ───────────────────────────────── */
@@ -234,6 +244,7 @@
     @media(max-width:768px) {
 
       .filter-wrap { padding: 0 16px; }
+      .filter-inner { justify-content: flex-start; }
       .section-header { flex-direction: column; gap: 4px; }
       .section-desc { text-align: left; }
     }
@@ -407,6 +418,10 @@ function initials(name) {
   return name.split(' ').slice(0,2).map(w => w[0]).join('').toUpperCase();
 }
 
+function avatarUrl(handle) {
+  return `https://unavatar.io/youtube/${handle.replace(/^@/, '')}`;
+}
+
 function renderSection(cat) {
   const sec = document.getElementById('sec-' + cat);
   if (!sec) return;
@@ -425,9 +440,10 @@ function renderSection(cat) {
     </div>
     <div class="ch-grid">
       ${items.map(ch => `
-        <div class="ch-card">
+        <a class="ch-card" href="${ch.url}" target="_blank" rel="noopener noreferrer" aria-label="Open ${ch.name} on YouTube">
           <div class="ch-header">
             <div class="ch-avatar-wrap">
+              <img class="ch-avatar-img" src="${avatarUrl(ch.handle)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
               <span class="ch-avatar-fallback">${initials(ch.name)}</span>
             </div>
             <div class="ch-meta">
@@ -439,9 +455,9 @@ function renderSection(cat) {
           <div class="ch-desc">${ch.desc}</div>
           <div class="ch-footer">
             <span class="ch-subs">${ch.subs} subscribers</span>
-            <a class="ch-watch" href="${ch.url}" target="_blank" rel="noopener noreferrer">▶</a>
+            <span class="ch-watch" aria-hidden="true">▶</span>
           </div>
-        </div>
+        </a>
       `).join('')}
     </div>
   `;

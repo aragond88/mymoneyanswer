@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/png" href="./favicon.png" />
+  <link rel="apple-touch-icon" href="./favicon.png" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-337VQV0EV8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-337VQV0EV8');
+  </script>
+
+  <title>Emergency Fund Calculator | MyMoneyAnswer</title>
+  <meta name="description" content="Free emergency fund calculator for the United States and Canada. Estimate your 3-month and 6-month emergency savings target, gap, and monthly savings plan." />
+  <link rel="canonical" href="https://mymoneyanswer.com/emergency-fund-calculator.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mymoneyanswer.com/emergency-fund-calculator.html" />
+  <meta property="og:title" content="Emergency Fund Calculator | MyMoneyAnswer" />
+  <meta property="og:description" content="Estimate your emergency savings target, savings gap, and monthly plan in plain English." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Emergency Fund Calculator",
+        "description": "A free calculator that helps beginners estimate a 3-month and 6-month emergency fund target.",
+        "url": "https://mymoneyanswer.com/emergency-fund-calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://mymoneyanswer.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Emergency Fund Calculator",
+            "item": "https://mymoneyanswer.com/emergency-fund-calculator.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much should I keep in an emergency fund?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A common beginner guideline is 3 to 6 months of essential expenses. People with variable income, self-employment income, or single-income households may prefer the higher end."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What expenses should I include?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Include essential expenses such as housing, utilities, groceries, transportation, insurance, minimum debt payments, and other required bills. Do not include optional spending such as entertainment or vacations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I invest my emergency fund?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Emergency savings should usually stay liquid and stable. The purpose is quick access and protection, not maximum growth."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
+  <link rel="stylesheet" href="./styles.css" />
+
+  <style>
+    :root {
+      --bg: #FAFAFA;
+      --surface: #FFFFFF;
+      --border: #E4E4E7;
+      --border-2: #F0F0F2;
+      --text-1: #09090B;
+      --text-2: #3F3F46;
+      --text-3: #52525B;
+      --green: #15803D;
+      --green-dark: #15803D;
+      --green-main: #16A34A;
+      --green-light: #F0FDF4;
+      --green-mid: #BBF7D0;
+      --green-glow: rgba(22,163,74,0.15);
+      --amber-light: #FFF7ED;
+      --amber-border: #FED7AA;
+      --amber-text: #7C2D12;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --r-sm: 6px;
+      --r-md: 10px;
+      --r-lg: 14px;
+      --r-xl: 18px;
+      --r-2xl: 24px;
+      --shadow: 0 8px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06);
+      --ease: cubic-bezier(0.16,1,0.3,1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text-1); min-height: 100vh; -webkit-font-smoothing: antialiased; }
+    main { width: 100%; }
+    .hero {
+      background-color: #0a2e1a;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(34,197,94,0.55) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 80%, rgba(16,185,129,0.2) 0%, transparent 55%),
+        radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+      background-size: auto, auto, 22px 22px;
+      padding: 72px 24px 120px;
+      text-align: center;
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 5px 12px 5px 8px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .kicker-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.8); }
+    .hero h1 { max-width: 640px; margin: 0 auto 16px; color: #FFFFFF; font-size: clamp(34px, 5vw, 56px); line-height: 1.06; letter-spacing: -1.5px; font-weight: 800; }
+    .hero h1 em { color: #4ade80; font-style: italic; font-weight: 800; }
+    .hero-sub { max-width: 520px; margin: 0 auto; color: rgba(255,255,255,0.64); font-size: 17px; line-height: 1.65; }
+    .wrap { max-width: 960px; margin: -80px auto 0; padding: 0 20px 80px; position: relative; z-index: 10; }
+    .tool-grid { display: grid; grid-template-columns: 420px 1fr; align-items: stretch; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-2xl); box-shadow: var(--shadow); overflow: hidden; }
+    .panel { background: var(--surface); }
+    .form-panel { padding: 32px 28px; border-right: 1px solid var(--border-2); }
+    .result-panel { padding: 32px 28px; display: flex; flex-direction: column; gap: 24px; }
+    .panel-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-3); margin-bottom: 10px; }
+    .panel-copy { color: var(--text-3); font-size: 13px; line-height: 1.55; margin-bottom: 20px; }
+    .country-toggle { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+    .country-btn { display: flex; align-items: center; justify-content: center; gap: 6px; border: 1.5px solid var(--border); border-radius: 20px; padding: 7px 16px; font-family: inherit; font-size: 13px; font-weight: 500; color: var(--text-3); background: #FFFFFF; cursor: pointer; transition: all .15s var(--ease); }
+    .country-btn:hover:not(.active) { border-color: var(--text-3); color: var(--text-1); }
+    .country-btn.active { color: var(--green-dark); border-color: var(--green-mid); background: var(--green-light); font-weight: 600; }
+    .country-note { border: 1px solid var(--border-2); border-radius: var(--r-md); background: var(--bg); color: var(--text-2); font-size: 13px; line-height: 1.55; padding: 12px 14px; margin-bottom: 20px; }
+    .country-note strong { color: var(--green); }
+    .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-size: 13px; font-weight: 600; color: var(--text-2); }
+    .hint { font-size: 11px; line-height: 1.45; color: var(--text-3); }
+    .input-wrap {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      background: var(--surface);
+      overflow: hidden;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .input-wrap:focus-within { border-color: var(--green); box-shadow: 0 0 0 3px var(--green-mid); }
+    .input-prefix {
+      padding: 0 11px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border-right: 1px solid var(--border-2);
+      color: var(--text-3);
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    input, select {
+      width: 100%;
+      height: 44px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 0 12px;
+      font-family: var(--font);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-1);
+      background: #FFFFFF;
+      outline: none;
+    }
+    .input-wrap input { border: 0; border-radius: 0; background: transparent; }
+    input:focus, select:focus { border-color: var(--green); box-shadow: 0 0 0 3px var(--green-mid); }
+    .input-wrap input:focus { box-shadow: none; }
+    input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+    .actions { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 24px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      border-radius: var(--r-md);
+      padding: 0 18px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .12s, transform .15s var(--ease), box-shadow .12s, color .12s, border-color .12s;
+    }
+    .btn-primary { border: 1px solid var(--green-main); background: var(--green-main); color: #FFFFFF; }
+    .btn-primary:hover { background: var(--green-dark); border-color: var(--green-dark); transform: translateY(-1px); box-shadow: 0 4px 16px var(--green-glow); }
+    .btn-secondary { border: 1px solid var(--green-main); background: #FFFFFF; color: var(--green); }
+    .btn-secondary:hover { background: var(--green-light); }
+    .metric-main { background: #DCFCE7; border: 1px solid var(--green-mid); border-radius: var(--r-lg); padding: 18px; }
+    .metric-label { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 12px; }
+    .metric-value { font-size: clamp(34px, 5vw, 44px); line-height: 1; font-weight: 800; letter-spacing: -1px; color: var(--green-main); }
+    .metric-sub { margin-top: 10px; color: var(--text-2); font-size: 13px; line-height: 1.55; }
+    .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .summary-card { border: 1px solid var(--border-2); border-radius: var(--r-lg); padding: 14px 16px; background: var(--bg); }
+    .summary-label { color: var(--text-2); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; min-height: 24px; margin-bottom: 10px; }
+    .summary-value { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; }
+    .plan-box { border: 1px solid var(--border-2); border-radius: var(--r-md); padding: 12px 14px; background: var(--bg); }
+    .plan-box h2 { font-size: 13px; font-weight: 700; color: var(--text-1); letter-spacing: -0.1px; margin-bottom: 6px; }
+    .plan-box p { color: var(--text-2); font-size: 13px; line-height: 1.55; }
+    .warning { background: var(--amber-light); border: 1px solid var(--amber-border); border-radius: var(--r-md); color: var(--amber-text); padding: 12px 14px; font-size: 13px; line-height: 1.55; }
+    .content { max-width: 960px; margin: 48px auto 0; }
+    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+    .info-card { background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--r-xl); padding: 24px; }
+    .info-card h2 { font-size: 20px; letter-spacing: -0.3px; margin-bottom: 10px; }
+    .info-card p, .info-card li { color: var(--text-3); font-size: 14px; line-height: 1.65; }
+    .info-card ul { padding-left: 20px; margin-top: 10px; }
+    .related { margin-top: 24px; background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--r-xl); padding: 24px; }
+    .related h2 { font-size: 20px; margin-bottom: 14px; }
+    .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .related-card { border: 1px solid var(--border); border-radius: var(--r-lg); padding: 15px; color: var(--text-1); text-decoration: none; font-size: 14px; font-weight: 700; line-height: 1.4; transition: border-color .12s, background .12s, transform .15s var(--ease); }
+    .related-card:hover { border-color: var(--green-mid); background: var(--green-light); color: var(--green); }
+    .faq { margin-top: 24px; background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--r-xl); padding: 24px; }
+    .faq h2 { font-size: 22px; margin-bottom: 12px; }
+    .faq-item { border-top: 1px solid var(--border); }
+    .faq-item:first-of-type { border-top: 0; }
+    .faq-q { width: 100%; border: 0; background: transparent; padding: 16px 0; text-align: left; font: inherit; font-size: 15px; font-weight: 800; color: var(--text-1); cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .faq-q:hover { color: var(--green); }
+    .faq-a { display: none; padding: 0 0 16px; color: var(--text-2); font-size: 15px; line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-icon { font-size: 18px; line-height: 1; color: var(--green); }
+    @media (max-width: 900px) {
+      .tool-grid, .content-grid { grid-template-columns: 1fr; }
+      .form-panel { border-right: 0; border-bottom: 1px solid var(--border-2); }
+      .related-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .hero { padding: 56px 20px 100px; }
+      .wrap { padding: 0 16px 64px; }
+      .form-panel, .result-panel { padding: 22px; }
+      .input-grid, .summary-grid, .related-grid { grid-template-columns: 1fr; }
+      .country-toggle { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="./index.html">
+    <img class="logo-img" src="./assets/money-logo.png" alt="MyMoneyAnswer" width="92" height="32" />
+  </a>
+  <div class="nav-center">
+    <a class="nav-link" href="./index.html">Tool</a>
+    <a class="nav-link" href="./calculator.html">Investment Calculator</a>
+    <a class="nav-link" href="./money-lessons.html">Money Lessons</a>
+    <a class="nav-link" href="./blog.html">Blog</a>
+  </div>
+  <div class="nav-right">
+    <span class="nav-badge">Free</span>
+    <button class="nav-burger" id="burger" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <a class="mob-link" href="./index.html">Tool</a>
+    <a class="mob-link" href="./calculator.html">Investment Calculator</a>
+    <a class="mob-link" href="./money-lessons.html">Money Lessons</a>
+    <a class="mob-link" href="./blog.html">Blog</a>
+  </div>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="hero-kicker"><span class="kicker-dot"></span> Free Emergency Fund Calculator</div>
+    <h1>Find your emergency fund<br><em>number</em></h1>
+    <p class="hero-sub">Add your essential monthly expenses and current savings to estimate a 3-month target, 6-month target, recommended target, and monthly savings plan.</p>
+  </section>
+
+  <div class="wrap">
+    <section class="tool-grid" aria-labelledby="calculator-heading">
+      <form class="panel form-panel" id="emergency-form">
+        <h2 class="panel-title" id="calculator-heading">Emergency fund calculator</h2>
+        <p class="panel-copy">Use essential expenses only. This calculator is for general educational information and does not replace guidance from a qualified professional.</p>
+
+        <div class="country-toggle" role="group" aria-label="Country">
+          <button class="country-btn active" type="button" data-country="US" aria-pressed="true">United States</button>
+          <button class="country-btn" type="button" data-country="CA" aria-pressed="false">Canada</button>
+        </div>
+        <div class="country-note" id="country-note"><strong>United States view:</strong> Amounts are shown in United States dollars. Compare liquid savings accounts, transfer speed, fees, and bank or credit union insurance coverage.</div>
+
+        <div class="input-grid">
+          <div class="field">
+            <label for="housing">Rent or mortgage</label>
+            <div class="input-wrap">
+              <span class="input-prefix currency-prefix">US$</span>
+              <input id="housing" name="housing" type="number" min="0" inputmode="decimal" value="1800" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="utilities">Utilities</label>
+            <div class="input-wrap">
+              <span class="input-prefix currency-prefix">US$</span>
+              <input id="utilities" name="utilities" type="number" min="0" inputmode="decimal" value="250" />
+            </div>
+            <div class="hint">Electricity, water, internet, phone.</div>
+          </div>
+          <div class="field">
+            <label for="groceries">Groceries</label>
+            <div class="input-wrap">
+              <span class="input-prefix currency-prefix">US$</span>
+              <input id="groceries" name="groceries" type="number" min="0" inputmode="decimal" value="600" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="transportation">Transportation</label>
+            <div class="input-wrap">
+              <span class="input-prefix currency-prefix">US$</span>
+              <input id="transportation" name="transportation" type="number" min="0" inputmode="decimal" value="450" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="insurance">Insurance</label>
+            <div class="input-wrap">
+              <span class="input-prefix currency-prefix">US$</span>
+              <input id="insurance" name="insurance" type="number" min="0" inputmode="decimal" value="180" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="debt">Minimum debt payments</label>
+            <div class="input-wrap">
+              <span class="input-prefix currency-prefix">US$</span>
+              <input id="debt" name="debt" type="number" min="0" inputmode="decimal" value="250" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="other">Other essentials</label>
+            <div class="input-wrap">
+              <span class="input-prefix currency-prefix">US$</span>
+              <input id="other" name="other" type="number" min="0" inputmode="decimal" value="150" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="current">Current emergency savings</label>
+            <div class="input-wrap">
+              <span class="input-prefix currency-prefix">US$</span>
+              <input id="current" name="current" type="number" min="0" inputmode="decimal" value="1000" />
+            </div>
+          </div>
+          <div class="field full">
+            <label for="stability">Income stability</label>
+            <select id="stability" name="stability">
+              <option value="stable">Stable income or two-income household</option>
+              <option value="variable">Variable income or single-income household</option>
+              <option value="self">Self-employed, contractor, or commission income</option>
+            </select>
+          </div>
+          <div class="field full">
+            <label for="monthly">Monthly amount you can save</label>
+            <div class="input-wrap">
+              <span class="input-prefix currency-prefix">US$</span>
+              <input id="monthly" name="monthly" type="number" min="0" inputmode="decimal" value="300" />
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-primary" type="button" id="calculate-btn">Calculate target</button>
+          <button class="btn btn-secondary" type="button" id="reset-btn">Reset example</button>
+        </div>
+      </form>
+
+      <aside class="panel result-panel" aria-live="polite">
+        <div class="metric-main">
+          <div class="metric-label">Recommended target</div>
+          <div class="metric-value" id="recommended-target">$0</div>
+          <div class="metric-sub" id="recommended-copy">Your suggested target will appear here.</div>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-card">
+            <div class="summary-label">3-month target</div>
+            <div class="summary-value" id="three-month">$0</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">6-month target</div>
+            <div class="summary-value" id="six-month">$0</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">Current gap</div>
+            <div class="summary-value" id="gap">$0</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">Time to target</div>
+            <div class="summary-value" id="timeline">0 months</div>
+          </div>
+        </div>
+        <div class="plan-box">
+          <h2>Your monthly plan</h2>
+          <p id="plan-copy">Enter your numbers to see a monthly savings plan.</p>
+        </div>
+        <div class="plan-box">
+          <h2 id="country-context-heading">United States account context</h2>
+          <p id="country-context-copy">For emergency savings in the United States, many beginners compare high-yield savings accounts at insured banks or credit unions. Prioritize quick access, low fees, and stable value over chasing the highest possible return.</p>
+        </div>
+        <div class="warning"><strong>Educational information only:</strong> This calculator uses simple assumptions. It does not include taxes, benefit programs, insurance details, or every household need.</div>
+      </aside>
+    </section>
+
+    <section class="content" aria-labelledby="guide-heading">
+      <div class="content-grid">
+        <article class="info-card">
+          <h2 id="guide-heading">What to include</h2>
+          <p>Use expenses you would still need to pay during an income interruption. The goal is to estimate your basic monthly runway, not your normal lifestyle spending.</p>
+          <ul>
+            <li>Housing and utilities.</li>
+            <li>Groceries and basic household items.</li>
+            <li>Transportation and insurance.</li>
+            <li>Minimum debt payments and required bills.</li>
+          </ul>
+        </article>
+        <article class="info-card">
+          <h2>How to choose 3 months or 6 months</h2>
+          <p>A 3-month fund can be a useful first milestone for stable households. A 6-month fund may fit variable income, self-employment, single-income households, or anyone who wants more cushion.</p>
+          <p>The right number is personal. This calculator gives a practical range so you can choose a target with more clarity.</p>
+        </article>
+      </div>
+
+      <section class="related" aria-labelledby="related-heading">
+        <h2 id="related-heading">Keep learning</h2>
+        <div class="related-grid">
+          <a class="related-card" href="./how-to-build-emergency-fund.html">Read the emergency fund guide</a>
+          <a class="related-card" href="./index.html">Use the money plan tool</a>
+          <a class="related-card" href="./debt-avalanche-vs-snowball.html">Compare debt payoff methods</a>
+          <a class="related-card" href="./money-lessons.html">Browse money lessons</a>
+        </div>
+      </section>
+
+      <section class="faq" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">How much should I keep in an emergency fund? <span class="faq-icon">+</span></button>
+          <div class="faq-a">A common beginner guideline is 3 to 6 months of essential expenses. The higher end may fit variable income, self-employment, single-income households, or people with less predictable expenses.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Should I include subscriptions and entertainment? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Usually no. Emergency savings should cover required costs first. Optional spending can be reduced during a real emergency, so it should not inflate the basic target.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Where should emergency savings be kept? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Emergency savings should usually stay liquid, separate, and stable. In the United States, some people compare high-yield savings accounts. In Canada, some people compare high-interest savings accounts. Always compare fees, access, insurance coverage, and account rules.</div>
+        </div>
+      </section>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <a class="footer-logo" href="./index.html">
+        <img class="footer-logo-img" src="./assets/money-logo.png" alt="MyMoneyAnswer" width="92" height="32" />
+      </a>
+      <p class="footer-disc">For general educational information only. Results and examples are not guarantees.</p>
+    </div>
+    <div class="footer-links">
+      <a href="./index.html">Financial Plan Tool</a>
+      <a href="./calculator.html">Investment Calculator</a>
+      <a href="./money-lessons.html">Money Lessons</a>
+      <a href="./blog.html">Blog</a>
+      <a href="./about.html">About</a>
+      <a href="./contact.html">Contact</a>
+      <a href="./privacy-policy.html">Privacy</a>
+      <a href="./terms.html">Terms</a>
+      <a href="./disclaimer.html">Disclaimer</a>
+      <a href="./affiliate-disclosure.html">Affiliate Disclosure</a>
+      <a href="./editorial-policy.html">Editorial Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const fields = ['housing','utilities','groceries','transportation','insurance','debt','other','current','monthly'];
+const countryButtons = document.querySelectorAll('.country-btn');
+let country = localStorage.getItem('mma_country') || 'US';
+
+const countrySettings = {
+  US: {
+    locale: 'en-US',
+    currency: 'USD',
+    currencyPrefix: 'US$',
+    countryName: 'United States',
+    currencyName: 'United States dollars',
+    note: '<strong>United States view:</strong> Amounts are shown in United States dollars. Compare liquid savings accounts, transfer speed, fees, and bank or credit union insurance coverage.',
+    contextHeading: 'United States account context',
+    contextCopy: 'For emergency savings in the United States, many beginners compare high-yield savings accounts at insured banks or credit unions. Prioritize quick access, low fees, and stable value over chasing the highest possible return.',
+    planNudge: 'For a United States emergency fund, keep the money separate from everyday checking and make sure transfers are easy before you need the cash.'
+  },
+  CA: {
+    locale: 'en-CA',
+    currency: 'CAD',
+    currencyPrefix: 'CA$',
+    countryName: 'Canada',
+    currencyName: 'Canadian dollars',
+    note: '<strong>Canada view:</strong> Amounts are shown in Canadian dollars. Compare high-interest savings accounts, transfer speed, fees, and Canada Deposit Insurance Corporation coverage.',
+    contextHeading: 'Canada account context',
+    contextCopy: 'For emergency savings in Canada, many beginners compare high-interest savings accounts. A Tax-Free Savings Account can hold cash, but contribution room and withdrawal rules matter, so compare account rules before using it for emergency savings.',
+    planNudge: 'For a Canadian emergency fund, keep the money liquid, separate from daily spending, and easy to access without selling investments.'
+  }
+};
+
+function money(value) {
+  const settings = countrySettings[country] || countrySettings.US;
+  const amount = new Intl.NumberFormat(settings.locale, {
+    maximumFractionDigits: 0
+  }).format(Math.max(0, Math.round(value)));
+  return `${settings.currencyPrefix}${amount}`;
+}
+
+function readNumber(id) {
+  const value = Number(document.getElementById(id).value);
+  return Number.isFinite(value) && value > 0 ? value : 0;
+}
+
+function recommendedMonths(stability) {
+  if (stability === 'stable') return 3;
+  if (stability === 'variable') return 5;
+  return 6;
+}
+
+function updateCountryButtons() {
+  countryButtons.forEach(function(button) {
+    const active = button.dataset.country === country;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+}
+
+function updateCountryContent() {
+  const settings = countrySettings[country] || countrySettings.US;
+  document.getElementById('country-note').innerHTML = settings.note;
+  document.getElementById('country-context-heading').textContent = settings.contextHeading;
+  document.getElementById('country-context-copy').textContent = settings.contextCopy;
+  document.querySelectorAll('.currency-prefix').forEach(function(prefix) {
+    prefix.textContent = settings.currencyPrefix;
+  });
+}
+
+function calculate() {
+  updateCountryButtons();
+  updateCountryContent();
+  const settings = countrySettings[country] || countrySettings.US;
+  const monthlyEssentials = ['housing','utilities','groceries','transportation','insurance','debt','other'].reduce(function(sum, id) {
+    return sum + readNumber(id);
+  }, 0);
+  const current = readNumber('current');
+  const monthly = readNumber('monthly');
+  const stability = document.getElementById('stability').value;
+  const months = recommendedMonths(stability);
+  const target3 = monthlyEssentials * 3;
+  const target6 = monthlyEssentials * 6;
+  const target = monthlyEssentials * months;
+  const gap = Math.max(0, target - current);
+  const monthsToTarget = monthly > 0 ? Math.ceil(gap / monthly) : 0;
+
+  document.getElementById('three-month').textContent = money(target3);
+  document.getElementById('six-month').textContent = money(target6);
+  document.getElementById('recommended-target').textContent = money(target);
+  document.getElementById('gap').textContent = money(gap);
+  document.getElementById('timeline').textContent = gap === 0 ? 'Funded' : (monthly > 0 ? `${monthsToTarget} month${monthsToTarget === 1 ? '' : 's'}` : 'Set savings');
+
+  const stabilityText = stability === 'stable' ? 'a 3-month target may be a practical first milestone' : (stability === 'variable' ? 'a 5-month target may provide more room for variable income' : 'a 6-month target may better fit self-employment or commission income');
+  document.getElementById('recommended-copy').textContent = `Based on ${money(monthlyEssentials)} in monthly essentials, ${stabilityText}. This ${settings.countryName} view uses ${settings.currencyName}.`;
+
+  if (gap === 0) {
+    document.getElementById('plan-copy').textContent = `Your current emergency savings meet or exceed this target. Review the number whenever your expenses, job situation, or household needs change. ${settings.planNudge}`;
+  } else if (monthly <= 0) {
+    document.getElementById('plan-copy').textContent = `You still need about ${money(gap)} to reach this target. Add a monthly savings amount to estimate a timeline. ${settings.planNudge}`;
+  } else {
+    document.getElementById('plan-copy').textContent = `Saving ${money(monthly)} per month would close the estimated ${money(gap)} gap in about ${monthsToTarget} month${monthsToTarget === 1 ? '' : 's'}. ${settings.planNudge}`;
+  }
+}
+
+countryButtons.forEach(function(button) {
+  button.addEventListener('click', function() {
+    country = button.dataset.country;
+    localStorage.setItem('mma_country', country);
+    calculate();
+  });
+});
+
+fields.forEach(function(id) {
+  document.getElementById(id).addEventListener('input', calculate);
+});
+document.getElementById('stability').addEventListener('change', calculate);
+document.getElementById('calculate-btn').addEventListener('click', calculate);
+document.getElementById('reset-btn').addEventListener('click', function() {
+  const values = { housing: 1800, utilities: 250, groceries: 600, transportation: 450, insurance: 180, debt: 250, other: 150, current: 1000, monthly: 300 };
+  Object.keys(values).forEach(function(id) { document.getElementById(id).value = values[id]; });
+  document.getElementById('stability').value = 'stable';
+  calculate();
+});
+
+document.querySelectorAll('.faq-q').forEach(function(button) {
+  button.addEventListener('click', function() {
+    const item = button.parentElement;
+    const open = item.classList.toggle('open');
+    button.setAttribute('aria-expanded', open ? 'true' : 'false');
+    button.querySelector('.faq-icon').textContent = open ? '-' : '+';
+  });
+});
+
+calculate();
+</script>
+<script src="./site.js"></script>
+</body>
+</html>

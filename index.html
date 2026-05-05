@@ -1001,11 +1001,14 @@
       transition: transform .18s var(--ease), box-shadow .18s var(--ease), border-color .18s;
       cursor: pointer;
       user-select: none;
+      color: inherit;
+      text-decoration: none;
     }
     .ch-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--green-mid); }
     .ch-header { display: flex; align-items: center; gap: 12px; }
     .ch-avatar-wrap { flex-shrink: 0; position: relative; }
-    .ch-avatar-fallback { display: flex; width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--border); background: var(--bg); align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: var(--text-3); letter-spacing: -0.5px; }
+    .ch-avatar-img { display: block; width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--border); object-fit: cover; background: var(--bg); }
+    .ch-avatar-fallback { display: none; width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--border); background: var(--bg); align-items: center; justify-content: center; font-size: 16px; font-weight: 800; color: var(--text-3); letter-spacing: -0.5px; }
     .ch-meta { flex: 1; min-width: 0; }
     .ch-name { font-size: 14px; font-weight: 700; color: var(--text-1); line-height: 1.25; letter-spacing: -0.2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .ch-handle { font-size: 11px; color: var(--text-3); margin-top: 1px; margin-bottom: 5px; }
@@ -1019,7 +1022,7 @@
     .ch-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
     .ch-subs { font-size: 11px; font-weight: 500; color: var(--text-3); }
     .ch-watch { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font); font-size: 11px; font-weight: 700; color: white; background: #DC2626; width: 28px; height: 28px; border-radius: 50%; text-decoration: none; transition: background .12s; flex-shrink: 0; }
-    .ch-watch:hover { background: #B91C1C; }
+    .ch-card:hover .ch-watch { background: #B91C1C; }
   </style>
   <link rel="stylesheet" href="./styles.css" />
 </head>
@@ -1100,9 +1103,10 @@
   <!-- Featured channel cards -->
   <div class="ch-grid">
 
-    <div class="ch-card">
+    <a class="ch-card" href="https://youtube.com/@thefinancialdiet" target="_blank" rel="noopener noreferrer" aria-label="Open The Financial Diet on YouTube">
       <div class="ch-header">
         <div class="ch-avatar-wrap">
+          <img class="ch-avatar-img" src="https://unavatar.io/youtube/thefinancialdiet" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
           <span class="ch-avatar-fallback">TF</span>
         </div>
         <div class="ch-meta">
@@ -1114,13 +1118,14 @@
       <div class="ch-desc">Practical money advice for real people, not spreadsheet nerds.</div>
       <div class="ch-footer">
         <span class="ch-subs">1.3M subscribers</span>
-        <a class="ch-watch" href="https://youtube.com/@thefinancialdiet" target="_blank" rel="noopener">▶</a>
+        <span class="ch-watch" aria-hidden="true">▶</span>
       </div>
-    </div>
+    </a>
 
-    <div class="ch-card">
+    <a class="ch-card" href="https://youtube.com/@ThePlainBagel" target="_blank" rel="noopener noreferrer" aria-label="Open The Plain Bagel on YouTube">
       <div class="ch-header">
         <div class="ch-avatar-wrap">
+          <img class="ch-avatar-img" src="https://unavatar.io/youtube/ThePlainBagel" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
           <span class="ch-avatar-fallback">PB</span>
         </div>
         <div class="ch-meta">
@@ -1132,13 +1137,14 @@
       <div class="ch-desc">A Chartered Financial Analyst explains index funds, exchange-traded funds, and market concepts without the jargon.</div>
       <div class="ch-footer">
         <span class="ch-subs">530K subscribers</span>
-        <a class="ch-watch" href="https://youtube.com/@ThePlainBagel" target="_blank" rel="noopener">▶</a>
+        <span class="ch-watch" aria-hidden="true">▶</span>
       </div>
-    </div>
+    </a>
 
-    <div class="ch-card">
+    <a class="ch-card" href="https://youtube.com/@ramitsethi" target="_blank" rel="noopener noreferrer" aria-label="Open Ramit Sethi on YouTube">
       <div class="ch-header">
         <div class="ch-avatar-wrap">
+          <img class="ch-avatar-img" src="https://unavatar.io/youtube/ramitsethi" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
           <span class="ch-avatar-fallback">RS</span>
         </div>
         <div class="ch-meta">
@@ -1150,13 +1156,14 @@
       <div class="ch-desc">Salary negotiation, automation and living a rich life on your terms.</div>
       <div class="ch-footer">
         <span class="ch-subs">1.0M subscribers</span>
-        <a class="ch-watch" href="https://youtube.com/@ramitsethi" target="_blank" rel="noopener">▶</a>
+        <span class="ch-watch" aria-hidden="true">▶</span>
       </div>
-    </div>
+    </a>
 
-    <div class="ch-card">
+    <a class="ch-card" href="https://youtube.com/@GrahamStephan" target="_blank" rel="noopener noreferrer" aria-label="Open Graham Stephan on YouTube">
       <div class="ch-header">
         <div class="ch-avatar-wrap">
+          <img class="ch-avatar-img" src="https://unavatar.io/youtube/GrahamStephan" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
           <span class="ch-avatar-fallback">GS</span>
         </div>
         <div class="ch-meta">
@@ -1168,9 +1175,9 @@
       <div class="ch-desc">Real estate, investing and transparent wealth-building from a self-made millionaire.</div>
       <div class="ch-footer">
         <span class="ch-subs">4.8M subscribers</span>
-        <a class="ch-watch" href="https://youtube.com/@GrahamStephan" target="_blank" rel="noopener">▶</a>
+        <span class="ch-watch" aria-hidden="true">▶</span>
       </div>
-    </div>
+    </a>
 
   </div>
 
@@ -1993,7 +2000,7 @@ function renderPageAccounts(){
 const AFFS = {
   US: {
     savings: [
-      { n:"Savings account checklist", d:"Compare insurance coverage, fees, access, transfer speed, and current rates before choosing where to keep cash.", cta:"Emergency fund guide →", h:"./how-to-build-emergency-fund.html" },
+      { n:"Emergency fund calculator", d:"Estimate your 3-month and 6-month cash targets before choosing where to keep savings.", cta:"Calculate target →", h:"./emergency-fund-calculator.html" },
       { n:"Debt payoff guide", d:"Use the debt avalanche or debt snowball method before comparing financial products.", cta:"Compare payoff methods →", h:"./debt-avalanche-vs-snowball.html" },
     ],
     investing: [
@@ -2005,14 +2012,14 @@ const AFFS = {
       { n:"Long-term calculator", d:"Stress-test contribution amounts, timelines, and expected return assumptions.", cta:"Open calculator →", h:"./calculator.html" },
     ],
     debt: [
-      { n:"Emergency fund guide", d:"Keep starter emergency savings liquid and separate while paying down high-interest debt.", cta:"Read guide →", h:"./how-to-build-emergency-fund.html" },
+      { n:"Emergency fund calculator", d:"Estimate a starter cash buffer while paying down high-interest debt.", cta:"Calculate target →", h:"./emergency-fund-calculator.html" },
       { n:"Debt payoff guide", d:"Compare payoff strategies and choose a repeatable plan.", cta:"Compare methods →", h:"./debt-avalanche-vs-snowball.html" },
     ],
   },
   CA: {
     savings: [
       { n:"Wealthsimple", d:"Canadian cash, investing, Tax-Free Savings Account, and Registered Retirement Savings Plan options. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
-      { n:"Emergency fund guide", d:"Learn how to evaluate liquidity, account rules, fees, and current rates before choosing where to keep savings.", cta:"Read guide →", h:"./how-to-build-emergency-fund.html" },
+      { n:"Emergency fund calculator", d:"Estimate your target before comparing account rules, fees, and current rates.", cta:"Calculate target →", h:"./emergency-fund-calculator.html" },
     ],
     investing: [
       { n:"Wealthsimple", d:"Canadian investing platform with Tax-Free Savings Account and Registered Retirement Savings Plan options. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
@@ -2024,7 +2031,7 @@ const AFFS = {
     ],
     debt: [
       { n:"Wealthsimple", d:"Canadian cash and account options to research while building emergency savings. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
-      { n:"Debt payoff guide", d:"Compare payoff strategies before redirecting money toward investing.", cta:"Compare methods →", h:"./debt-avalanche-vs-snowball.html" },
+      { n:"Emergency fund calculator", d:"Estimate a starter cash buffer before redirecting money toward investing.", cta:"Calculate target →", h:"./emergency-fund-calculator.html" },
     ],
   },
 };
