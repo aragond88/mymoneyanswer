@@ -19,29 +19,14 @@ nav {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.logo-icon {
-  width: 32px;
+.logo-img {
+  display: block;
+  width: 92px;
   height: 32px;
-  background: #16A34A;
-  border-radius: 6px;
-  display: grid;
-  place-items: center;
-  font-size: 16px;
-  color: white;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.logo-text {
-  font-size: 17px;
-  font-weight: 700;
-  color: #09090B;
-  letter-spacing: -0.2px;
 }
 
 .nav-center {
@@ -189,27 +174,16 @@ footer {
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  width: max-content;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.footer-logo-icon {
-  width: 26px;
-  height: 26px;
-  background: #16A34A;
-  border-radius: 5px;
-  display: grid;
-  place-items: center;
-  font-size: 13px;
-  color: white;
-  font-weight: 700;
-}
-
-.footer-logo-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.75);
+.footer-logo-img {
+  display: block;
+  width: 92px;
+  height: 32px;
+  flex-shrink: 0;
 }
 
 .footer-links {
@@ -276,16 +250,10 @@ footer {
   --text-4: #52525B;
 }
 
-.logo-icon,
-.footer-logo-icon {
-  background: #15803D;
-}
-
 .mob-link.active {
   color: #15803D;
 }
 
-.footer-logo-name,
 .footer-disc {
   color: rgba(255, 255, 255, 0.72);
 }
