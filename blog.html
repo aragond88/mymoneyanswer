@@ -3,13 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-337VQV0EV8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-337VQV0EV8');
+  </script>
   <title>Personal Finance Blog — MyMoneyAnswer</title>
-  <meta name="description" content="In-depth guides on saving money, investing, getting out of debt, and building wealth. Written in plain English for US and Canadian readers." />
+  <meta name="description" content="In-depth guides on saving money, investing, getting out of debt, and building wealth. Written in plain English for United States and Canadian readers." />
   <link rel="canonical" href="https://mymoneyanswer.com/blog.html" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mymoneyanswer.com/blog.html" />
   <meta property="og:title" content="Personal Finance Blog — MyMoneyAnswer" />
-  <meta property="og:description" content="Plain-English guides on investing, saving, and building wealth for US and Canadian readers." />
+  <meta property="og:description" content="Plain-English guides on investing, saving, and building wealth for United States and Canadian readers." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -44,51 +54,6 @@
     .article-excerpt{font-size:14px;color:#3F3F46;line-height:1.65;flex:1;margin-bottom:18px;}
     .article-meta{font-size:12px;color:#52525B;display:flex;gap:16px;align-items:center;border-top:1px solid #F4F4F5;padding-top:14px;margin-top:auto;}
     .article-cta{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;color:#15803D;margin-left:auto;}
-
-    /* ── ARTICLE PAGE ── */
-    .article-page{display:none;max-width:720px;margin:0 auto;padding:48px 24px 80px;}
-    .article-page.active{display:block;}
-    .back-btn{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#52525B;text-decoration:none;margin-bottom:32px;cursor:pointer;background:none;border:none;font-family:inherit;padding:0;}
-    .back-btn:hover{color:#09090B;}
-    .a-kicker{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#15803D;margin-bottom:12px;}
-    .a-title{font-size:34px;font-weight:800;letter-spacing:-0.8px;line-height:1.2;margin-bottom:16px;color:#09090B;}
-    .a-meta{font-size:13px;color:#52525B;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid #E4E4E7;}
-    .a-body{font-size:16px;line-height:1.8;color:#3F3F46;}
-    .a-body h2{font-size:22px;font-weight:700;color:#09090B;letter-spacing:-0.4px;margin:36px 0 14px;}
-    .a-body h3{font-size:18px;font-weight:600;color:#09090B;margin:28px 0 10px;}
-    .a-body p{margin-bottom:18px;}
-    .a-body ul,.a-body ol{padding-left:22px;margin-bottom:18px;}
-    .a-body li{margin-bottom:8px;}
-    .a-body strong{font-weight:600;color:#09090B;}
-    .a-body a{color:#15803D;text-decoration:underline;}
-    .a-body a:hover{color:#15803D;}
-    .callout{background:#F0FDF4;border:1px solid #BBF7D0;border-radius:12px;padding:18px 20px;margin:24px 0;font-size:15px;color:#14532D;line-height:1.65;}
-    .callout strong{color:#15803D;}
-    .warning{background:#FFF7ED;border:1px solid #FED7AA;border-radius:12px;padding:18px 20px;margin:24px 0;font-size:15px;color:#7C2D12;line-height:1.65;}
-
-    /* ── AFFILIATE CTA IN ARTICLE ── */
-    .aff-block{background:#09090B;border-radius:16px;padding:28px 28px;margin:36px 0;}
-    .aff-block-title{font-size:16px;font-weight:700;color:white;margin-bottom:6px;}
-    .aff-block-sub{font-size:14px;color:rgba(255,255,255,0.55);margin-bottom:20px;line-height:1.5;}
-    .aff-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-    .aff-mini{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:14px 16px;text-decoration:none;display:flex;flex-direction:column;gap:4px;transition:background .12s;}
-    .aff-mini:hover{background:rgba(255,255,255,0.1);}
-    .aff-mini-name{font-size:14px;font-weight:700;color:white;}
-    .aff-mini-desc{font-size:12px;color:rgba(255,255,255,0.45);line-height:1.45;}
-    .aff-mini-cta{font-size:12px;font-weight:600;color:#4ADE80;margin-top:6px;}
-    .aff-badge{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;background:#FEF9C3;color:#854D0E;border-radius:3px;padding:1px 5px;margin-left:5px;vertical-align:middle;}
-
-    /* ── FAQ ── */
-    .faq-wrap{margin:40px 0;}
-    .faq-title{font-size:22px;font-weight:700;color:#09090B;margin-bottom:20px;}
-    .faq-item{border-bottom:1px solid #E4E4E7;}
-    .faq-q{font-size:15px;font-weight:600;color:#09090B;padding:16px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;list-style:none;}
-    .faq-q:hover{color:#15803D;}
-    .faq-a{font-size:14px;color:#3F3F46;line-height:1.7;padding-bottom:16px;display:none;}
-    .faq-item.open .faq-a{display:block;}
-    .faq-item.open .faq-q{color:#15803D;}
-    .faq-chevron{width:16px;height:16px;flex-shrink:0;transition:transform .2s;}
-    .faq-item.open .faq-chevron{transform:rotate(180deg);}
 
     /* ── TABLE ── */
     .a-body table{width:100%;border-collapse:collapse;margin:24px 0;font-size:14px;}
@@ -134,49 +99,49 @@
   <div class="hero">
     <div class="hero-kicker"><span class="kicker-dot"></span> Personal Finance Blog</div>
     <h1>Learn. Save. Build wealth.</h1>
-    <p class="hero-sub">Plain-English guides on investing, saving, and building wealth — for US and Canadian readers.</p>
+    <p class="hero-sub">Plain-English guides on investing, saving, and building wealth — for United States and Canadian readers.</p>
   </div>
 
   <div class="blog-wrap">
     <div class="blog-grid">
 
-      <a class="article-card featured" href="#" onclick="showArticle('roth-vs-tfsa');return false;">
+      <a class="article-card featured" href="./roth-ira-vs-tfsa.html">
         <div class="article-body">
-          <div class="article-tags"><span class="tag both">US & Canada</span><span class="tag">Investing</span></div>
+          <div class="article-tags"><span class="tag both">United States & Canada</span><span class="tag">Investing</span></div>
           <div class="article-title">Roth IRA vs TFSA: Which Is Better for Tax-Free Growth?</div>
           <div class="article-excerpt">Both accounts let your money grow tax-free — but they work very differently. If you live in the US or Canada, one of these accounts is probably your most powerful wealth-building tool. Here's exactly how each one works and when to use which.</div>
           <div class="article-meta"><span>8 min read</span><span>Investing · Retirement</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
 
-      <a class="article-card" href="#" onclick="showArticle('emergency-fund');return false;">
+      <a class="article-card" href="./how-to-build-emergency-fund.html">
         <div class="article-body">
-          <div class="article-tags"><span class="tag both">US & Canada</span><span class="tag">Savings</span></div>
+          <div class="article-tags"><span class="tag both">United States & Canada</span><span class="tag">Savings</span></div>
           <div class="article-title">How to Build an Emergency Fund — Step by Step</div>
           <div class="article-excerpt">An emergency fund is the most important financial tool most people don't have. Here is how to build one fast, where to keep it, and how much you actually need.</div>
           <div class="article-meta"><span>6 min read</span><span>Savings · Beginner</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
 
-      <a class="article-card" href="#" onclick="showArticle('index-funds');return false;">
+      <a class="article-card" href="./index-funds-for-beginners.html">
         <div class="article-body">
-          <div class="article-tags"><span class="tag both">US & Canada</span><span class="tag">Investing</span></div>
+          <div class="article-tags"><span class="tag both">United States & Canada</span><span class="tag">Investing</span></div>
           <div class="article-title">Index Funds for Beginners: How to Start Investing With $100</div>
           <div class="article-excerpt">You don't need thousands of dollars or a finance degree to start investing. Index funds let you own a tiny piece of hundreds of companies at once — at near-zero cost.</div>
           <div class="article-meta"><span>7 min read</span><span>Investing · Beginner</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
 
-      <a class="article-card" href="#" onclick="showArticle('debt-avalanche');return false;">
+      <a class="article-card" href="./debt-avalanche-vs-snowball.html">
         <div class="article-body">
-          <div class="article-tags"><span class="tag both">US & Canada</span><span class="tag">Debt</span></div>
+          <div class="article-tags"><span class="tag both">United States & Canada</span><span class="tag">Debt</span></div>
           <div class="article-title">Debt Avalanche vs Debt Snowball: Which Pays Off Debt Faster?</div>
           <div class="article-excerpt">Two proven methods for eliminating debt — one saves you the most money, the other keeps you most motivated. Here's which one to choose based on your personality.</div>
           <div class="article-meta"><span>6 min read</span><span>Debt · Strategy</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
 
-      <a class="article-card ca-article" href="#" onclick="showArticle('wealthsimple-review');return false;">
+      <a class="article-card ca-article" href="./wealthsimple-review.html">
         <div class="article-body">
           <div class="article-tags"><span class="tag ca">Canada</span><span class="tag">Investing</span></div>
           <div class="article-title">Wealthsimple Review 2025: Is It the Best Investing App in Canada?</div>
@@ -185,478 +150,6 @@
         </div>
       </a>
 
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════ -->
-<!-- ARTICLE 1: Roth IRA vs TFSA                   -->
-<!-- ══════════════════════════════════════════════ -->
-<div class="article-page" id="article-roth-vs-tfsa">
-  <div style="max-width:720px;margin:0 auto;padding:48px 24px 80px;">
-    <button type="button" class="back-btn" onclick="showIndex()">← Back to Blog</button>
-    <div class="a-kicker">US & Canada · Investing</div>
-    <h2 class="a-title">Roth IRA vs TFSA: Which Is Better for Tax-Free Growth?</h2>
-    <div class="a-meta">8 min read · Investing · Retirement</div>
-    <div class="a-body">
-      <p>If you live in the United States, the <strong>Roth IRA</strong> is one of the most powerful accounts you will ever have access to. If you live in Canada, the <strong>Tax-Free Savings Account (TFSA)</strong> plays a nearly identical role. Both let your money grow completely tax-free — but they work differently, have different rules, and suit different situations.</p>
-
-      <p>This guide explains both accounts side by side so you understand exactly which one applies to you and how to use it to maximum effect.</p>
-
-      <h2>What They Have in Common</h2>
-      <p>Both the Roth IRA and the TFSA share the same core idea: you contribute money you have already paid tax on, and from that point forward, everything that grows inside the account — dividends, capital gains, interest — is completely tax-free. When you withdraw the money, you owe nothing to the government.</p>
-
-      <p>This is the opposite of a traditional 401(k) or RRSP, where you get a tax break now but pay tax when you withdraw. With a Roth IRA or TFSA, you pay tax now and are rewarded with total tax freedom later.</p>
-
-      <h2>The Roth IRA (United States)</h2>
-      <p>The Roth IRA is a retirement account offered to Americans with earned income. Here are the key rules for 2025:</p>
-      <ul>
-        <li><strong>Contribution limit:</strong> $7,000 per year (under age 50) or $8,000 (age 50 and older)</li>
-        <li><strong>Income limit:</strong> Phases out at $146,000–$161,000 for single filers; $230,000–$240,000 for married filing jointly</li>
-        <li><strong>Withdrawals:</strong> Contributions can be withdrawn anytime, tax and penalty-free. Earnings can be withdrawn tax-free after age 59½ if the account is at least 5 years old</li>
-        <li><strong>Investment options:</strong> Stocks, ETFs, mutual funds, bonds — almost anything</li>
-        <li><strong>Best for:</strong> Anyone who expects to be in a higher tax bracket at retirement than they are today</li>
-      </ul>
-
-      <div class="callout"><strong>The Roth IRA's superpower:</strong> $7,000 invested at age 25 at 7% average annual return becomes approximately $106,000 by age 65 — completely tax-free. That's $99,000 in tax-free growth on a $7,000 contribution.</div>
-
-      <h2>The TFSA (Canada)</h2>
-      <p>The Tax-Free Savings Account is available to all Canadians aged 18 and older with a valid Social Insurance Number (SIN). Despite the name, it is much more than a savings account — you can invest in stocks, ETFs, and funds inside it.</p>
-      <ul>
-        <li><strong>Contribution limit:</strong> $7,000 per year in 2025 (cumulative room since 2009 is $95,000)</li>
-        <li><strong>Income limit:</strong> None — any Canadian can contribute regardless of income</li>
-        <li><strong>Withdrawals:</strong> Any time, completely tax-free. Withdrawn amounts are added back to your contribution room the following year</li>
-        <li><strong>Investment options:</strong> Stocks, ETFs, mutual funds, GICs, and more</li>
-        <li><strong>Best for:</strong> Any Canadian — especially those who want flexible, tax-free access to their money at any age</li>
-      </ul>
-
-      <div class="callout"><strong>The TFSA's advantage over the Roth IRA:</strong> No income limit means every Canadian can use it fully, regardless of how much they earn. And there is no early withdrawal penalty — you can take money out whenever you need it.</div>
-
-      <h2>Key Differences at a Glance</h2>
-      <table>
-        <tr><th>Feature</th><th>Roth IRA (US)</th><th>TFSA (Canada)</th></tr>
-        <tr><td>Annual limit (2025)</td><td>$7,000 USD</td><td>$7,000 CAD</td></tr>
-        <tr><td>Income limit</td><td>Yes (phases out)</td><td>None</td></tr>
-        <tr><td>Early withdrawal penalty</td><td>10% on earnings before 59½</td><td>No penalty</td></tr>
-        <tr><td>Withdrawn room restored</td><td>No</td><td>Yes, next calendar year</td></tr>
-        <tr><td>Tax on contributions</td><td>After-tax dollars</td><td>After-tax dollars</td></tr>
-        <tr><td>Tax on growth</td><td>Zero</td><td>Zero</td></tr>
-        <tr><td>Tax on withdrawals</td><td>Zero (if qualified)</td><td>Zero</td></tr>
-      </table>
-
-      <h2>Which One Should You Prioritize?</h2>
-      <p>If you are <strong>American</strong>: Max your Roth IRA before contributing to a taxable brokerage account. If your employer offers a 401(k) match, get the full match first — then fund the Roth IRA. Use our <a href="./calculator.html">Investment Calculator</a> to see what consistent contributions add up to over time.</p>
-
-      <p>If you are <strong>Canadian</strong>: The TFSA should almost always be your first investment account. Its flexibility — no income limit, no early withdrawal penalty, room restored after withdrawal — makes it superior for most situations. Once your TFSA is maximized, your RRSP becomes the next priority, especially if you are in a high tax bracket.</p>
-
-      <p>If you are <strong>unsure what to do with your money overall</strong>, use the <a href="./index.html">free financial plan tool</a> to get general educational next steps based on your situation.</p>
-
-      <div class="aff-block">
-        <div class="aff-block-title">Ready to open your account?</div>
-        <div class="aff-block-sub">Starting earlier can give tax-free accounts more time to compound, but eligibility and account rules matter.</div>
-        <div class="aff-cards">
-          <a class="aff-mini" href="./blog.html#roth-vs-tfsa">
-            <div class="aff-mini-name">United States account guide</div>
-            <div class="aff-mini-desc">Compare eligibility, fees, investment choices, and account rules before choosing a provider.</div>
-            <div class="aff-mini-cta">Read guide → 🇺🇸</div>
-          </a>
-          <a class="aff-mini" href="https://wealthsimple.com/invite/OJ5CMX" target="_blank" rel="noopener noreferrer">
-            <div class="aff-mini-name">Wealthsimple<span class="aff-badge">Affiliate</span></div>
-            <div class="aff-mini-desc">Canadian platform with Tax-Free Savings Account and investing options.</div>
-            <div class="aff-mini-cta">Learn about Wealthsimple → 🇨🇦</div>
-          </a>
-        </div>
-      </div>
-
-      <div class="faq-wrap">
-        <div class="faq-title">Frequently Asked Questions</div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">Can I have both a Roth IRA and a TFSA? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">If you are a dual citizen or resident of both countries, you may be subject to cross-border tax complexities. A Roth IRA owned by a Canadian resident may not be recognized as tax-free in Canada without a specific tax treaty election. Consult a cross-border tax professional if this applies to you.</div>
-        </div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">What if my income is too high for a Roth IRA? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">You can use the "backdoor Roth IRA" strategy: contribute to a Traditional IRA (no income limit) and then convert it to a Roth IRA. This is legal, widely used, and gives high earners access to the same tax-free growth.</div>
-        </div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">Is a TFSA only for savings, or can I invest in it? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">Despite the name, a TFSA is a full investment account. You can hold stocks, ETFs, mutual funds, bonds, and GICs inside it. Most Canadians use their TFSA to hold a simple ETF portfolio and let it grow tax-free over decades.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════ -->
-<!-- ARTICLE 2: Emergency Fund                      -->
-<!-- ══════════════════════════════════════════════ -->
-<div class="article-page" id="article-emergency-fund">
-  <div style="max-width:720px;margin:0 auto;padding:48px 24px 80px;">
-    <button type="button" class="back-btn" onclick="showIndex()">← Back to Blog</button>
-    <div class="a-kicker">US & Canada · Savings</div>
-    <h2 class="a-title">How to Build an Emergency Fund — Step by Step</h2>
-    <div class="a-meta">6 min read · Savings · Beginner</div>
-    <div class="a-body">
-      <p>An emergency fund is a pool of cash set aside specifically for unexpected expenses — a car breakdown, a medical bill, a sudden job loss. It is not an investment. It is not a savings goal. It is financial shock absorption, and without it, every unexpected event can derail your entire financial plan.</p>
-
-      <p>Studies consistently show that a majority of Americans and Canadians could not cover a $1,000 emergency without going into debt. If that describes you, building an emergency fund is the most important financial move you can make right now — before you invest a single dollar.</p>
-
-      <h2>How Much Do You Actually Need?</h2>
-      <p>The standard recommendation is <strong>3 to 6 months of essential living expenses</strong>. Not total spending — essential expenses only.</p>
-
-      <p>Essential expenses include:</p>
-      <ul>
-        <li>Rent or mortgage payment</li>
-        <li>Utilities (electricity, water, internet)</li>
-        <li>Groceries (basic food, not dining out)</li>
-        <li>Transportation (car payment, insurance, transit)</li>
-        <li>Insurance premiums</li>
-        <li>Minimum debt payments</li>
-      </ul>
-
-      <p>Do not include subscriptions, entertainment, dining out, or clothing. This is your survival number — the minimum required to keep your life running for 3 months if your income stopped today.</p>
-
-      <div class="callout"><strong>Example:</strong> If your essential expenses are $3,000/month, your emergency fund target is $9,000 (3 months) to $18,000 (6 months). If you are self-employed or in a volatile industry, aim for 6 months minimum.</div>
-
-      <h2>Where to Keep Your Emergency Fund</h2>
-      <p>Your emergency fund must be:</p>
-      <ul>
-        <li><strong>Accessible</strong> — you need to reach it within 24–48 hours</li>
-        <li><strong>Safe</strong> — no market risk, no possibility of losing value</li>
-        <li><strong>Earning something</strong> — not sitting in a 0.01% checking account</li>
-      </ul>
-
-      <p>The answer in <strong>the United States</strong> is often a <strong>High-Yield Savings Account (HYSA)</strong>. These accounts, offered by online banks like Ally, Marcus, and SoFi, may pay more than traditional savings accounts. Many are insured by the Federal Deposit Insurance Corporation (FDIC) up to applicable limits. Rates change, so compare current offers before opening an account.</p>
-
-      <p>In <strong>Canada</strong>, the equivalent is a <strong>High-Interest Savings Account (HISA)</strong>. Compare current rates, fees, account rules, and deposit insurance before choosing a provider. Some Canadians also hold cash savings inside a Tax-Free Savings Account, but contribution room and withdrawal rules matter.</p>
-
-      <h2>How to Build It Fast: The 3-Step Method</h2>
-
-      <h3>Step 1 — Calculate Your Number</h3>
-      <p>Add up your essential monthly expenses. Multiply by 3. That is your first milestone. Write it down. This number transforms "I should save more" into "I need $8,400 more."</p>
-
-      <h3>Step 2 — Open a Separate Account Right Now</h3>
-      <p>Your emergency fund must live in a separate account from your checking account. The friction of a transfer — even if it takes one business day — is enough to prevent you from spending it impulsively. Name the account "Emergency Fund" in your banking app. This psychological distance matters.</p>
-
-      <h3>Step 3 — Automate a Monthly Transfer</h3>
-      <p>Decide on an amount you can transfer every month — even $100 or $200 to start. Set up an automatic transfer on payday, before you have a chance to spend it. Increase it whenever your income increases. The habit of saving automatically is worth more than the perfect amount.</p>
-
-      <div class="callout"><strong>Quick-start strategy:</strong> If you have any unused subscriptions, subscriptions you could pause, or variable spending you could cut temporarily, redirect that money to your emergency fund for 3–6 months. A $200/month cut builds a $1,200 emergency starter fund in 6 months.</div>
-
-      <h2>What Counts as an Emergency?</h2>
-      <p>This is important: your emergency fund is not for expected irregular expenses. A car service you knew was coming is not an emergency — it is poor planning. Real emergencies are:</p>
-      <ul>
-        <li>Job loss or unexpected income reduction</li>
-        <li>Medical or dental emergencies not covered by insurance</li>
-        <li>Critical home or car repair needed immediately</li>
-        <li>Emergency travel for a family crisis</li>
-      </ul>
-
-      <p>Vacation, gifts, and electronics do not qualify. Keep separate savings buckets for those.</p>
-
-      <p>Not sure what to do with your money beyond an emergency fund? Use our <a href="./index.html">free financial plan tool</a> to get the full picture in 4 questions.</p>
-
-      <div class="aff-block">
-        <div class="aff-block-title">Research where to keep emergency savings</div>
-        <div class="aff-block-sub">Emergency savings should stay liquid, separate, and easy to access. Compare account rules, insurance coverage, fees, and current rates before choosing.</div>
-        <div class="aff-cards">
-          <a class="aff-mini" href="./blog.html#emergency-fund">
-            <div class="aff-mini-name">Savings account checklist</div>
-            <div class="aff-mini-desc">Use this guide to compare liquidity, fees, insurance coverage, and account access.</div>
-            <div class="aff-mini-cta">Read guide → 🇺🇸</div>
-          </a>
-          <a class="aff-mini" href="https://wealthsimple.com/invite/OJ5CMX" target="_blank" rel="noopener noreferrer">
-            <div class="aff-mini-name">Wealthsimple<span class="aff-badge">Affiliate</span></div>
-            <div class="aff-mini-desc">Canadian cash and account options to research for emergency savings.</div>
-            <div class="aff-mini-cta">Learn about Wealthsimple → 🇨🇦</div>
-          </a>
-        </div>
-      </div>
-
-      <div class="faq-wrap">
-        <div class="faq-title">Frequently Asked Questions</div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">Should I invest my emergency fund instead of keeping it in savings? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">No. An emergency fund must be liquid and stable. If your fund is invested in the stock market and a crash happens at the same time you lose your job, you would be forced to sell at the worst possible moment. The 4–5% from a HYSA is enough — the purpose is protection, not growth.</div>
-        </div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">Can I use my TFSA as an emergency fund in Canada? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">Yes — and you should. Keeping your emergency fund in a TFSA HISA gives you the best of both worlds: high interest rates and tax-free growth. Just make sure the money is held as cash or a savings product inside the TFSA, not in stocks or ETFs.</div>
-        </div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">What if I need to use my emergency fund? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">Use it — that is exactly what it is for. After the emergency is resolved, treat rebuilding it as your top financial priority. Redirect any extra cash flow until it is back to its target level before resuming investing.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════ -->
-<!-- ARTICLE 3: Index Funds                         -->
-<!-- ══════════════════════════════════════════════ -->
-<div class="article-page" id="article-index-funds">
-  <div style="max-width:720px;margin:0 auto;padding:48px 24px 80px;">
-    <button type="button" class="back-btn" onclick="showIndex()">← Back to Blog</button>
-    <div class="a-kicker">US & Canada · Investing</div>
-    <h2 class="a-title">Index Funds for Beginners: How to Start Investing With $100</h2>
-    <div class="a-meta">7 min read · Investing · Beginner</div>
-    <div class="a-body">
-      <p>You do not need thousands of dollars, a financial advisor, or any specialized knowledge to start investing. Index funds are the single most powerful tool available to ordinary investors — and they require almost no maintenance once set up.</p>
-
-      <p>Over any 15-year period in the history of the US and Canadian stock markets, a broad index fund has been positive. Individual stock-picking underperforms index funds after fees more than 80% of the time — even for professional fund managers. If they cannot consistently beat the market, neither can you or anyone else. So stop trying, and own the whole market instead.</p>
-
-      <h2>What Is an Index Fund?</h2>
-      <p>An index fund is a type of investment that automatically buys a tiny piece of every company in a particular index. For example:</p>
-      <ul>
-        <li><strong>VTI (Vanguard Total Market ETF)</strong> owns a piece of every publicly traded US company — over 3,500 of them</li>
-        <li><strong>XEQT (iShares Core Equity ETF Portfolio)</strong> owns stocks from the entire world — Canada, US, international</li>
-        <li><strong>S&P 500 index fund</strong> owns the 500 largest US companies</li>
-      </ul>
-
-      <p>Instead of betting that one company will do well, you are betting that business and the economy in general will grow over time. That has been true for the last 100 years and continues to be the most reliable long-term investment bet available.</p>
-
-      <h2>Why Index Funds Beat Most Alternatives</h2>
-      <p>Three reasons index funds consistently outperform:</p>
-
-      <h3>1. Extremely Low Fees</h3>
-      <p>An actively managed mutual fund typically charges 1–2% per year in management fees. An index ETF like VTI charges 0.03% — that is essentially free. On a $100,000 portfolio, the difference is $1,970 per year. Over 30 years, compounded, that fee gap can cost you hundreds of thousands of dollars.</p>
-
-      <h3>2. Instant Diversification</h3>
-      <p>When you buy VTI, you instantly own a piece of Apple, Microsoft, Amazon, thousands of mid-cap companies, and thousands of small companies. No single company failure can significantly hurt you. When you buy one stock, that company going bankrupt means you lose everything.</p>
-
-      <h3>3. No Decisions Required</h3>
-      <p>Index funds buy and sell automatically as companies enter and leave the index. You never have to decide whether to buy or sell. You just hold. This is an advantage, not a limitation — the research is clear that investors who trade frequently underperform those who never touch their accounts.</p>
-
-      <h2>How to Start With $100</h2>
-
-      <h3>Step 1: Open the Right Account</h3>
-      <p><strong>US investors:</strong> Open a Roth IRA at Fidelity or Vanguard. Both are free, have no account minimums, and let you invest in index ETFs. If you already have a Roth IRA, open a taxable brokerage at the same institution.</p>
-      <p><strong>Canadian investors:</strong> Open a TFSA at Wealthsimple or Questrade. Wealthsimple is the simplest starting point — the app is clean, there are no commissions, and you can start with $1. Questrade is better for larger portfolios due to its fee structure.</p>
-
-      <h3>Step 2: Buy One Fund</h3>
-      <p>Do not overthink this. One fund is enough to start.</p>
-      <ul>
-        <li><strong>US:</strong> VTI (Vanguard Total Market) or FSKAX (Fidelity Total Market Index)</li>
-        <li><strong>Canada:</strong> XEQT (all-in-one global ETF) or VEQT (Vanguard equivalent) — both give you Canadian, US, and international exposure in one purchase</li>
-      </ul>
-
-      <h3>Step 3: Set Up Automatic Monthly Contributions</h3>
-      <p>This is the most important step. Set up an automatic contribution on payday — even $50 or $100 per month. Use our <a href="./calculator.html">Investment Calculator</a> to estimate how $100/month could grow over 20 or 30 years using different return assumptions.</p>
-
-      <div class="callout"><strong>Example:</strong> $100/month for 30 years at a 7% assumed annual return would grow to about <strong>$121,997</strong>. You would contribute $36,000, and the rest would come from estimated growth. This is an illustration, not a promise.</div>
-
-      <div class="warning">One important note: index funds carry market risk. In any given year, they can drop 20–40% in value. This is normal. The investors who panic and sell during drops are the ones who lose. The investors who hold — or better yet, buy more — are the ones who build wealth. Never invest money you need within the next 3–5 years.</div>
-
-      <div class="aff-block">
-        <div class="aff-block-title">Research account options before investing</div>
-        <div class="aff-block-sub">Before choosing a platform, compare account types, fees, available investments, transfer rules, and whether the platform fits your country.</div>
-        <div class="aff-cards">
-          <a class="aff-mini" href="./blog.html#roth-vs-tfsa">
-            <div class="aff-mini-name">Account checklist</div>
-            <div class="aff-mini-desc">Review tax-advantaged account basics before choosing where to invest.</div>
-            <div class="aff-mini-cta">Read account guide → 🇺🇸</div>
-          </a>
-          <a class="aff-mini" href="https://wealthsimple.com/invite/OJ5CMX" target="_blank" rel="noopener noreferrer">
-            <div class="aff-mini-name">Wealthsimple<span class="aff-badge">Affiliate</span></div>
-            <div class="aff-mini-desc">Canadian investing platform with Tax-Free Savings Account options.</div>
-            <div class="aff-mini-cta">Learn about Wealthsimple → 🇨🇦</div>
-          </a>
-        </div>
-      </div>
-
-      <div class="faq-wrap">
-        <div class="faq-title">Frequently Asked Questions</div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">Is now a good time to invest in index funds? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">For long-term investors, starting earlier can be helpful because it gives compounding more time to work. Waiting for the perfect moment can mean missing months or years of potential growth. Automatic monthly investing can also reduce the pressure of trying to time the market.</div>
-        </div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">What is the difference between an ETF and a mutual fund index fund? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">Both track an index, but ETFs trade on the stock exchange like individual stocks (you can buy one share at a time) while mutual fund index funds are priced once per day. ETFs tend to have slightly lower expense ratios and are more tax-efficient in taxable accounts. For most beginners, either works well — just check the expense ratio is below 0.20%.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════ -->
-<!-- ARTICLE 4: Debt Avalanche vs Snowball         -->
-<!-- ══════════════════════════════════════════════ -->
-<div class="article-page" id="article-debt-avalanche">
-  <div style="max-width:720px;margin:0 auto;padding:48px 24px 80px;">
-    <button type="button" class="back-btn" onclick="showIndex()">← Back to Blog</button>
-    <div class="a-kicker">US & Canada · Debt</div>
-    <h2 class="a-title">Debt Avalanche vs Debt Snowball: Which Pays Off Debt Faster?</h2>
-    <div class="a-meta">6 min read · Debt · Strategy</div>
-    <div class="a-body">
-      <p>If you carry multiple debts — credit cards, personal loans, car payments — you need a strategy for paying them off. Two methods dominate personal finance education: the <strong>debt avalanche</strong> and the <strong>debt snowball</strong>. Both can work. They just prioritize different things.</p>
-
-      <p>The difference comes down to this: do you want to optimize for math, or optimize for psychology? Neither is wrong — the best method is the one you will actually stick to.</p>
-
-      <h2>The Debt Avalanche</h2>
-      <p>The avalanche method targets your <strong>highest interest rate debt first</strong>, regardless of balance size.</p>
-
-      <p>Here is how it works:</p>
-      <ol>
-        <li>List all your debts by interest rate, highest to lowest</li>
-        <li>Pay the minimum on every debt</li>
-        <li>Direct every extra dollar to the highest-rate debt</li>
-        <li>When that debt is gone, roll its payment to the next highest rate</li>
-      </ol>
-
-      <div class="callout"><strong>Why it works mathematically:</strong> Interest compounds daily on most consumer debt. Eliminating the highest-rate debt first reduces the total interest you pay over time. Depending on your balances and rates, the avalanche can save hundreds or thousands of dollars compared to the snowball.</div>
-
-      <h2>The Debt Snowball</h2>
-      <p>The snowball method targets your <strong>smallest balance first</strong>, regardless of interest rate.</p>
-
-      <ol>
-        <li>List all your debts by balance, smallest to largest</li>
-        <li>Pay the minimum on every debt</li>
-        <li>Direct every extra dollar to the smallest balance</li>
-        <li>When that debt is gone, roll its full payment to the next smallest</li>
-      </ol>
-
-      <div class="callout"><strong>Why it works psychologically:</strong> Eliminating a debt entirely — even a small one — creates a genuine sense of progress and momentum. Research by Dr. Keri Kettle at the University of Manitoba found that people who paid off smaller debts first were more motivated to continue and ultimately paid off more debt overall. Motivation is fuel.</div>
-
-      <h2>Which One Should You Choose?</h2>
-      <table>
-        <tr><th>Choose Avalanche if…</th><th>Choose Snowball if…</th></tr>
-        <tr><td>You have high-interest debt (20%+ credit cards)</td><td>You have many small balances across multiple accounts</td></tr>
-        <tr><td>You are motivated by numbers and optimization</td><td>You need quick wins to stay motivated</td></tr>
-        <tr><td>Your debts are similar in size</td><td>Your highest-rate debt also has the highest balance</td></tr>
-        <tr><td>You have a solid financial foundation</td><td>You have struggled with debt before and need momentum</td></tr>
-      </table>
-
-      <h2>The One Rule Both Methods Share</h2>
-      <p><strong>Automate your minimum payments on every debt.</strong> Missing a single payment can trigger penalty APR (often 29.99%), wipe out months of progress, and damage your credit score. Set every debt to autopay the minimum before you start throwing extra money at your target debt.</p>
-
-      <h2>What to Do After You Become Debt-Free</h2>
-      <p>The day your last high-interest debt hits zero, something important happens: all the money you were spending on debt payments becomes available to redirect. Do not let lifestyle inflation absorb it. Set up an automatic transfer to your investment account — for the exact same amount you were paying on debt — immediately.</p>
-
-      <p>A $400/month debt payment eliminated could become $400/month invested. At a 7% assumed annual return over 20 years, that would be about <strong>$207,000</strong> — from redirected debt payments alone. Use the <a href="./calculator.html">Investment Calculator</a> to run your own numbers with different assumptions.</p>
-
-      <p>Once you are debt-free, take our <a href="./index.html">free financial plan tool</a> again — your recommended plan will change completely.</p>
-
-      <div class="faq-wrap">
-        <div class="faq-title">Frequently Asked Questions</div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">Should I include my mortgage in my payoff plan? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">Generally no. A mortgage at 3–6% is usually considered lower-interest debt. Depending on your risk tolerance and goals, the math may favor investing extra money instead of paying off a low-rate mortgage early. Focus the avalanche or snowball on high-interest consumer debt — credit cards, personal loans, and anything above 8% APR.</div>
-        </div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">Can I combine both methods? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">Yes. A popular hybrid approach: pay off one or two small balances first (snowball) to clear mental overhead, then switch to the avalanche for remaining debts. The most important thing is to pick a method and execute it — perfect optimization matters far less than consistent action.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ══════════════════════════════════════════════ -->
-<!-- ARTICLE 5: Wealthsimple Review                -->
-<!-- ══════════════════════════════════════════════ -->
-<div class="article-page" id="article-wealthsimple-review">
-  <div style="max-width:720px;margin:0 auto;padding:48px 24px 80px;">
-    <button type="button" class="back-btn" onclick="showIndex()">← Back to Blog</button>
-    <div class="a-kicker">Canada · Review</div>
-    <h2 class="a-title">Wealthsimple Review 2025: Is It the Best Investing App in Canada?</h2>
-    <div class="a-meta">7 min read · Canada · Investing · Review</div>
-    <div class="a-body">
-      <p>Wealthsimple has grown from a robo-advisor startup to Canada's largest online brokerage by account count. With over 3 million users and $50 billion in assets, it is clearly doing something right. But is it actually the best platform for your TFSA and RRSP in 2025?</p>
-
-      <p>The short answer: for most Canadians — especially beginners and those building a simple ETF portfolio — <strong>yes, Wealthsimple is the best starting point</strong>. Here is why, and where its limitations lie.</p>
-
-      <h2>What Wealthsimple Offers</h2>
-      <p>Wealthsimple is not just one product. It is a platform that includes:</p>
-      <ul>
-        <li><strong>Wealthsimple Trade</strong> — commission-free stock and ETF trading (TFSA, RRSP, personal accounts)</li>
-        <li><strong>Wealthsimple Cash</strong> — a high-interest savings account with competitive rates</li>
-        <li><strong>Wealthsimple Invest</strong> — a robo-advisor that builds and rebalances a portfolio for you</li>
-        <li><strong>Wealthsimple Tax</strong> — free Canadian tax filing software (formerly SimpleTax)</li>
-        <li><strong>Wealthsimple Crypto</strong> — buy and sell cryptocurrency</li>
-      </ul>
-
-      <p>For most Canadians reading this, the relevant products are <strong>Trade</strong> (for DIY index fund investing) and <strong>Cash</strong> (for your emergency fund or savings).</p>
-
-      <h2>The Case For Wealthsimple</h2>
-
-      <h3>Commission-Free ETF Trading</h3>
-      <p>This is the big one. Wealthsimple charges $0 to buy or sell any ETF. Questrade charges a flat fee to sell ETFs (but not buy). For small, regular contributions — say $200–500 per month — commission-free trading makes a meaningful difference over time.</p>
-
-      <h3>No Account Minimum</h3>
-      <p>You can open a TFSA or RRSP with $1. This removes the barrier to starting. You do not need to accumulate a large sum before your money can work for you.</p>
-
-      <h3>Clean, Simple Interface</h3>
-      <p>The Wealthsimple app is genuinely well-designed. It is beginner-friendly without being condescending. You can see your total balance, individual holdings, and performance clearly. For someone who has never invested before, it is the easiest Canadian platform to navigate.</p>
-
-      <h3>Integrated Savings + Investing</h3>
-      <p>Having your TFSA, RRSP, savings account, and tax filing all in one platform is genuinely convenient. You can see your complete financial picture without logging into multiple apps.</p>
-
-      <h2>Where Wealthsimple Falls Short</h2>
-
-      <h3>USD Conversion Fees</h3>
-      <p>Wealthsimple charges a 1.5% currency conversion fee when you buy US-listed stocks or ETFs in USD. On a $5,000 purchase, that is $75 in fees. For investors who want to hold US-listed ETFs directly (like VTI or VOO in USD), this adds up. Questrade's Norbert's Gambit workaround makes USD investing cheaper for larger portfolios.</p>
-
-      <h3>Premium Tier Required for Some Features</h3>
-      <p>Wealthsimple Plus ($10/month or free above $100,000) unlocks lower conversion fees (1% vs 1.5%) and other perks. At small account sizes, this is probably not worth paying for.</p>
-
-      <h2>Who Wealthsimple Is Best For</h2>
-      <p>Wealthsimple is an excellent choice if you are:</p>
-      <ul>
-        <li>A first-time investor opening your first TFSA or RRSP</li>
-        <li>Building a simple all-in-one ETF portfolio (XEQT or VEQT) — both are listed in CAD</li>
-        <li>Contributing monthly in smaller amounts where commissions would matter</li>
-        <li>Wanting all your financial products under one app</li>
-      </ul>
-
-      <div class="callout"><strong>A simple setup many Canadians consider:</strong> Open a TFSA, choose a diversified all-in-one exchange-traded fund such as XEQT, set up automatic monthly contributions, and review periodically. This keeps the process simple, but it still carries market risk.</div>
-
-      <h2>Wealthsimple vs Questrade: Quick Comparison</h2>
-      <table>
-        <tr><th>Feature</th><th>Wealthsimple</th><th>Questrade</th></tr>
-        <tr><td>ETF purchases</td><td>Free</td><td>Free</td></tr>
-        <tr><td>ETF sales</td><td>Free</td><td>$4.95–$9.95</td></tr>
-        <tr><td>Stock trades</td><td>Free</td><td>$4.95–$9.95</td></tr>
-        <tr><td>USD conversion</td><td>1.5% (1% with Plus)</td><td>~1.5% (avoidable)</td></tr>
-        <tr><td>Account minimum</td><td>$1</td><td>$1,000</td></tr>
-        <tr><td>Best for</td><td>Beginners, ETF investors</td><td>Larger portfolios, US equities</td></tr>
-      </table>
-
-      <p>For most people starting out, Wealthsimple wins. Once your portfolio exceeds $50,000–$100,000 and you want to hold US-listed ETFs directly, Questrade becomes worth exploring.</p>
-
-      <div class="aff-block">
-        <div class="aff-block-title">Research Wealthsimple</div>
-        <div class="aff-block-sub">Compare fees, account types, investment choices, currency conversion, and transfer rules before choosing any investing platform.</div>
-        <div class="aff-cards">
-          <a class="aff-mini" href="https://wealthsimple.com/invite/OJ5CMX" target="_blank" rel="noopener noreferrer">
-            <div class="aff-mini-name">Wealthsimple TFSA<span class="aff-badge">Affiliate</span></div>
-            <div class="aff-mini-desc">Canadian platform with Tax-Free Savings Account and investing options.</div>
-            <div class="aff-mini-cta">Learn about Wealthsimple →</div>
-          </a>
-          <a class="aff-mini" href="./affiliate-disclosure.html">
-            <div class="aff-mini-name">Affiliate disclosure</div>
-            <div class="aff-mini-desc">Learn how affiliate links are labeled and how editorial independence is handled.</div>
-            <div class="aff-mini-cta">Read disclosure →</div>
-          </a>
-        </div>
-      </div>
-
-      <div class="faq-wrap">
-        <div class="faq-title">Frequently Asked Questions</div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">Is Wealthsimple safe? Is my money protected? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">Yes. Wealthsimple is a registered investment dealer regulated by CIRO (Canadian Investment Regulatory Organization). Your investments are protected by CIPF (Canadian Investor Protection Fund) up to $1 million in the event Wealthsimple becomes insolvent. Cash in Wealthsimple's savings products is held at partner banks with CDIC coverage up to $100,000.</div>
-        </div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">What should I buy in my Wealthsimple TFSA? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">For most beginners, XEQT (iShares Core Equity ETF Portfolio) or VEQT (Vanguard All-Equity ETF Portfolio) are excellent choices. Both are single-ticket ETFs that hold a globally diversified portfolio of stocks across Canada, the US, and international markets. They automatically rebalance. You buy one thing and you are done.</div>
-        </div>
-        <div class="faq-item">
-          <button type="button" class="faq-q" onclick="toggleFaq(this)">Can I move my existing TFSA to Wealthsimple? <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
-          <div class="faq-a">Yes. You can transfer in-kind (without selling) from any Canadian financial institution. Wealthsimple will cover the transfer fee charged by your old institution (up to $150). The process takes 1–3 weeks. This does not use your TFSA contribution room — a direct transfer between institutions is not considered a withdrawal.</div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
@@ -688,26 +181,15 @@
 </footer>
 
 <script>
-function showArticle(slug){
-  document.getElementById('blog-index').style.display='none';
-  document.querySelectorAll('.article-page').forEach(p=>p.style.display='none');
-  const el = document.getElementById('article-'+slug);
-  if(el){ el.style.display='block'; window.scrollTo({top:0,behavior:'smooth'}); }
-}
-
-function showIndex(){
-  document.getElementById('blog-index').style.display='block';
-  document.querySelectorAll('.article-page').forEach(p=>p.style.display='none');
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-
-function toggleFaq(el){
-  el.parentElement.classList.toggle('open');
-}
-
-// Deep link support: blog.html#roth-vs-tfsa
-const hash = window.location.hash.replace('#','');
-if(hash) showArticle(hash);
+const articleRedirects = {
+  'roth-vs-tfsa': './roth-ira-vs-tfsa.html',
+  'emergency-fund': './how-to-build-emergency-fund.html',
+  'index-funds': './index-funds-for-beginners.html',
+  'debt-avalanche': './debt-avalanche-vs-snowball.html',
+  'wealthsimple-review': './wealthsimple-review.html',
+};
+const articleHash = window.location.hash.replace('#', '');
+if (articleRedirects[articleHash]) window.location.replace(articleRedirects[articleHash]);
 </script>
 <script src="./site.js"></script>
 </body>

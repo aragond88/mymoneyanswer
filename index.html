@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-337VQV0EV8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-337VQV0EV8');
+  </script>
+
   <title>What Should I Do With My Money? Free Personal Finance Tool</title>
   <meta name="description" content="Answer 4 questions and get a free country-aware educational money plan for the United States or Canada. Compare debt payoff, emergency savings, and beginner investing next steps." />
   <meta name="keywords" content="what to do with my money, personal finance tool, free financial guide, what should I do with my savings, how to invest money, emergency fund calculator, debt payoff plan" />
@@ -1381,32 +1391,32 @@ const RES = {
 
 const RES_CA = {
   debt:[
-    {t:"Guide", n:"Debt payoff guide", d:"Compare the debt avalanche and debt snowball methods before redirecting money toward investing.", u:"./blog.html#debt-avalanche"},
-    {t:"Guide", n:"Emergency fund guide", d:"Build a starter cash buffer while paying down high-interest debt.", u:"./blog.html#emergency-fund"},
+    {t:"Guide", n:"Debt payoff guide", d:"Compare the debt avalanche and debt snowball methods before redirecting money toward investing.", u:"./debt-avalanche-vs-snowball.html"},
+    {t:"Guide", n:"Emergency fund guide", d:"Build a starter cash buffer while paying down high-interest debt.", u:"./how-to-build-emergency-fund.html"},
     {t:"Directory", n:"YouTube channel directory", d:"Browse beginner-friendly videos about debt, budgeting, and cash flow.", u:"./directory.html"},
     {t:"Tool", n:"Investment calculator", d:"Use the calculator after high-interest debt and emergency savings are under control.", u:"./calculator.html"},
   ],
   emergency:[
-    {t:"Guide", n:"Emergency fund guide", d:"Learn how much cash to keep and how to think about liquidity.", u:"./blog.html#emergency-fund"},
-    {t:"Guide", n:"Canadian account guide", d:"Understand how Tax-Free Savings Accounts and Registered Retirement Savings Plans can fit into a beginner money plan.", u:"./blog.html#roth-vs-tfsa"},
+    {t:"Guide", n:"Emergency fund guide", d:"Learn how much cash to keep and how to think about liquidity.", u:"./how-to-build-emergency-fund.html"},
+    {t:"Guide", n:"Canadian account guide", d:"Understand how Tax-Free Savings Accounts and Registered Retirement Savings Plans can fit into a beginner money plan.", u:"./roth-ira-vs-tfsa.html"},
     {t:"Directory", n:"YouTube channel directory", d:"Find videos that explain beginner money basics in plain English.", u:"./directory.html"},
     {t:"Tool", n:"Investment calculator", d:"Model contributions once your starter fund is in place.", u:"./calculator.html"},
   ],
   investing:[
-    {t:"Guide", n:"Index fund guide", d:"Understand diversified index funds, fees, risk, and contribution habits.", u:"./blog.html#index-funds"},
-    {t:"Guide", n:"Canadian account guide", d:"Compare the role of Tax-Free Savings Accounts, Registered Retirement Savings Plans, and taxable accounts.", u:"./blog.html#roth-vs-tfsa"},
+    {t:"Guide", n:"Index fund guide", d:"Understand diversified index funds, fees, risk, and contribution habits.", u:"./index-funds-for-beginners.html"},
+    {t:"Guide", n:"Canadian account guide", d:"Compare the role of Tax-Free Savings Accounts, Registered Retirement Savings Plans, and taxable accounts.", u:"./roth-ira-vs-tfsa.html"},
     {t:"Directory", n:"YouTube channel directory", d:"Browse curated investing education channels.", u:"./directory.html"},
     {t:"Tool", n:"Investment calculator", d:"Stress-test contribution amounts and long-term assumptions.", u:"./calculator.html"},
   ],
   savings:[
-    {t:"Guide", n:"Emergency fund guide", d:"Learn how to separate emergency savings from goal savings.", u:"./blog.html#emergency-fund"},
-    {t:"Guide", n:"Debt payoff guide", d:"Compare debt payoff methods before investing extra cash.", u:"./blog.html#debt-avalanche"},
+    {t:"Guide", n:"Emergency fund guide", d:"Learn how to separate emergency savings from goal savings.", u:"./how-to-build-emergency-fund.html"},
+    {t:"Guide", n:"Debt payoff guide", d:"Compare debt payoff methods before investing extra cash.", u:"./debt-avalanche-vs-snowball.html"},
     {t:"Directory", n:"YouTube channel directory", d:"Browse practical videos about budgeting and saving.", u:"./directory.html"},
     {t:"Tool", n:"Investment calculator", d:"Model investing after near-term cash needs are covered.", u:"./calculator.html"},
   ],
   wealth:[
-    {t:"Guide", n:"Canadian account guide", d:"Understand registered and taxable account tradeoffs at a high level.", u:"./blog.html#roth-vs-tfsa"},
-    {t:"Guide", n:"Index fund guide", d:"Learn how simple diversified funds can support long-term investing.", u:"./blog.html#index-funds"},
+    {t:"Guide", n:"Canadian account guide", d:"Understand registered and taxable account tradeoffs at a high level.", u:"./roth-ira-vs-tfsa.html"},
+    {t:"Guide", n:"Index fund guide", d:"Learn how simple diversified funds can support long-term investing.", u:"./index-funds-for-beginners.html"},
     {t:"Directory", n:"YouTube channel directory", d:"Find longer-form investing education channels.", u:"./directory.html"},
     {t:"Tool", n:"Investment calculator", d:"Compare timelines, contributions, and return assumptions.", u:"./calculator.html"},
   ],
@@ -1442,32 +1452,32 @@ function getNextPages(sc){
   ];
   const sets = {
     debt: [
-      {label:"Guide", title:"Debt payoff methods", desc:"Compare the debt avalanche and debt snowball methods.", url:"./blog.html#debt-avalanche"},
-      {label:"Guide", title:"Emergency fund guide", desc:"Build a starter cash buffer while paying down debt.", url:"./blog.html#emergency-fund"},
+      {label:"Guide", title:"Debt payoff methods", desc:"Compare the debt avalanche and debt snowball methods.", url:"./debt-avalanche-vs-snowball.html"},
+      {label:"Guide", title:"Emergency fund guide", desc:"Build a starter cash buffer while paying down debt.", url:"./how-to-build-emergency-fund.html"},
       common[0],
     ],
     no_emergency: [
-      {label:"Guide", title:"Emergency fund guide", desc:"Learn how much cash to keep and where to keep it.", url:"./blog.html#emergency-fund"},
+      {label:"Guide", title:"Emergency fund guide", desc:"Learn how much cash to keep and where to keep it.", url:"./how-to-build-emergency-fund.html"},
       common[1],
       common[2],
     ],
     partial: [
-      {label:"Guide", title:"Emergency fund guide", desc:"Finish your safety net before increasing risk.", url:"./blog.html#emergency-fund"},
-      {label:"Guide", title:"Index funds for beginners", desc:"Learn the basics before choosing investments.", url:"./blog.html#index-funds"},
+      {label:"Guide", title:"Emergency fund guide", desc:"Finish your safety net before increasing risk.", url:"./how-to-build-emergency-fund.html"},
+      {label:"Guide", title:"Index funds for beginners", desc:"Learn the basics before choosing investments.", url:"./index-funds-for-beginners.html"},
       common[0],
     ],
     wealth: [
-      {label:"Guide", title:"Index funds for beginners", desc:"Understand diversified funds, fees, and automation.", url:"./blog.html#index-funds"},
-      {label:"Guide", title:"Roth Individual Retirement Account vs Tax-Free Savings Account", desc:"Compare tax-free account concepts for United States and Canada readers.", url:"./blog.html#roth-vs-tfsa"},
+      {label:"Guide", title:"Index funds for beginners", desc:"Understand diversified funds, fees, and automation.", url:"./index-funds-for-beginners.html"},
+      {label:"Guide", title:"Roth Individual Retirement Account vs Tax-Free Savings Account", desc:"Compare tax-free account concepts for United States and Canada readers.", url:"./roth-ira-vs-tfsa.html"},
       common[0],
     ],
     large: [
-      {label:"Guide", title:"Account comparison guide", desc:"Review account types before moving a large balance.", url:"./blog.html#roth-vs-tfsa"},
+      {label:"Guide", title:"Account comparison guide", desc:"Review account types before moving a large balance.", url:"./roth-ira-vs-tfsa.html"},
       common[0],
       common[1],
     ],
     security: [
-      {label:"Guide", title:"Emergency fund guide", desc:"Separate safety money from goal money.", url:"./blog.html#emergency-fund"},
+      {label:"Guide", title:"Emergency fund guide", desc:"Separate safety money from goal money.", url:"./how-to-build-emergency-fund.html"},
       common[1],
       common[2],
     ],
@@ -1987,38 +1997,38 @@ function renderPageAccounts(){
 const AFFS = {
   US: {
     savings: [
-      { n:"Savings account checklist", d:"Compare insurance coverage, fees, access, transfer speed, and current rates before choosing where to keep cash.", cta:"Emergency fund guide →", h:"./blog.html#emergency-fund" },
-      { n:"Debt payoff guide", d:"Use the debt avalanche or debt snowball method before comparing financial products.", cta:"Compare payoff methods →", h:"./blog.html#debt-avalanche" },
+      { n:"Savings account checklist", d:"Compare insurance coverage, fees, access, transfer speed, and current rates before choosing where to keep cash.", cta:"Emergency fund guide →", h:"./how-to-build-emergency-fund.html" },
+      { n:"Debt payoff guide", d:"Use the debt avalanche or debt snowball method before comparing financial products.", cta:"Compare payoff methods →", h:"./debt-avalanche-vs-snowball.html" },
     ],
     investing: [
-      { n:"Beginner investing guide", d:"Learn how index funds, account types, fees, and contribution habits work before choosing a platform.", cta:"Read index fund guide →", h:"./blog.html#index-funds" },
+      { n:"Beginner investing guide", d:"Learn how index funds, account types, fees, and contribution habits work before choosing a platform.", cta:"Read index fund guide →", h:"./index-funds-for-beginners.html" },
       { n:"Investment calculator", d:"Model long-term contributions and return assumptions before opening or funding an account.", cta:"Use calculator →", h:"./calculator.html" },
     ],
     large: [
-      { n:"Tax account guide", d:"Understand Roth Individual Retirement Accounts, Tax-Free Savings Accounts, and taxable accounts before comparing providers.", cta:"Read account guide →", h:"./blog.html#roth-vs-tfsa" },
+      { n:"Tax account guide", d:"Understand Roth Individual Retirement Accounts, Tax-Free Savings Accounts, and taxable accounts before comparing providers.", cta:"Read account guide →", h:"./roth-ira-vs-tfsa.html" },
       { n:"Long-term calculator", d:"Stress-test contribution amounts, timelines, and expected return assumptions.", cta:"Open calculator →", h:"./calculator.html" },
     ],
     debt: [
-      { n:"Emergency fund guide", d:"Keep starter emergency savings liquid and separate while paying down high-interest debt.", cta:"Read guide →", h:"./blog.html#emergency-fund" },
-      { n:"Debt payoff guide", d:"Compare payoff strategies and choose a repeatable plan.", cta:"Compare methods →", h:"./blog.html#debt-avalanche" },
+      { n:"Emergency fund guide", d:"Keep starter emergency savings liquid and separate while paying down high-interest debt.", cta:"Read guide →", h:"./how-to-build-emergency-fund.html" },
+      { n:"Debt payoff guide", d:"Compare payoff strategies and choose a repeatable plan.", cta:"Compare methods →", h:"./debt-avalanche-vs-snowball.html" },
     ],
   },
   CA: {
     savings: [
       { n:"Wealthsimple", d:"Canadian cash, investing, Tax-Free Savings Account, and Registered Retirement Savings Plan options. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
-      { n:"Emergency fund guide", d:"Learn how to evaluate liquidity, account rules, fees, and current rates before choosing where to keep savings.", cta:"Read guide →", h:"./blog.html#emergency-fund" },
+      { n:"Emergency fund guide", d:"Learn how to evaluate liquidity, account rules, fees, and current rates before choosing where to keep savings.", cta:"Read guide →", h:"./how-to-build-emergency-fund.html" },
     ],
     investing: [
       { n:"Wealthsimple", d:"Canadian investing platform with Tax-Free Savings Account and Registered Retirement Savings Plan options. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
-      { n:"Beginner investing guide", d:"Understand index funds, contribution habits, and platform tradeoffs before opening an account.", cta:"Read guide →", h:"./blog.html#index-funds" },
+      { n:"Beginner investing guide", d:"Understand index funds, contribution habits, and platform tradeoffs before opening an account.", cta:"Read guide →", h:"./index-funds-for-beginners.html" },
     ],
     large: [
       { n:"Wealthsimple", d:"Canadian platform for cash, investing, and registered account options. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
-      { n:"Account guide", d:"Compare registered accounts, taxable accounts, fees, currency conversion, and investment choices.", cta:"Read account guide →", h:"./blog.html#roth-vs-tfsa" },
+      { n:"Account guide", d:"Compare registered accounts, taxable accounts, fees, currency conversion, and investment choices.", cta:"Read account guide →", h:"./roth-ira-vs-tfsa.html" },
     ],
     debt: [
       { n:"Wealthsimple", d:"Canadian cash and account options to research while building emergency savings. Affiliate link.", cta:"Learn about Wealthsimple →", h:"https://wealthsimple.com/invite/OJ5CMX", aff:true },
-      { n:"Debt payoff guide", d:"Compare payoff strategies before redirecting money toward investing.", cta:"Compare methods →", h:"./blog.html#debt-avalanche" },
+      { n:"Debt payoff guide", d:"Compare payoff strategies before redirecting money toward investing.", cta:"Compare methods →", h:"./debt-avalanche-vs-snowball.html" },
     ],
   },
 };
