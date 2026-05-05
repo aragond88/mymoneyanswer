@@ -258,7 +258,7 @@
   </div>
   <div class="nav-right">
     <span class="nav-badge">Free</span>
-    <button class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <button class="nav-burger" id="burger" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a class="mob-link" href="./index.html">Tool</a>
@@ -281,12 +281,12 @@
 <!-- ── FILTER BAR ────────────────────────────────────── -->
 <div class="filter-wrap">
   <div class="filter-inner">
-    <button class="filter-btn active" onclick="filter('all',this)">All Channels</button>
-    <button class="filter-btn" onclick="filter('save',this)">Save Money</button>
-    <button class="filter-btn" onclick="filter('make',this)">Make Money</button>
-    <button class="filter-btn" onclick="filter('invest',this)">Invest</button>
-    <button class="filter-btn" onclick="filter('rich',this)">Get Rich</button>
-    <button class="filter-btn" onclick="filter('online',this)">Make Money Online</button>
+    <button type="button" class="filter-btn active" onclick="filter('all',this)">All Channels</button>
+    <button type="button" class="filter-btn" onclick="filter('save',this)">Save Money</button>
+    <button type="button" class="filter-btn" onclick="filter('make',this)">Make Money</button>
+    <button type="button" class="filter-btn" onclick="filter('invest',this)">Invest</button>
+    <button type="button" class="filter-btn" onclick="filter('rich',this)">Get Rich</button>
+    <button type="button" class="filter-btn" onclick="filter('online',this)">Make Money Online</button>
   </div>
 </div>
 
@@ -462,8 +462,6 @@ function filter(cat, btn) {
 }
 
 // ── MOBILE MENU ───────────────────────────────────────
-function toggleMenu(){ document.getElementById('burger').classList.toggle('open'); document.getElementById('mobile-menu').classList.toggle('open'); }
-
 // ── INIT ──────────────────────────────────────────────
 ['save','make','invest','rich','online'].forEach(renderSection);
 
@@ -475,5 +473,6 @@ if (hash && SECTIONS[hash]) {
   if (btn) filter(hash, btn);
 }
 </script>
+<script src="./site.js"></script>
 </body>
 </html>

@@ -36,9 +36,9 @@
       --border-2:    #F0F0F2;
       --text-1:      #09090B;
       --text-2:      #3F3F46;
-      --text-3:      #71717A;
-      --text-4:      #A1A1AA;
-      --green:       #16A34A;
+      --text-3:      #52525B;
+      --text-4:      #52525B;
+      --green:       #15803D;
       --green-dark:  #15803D;
       --green-light: #F0FDF4;
       --green-mid:   #BBF7D0;
@@ -337,7 +337,7 @@
   </div>
   <div style="display:flex;align-items:center;gap:12px;flex-shrink:0;">
     <span class="nav-badge">Free</span>
-    <button class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <button class="nav-burger" id="burger" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a class="mob-link" href="./index.html">Tool</a>
@@ -359,9 +359,9 @@
 
   <!-- MODE TABS -->
   <div class="mode-tabs">
-    <button class="mode-tab active" onclick="setMode('growth',this)">Investment Growth</button>
-    <button class="mode-tab" onclick="setMode('goal',this)">Goal Calculator</button>
-    <button class="mode-tab" onclick="setMode('monthly',this)">Monthly Contribution</button>
+    <button type="button" class="mode-tab active" onclick="setMode('growth',this)">Investment Growth</button>
+    <button type="button" class="mode-tab" onclick="setMode('goal',this)">Goal Calculator</button>
+    <button type="button" class="mode-tab" onclick="setMode('monthly',this)">Monthly Contribution</button>
   </div>
 
   <!-- CALCULATOR CARD -->
@@ -568,23 +568,23 @@
     <div class="section-heading">Frequently asked questions</div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is a realistic annual return to expect?</div>
+        <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is a realistic annual return to expect?</button>
         <div class="faq-a">The historical average annual return of the United States stock market (specifically the S&P 500) is approximately 10% before inflation, or 7% after adjusting for inflation. For a diversified portfolio of index funds, 6–8% is a reasonable long-term expectation. More conservative portfolios with bonds typically return 4–6%. Never plan around returns above 12% for long-term projections.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does monthly compounding differ from annual compounding?</div>
+        <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does monthly compounding differ from annual compounding?</button>
         <div class="faq-a">With annual compounding, interest is calculated once per year on your balance. With monthly compounding, interest is calculated 12 times per year — meaning each month's interest earns interest the following month. On a $10,000 investment at 7% annual rate over 20 years, monthly compounding yields approximately $400 more than annual compounding. The difference grows significantly with larger amounts and longer time horizons.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this calculator accounting for taxes and inflation?</div>
+        <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this calculator accounting for taxes and inflation?</button>
         <div class="faq-a">No — this calculator shows nominal growth without adjusting for taxes or inflation. In reality: (1) Investments in taxable accounts are subject to capital gains tax when sold; (2) Investments in a Roth IRA grow tax-free; (3) Inflation of approximately 2–3% per year erodes purchasing power. To get an inflation-adjusted estimate, subtract 2–3 percentage points from your expected return rate. For tax-advantaged accounts like a Roth IRA, the numbers shown are closer to your real take-home result.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the best way to invest money long-term?</div>
+        <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the best way to invest money long-term?</button>
         <div class="faq-a">For many beginners, a common long-term approach is: (1) Learn whether a Roth IRA fits your situation; (2) Consider low-cost total market index funds such as VTI or FSKAX; (3) Set up automatic monthly contributions; (4) Avoid emotional trading during market downturns. This approach still carries risk, but it keeps costs low and reduces decision fatigue.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much should I invest each month?</div>
+        <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much should I invest each month?</button>
         <div class="faq-a">A common starting guideline is 15% of your gross income toward retirement. However, the most important thing is consistency — even $100 per month invested starting at age 25 grows to approximately $263,000 by age 65 at a 7% annual return. Use the Monthly Contribution calculator above to find the exact amount you need to reach any specific goal.</div>
       </div>
     </div>
@@ -643,8 +643,8 @@ function renderOpenAccount(){
   const cards = CALC_AFFS[country];
   document.getElementById('open-acct-section').innerHTML = `
     <div class="ctry-toggle">
-      <button class="ctry-btn ${country==='US'?'active':''}" data-c="US" onclick="setCountry('US')">🇺🇸 United States</button>
-      <button class="ctry-btn ${country==='CA'?'active':''}" data-c="CA" onclick="setCountry('CA')">🇨🇦 Canada</button>
+      <button type="button" class="ctry-btn ${country==='US'?'active':''}" data-c="US" onclick="setCountry('US')">🇺🇸 United States</button>
+      <button type="button" class="ctry-btn ${country==='CA'?'active':''}" data-c="CA" onclick="setCountry('CA')">🇨🇦 Canada</button>
     </div>
     <div class="open-acct-label">Ready to invest? Account resources — ${country==='CA'?'🇨🇦 Canada':'🇺🇸 United States'}</div>
     <div class="open-acct-grid">
@@ -957,14 +957,14 @@ function renderChart(data, title){
   for(let i=0; i<=4; i++){
     const y = pad.top + cH - (i/4)*cH;
     ctx.beginPath(); ctx.moveTo(pad.left,y); ctx.lineTo(pad.left+cW,y); ctx.stroke();
-    ctx.fillStyle   = '#A1A1AA';
+    ctx.fillStyle   = '#52525B';
     ctx.font        = '11px Inter, sans-serif';
     ctx.textAlign   = 'right';
     ctx.fillText(fmtK(maxVal*(i/4)), pad.left-6, y+4);
   }
 
   // X axis labels
-  ctx.fillStyle = '#A1A1AA';
+  ctx.fillStyle = '#52525B';
   ctx.textAlign = 'center';
   ctx.font = '11px Inter, sans-serif';
   const labelStep = years <= 10 ? 1 : years <= 20 ? 5 : 10;
@@ -1006,7 +1006,7 @@ function renderChart(data, title){
     const y = pad.top + cH - (d.balance/maxVal)*cH;
     i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
   });
-  ctx.strokeStyle = '#16A34A';
+  ctx.strokeStyle = '#15803D';
   ctx.lineWidth   = 2.5;
   ctx.lineJoin    = 'round';
   ctx.stroke();
@@ -1028,15 +1028,13 @@ function renderChart(data, title){
   const lastX = pad.left + cW;
   const lastY = pad.top + cH - (data[data.length-1].balance/maxVal)*cH;
   ctx.beginPath(); ctx.arc(lastX, lastY, 5, 0, Math.PI*2);
-  ctx.fillStyle = '#16A34A'; ctx.fill();
+  ctx.fillStyle = '#15803D'; ctx.fill();
   ctx.strokeStyle = 'white'; ctx.lineWidth = 2; ctx.stroke();
 }
-
-function toggleMenu(){ document.getElementById('burger').classList.toggle('open'); document.getElementById('mobile-menu').classList.toggle('open'); }
-
 // ── INIT ──
 window.addEventListener('resize', ()=>{ if(currentMode==='growth') calculate(); });
 calculate();
 </script>
+<script src="./site.js"></script>
 </body>
 </html>

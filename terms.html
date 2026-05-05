@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <nav><a class="logo" href="./index.html"><div class="logo-icon">$</div><span class="logo-text">MyMoneyAnswer</span></a><div class="nav-center"><a class="nav-link" href="./index.html">Tool</a><a class="nav-link" href="./calculator.html">Investment Calculator</a><a class="nav-link" href="./money-lessons.html">Money Lessons</a><a class="nav-link" href="./blog.html">Blog</a></div><div class="nav-right"><span class="nav-badge">Free</span><button class="nav-burger" id="burger" type="button" aria-label="Open navigation menu" onclick="toggleMenu()"><span></span><span></span><span></span></button></div><div class="mobile-menu" id="mobile-menu"><a class="mob-link" href="./index.html">Tool</a><a class="mob-link" href="./calculator.html">Investment Calculator</a><a class="mob-link" href="./money-lessons.html">Money Lessons</a><a class="mob-link" href="./blog.html">Blog</a></div></nav>
+  <nav><a class="logo" href="./index.html"><div class="logo-icon">$</div><span class="logo-text">MyMoneyAnswer</span></a><div class="nav-center"><a class="nav-link" href="./index.html">Tool</a><a class="nav-link" href="./calculator.html">Investment Calculator</a><a class="nav-link" href="./money-lessons.html">Money Lessons</a><a class="nav-link" href="./blog.html">Blog</a></div><div class="nav-right"><span class="nav-badge">Free</span><button class="nav-burger" id="burger" type="button" aria-label="Open navigation menu" aria-controls="mobile-menu" aria-expanded="false"><span></span><span></span><span></span></button></div><div class="mobile-menu" id="mobile-menu"><a class="mob-link" href="./index.html">Tool</a><a class="mob-link" href="./calculator.html">Investment Calculator</a><a class="mob-link" href="./money-lessons.html">Money Lessons</a><a class="mob-link" href="./blog.html">Blog</a></div></nav>
   <main>
     <section class="hero"><div class="hero-kicker">Terms</div><h1>Terms of Use</h1><p class="hero-sub">Rules and limitations for using MyMoneyAnswer tools, calculators, and educational content.</p></section>
     <div class="wrap">
@@ -57,6 +57,6 @@
     </div>
   </div>
 </footer>
-  <script>function toggleMenu(){document.getElementById('burger').classList.toggle('open');document.getElementById('mobile-menu').classList.toggle('open');}</script>
+<script src="./site.js"></script>
 </body>
 </html>

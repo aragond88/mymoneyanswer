@@ -924,7 +924,7 @@
   </div>
   <div class="nav-right">
     <span class="nav-badge">Free</span>
-    <button class="nav-burger" id="burger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+    <button class="nav-burger" id="burger" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
   </div>
   <div class="mobile-menu" id="mobile-menu">
     <a class="mob-link active" href="./index.html">Tool</a>
@@ -943,8 +943,8 @@
   <h1>What should you do<br>with your <span class="hl">money?</span></h1>
   <p class="hero-sub">4 questions. Educational next steps. Based on general financial principles.</p>
   <div class="hero-ctry">
-    <button class="ctry-btn active" id="ctry-us" data-c="US" onclick="setCountry('US')">🇺🇸 United States</button>
-    <button class="ctry-btn" id="ctry-ca" data-c="CA" onclick="setCountry('CA')">🇨🇦 Canada</button>
+    <button type="button" class="ctry-btn active" id="ctry-us" data-c="US" onclick="setCountry('US')">🇺🇸 United States</button>
+    <button type="button" class="ctry-btn" id="ctry-ca" data-c="CA" onclick="setCountry('CA')">🇨🇦 Canada</button>
   </div>
 </div>
 
@@ -1082,27 +1082,27 @@
   <h3>Frequently asked questions</h3>
   <div class="faq-list">
     <div class="faq-item">
-      <div class="faq-q" onclick="faq(this)">What should I do with $1,000?</div>
+      <button type="button" class="faq-q" onclick="faq(this)">What should I do with $1,000?</button>
       <div class="faq-a">With $1,000, your priority depends on your situation and country. If you have high-interest debt, paying it down is often the strongest first step because it reduces expensive interest costs. If you have no emergency fund, consider a separate savings account. If your foundation is solid, you may be ready to learn about tax-advantaged accounts and low-cost diversified index funds. Use the tool above for general educational next steps.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="faq(this)">Should I pay off debt or invest?</div>
+      <button type="button" class="faq-q" onclick="faq(this)">Should I pay off debt or invest?</button>
       <div class="faq-a">If your debt carries an interest rate above 8%, paying it down first is often a strong starting point because that interest cost is hard for typical investments to overcome. If your debt is below 7% (mortgage, student loans), investing while making minimum payments can sometimes make sense, depending on your risk tolerance and time horizon.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="faq(this)">How much emergency fund do I need?</div>
+      <button type="button" class="faq-q" onclick="faq(this)">How much emergency fund do I need?</button>
       <div class="faq-a">A common educational rule of thumb is 3–6 months of essential living expenses in a separate, accessible savings account. Start with a small starter emergency fund if you are also paying off debt, then build toward 3 months, then 6 months. Self-employed people and single-income households may want a larger cushion.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="faq(this)">What is the best way to invest for beginners?</div>
+      <button type="button" class="faq-q" onclick="faq(this)">What is the best way to invest for beginners?</button>
       <div class="faq-a">Many beginners start by learning about account types, low-cost diversified index funds, fees, and automatic contributions. In the United States, that may include a Roth Individual Retirement Account. In Canada, that may include a Tax-Free Savings Account or Registered Retirement Savings Plan. Automating contributions and avoiding emotional trading are common long-term investing principles.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="faq(this)">What should I do with $10,000?</div>
+      <button type="button" class="faq-q" onclick="faq(this)">What should I do with $10,000?</button>
       <div class="faq-a">With $10,000 and no high-interest debt or emergency fund gaps, the next step usually depends on country-specific account rules. United States users may compare Roth Individual Retirement Account, workplace retirement plan, and taxable brokerage options. Canada users may compare Tax-Free Savings Account, Registered Retirement Savings Plan, and taxable non-registered account options. The tool above keeps the plan country-aware.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-q" onclick="faq(this)">Is this tool free?</div>
+      <button type="button" class="faq-q" onclick="faq(this)">Is this tool free?</button>
       <div class="faq-a">Yes — completely free. No signup, no email, no paywall. If the site uses affiliate links in the future, they should be clearly labeled and should not affect the educational steps shown by the tool.</div>
     </div>
   </div>
@@ -1848,7 +1848,7 @@ function renderQ(i){
       <div class="q-body">
         <div class="opts">
           ${q.opts.map(o=>`
-            <button class="opt ${ans[q.id]===o.v?'sel':''}" onclick="pick('${q.id}','${o.v}',this)">
+            <button type="button" class="opt ${ans[q.id]===o.v?'sel':''}" onclick="pick('${q.id}','${o.v}',this)">
               <div class="opt-radio"></div>
               ${icon(o.ic)}
               <div>
@@ -1858,10 +1858,10 @@ function renderQ(i){
             </button>
           `).join('')}
         </div>
-        <button class="btn-cta" id="nxt" onclick="goNext()" ${ans[q.id]?'':'disabled'}>
+        <button type="button" class="btn-cta" id="nxt" onclick="goNext()" ${ans[q.id]?'':'disabled'}>
           ${i<QS.length-1?'Continue →':'See My Plan →'}
         </button>
-        ${i>0?`<button class="btn-ghost" onclick="goBack()">← Back</button>`:''}
+        ${i>0?`<button type="button" class="btn-ghost" onclick="goBack()">← Back</button>`:''}
       </div>
     </div>`;
 }
@@ -1957,11 +1957,11 @@ function renderResult(){
 
       <div class="share-bar">
         <div class="share-btns">
-          <button class="btn-action btn-action-outline" onclick="restart()">
+          <button type="button" class="btn-action btn-action-outline" onclick="restart()">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.68"/></svg>
             Start Over
           </button>
-          <button class="btn-action btn-action-solid" onclick="downloadPDF()">
+          <button type="button" class="btn-action btn-action-solid" onclick="downloadPDF()">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Download Plan
           </button>
@@ -2152,7 +2152,7 @@ function downloadPDF(){
 <body>
 
 <div class="print-btn-wrap">
-  <button class="print-btn" onclick="window.print()">
+  <button type="button" class="print-btn" onclick="window.print()">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
     Save as PDF (Ctrl+P)
   </button>
@@ -2241,12 +2241,11 @@ function goBack(){ if(step>0){step--;renderQ(step);} }
 function restart(){ step=0;ans={};renderQ(0);window.scrollTo({top:0,behavior:'smooth'}); }
 function copyLink(e){ navigator.clipboard.writeText(window.location.href).then(()=>{e.target.textContent='✓ Copied!';setTimeout(()=>{e.target.textContent='🔗 Copy link';},2000);}); }
 function faq(el){ el.parentElement.classList.toggle('open'); }
-function toggleMenu(){ document.getElementById('burger').classList.toggle('open'); document.getElementById('mobile-menu').classList.toggle('open'); }
-
 // Sync hero toggle and page accounts on load
 document.querySelectorAll('.ctry-btn').forEach(b => b.classList.toggle('active', b.dataset.c === country));
 renderPageAccounts();
 renderQ(0);
 </script>
+<script src="./site.js"></script>
 </body>
 </html>
