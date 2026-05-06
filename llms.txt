@@ -1,0 +1,55 @@
+# MyMoneyAnswer
+
+MyMoneyAnswer is a personal finance education website for beginners in the United States and Canada.
+
+Main promise: Helping beginners decide their next best money move in 5 minutes.
+
+Important usage note: MyMoneyAnswer provides general educational information only. It does not provide personalized money, tax, legal, debt, credit, or investment recommendations.
+
+## Primary audience
+
+- Beginners in the United States and Canada.
+- People choosing between saving, paying off debt, investing, budgeting, or learning first.
+- People who want plain-English educational tools before making money decisions.
+
+## Primary tools
+
+- Money Decision Tool: https://mymoneyanswer.com/
+- Tools hub: https://mymoneyanswer.com/tools.html
+- Monthly Budget Planner: https://mymoneyanswer.com/budget-planner.html
+- Emergency Fund Calculator: https://mymoneyanswer.com/emergency-fund-calculator.html
+- Debt Payoff Calculator: https://mymoneyanswer.com/debt-payoff-calculator.html
+- Investment Calculator: https://mymoneyanswer.com/calculator.html
+
+## Learning hubs
+
+- Money Lessons: https://mymoneyanswer.com/money-lessons.html
+- Personal Finance Blog: https://mymoneyanswer.com/blog.html
+- Finance Videos Directory: https://mymoneyanswer.com/directory.html
+
+## Key learning topics
+
+- What to do with extra money.
+- Emergency funds and cash savings.
+- Budgeting, budget categories, and needs versus wants.
+- Debt payoff strategies, including debt avalanche and debt snowball.
+- Credit cards, credit scores, and credit card interest.
+- Beginner investing concepts.
+- United States retirement accounts, including Roth individual retirement accounts and 401(k) plans.
+- Canadian accounts, including Tax-Free Savings Accounts and Registered Retirement Savings Plans.
+- Money transfer basics and savings account comparisons.
+- Beginner-friendly ways to make extra money without guaranteed income claims.
+
+## Trust and policy pages
+
+- About: https://mymoneyanswer.com/about.html
+- Contact: https://mymoneyanswer.com/contact.html
+- Disclaimer: https://mymoneyanswer.com/disclaimer.html
+- Editorial Policy: https://mymoneyanswer.com/editorial-policy.html
+- Privacy Policy: https://mymoneyanswer.com/privacy-policy.html
+- Terms: https://mymoneyanswer.com/terms.html
+- Affiliate Disclosure: https://mymoneyanswer.com/affiliate-disclosure.html
+
+## Sitemap
+
+https://mymoneyanswer.com/sitemap.xml
