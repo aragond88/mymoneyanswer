@@ -16,13 +16,49 @@
 
     gtag('config', 'G-337VQV0EV8');
   </script>
-  <title>Personal Finance Blog — MyMoneyAnswer</title>
-  <meta name="description" content="In-depth guides on saving money, investing, getting out of debt, and building wealth. Written in plain English for United States and Canadian readers." />
+  <title>Personal Finance Blog for Beginners | MyMoneyAnswer</title>
+  <meta name="description" content="Beginner-friendly personal finance guides organized by emergency funds, debt payoff, investing, credit, making money, banking, and Canada money topics." />
   <link rel="canonical" href="https://mymoneyanswer.com/blog.html" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mymoneyanswer.com/blog.html" />
-  <meta property="og:title" content="Personal Finance Blog — MyMoneyAnswer" />
-  <meta property="og:description" content="Plain-English guides on investing, saving, and building wealth for United States and Canadian readers." />
+  <meta property="og:title" content="Personal Finance Blog for Beginners | MyMoneyAnswer" />
+  <meta property="og:description" content="Plain-English money guides organized by beginner topic for United States and Canadian readers." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "name": "Personal Finance Blog for Beginners",
+        "description": "Beginner-friendly personal finance guides organized by emergency funds, debt payoff, investing, credit, income, banking, and Canada money topics.",
+        "url": "https://mymoneyanswer.com/blog.html",
+        "inLanguage": "en",
+        "isAccessibleForFree": true,
+        "publisher": {
+          "@type": "Organization",
+          "name": "MyMoneyAnswer"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://mymoneyanswer.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://mymoneyanswer.com/blog.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,7 +76,32 @@
 
     /* ── BLOG LAYOUT ── */
     .blog-wrap{max-width:980px;margin:0 auto;padding:56px 24px 80px;flex:1;}
+    .blog-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-bottom:34px;}
+    .intro-card,.guide-card{background:#FFFFFF;border:1px solid #E4E4E7;border-radius:18px;padding:24px;}
+    .intro-card h2,.guide-card h2{font-size:22px;font-weight:800;letter-spacing:-.45px;color:#09090B;margin-bottom:10px;}
+    .intro-card p,.guide-card p{font-size:14px;color:#3F3F46;line-height:1.7;margin-bottom:14px;}
+    .intro-card p:last-child,.guide-card p:last-child{margin-bottom:0;}
+    .guide-links{display:grid;gap:10px;margin-top:14px;}
+    .guide-link{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:40px;padding:10px 12px;border:1px solid #E4E4E7;border-radius:12px;background:#FAFAFA;color:#09090B;text-decoration:none;font-size:13px;font-weight:700;}
+    .guide-link:hover{border-color:#16A34A;background:#F0FDF4;color:#14532D;}
+    .cluster-nav{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:38px;}
+    .cluster-link{background:#FFFFFF;border:1px solid #E4E4E7;border-radius:14px;padding:14px;text-decoration:none;color:#09090B;}
+    .cluster-link:hover{border-color:#16A34A;background:#F0FDF4;}
+    .cluster-link strong{display:block;font-size:14px;margin-bottom:5px;}
+    .cluster-link span{display:block;font-size:12px;color:#52525B;line-height:1.45;}
     .blog-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+    .cluster-heading{grid-column:span 2;border-top:1px solid #E4E4E7;padding-top:28px;margin-top:8px;}
+    .cluster-heading:first-child{border-top:0;padding-top:0;margin-top:0;}
+    .cluster-heading h2{font-size:24px;font-weight:800;letter-spacing:-.5px;color:#09090B;margin-bottom:8px;}
+    .cluster-heading p{font-size:14px;color:#3F3F46;line-height:1.65;max-width:720px;}
+    .tool-strip{background:#FFFFFF;border:1px solid #E4E4E7;border-radius:18px;padding:24px;margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;}
+    .tool-strip h2{font-size:22px;font-weight:800;letter-spacing:-.45px;margin-bottom:8px;color:#09090B;}
+    .tool-strip p{font-size:14px;color:#3F3F46;line-height:1.7;}
+    .tool-links{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
+    .tool-link{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 14px;border-radius:10px;border:1px solid #16A34A;background:#FFFFFF;color:#15803D;text-decoration:none;font-size:13px;font-weight:800;}
+    .tool-link.primary{background:#16A34A;color:#FFFFFF;}
+    .tool-link:hover{background:#F0FDF4;}
+    .tool-link.primary:hover{background:#15803D;border-color:#15803D;}
 
     /* ── ARTICLE CARD ── */
     .article-card{background:white;border:1px solid #E4E4E7;border-radius:18px;display:flex;flex-direction:column;transition:box-shadow .15s,transform .15s;text-decoration:none;color:inherit;}
@@ -66,7 +127,8 @@
 
     /* ── FOOTER ── */
 
-    @media(max-width:640px){.blog-grid{grid-template-columns:1fr;}.article-card.featured{grid-column:span 1;}.aff-cards{grid-template-columns:1fr;}}
+    @media(max-width:760px){.blog-intro,.tool-strip{grid-template-columns:1fr;}.cluster-nav{grid-template-columns:1fr 1fr;}.tool-links{justify-content:flex-start;}}
+    @media(max-width:640px){.blog-grid{grid-template-columns:1fr;}.article-card.featured,.cluster-heading{grid-column:span 1;}.cluster-nav{grid-template-columns:1fr;}.aff-cards{grid-template-columns:1fr;}}
     @media(max-width:480px){.hero h1{font-size:28px;}.a-title{font-size:26px;}}
   </style>
   <link rel="stylesheet" href="./styles.css" />
@@ -82,7 +144,8 @@
     <a class="nav-link" href="./index.html">Tool</a>
     <a class="nav-link" href="./calculator.html">Investment Calculator</a>
     <a class="nav-link" href="./money-lessons.html">Money Lessons</a>
-    <a class="nav-link" href="./directory.html">Videos</a><a class="nav-link active" href="./blog.html">Blog</a>
+    <a class="nav-link" href="./directory.html">Videos</a>
+    <a class="nav-link active" href="./blog.html">Blog</a>
   </div>
   <div class="nav-right">
     <span class="nav-badge">Free</span>
@@ -92,7 +155,8 @@
     <a class="mob-link" href="./index.html">Tool</a>
     <a class="mob-link" href="./calculator.html">Investment Calculator</a>
     <a class="mob-link" href="./money-lessons.html">Money Lessons</a>
-    <a class="mob-link" href="./directory.html">Videos</a><a class="mob-link active" href="./blog.html">Blog</a>
+    <a class="mob-link" href="./directory.html">Videos</a>
+    <a class="mob-link active" href="./blog.html">Blog</a>
   </div>
 </nav>
 
@@ -101,11 +165,43 @@
   <div class="hero">
     <div class="hero-kicker"><span class="kicker-dot"></span> Personal Finance Blog</div>
     <h1>Learn. Save.<br><em>Build wealth.</em></h1>
-    <p class="hero-sub">Plain-English guides on investing, saving, and building wealth — for United States and Canadian readers.</p>
+    <p class="hero-sub">Plain-English guides on investing, saving, debt payoff, credit, and building wealth for United States and Canadian readers.</p>
   </div>
 
   <div class="blog-wrap">
+    <section class="blog-intro" aria-labelledby="blog-intro-heading">
+      <div class="intro-card">
+        <h2 id="blog-intro-heading">Choose the topic that matches your next money question</h2>
+        <p>The blog is organized by beginner intent, not by publish date. Start with emergency savings, debt payoff, investing, credit, income, banking, or country-specific account rules.</p>
+        <p>Each article is general educational information. It is designed to help you learn the tradeoffs before using a calculator, opening an account, or making a money decision.</p>
+      </div>
+      <aside class="guide-card" aria-label="Helpful starting points">
+        <h2>Not sure where to start?</h2>
+        <p>Use these pages when you want a guided path instead of browsing every article.</p>
+        <div class="guide-links">
+          <a class="guide-link" href="./index.html">Find your next money move <span>→</span></a>
+          <a class="guide-link" href="./money-lessons.html">Follow Money Lessons <span>→</span></a>
+          <a class="guide-link" href="./directory.html">Browse finance videos <span>→</span></a>
+        </div>
+      </aside>
+    </section>
+
+    <div class="cluster-nav" role="navigation" aria-label="Blog topic clusters">
+      <a class="cluster-link" href="#start-here"><strong>Start here</strong><span>Beginner decision guides</span></a>
+      <a class="cluster-link" href="#emergency-fund"><strong>Emergency fund</strong><span>Savings and cash safety</span></a>
+      <a class="cluster-link" href="#debt"><strong>Debt payoff</strong><span>Credit cards and strategies</span></a>
+      <a class="cluster-link" href="#investing"><strong>Investing</strong><span>Accounts, funds, and fees</span></a>
+      <a class="cluster-link" href="#credit"><strong>Credit</strong><span>Scores, reports, and interest</span></a>
+      <a class="cluster-link" href="#income"><strong>Make money</strong><span>Income and online work</span></a>
+      <a class="cluster-link" href="#banking"><strong>Banking</strong><span>Transfers and cash accounts</span></a>
+      <a class="cluster-link" href="#canada"><strong>Canada</strong><span>TFSA, RRSP, and Wealthsimple</span></a>
+    </div>
+
     <div class="blog-grid">
+      <div class="cluster-heading" id="start-here">
+        <h2>Start here</h2>
+        <p>Use these decision guides when you are trying to choose the next useful money move before going deeper into a topic.</p>
+      </div>
 
       <a class="article-card featured" href="./roth-ira-vs-tfsa.html">
         <div class="article-body">
@@ -133,6 +229,11 @@
           <div class="article-meta"><span>8 min read</span><span>Beginner · Decision guide</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
+
+      <div class="cluster-heading" id="income">
+        <h2>Make money and online income</h2>
+        <p>These guides focus on realistic income ideas, scam awareness, side money, and beginner online work paths.</p>
+      </div>
 
       <a class="article-card" href="./how-to-make-money-fast.html">
         <div class="article-body">
@@ -170,6 +271,11 @@
         </div>
       </a>
 
+      <div class="cluster-heading" id="credit">
+        <h2>Credit and credit cards</h2>
+        <p>Learn credit basics, credit score factors, card interest, and minimum payment risks before borrowing more.</p>
+      </div>
+
       <a class="article-card" href="./how-to-build-credit.html">
         <div class="article-body">
           <div class="article-tags"><span class="tag both">United States & Canada</span><span class="tag">Credit</span></div>
@@ -205,6 +311,11 @@
           <div class="article-meta"><span>7 min read</span><span>Credit cards · Calculator</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
+
+      <div class="cluster-heading" id="investing">
+        <h2>Investing and account basics</h2>
+        <p>Learn beginner investing concepts, retirement accounts, taxable accounts, index funds, exchange-traded funds, and fees.</p>
+      </div>
 
       <a class="article-card" href="./roth-ira-for-beginners.html">
         <div class="article-body">
@@ -242,6 +353,11 @@
         </div>
       </a>
 
+      <div class="cluster-heading" id="canada">
+        <h2>Canada money guides</h2>
+        <p>Start here for Canadian registered accounts, high-interest savings accounts, and beginner investing platform research.</p>
+      </div>
+
       <a class="article-card" href="./tfsa-for-beginners.html">
         <div class="article-body">
           <div class="article-tags"><span class="tag ca">Canada</span><span class="tag">Savings</span><span class="tag">Investing</span></div>
@@ -278,6 +394,11 @@
         </div>
       </a>
 
+      <div class="cluster-heading" id="banking">
+        <h2>Banking and cash accounts</h2>
+        <p>Compare where cash can live, how transfers work, and what to check before moving money between accounts.</p>
+      </div>
+
       <a class="article-card" href="./high-yield-savings-account-for-emergency-fund.html">
         <div class="article-body">
           <div class="article-tags"><span class="tag us">United States</span><span class="tag">Savings</span></div>
@@ -304,6 +425,11 @@
           <div class="article-meta"><span>8 min read</span><span>Banking · Transfers</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
+
+      <div class="cluster-heading" id="emergency-fund">
+        <h2>Emergency fund and savings</h2>
+        <p>Build a starter cash buffer, choose an emergency fund target, and understand where emergency cash should live.</p>
+      </div>
 
       <a class="article-card" href="./emergency-fund-vs-debt-payoff.html">
         <div class="article-body">
@@ -344,7 +470,7 @@
       <a class="article-card" href="./how-to-build-emergency-fund.html">
         <div class="article-body">
           <div class="article-tags"><span class="tag both">United States & Canada</span><span class="tag">Savings</span></div>
-          <div class="article-title">How to Build an Emergency Fund — Step by Step</div>
+          <div class="article-title">How to Build an Emergency Fund Step by Step</div>
           <div class="article-excerpt">An emergency fund is the most important financial tool most people don't have. Here is how to build one fast, where to keep it, and how much you actually need.</div>
           <div class="article-meta"><span>6 min read</span><span>Savings · Beginner</span><span class="article-cta">Read →</span></div>
         </div>
@@ -359,11 +485,16 @@
         </div>
       </a>
 
+      <div class="cluster-heading">
+        <h2>More investing guides</h2>
+        <p>Use these articles when you are ready to learn index funds, exchange-traded funds, fees, and long-term investing tradeoffs.</p>
+      </div>
+
       <a class="article-card" href="./index-funds-for-beginners.html">
         <div class="article-body">
           <div class="article-tags"><span class="tag both">United States & Canada</span><span class="tag">Investing</span></div>
           <div class="article-title">Index Funds for Beginners: How to Start Investing With $100</div>
-          <div class="article-excerpt">You don't need thousands of dollars or a finance degree to start investing. Index funds let you own a tiny piece of hundreds of companies at once — at near-zero cost.</div>
+          <div class="article-excerpt">You don't need thousands of dollars or a finance degree to start investing. Index funds let you own a tiny piece of hundreds of companies at once at near-zero cost.</div>
           <div class="article-meta"><span>7 min read</span><span>Investing · Beginner</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
@@ -413,6 +544,11 @@
         </div>
       </a>
 
+      <div class="cluster-heading">
+        <h2>Calculator guides</h2>
+        <p>These guides explain calculator inputs, estimates, fees, and investing scenarios before you compare detailed next steps.</p>
+      </div>
+
       <a class="article-card" href="./compound-interest-calculator-guide.html">
         <div class="article-body">
           <div class="article-tags"><span class="tag both">United States & Canada</span><span class="tag">Calculator</span></div>
@@ -431,11 +567,16 @@
         </div>
       </a>
 
+      <div class="cluster-heading" id="debt">
+        <h2>Debt payoff</h2>
+        <p>Compare debt payoff strategies, minimum payment risks, credit card payoff, and whether debt should come before investing.</p>
+      </div>
+
       <a class="article-card" href="./debt-avalanche-vs-snowball.html">
         <div class="article-body">
           <div class="article-tags"><span class="tag both">United States & Canada</span><span class="tag">Debt</span></div>
           <div class="article-title">Debt Avalanche vs Debt Snowball: Which Pays Off Debt Faster?</div>
-          <div class="article-excerpt">Two proven methods for eliminating debt — one saves you the most money, the other keeps you most motivated. Here's which one to choose based on your personality.</div>
+          <div class="article-excerpt">Two proven methods for eliminating debt: one may reduce interest, while the other may help with motivation. Learn how to compare both approaches.</div>
           <div class="article-meta"><span>6 min read</span><span>Debt · Strategy</span><span class="article-cta">Read →</span></div>
         </div>
       </a>
@@ -485,6 +626,11 @@
         </div>
       </a>
 
+      <div class="cluster-heading">
+        <h2>Canada platform review</h2>
+        <p>Use this review after learning the account basics and checking whether a platform fits your education needs.</p>
+      </div>
+
       <a class="article-card ca-article" href="./wealthsimple-review.html">
         <div class="article-body">
           <div class="article-tags"><span class="tag ca">Canada</span><span class="tag">Investing</span></div>
@@ -495,6 +641,18 @@
       </a>
 
     </div>
+    <section class="tool-strip" aria-labelledby="blog-tools-heading">
+      <div>
+        <h2 id="blog-tools-heading">Turn what you learned into a next step</h2>
+        <p>After reading a guide, use a calculator or the main tool to compare educational scenarios before making a decision.</p>
+      </div>
+      <div class="tool-links">
+        <a class="tool-link primary" href="./index.html">Use the free tool</a>
+        <a class="tool-link" href="./emergency-fund-calculator.html">Emergency fund</a>
+        <a class="tool-link" href="./debt-payoff-calculator.html">Debt payoff</a>
+        <a class="tool-link" href="./calculator.html">Investment</a>
+      </div>
+    </section>
   </div>
 </div>
 
@@ -511,7 +669,8 @@
       <a href="./index.html">Financial Plan Tool</a>
       <a href="./calculator.html">Investment Calculator</a>
       <a href="./money-lessons.html">Money Lessons</a>
-      <a href="./directory.html">Videos</a><a href="./blog.html">Blog</a>
+      <a href="./directory.html">Videos</a>
+      <a href="./blog.html">Blog</a>
       <a href="./about.html">About</a>
       <a href="./contact.html">Contact</a>
       <a href="./privacy-policy.html">Privacy</a>
