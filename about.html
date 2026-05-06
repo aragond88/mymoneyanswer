@@ -23,6 +23,45 @@
   <meta property="og:url" content="https://mymoneyanswer.com/about.html" />
   <meta property="og:title" content="About MyMoneyAnswer" />
   <meta property="og:description" content="Simple educational money tools and lessons for beginners in the United States and Canada." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://mymoneyanswer.com/#organization",
+        "name": "MyMoneyAnswer",
+        "url": "https://mymoneyanswer.com/",
+        "logo": "https://mymoneyanswer.com/assets/money-logo.svg",
+        "description": "MyMoneyAnswer is a personal finance education website for beginners in the United States and Canada."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://mymoneyanswer.com/#website",
+        "name": "MyMoneyAnswer",
+        "url": "https://mymoneyanswer.com/",
+        "publisher": {
+          "@id": "https://mymoneyanswer.com/#organization"
+        },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "AboutPage",
+        "@id": "https://mymoneyanswer.com/about.html#aboutpage",
+        "url": "https://mymoneyanswer.com/about.html",
+        "name": "About MyMoneyAnswer",
+        "description": "Learn about MyMoneyAnswer, a personal finance education website helping beginners in the United States and Canada choose their next best money move.",
+        "isPartOf": {
+          "@id": "https://mymoneyanswer.com/#website"
+        },
+        "about": {
+          "@id": "https://mymoneyanswer.com/#organization"
+        },
+        "inLanguage": "en"
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
@@ -88,6 +127,11 @@
         <p>The goal is to make personal finance feel practical and approachable. The site is designed to feel like a decision tool, not a generic finance blog.</p>
       </section>
       <section class="card">
+        <h2>What is available on the site</h2>
+        <p>MyMoneyAnswer includes a Money Decision Tool, Monthly Budget Planner, Emergency Fund Calculator, Debt Payoff Calculator, Investment Calculator, Money Lessons, a finance video directory, and beginner-friendly articles.</p>
+        <p>These resources are organized around common money questions: what to do with extra cash, how much emergency savings to keep, how to build a budget, how to compare debt payoff methods, and how to understand basic investing concepts.</p>
+      </section>
+      <section class="card">
         <h2>Who it is for</h2>
         <p>MyMoneyAnswer is built for beginners in the United States and Canada who are trying to understand topics like emergency funds, debt payoff, investing basics, retirement accounts, and where to learn more.</p>
         <ul>
@@ -102,7 +146,7 @@
         <p>Use the tools and articles as a starting point for learning. For decisions with major financial, tax, legal, or investment consequences, consider speaking with a qualified professional who can review your specific situation.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="./index.html">Use the free tool</a>
-          <a class="btn btn-secondary" href="./calculator.html">Try the calculator</a>
+          <a class="btn btn-secondary" href="./tools.html">View all tools</a>
         </div>
       </section>
       <div class="note">MyMoneyAnswer is still growing. New pages, tools, and editorial policies will be improved over time with a focus on clarity, trust, and usefulness.</div>
