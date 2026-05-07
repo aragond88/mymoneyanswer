@@ -22,6 +22,7 @@ Important usage note: MyMoneyAnswer provides general educational information onl
 - Emergency Fund Calculator: https://mymoneyanswer.com/emergency-fund-calculator.html
 - Debt Payoff Hub: https://mymoneyanswer.com/debt-payoff.html
 - Debt Payoff Calculator: https://mymoneyanswer.com/debt-payoff-calculator.html
+- Investing Hub: https://mymoneyanswer.com/investing.html
 - Investment Calculator: https://mymoneyanswer.com/calculator.html
 
 ## Learning hubs
