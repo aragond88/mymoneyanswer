@@ -391,6 +391,39 @@ button:focus-visible,
   outline-offset: 3px;
 }
 
+/* Future display ad slots */
+.ad-slot {
+  width: 100%;
+  min-height: 112px;
+  margin: 32px 0;
+  display: block;
+  background: transparent;
+}
+
+.ad-slot--leaderboard {
+  min-height: 96px;
+}
+
+.ad-slot--article {
+  min-height: 180px;
+}
+
+.ad-slot--tool {
+  min-height: 132px;
+}
+
+@media (max-width: 640px) {
+  .ad-slot {
+    min-height: 96px;
+    margin: 24px 0;
+    border-radius: 14px;
+  }
+
+  .ad-slot--article {
+    min-height: 140px;
+  }
+}
+
 /* Shared article template */
 .article-page{max-width:760px;margin:0 auto;padding:56px 24px 80px;}
 .back-link{display:inline-flex;font-size:14px;font-weight:700;color:#15803D;text-decoration:none;margin-bottom:32px;}
