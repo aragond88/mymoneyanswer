@@ -284,6 +284,72 @@
       border: 1px solid var(--green-mid);
     }
 
+    .video-path {
+      margin: 0 0 44px;
+    }
+    .video-path-head {
+      max-width: 680px;
+      margin-bottom: 18px;
+    }
+    .video-path-head h2 {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text-1);
+      margin-bottom: 8px;
+    }
+    .video-path-head p {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.65;
+    }
+    .video-path-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .video-path-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 18px;
+      text-decoration: none;
+      color: inherit;
+      min-height: 164px;
+      transition: transform .18s var(--ease), box-shadow .18s var(--ease), border-color .18s;
+    }
+    .video-path-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--green-mid);
+      box-shadow: var(--shadow-md);
+    }
+    .video-path-card span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--green-light);
+      color: var(--green-dark);
+      border: 1px solid var(--green-mid);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .video-path-card h3 {
+      font-size: 16px;
+      color: var(--text-1);
+      line-height: 1.25;
+      letter-spacing: -0.25px;
+      margin-bottom: 8px;
+    }
+    .video-path-card p {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.55;
+    }
+
     .section { margin-bottom: 56px; }
     .section.hidden { display: none; }
 
@@ -487,6 +553,7 @@
       .intro-panel,
       .support-grid,
       .related-grid { grid-template-columns: 1fr; }
+      .video-path-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media(max-width:768px) {
 
@@ -503,6 +570,7 @@
       .content { padding: 32px 16px 60px; }
       .support-section { padding: 0 16px 60px; margin-top: -12px; }
       .ch-grid { grid-template-columns: 1fr; }
+      .video-path-grid { grid-template-columns: 1fr; }
     }
   </style>
   <link rel="stylesheet" href="./styles.css" />
@@ -578,6 +646,39 @@
         <div class="criteria-item"><span class="criteria-num">3</span><span>Useful learning value even when no product is being promoted.</span></div>
       </div>
     </aside>
+  </section>
+  <section class="video-path" aria-labelledby="video-path-heading">
+    <div class="video-path-head">
+      <h2 id="video-path-heading">Watch a video, then take one useful next step</h2>
+      <p>Use the directory to find explanations, then continue with a MyMoneyAnswer guide or calculator so the learning turns into a practical next move.</p>
+    </div>
+    <div class="video-path-grid">
+      <a class="video-path-card" href="./budgeting.html">
+        <span>1</span>
+        <h3>Budgeting videos</h3>
+        <p>After watching, build a monthly plan with the budgeting hub and planner.</p>
+      </a>
+      <a class="video-path-card" href="./emergency-fund.html">
+        <span>2</span>
+        <h3>Saving videos</h3>
+        <p>Use the emergency fund hub to choose a starter or full cash target.</p>
+      </a>
+      <a class="video-path-card" href="./debt-payoff.html">
+        <span>3</span>
+        <h3>Debt payoff videos</h3>
+        <p>Compare debt avalanche, debt snowball, and payoff calculator next steps.</p>
+      </a>
+      <a class="video-path-card" href="./investing.html">
+        <span>4</span>
+        <h3>Investing videos</h3>
+        <p>Learn account basics, fees, diversification, and long-term investing tradeoffs.</p>
+      </a>
+      <a class="video-path-card" href="./make-money.html">
+        <span>5</span>
+        <h3>Make money videos</h3>
+        <p>Compare realistic income ideas, online work, and beginner safety checks.</p>
+      </a>
+    </div>
   </section>
   <div id="sec-save"   class="section" data-cat="save"></div>
   <div id="sec-make"   class="section" data-cat="make"></div>
