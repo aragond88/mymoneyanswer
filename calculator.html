@@ -739,6 +739,20 @@ function updateRateHint(){
 // MODE SWITCHING
 // ════════════════════════════════════════════
 let currentMode = 'growth';
+let calculatorReady = false;
+const calculatorModeTracked = {};
+function trackCalculatorMode(mode){
+  if (!calculatorReady || calculatorModeTracked[mode]) return;
+  const eventNames = {
+    growth: 'investment_calculator_used',
+    goal: 'goal_calculator_used',
+    monthly: 'monthly_contribution_calculator_used'
+  };
+  calculatorModeTracked[mode] = true;
+  window.trackEvent && window.trackEvent(eventNames[mode], {
+    calculator_mode: mode
+  });
+}
 function setMode(mode, btn){
   currentMode = mode;
   document.querySelectorAll('.mode-tab').forEach(t=>t.classList.remove('active'));
@@ -807,6 +821,7 @@ function calculate(){
   renderBreakdown(data, years);
   renderInsights(initial, monthly, rate, years, finalBalance, totalContrib, totalInterest);
   renderOpenAccount();
+  trackCalculatorMode('growth');
 }
 
 // ════════════════════════════════════════════
@@ -856,6 +871,7 @@ function calculateGoal(){
         <strong>several years</strong> from your timeline. Small increases compound over time.
       </div>
     </div>`;
+  trackCalculatorMode('goal');
 }
 
 // ════════════════════════════════════════════
@@ -904,6 +920,7 @@ function calculateMonthly(){
         Compound interest provides the remaining <strong>${fmtK(final.interest)}</strong> — that is <strong>${Math.round(final.interest/target*100)}%</strong> for free.
       </div>
     </div>`;
+  trackCalculatorMode('monthly');
 }
 
 // ════════════════════════════════════════════
@@ -1070,6 +1087,7 @@ function renderChart(data, title){
 // ── INIT ──
 window.addEventListener('resize', ()=>{ if(currentMode==='growth') calculate(); });
 calculate();
+calculatorReady = true;
 </script>
 <script src="./site.js"></script>
 </body>

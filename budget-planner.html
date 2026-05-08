@@ -500,6 +500,12 @@ function csvValue(text) {
 
 function downloadCsv() {
   const budget = getBudget();
+  window.trackEvent && window.trackEvent('budget_csv_downloaded', {
+    country: country === 'ca' ? 'CA' : 'US',
+    income: Math.round(budget.income),
+    planned: Math.round(budget.planned),
+    leftover: Math.round(budget.leftover)
+  });
   const rows = [
     ['Category','Amount'],
     ['Country', country === 'ca' ? 'Canada' : 'United States'],
