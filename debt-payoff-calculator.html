@@ -517,7 +517,21 @@ const debtListStatus = document.getElementById('debt-list-status');
 const addDebtButton = document.getElementById('add-debt-btn');
 const downloadResultsButton = document.getElementById('download-results-btn');
 const maxDebtCount = 12;
-let country = localStorage.getItem('mma_country') || 'US';
+function readCountryPreference(defaultValue = 'US') {
+  try {
+    return window.localStorage.getItem('mma_country') || defaultValue;
+  } catch (error) {
+    return defaultValue;
+  }
+}
+function saveCountryPreference(value) {
+  try {
+    window.localStorage.setItem('mma_country', value);
+  } catch (error) {
+    // Keep the calculator usable when browser storage is blocked or unavailable.
+  }
+}
+let country = readCountryPreference('US');
 let method = 'avalanche';
 let nextDebtId = 2;
 let debtEntries = getDefaultDebts();
@@ -872,7 +886,7 @@ function calculate() {
 countryButtons.forEach(function(button) {
   button.addEventListener('click', function() {
     country = button.dataset.country;
-    localStorage.setItem('mma_country', country);
+    saveCountryPreference(country);
     calculate();
   });
 });

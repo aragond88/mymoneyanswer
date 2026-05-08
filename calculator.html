@@ -644,10 +644,24 @@
 // UTILITIES
 // ════════════════════════════════════════════
 // ── COUNTRY ──────────────────────────────────────────────────────
-let country = localStorage.getItem('mma_country') || 'US';
+function readCountryPreference(){
+  try {
+    return window.localStorage.getItem('mma_country') || 'US';
+  } catch (error) {
+    return 'US';
+  }
+}
+function saveCountryPreference(value){
+  try {
+    window.localStorage.setItem('mma_country', value);
+  } catch (error) {
+    // The calculator still works when local storage is unavailable, such as some file previews.
+  }
+}
+let country = readCountryPreference();
 function setCountry(c){
   country = c;
-  localStorage.setItem('mma_country', c);
+  saveCountryPreference(c);
   document.querySelectorAll('.ctry-btn').forEach(b => b.classList.toggle('active', b.dataset.c === c));
   renderOpenAccount();
 }

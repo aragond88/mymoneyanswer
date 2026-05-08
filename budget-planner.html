@@ -380,7 +380,21 @@
 <script>
 const ids = ['income','housing','utilities','groceries','transportation','insurance','minimumDebt','otherNeeds','emergencySavings','sinkingFunds','flexible','subscriptions'];
 const countryButtons = document.querySelectorAll('.country-btn');
-let country = localStorage.getItem('mma-country') || 'us';
+function readCountryPreference(defaultValue = 'us') {
+  try {
+    return (window.localStorage.getItem('mma_country') || defaultValue).toLowerCase();
+  } catch (error) {
+    return defaultValue;
+  }
+}
+function saveCountryPreference(value) {
+  try {
+    window.localStorage.setItem('mma_country', value.toUpperCase());
+  } catch (error) {
+    // Keep the planner usable when browser storage is blocked or unavailable.
+  }
+}
+let country = readCountryPreference('us');
 
 function currencyLabel() {
   return country === 'ca' ? 'CA$' : 'US$';
@@ -524,7 +538,7 @@ ids.forEach(function(id) {
 countryButtons.forEach(function(button) {
   button.addEventListener('click', function() {
     country = button.dataset.country;
-    localStorage.setItem('mma-country', country);
+    saveCountryPreference(country);
     update();
   });
 });

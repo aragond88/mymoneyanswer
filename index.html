@@ -2048,13 +2048,27 @@ function getExplain(stepName, scenarioKey) {
 // ════════════════════════════════════════════
 // COUNTRY — US or CA, persisted in localStorage
 // ════════════════════════════════════════════
-let country = localStorage.getItem('mma_country') || 'US';
+function readCountryPreference(defaultValue = 'US') {
+  try {
+    return window.localStorage.getItem('mma_country') || defaultValue;
+  } catch (error) {
+    return defaultValue;
+  }
+}
+function saveCountryPreference(value) {
+  try {
+    window.localStorage.setItem('mma_country', value);
+  } catch (error) {
+    // Keep the tool usable when browser storage is blocked or unavailable.
+  }
+}
+let country = readCountryPreference('US');
 function renderCtaText(text) {
   return `<span class="open-acct-cta-text">${text.replace(/\s*→\s*$/, '')}</span><span class="open-acct-cta-arrow">→</span>`;
 }
 function setCountry(c) {
   country = c;
-  localStorage.setItem('mma_country', c);
+  saveCountryPreference(c);
   // Sync hero toggle buttons
   document.querySelectorAll('.ctry-btn').forEach(b => b.classList.toggle('active', b.dataset.c === c));
   // Re-render page account section

@@ -545,7 +545,21 @@
 const fields = ['housing','utilities','groceries','transportation','insurance','debt','other','current','monthly'];
 const countryButtons = document.querySelectorAll('.country-btn');
 const downloadResultsButton = document.getElementById('download-results-btn');
-let country = localStorage.getItem('mma_country') || 'US';
+function readCountryPreference(defaultValue = 'US') {
+  try {
+    return window.localStorage.getItem('mma_country') || defaultValue;
+  } catch (error) {
+    return defaultValue;
+  }
+}
+function saveCountryPreference(value) {
+  try {
+    window.localStorage.setItem('mma_country', value);
+  } catch (error) {
+    // Keep the calculator usable when browser storage is blocked or unavailable.
+  }
+}
+let country = readCountryPreference('US');
 let latestEmergencyResult = null;
 
 const countrySettings = {
@@ -661,7 +675,7 @@ function calculate() {
 countryButtons.forEach(function(button) {
   button.addEventListener('click', function() {
     country = button.dataset.country;
-    localStorage.setItem('mma_country', country);
+    saveCountryPreference(country);
     calculate();
   });
 });
