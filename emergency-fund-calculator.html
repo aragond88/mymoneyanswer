@@ -695,6 +695,12 @@ downloadResultsButton.addEventListener('click', function() {
   calculate();
   if (!latestEmergencyResult || latestEmergencyResult.monthlyEssentials === 0) return;
   const result = latestEmergencyResult;
+  window.trackEvent && window.trackEvent('emergency_results_downloaded', {
+    country: country,
+    monthly_essentials: Math.round(result.monthlyEssentials),
+    recommended_target: Math.round(result.target),
+    savings_gap: Math.round(result.gap)
+  });
   const stabilityLabel = {
     stable: 'Stable income or two-income household',
     variable: 'Variable income or single-income household',

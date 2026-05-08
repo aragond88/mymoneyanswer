@@ -2138,6 +2138,7 @@ const AFFS = {
 };
 
 let step=0, ans={};
+let resultTracked = false;
 const TAGS = {
   "t-now":  {l:"Do first",   c:"t-now"},
   "t-soon": {l:"Next step",  c:"t-soon"},
@@ -2337,6 +2338,15 @@ function renderResult(){
   requestAnimationFrame(()=>setTimeout(()=>{
     document.querySelectorAll('.al-bar').forEach(b=>{ b.style.width=b.dataset.w; });
   },80));
+
+  if (!resultTracked) {
+    window.trackEvent && window.trackEvent('money_tool_completed', {
+      country: country,
+      result_key: sc._key || '',
+      result_title: sc.title
+    });
+    resultTracked = true;
+  }
 }
 
 function downloadPDF(){
@@ -2588,6 +2598,11 @@ function downloadPDF(){
   const win = window.open('','_blank','width=800,height=900');
   win.document.write(printHTML);
   win.document.close();
+  window.trackEvent && window.trackEvent('money_plan_downloaded', {
+    country: country,
+    result_key: sc._key || '',
+    result_title: sc.title
+  });
 }
 
 function toggleStep(el){
@@ -2604,7 +2619,7 @@ function pick(qId,val,el){
 }
 function goNext(){ if(!ans[QS[step].id])return; step++; step>=QS.length?renderResult():renderQ(step); }
 function goBack(){ if(step>0){step--;renderQ(step);} }
-function restart(){ step=0;ans={};renderQ(0);window.scrollTo({top:0,behavior:'smooth'}); }
+function restart(){ step=0;ans={};resultTracked=false;renderQ(0);window.scrollTo({top:0,behavior:'smooth'}); }
 function copyLink(e){ navigator.clipboard.writeText(window.location.href).then(()=>{e.target.textContent='Copied';setTimeout(()=>{e.target.textContent='Copy link';},2000);}); }
 function faq(el){ el.parentElement.classList.toggle('open'); }
 // Sync hero toggle and page accounts on load

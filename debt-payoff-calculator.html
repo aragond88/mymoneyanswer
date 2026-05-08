@@ -954,6 +954,13 @@ downloadResultsButton.addEventListener('click', function() {
   if (!latestSelectedResult || latestSelectedResult.totalDebt === 0) return;
   const selected = latestSelectedResult;
   const alternate = latestAlternateResult;
+  window.trackEvent && window.trackEvent('debt_results_downloaded', {
+    country: country,
+    payoff_method: method,
+    total_debt: Math.round(selected.totalDebt),
+    estimated_months: selected.months,
+    estimated_interest: Math.round(selected.interestPaid)
+  });
   const methodName = method === 'avalanche' ? 'Debt avalanche' : 'Debt snowball';
   const alternateName = method === 'avalanche' ? 'Debt snowball' : 'Debt avalanche';
   const monthLabel = selected.isStalled ? 'More than 50 years' : (selected.months === 1 ? '1 month' : `${selected.months} months`);
