@@ -2089,7 +2089,7 @@ function renderPageAccounts(){
       : '';
   }
   grid.innerHTML = cards.map(a=>`
-    <a class="open-acct-card" href="${a.h}" target="_blank" rel="noopener noreferrer">
+    <a class="open-acct-card" href="${a.h}" target="_blank" rel="${a.aff ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}">
       <div class="open-acct-name">${a.n}${a.aff?'<span class="open-acct-badge">Affiliate</span>':''}</div>
       <div class="open-acct-desc">${a.d}</div>
       <span class="open-acct-cta">${renderCtaText(a.cta)}</span>
@@ -2312,7 +2312,7 @@ function renderResult(){
         ${hasAffiliate?`<div class="affiliate-note">Affiliate disclosure: this section may include affiliate links. The educational plan above stays useful even if affiliate links are removed.</div>`:''}
         <div class="open-acct-grid">
           ${acctCards.map(a=>`
-            <a class="open-acct-card" href="${a.h}" target="_blank" rel="noopener noreferrer">
+            <a class="open-acct-card" href="${a.h}" target="_blank" rel="${a.aff ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}">
               <div class="open-acct-name">${a.n}${a.aff?`<span class="open-acct-badge">Affiliate</span>`:''}</div>
               <div class="open-acct-desc">${a.d}</div>
               <span class="open-acct-cta">${renderCtaText(a.cta)}</span>
