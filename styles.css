@@ -400,6 +400,10 @@ button:focus-visible,
   background: transparent;
 }
 
+.ad-slot:empty {
+  display: none;
+}
+
 .ad-slot--leaderboard {
   min-height: 96px;
 }

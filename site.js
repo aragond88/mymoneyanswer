@@ -78,6 +78,21 @@
           tool_name: (link.querySelector('h2') ? link.querySelector('h2').textContent : link.textContent || '').trim().slice(0, 120)
         });
       }
+
+      if (link.classList.contains('open-acct-card') || link.classList.contains('aff-mini')) {
+        trackEvent('account_resource_clicked', {
+          link_url: href,
+          link_text: (link.textContent || '').trim().slice(0, 120),
+          is_affiliate: href.indexOf('wealthsimple.com/invite') !== -1
+        });
+      }
+
+      if (link.classList.contains('next-card') || link.classList.contains('related-card') || link.classList.contains('lesson-card')) {
+        trackEvent('internal_recommendation_clicked', {
+          link_url: href,
+          link_text: (link.textContent || '').trim().slice(0, 120)
+        });
+      }
     });
   });
 }());

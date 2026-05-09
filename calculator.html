@@ -685,7 +685,7 @@ function renderOpenAccount(){
     <div class="open-acct-label">Ready to invest? Account resources — ${country==='CA'?'🇨🇦 Canada':'🇺🇸 United States'}</div>
     <div class="open-acct-grid">
       ${cards.map(a=>`
-        <a class="open-acct-card" href="${a.h}" target="_blank" rel="noopener noreferrer">
+        <a class="open-acct-card" href="${a.h}" target="_blank" rel="${a.aff ? 'sponsored noopener noreferrer' : 'noopener noreferrer'}">
           <div class="open-acct-name">${a.n}${a.aff?'<span class="open-acct-badge">Affiliate</span>':''}</div>
           <div class="open-acct-desc">${a.d}</div>
           <span class="open-acct-cta">${a.cta}</span>
