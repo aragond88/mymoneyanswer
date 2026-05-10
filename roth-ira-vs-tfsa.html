@@ -44,6 +44,20 @@
       "isAccessibleForFree": true
     },
     {
+      "@type": "WebApplication",
+      "name": "TFSA vs Roth IRA Account Chooser",
+      "description": "A free educational account chooser that helps beginners compare whether a Tax-Free Savings Account, Roth Individual Retirement Account, or learning step is most relevant to research next.",
+      "url": "https://mymoneyanswer.com/roth-ira-vs-tfsa.html#account-chooser",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    },
+    {
       "@type": "BreadcrumbList",
       "itemListElement": [
         {
@@ -147,6 +161,29 @@
     .next-step-card:hover{border-color:#16A34A;background:#F0FDF4;}
     .next-step-card strong{display:block;font-size:15px;color:#09090B;margin-bottom:6px;}
     .next-step-card span{display:block;font-size:13px;color:#3F3F46;line-height:1.55;}
+    .chooser-tool{background:#FFFFFF;border:1px solid #BBF7D0;border-radius:18px;padding:22px;margin:28px 0;box-shadow:0 10px 30px rgba(15,23,42,.06);}
+    .chooser-tool h2{font-size:22px;margin:0 0 8px;color:#09090B;}
+    .chooser-intro{font-size:14px;color:#3F3F46;line-height:1.65;margin-bottom:18px;}
+    .chooser-grid{display:grid;gap:16px;}
+    .chooser-field{border:1px solid #E4E4E7;border-radius:14px;padding:14px;margin:0;}
+    .chooser-field legend{font-size:13px;font-weight:800;color:#09090B;padding:0 6px;}
+    .choice-list{display:grid;gap:8px;margin-top:10px;}
+    .choice-list label{display:flex;gap:10px;align-items:flex-start;border:1px solid #E4E4E7;background:#FAFAFA;border-radius:12px;padding:11px 12px;cursor:pointer;font-size:14px;color:#3F3F46;line-height:1.45;}
+    .choice-list label:hover{border-color:#86EFAC;background:#F0FDF4;}
+    .choice-list input{margin-top:3px;accent-color:#16A34A;flex-shrink:0;}
+    .choice-list strong{display:block;color:#09090B;font-size:14px;margin-bottom:2px;}
+    .chooser-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+    .chooser-button{border:1px solid #16A34A;border-radius:10px;background:#16A34A;color:#FFFFFF;font:inherit;font-size:14px;font-weight:800;min-height:42px;padding:10px 16px;cursor:pointer;}
+    .chooser-button.secondary{background:#FFFFFF;color:#15803D;}
+    .chooser-button:hover{background:#15803D;border-color:#15803D;color:#FFFFFF;}
+    .chooser-result{display:none;border:1px solid #BBF7D0;background:#F0FDF4;border-radius:16px;padding:18px;margin-top:18px;}
+    .chooser-result.show{display:block;}
+    .chooser-result-label{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.8px;color:#15803D;margin-bottom:8px;}
+    .chooser-result h3{font-size:20px;margin:0 0 8px;color:#09090B;}
+    .chooser-result p{font-size:14px;color:#14532D;line-height:1.65;margin-bottom:12px;}
+    .chooser-links{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+    .chooser-link{background:#FFFFFF;border:1px solid #BBF7D0;border-radius:12px;padding:12px 14px;text-decoration:none;color:#09090B;font-size:13px;font-weight:800;}
+    .chooser-link:hover{background:#DCFCE7;}
     .aff-block{background:#09090B;border-radius:16px;padding:28px;margin:36px 0;}
     .aff-block-title{font-size:16px;font-weight:700;color:white;margin-bottom:6px;}
     .aff-block-sub{font-size:14px;color:rgba(255,255,255,.7);margin-bottom:20px;line-height:1.5;}
@@ -177,7 +214,7 @@
     .related-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
     .related-card{background:white;border:1px solid #E4E4E7;border-radius:12px;padding:14px 16px;text-decoration:none;color:#09090B;font-size:14px;font-weight:700;}
     .related-card:hover{border-color:#16A34A;background:#F0FDF4;}
-    @media(max-width:640px){.article-page{padding:40px 18px 64px;}.a-title{font-size:28px;}.aff-cards,.related-grid,.quick-grid,.next-step-grid{grid-template-columns:1fr;}}
+    @media(max-width:640px){.article-page{padding:40px 18px 64px;}.a-title{font-size:28px;}.aff-cards,.related-grid,.quick-grid,.next-step-grid,.chooser-links{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
@@ -218,6 +255,53 @@
           </div>
         </div>
       </div>
+
+      <section class="chooser-tool" id="account-chooser" aria-labelledby="account-chooser-heading">
+        <h2 id="account-chooser-heading">TFSA vs Roth IRA account chooser</h2>
+        <p class="chooser-intro">Answer four questions to see which account topic is most relevant to research next. This is general educational information, not personalized tax, legal, or investment guidance.</p>
+        <div class="chooser-grid">
+          <fieldset class="chooser-field">
+            <legend>Where do you currently file taxes or live most of the year?</legend>
+            <div class="choice-list">
+              <label><input type="radio" name="chooser-country" value="us" checked><span><strong>United States</strong> I mainly need United States account rules.</span></label>
+              <label><input type="radio" name="chooser-country" value="ca"><span><strong>Canada</strong> I mainly need Canadian account rules.</span></label>
+              <label><input type="radio" name="chooser-country" value="cross"><span><strong>Cross-border or unsure</strong> I may have tax ties to both countries.</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="chooser-field">
+            <legend>What is the money mainly for?</legend>
+            <div class="choice-list">
+              <label><input type="radio" name="chooser-goal" value="short" checked><span><strong>Short-term safety</strong> Emergency savings or money needed within three years.</span></label>
+              <label><input type="radio" name="chooser-goal" value="flexible"><span><strong>Flexible long-term savings</strong> I may want access before retirement.</span></label>
+              <label><input type="radio" name="chooser-goal" value="retirement"><span><strong>Retirement investing</strong> I am researching long-term retirement accounts.</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="chooser-field">
+            <legend>What is your money foundation right now?</legend>
+            <div class="choice-list">
+              <label><input type="radio" name="chooser-foundation" value="debt" checked><span><strong>High-interest debt first</strong> Credit card or other expensive debt is still a problem.</span></label>
+              <label><input type="radio" name="chooser-foundation" value="emergency"><span><strong>Emergency fund first</strong> I do not yet have starter cash savings.</span></label>
+              <label><input type="radio" name="chooser-foundation" value="ready"><span><strong>Foundation is stable</strong> Bills, emergency savings, and high-interest debt are under control.</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="chooser-field">
+            <legend>What eligibility detail best matches you?</legend>
+            <div class="choice-list">
+              <label><input type="radio" name="chooser-eligibility" value="eligible" checked><span><strong>Likely eligible</strong> I have earned income or contribution room to research.</span></label>
+              <label><input type="radio" name="chooser-eligibility" value="limit"><span><strong>Possible limit</strong> Income limits, contribution room, or tax rules may be an issue.</span></label>
+              <label><input type="radio" name="chooser-eligibility" value="unknown"><span><strong>Not sure yet</strong> I need to verify the current rules first.</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="chooser-actions">
+          <button class="chooser-button" type="button" id="account-chooser-button">Show my research path</button>
+          <button class="chooser-button secondary" type="button" id="account-chooser-reset">Reset</button>
+        </div>
+        <div class="chooser-result" id="account-chooser-result" aria-live="polite"></div>
+      </section>
 
       <h2>What They Have in Common</h2>
       <p>Both the Roth IRA and the TFSA share the same core idea: you contribute money you have already paid tax on, and from that point forward, everything that grows inside the account — dividends, capital gains, interest — is completely tax-free. When you withdraw the money, you owe nothing to the government.</p>
@@ -269,7 +353,7 @@
 
       <p>If you are <strong>Canadian</strong>: Learn how a Tax-Free Savings Account compares with a Registered Retirement Savings Plan and a taxable account. The best order depends on your income, goals, employer plan, contribution room, and tax situation.</p>
 
-      <p>If you are <strong>unsure what to do with your money overall</strong>, use the <a href="./index.html">free financial plan tool</a> to get general educational next steps based on your situation.</p>
+      <p>If you are <strong>unsure what to do with your money overall</strong>, use the <a href="./index.html">free money decision tool</a> to get general educational next steps based on your situation.</p>
 
       <h2>Next step by country</h2>
       <div class="next-step-grid">
@@ -367,6 +451,104 @@ document.querySelectorAll('.faq-q').forEach(function(button){
     button.setAttribute('aria-expanded', item.classList.contains('open') ? 'true' : 'false');
   });
 });
+
+function getChooserValue(name) {
+  var selected = document.querySelector('input[name="' + name + '"]:checked');
+  return selected ? selected.value : '';
+}
+
+function renderAccountChooserResult() {
+  var country = getChooserValue('chooser-country');
+  var goal = getChooserValue('chooser-goal');
+  var foundation = getChooserValue('chooser-foundation');
+  var eligibility = getChooserValue('chooser-eligibility');
+  var result = {
+    label: 'Research path',
+    title: 'Start with your foundation before choosing an account',
+    body: 'If high-interest debt or missing emergency savings is the main issue, compare those basics before focusing on tax-advantaged investing accounts.',
+    links: [
+      ['Use the money decision tool', './index.html'],
+      ['Estimate emergency savings', './emergency-fund-calculator.html']
+    ]
+  };
+
+  if (country === 'cross') {
+    result = {
+      label: 'Cross-border caution',
+      title: 'Do not treat a TFSA and Roth IRA as interchangeable',
+      body: 'Cross-border tax rules can be complex. A simple comparison is useful for learning, but people with tax ties to both countries should verify treaty, residency, and account rules before contributing.',
+      links: [
+        ['Read the TFSA guide', './tfsa-for-beginners.html'],
+        ['Read the Roth IRA guide', './roth-ira-for-beginners.html']
+      ]
+    };
+  } else if (foundation === 'ready' && country === 'ca') {
+    result = {
+      label: 'Canada path',
+      title: goal === 'retirement' ? 'Research TFSA and RRSP tradeoffs' : 'Research the Tax-Free Savings Account',
+      body: goal === 'short'
+        ? 'A Tax-Free Savings Account can hold cash savings, but contribution room and recontribution timing matter. Keep emergency money stable and accessible.'
+        : 'A Tax-Free Savings Account can be flexible for eligible savings or investing. Compare contribution room, eligible investments, fees, and whether an RRSP also belongs in the conversation.',
+      links: [
+        ['Read TFSA basics', './tfsa-for-beginners.html'],
+        ['Compare TFSA vs RRSP', './tfsa-vs-rrsp.html']
+      ]
+    };
+  } else if (foundation === 'ready' && country === 'us') {
+    result = {
+      label: 'United States path',
+      title: goal === 'retirement' ? 'Research the Roth Individual Retirement Account' : 'Compare Roth IRA flexibility with short-term needs',
+      body: goal === 'short'
+        ? 'A Roth Individual Retirement Account is mainly a retirement account. Short-term money usually needs stability and access before long-term investing.'
+        : 'A Roth Individual Retirement Account may be relevant if you have eligible earned income and are within current income rules. Also compare any employer retirement match before choosing an order.',
+      links: [
+        ['Read Roth IRA basics', './roth-ira-for-beginners.html'],
+        ['Use the investment calculator', './calculator.html']
+      ]
+    };
+  }
+
+  if (eligibility !== 'eligible') {
+    result.body += ' Since eligibility may be unclear, verify current contribution limits, income limits, and account rules before taking action.';
+  }
+
+  var box = document.getElementById('account-chooser-result');
+  if (!box) return;
+  box.innerHTML = '<div class="chooser-result-label">' + result.label + '</div>' +
+    '<h3>' + result.title + '</h3>' +
+    '<p>' + result.body + '</p>' +
+    '<div class="chooser-links">' + result.links.map(function(link) {
+      return '<a class="chooser-link" href="' + link[1] + '">' + link[0] + '</a>';
+    }).join('') + '</div>';
+  box.classList.add('show');
+
+  window.trackEvent && window.trackEvent('account_chooser_used', {
+    chooser_country: country,
+    chooser_goal: goal,
+    chooser_foundation: foundation,
+    chooser_eligibility: eligibility,
+    chooser_result: result.title
+  });
+}
+
+var chooserButton = document.getElementById('account-chooser-button');
+var chooserReset = document.getElementById('account-chooser-reset');
+if (chooserButton) {
+  chooserButton.addEventListener('click', renderAccountChooserResult);
+}
+if (chooserReset) {
+  chooserReset.addEventListener('click', function() {
+    document.querySelector('input[name="chooser-country"][value="us"]').checked = true;
+    document.querySelector('input[name="chooser-goal"][value="short"]').checked = true;
+    document.querySelector('input[name="chooser-foundation"][value="debt"]').checked = true;
+    document.querySelector('input[name="chooser-eligibility"][value="eligible"]').checked = true;
+    var box = document.getElementById('account-chooser-result');
+    if (box) {
+      box.classList.remove('show');
+      box.innerHTML = '';
+    }
+  });
+}
 </script>
 <script src="./site.js"></script>
 </body>

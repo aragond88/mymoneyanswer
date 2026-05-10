@@ -71,6 +71,12 @@
               "position": 5,
               "name": "Investment Calculator",
               "url": "https://mymoneyanswer.com/calculator.html"
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "name": "TFSA vs Roth IRA Account Chooser",
+              "url": "https://mymoneyanswer.com/roth-ira-vs-tfsa.html#account-chooser"
             }
           ]
         }
@@ -181,6 +187,7 @@
     .tool-card.savings{--card-accent:#15803D;--card-soft:#F0FDF4;--card-border:#BBF7D0;}
     .tool-card.debt{--card-accent:#B45309;--card-soft:#FFFBEB;--card-border:#FDE68A;}
     .tool-card.invest{--card-accent:#6D28D9;--card-soft:#F5F3FF;--card-border:#DDD6FE;}
+    .tool-card.account{--card-accent:#1D4ED8;--card-soft:#EFF6FF;--card-border:#BFDBFE;}
     .tool-visual{height:150px;background:var(--card-soft);border-bottom:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;padding:18px;}
     .tool-visual svg{width:100%;max-width:210px;height:112px;overflow:visible;}
     .featured-visual{min-height:100%;background:#FFFFFF;border:1px solid #BBF7D0;border-radius:18px;display:flex;align-items:center;justify-content:center;padding:28px;}
@@ -260,7 +267,7 @@
           <h2>Choose the tool by the money problem.</h2>
           <p>Start with the decision in front of you, then use the matching calculator or planner. The tools are built for beginners in the United States and Canada.</p>
           <div class="console-stats" aria-label="Tool hub summary">
-            <div class="console-stat"><strong>5</strong><span>free tools</span></div>
+            <div class="console-stat"><strong>6</strong><span>free tools</span></div>
             <div class="console-stat"><strong>4</strong><span>decision steps</span></div>
             <div class="console-stat"><strong>2</strong><span>markets</span></div>
           </div>
@@ -297,6 +304,11 @@
           <a class="decision-link" href="./investing.html">
             <span class="decision-number">04</span>
             <span class="decision-copy"><strong>I want to model investing</strong><span>Estimate educational growth scenarios without guaranteed returns.</span></span>
+            <span class="decision-arrow">→</span>
+          </a>
+          <a class="decision-link" href="./roth-ira-vs-tfsa.html#account-chooser">
+            <span class="decision-number">05</span>
+            <span class="decision-copy"><strong>I need to compare account types</strong><span>Choose a research path for TFSA vs Roth IRA basics.</span></span>
             <span class="decision-arrow">→</span>
           </a>
         </div>
@@ -346,6 +358,35 @@
             </svg>
           </div>
         </article>
+
+        <a class="tool-card account" href="./roth-ira-vs-tfsa.html#account-chooser">
+          <div class="tool-visual" aria-hidden="true">
+            <svg viewBox="0 0 240 130" role="img">
+              <defs>
+                <pattern id="dots-account" width="5" height="5" patternUnits="userSpaceOnUse">
+                  <circle cx="1" cy="1" r="1" fill="#09090B" opacity=".24" />
+                </pattern>
+              </defs>
+              <path class="fill" d="M42 92c14-48 64-70 112-47 37 18 50 56 18 73H64c-19-1-27-11-22-26z" />
+              <rect x="58" y="38" width="58" height="66" rx="12" fill="#FFFFFF" stroke="#09090B" stroke-width="4" />
+              <rect x="124" y="26" width="58" height="78" rx="12" fill="#FFFFFF" stroke="#09090B" stroke-width="4" />
+              <path class="ink" d="M74 60h25M74 78h21M140 50h25M140 68h19" />
+              <path class="solid" d="M96 104l24-20 24 20z" />
+              <circle cx="188" cy="94" r="13" fill="url(#dots-account)" stroke="#09090B" stroke-width="3" />
+              <path class="ink" d="M44 48c-9 8-13 18-10 30M196 32c12 9 17 22 14 37" />
+            </svg>
+          </div>
+          <div class="tool-content">
+            <span class="tool-tag">Account chooser</span>
+            <h2>TFSA vs Roth IRA Chooser</h2>
+            <p>Answer four questions and get a beginner-friendly research path for Canada vs United States account rules.</p>
+            <ul>
+              <li>Built for readers comparing Tax-Free Savings Accounts and Roth Individual Retirement Accounts.</li>
+              <li>Connects to country-specific account guides and calculators.</li>
+            </ul>
+            <span class="tool-button">Use account chooser</span>
+          </div>
+        </a>
 
         <a class="tool-card budget" href="./budget-planner.html">
           <div class="tool-visual" aria-hidden="true">
