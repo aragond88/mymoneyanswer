@@ -23,16 +23,137 @@
   <meta property="og:url" content="https://mymoneyanswer.com/calculator.html" />
   <meta property="og:title" content="Investment Calculator — MyMoneyAnswer" />
   <meta property="og:description" content="See exactly how compound interest grows your money. Free, instant, no signup." />
+  <meta property="og:image" content="https://mymoneyanswer.com/assets/money-logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MyMoneyAnswer Investment Calculator preview" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Investment Calculator — MyMoneyAnswer" />
+  <meta name="twitter:description" content="See investment growth, inflation-adjusted value, retirement income, and the cost of waiting." />
+  <meta name="twitter:image" content="https://mymoneyanswer.com/assets/money-logo.png" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Investment Calculator",
-    "description": "Free compound interest calculator showing how investments grow over time.",
-    "url": "https://mymoneyanswer.com/calculator.html",
-    "applicationCategory": "FinanceApplication",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Investment Calculator",
+        "description": "Free investment calculator showing compound growth, inflation-adjusted value, monthly retirement income at 4 percent, and the estimated cost of waiting.",
+        "url": "https://mymoneyanswer.com/calculator.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Any",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "featureList": [
+          "Compound growth projection",
+          "Inflation-adjusted real balance",
+          "Monthly retirement income at 4 percent",
+          "Start now versus wait five years comparison"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://mymoneyanswer.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Investment Calculator",
+            "item": "https://mymoneyanswer.com/calculator.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a realistic annual return to expect?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Many beginner projections use 6 to 8 percent for a diversified long-term stock-heavy portfolio, but actual returns vary and can be negative in some years. Conservative portfolios may use lower assumptions."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does inflation matter in an investment calculator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Inflation reduces purchasing power over time. A nominal future balance may look large, but the inflation-adjusted value estimates what that balance might feel like in today's dollars."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What does monthly retirement income at 4 percent mean?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It translates the final balance into a rough monthly income estimate using a 4 percent annual withdrawal assumption. It is a planning shortcut, not a guaranteed retirement income amount."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does waiting to invest cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Waiting can reduce the final balance because contributions and growth have fewer years to compound. This calculator compares starting now with starting five years later using the same inputs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this calculator include taxes and fees?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The calculator uses simplified growth assumptions and does not model taxes, investment fees, trading costs, account limits, or changing returns."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I use a United States or Canada investing account?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The right account depends on your country, contribution room, income, taxes, goals, and rules. United States readers may compare Roth Individual Retirement Accounts and 401(k) plans. Canada readers may compare Tax-Free Savings Accounts and Registered Retirement Savings Plans."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to use the Investment Calculator",
+        "description": "Estimate compound growth, inflation-adjusted value, retirement income, and delay cost.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Enter your starting amount",
+            "text": "Add the amount you already have invested or plan to invest today."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Add monthly contributions",
+            "text": "Enter the amount you expect to add each month."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Choose return, time, and inflation assumptions",
+            "text": "Use a long-term annual return, time horizon, compounding frequency, and optional inflation adjustment."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Review the output",
+            "text": "Compare final balance, real value, monthly income at 4 percent, and the estimated cost of waiting five years."
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -92,6 +213,8 @@
     }
     .hero h1 em { color: #4ade80; font-style: italic; }
     .hero-sub { font-size: 17px; color: rgba(255,255,255,0.58); max-width: 420px; margin: 0 auto; line-height: 1.65; }
+    .hero-meta { max-width:560px;margin:14px auto 0;color:rgba(255,255,255,.56);font-size:12px;line-height:1.5;font-weight:500; }
+    .hero-meta time { color:rgba(255,255,255,.82);font-weight:700; }
 
     /* ── LAYOUT ── */
     .wrap {
@@ -203,6 +326,21 @@
     .range-labels span { position: absolute; transform: translateX(-50%); }
     .range-labels span:first-child { transform: translateX(0); }
     .range-labels span:last-child { transform: translateX(-100%); }
+    .check-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      background: #FFFFFF;
+      padding: 12px 14px;
+      cursor: pointer;
+    }
+    .check-row input { width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--green); }
+    .check-copy { min-width: 0; }
+    .check-title { color: var(--text-1); font-size: 13px; font-weight: 800; line-height: 1.35; }
+    .check-desc { color: var(--text-3); font-size: 11px; line-height: 1.45; margin-top: 2px; }
 
     .calc-btn {
       width: 100%; margin-top: 24px; padding: 14px;
@@ -217,7 +355,7 @@
     .results-panel { padding: 32px 28px; display: flex; flex-direction: column; gap: 24px; }
 
     /* Big result numbers */
-    .result-cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .result-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
     .result-card { border-radius: var(--r-lg); padding: 14px 16px; display: flex; flex-direction: column; }
     .result-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; min-height: 26px; margin-bottom: 12px; }
     .result-value { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1; }
@@ -274,6 +412,12 @@
     .insight-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
     .insight-text { font-size: 13px; color: var(--text-2); line-height: 1.55; }
     .insight-text strong { font-weight: 600; color: var(--text-1); }
+    .decision-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px; }
+    .decision-card { display:block;border:1px solid var(--border);border-radius:var(--r-lg);padding:14px 15px;background:#FFFFFF;text-decoration:none;transition:border-color .15s, background .15s, transform .15s var(--ease), box-shadow .15s; }
+    .decision-card:hover { border-color:var(--green);background:var(--green-light);transform:translateY(-1px);box-shadow:var(--shadow-sm); }
+    .decision-kicker { color:var(--green-dark);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px; }
+    .decision-title { color:var(--text-1);font-size:13px;font-weight:800;line-height:1.35;margin-bottom:4px; }
+    .decision-copy { color:var(--text-3);font-size:12px;line-height:1.5; }
 
     /* ── EXPLAINER SECTION ── */
     .explainer {
@@ -290,6 +434,21 @@
     .exp-text { font-size: 14px; color: var(--text-3); line-height: 1.65; }
     .section-heading { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: var(--text-1); }
     .section-sub { font-size: 15px; color: var(--text-3); margin-top: 6px; line-height: 1.6; }
+    .education-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 28px;
+      margin-top: 28px;
+      box-shadow: 0 8px 24px rgba(9,9,11,0.04);
+    }
+    .education-block h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; margin-bottom: 10px; }
+    .education-block h3 { font-size: 17px; font-weight: 800; letter-spacing: -0.25px; margin: 24px 0 8px; }
+    .education-block p, .education-block li { color: var(--text-3); font-size: 14px; line-height: 1.75; }
+    .education-block p { margin-bottom: 14px; }
+    .education-block ul { padding-left: 20px; margin: 8px 0 14px; }
+    .education-block a { color: var(--green-dark); font-weight: 700; text-decoration: none; }
+    .education-block a:hover { text-decoration: underline; }
 
     /* ── FAQ ── */
     .faq-list { margin-top: 16px; }
@@ -327,7 +486,7 @@
     @media(max-width:700px) {
       .calc-body { grid-template-columns: 1fr; }
       .input-panel { border-right: none; border-bottom: 1px solid var(--border-2); }
-      .result-cards { grid-template-columns: 1fr 1fr; }
+      .decision-grid { grid-template-columns:1fr; }
       .explainer-grid { grid-template-columns: 1fr; }
     }
     @media(max-width:520px) {
@@ -372,8 +531,9 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-kicker"><span class="kicker-dot"></span> Free Investment Calculator</div>
-  <h1>See how your money <em>grows</em></h1>
-  <p class="hero-sub">Enter any amount, any monthly contribution, and any time horizon — and watch compound interest do its work.</p>
+  <h1>See what your money could <em>become</em></h1>
+  <p class="hero-sub">Estimate compound growth, inflation-adjusted value, monthly retirement income at 4%, and the cost of waiting five years.</p>
+  <p class="hero-meta"><time datetime="2026-05-11">Last updated: May 2026</time> &middot; General educational information for United States and Canada readers</p>
 </div>
 
 <!-- MAIN -->
@@ -474,6 +634,20 @@
             </div>
           </div>
 
+          <div class="field">
+            <label class="check-row" for="g-inflation-toggle">
+              <div class="check-copy">
+                <div class="check-title">Show inflation-adjusted value</div>
+                <div class="check-desc">Estimate the result in today's dollars using the rate below.</div>
+              </div>
+              <input type="checkbox" id="g-inflation-toggle" checked onchange="calculate()" />
+            </label>
+            <div class="input-wrap" style="margin-top:10px;">
+              <input type="number" id="g-inflation" value="2.5" min="0" max="10" step="0.1" oninput="calculate()" />
+              <span class="input-suffix">% inflation</span>
+            </div>
+          </div>
+
         </div><!-- end inputs-growth -->
 
         <div id="inputs-goal" style="display:none">
@@ -555,6 +729,24 @@
           <!-- filled by JS -->
         </div>
 
+        <div class="decision-grid" aria-label="Related investing decision tools">
+          <a class="decision-card" href="./roth-ira-vs-tfsa.html">
+            <div class="decision-kicker">Accounts</div>
+            <div class="decision-title">Tax-free account concepts</div>
+            <div class="decision-copy">Compare Roth Individual Retirement Account and Tax-Free Savings Account ideas before choosing where to invest.</div>
+          </a>
+          <a class="decision-card" href="./money-order-of-operations.html">
+            <div class="decision-kicker">Sequence</div>
+            <div class="decision-title">Money order of operations</div>
+            <div class="decision-copy">Check whether debt, emergency savings, or account rules should come first.</div>
+          </a>
+          <a class="decision-card" href="./budget-planner.html">
+            <div class="decision-kicker">Cash flow</div>
+            <div class="decision-title">Budget planner</div>
+            <div class="decision-copy">Find the monthly contribution you can repeat before modeling long-term growth.</div>
+          </a>
+        </div>
+
         <div id="open-acct-section">
           <!-- filled by JS -->
         </div>
@@ -586,6 +778,37 @@
     </div>
   </div>
 
+  <section class="education-block" aria-labelledby="investment-education-heading">
+    <h2 id="investment-education-heading">How to read this investment calculator</h2>
+    <p>This investment calculator is designed to make compound growth easier to understand, but the most useful outputs are not only the final balance. A large future number can be misleading if you do not also consider inflation, future spending power, taxes, fees, account rules, and the cost of waiting. That is why this tool shows nominal growth, inflation-adjusted value, a rough monthly income translation, and a delay comparison in the same result.</p>
+
+    <h3>Nominal balance versus inflation-adjusted balance</h3>
+    <p>The final balance is the nominal estimate. It shows the number of future dollars if the return assumption, contribution amount, and time horizon all happen exactly as entered. The real balance is different. It discounts that future balance by the inflation assumption so you can estimate what the money may feel like in today's dollars. If inflation averages 2.5% per year for 30 years, a future dollar buys less than a dollar buys today.</p>
+    <p>This is one reason long-term investing calculators can feel too optimistic. A $1,000,000 balance may look like the finish line, but its future purchasing power depends on inflation. The toggle does not predict future inflation. It gives you a way to stress-test the plan with a simple assumption. For conservative planning, try a lower return and a higher inflation rate, then compare the result with your original scenario.</p>
+
+    <h3>Monthly retirement income at 4%</h3>
+    <p>The monthly retirement income estimate converts the final balance into a rough income number using a 4% annual withdrawal shortcut. For example, a $600,000 ending balance would translate to about $2,000 per month before taxes and fees using this simple method. This is not a guaranteed retirement income amount. Real retirement planning depends on taxes, market returns, inflation, spending flexibility, account type, pension income, government benefits, and the sequence of returns.</p>
+    <p>The value of this translation is clarity. A final portfolio balance can feel abstract, while a monthly income estimate is easier to compare with rent, groceries, utilities, insurance, and healthcare. If the monthly number is lower than expected, you can test a higher contribution, longer time horizon, lower fees, or different account strategy.</p>
+
+    <h3>The cost of waiting five years</h3>
+    <p>The delay comparison estimates what happens if you wait five years before starting with the same starting amount, monthly contribution, return, and compounding assumptions. The loss is not only the missing five years of contributions. The larger cost is that those contributions also lose years of compounding. This is why two people who invest the same monthly amount can end with very different balances if one starts earlier.</p>
+    <p>If the cost of waiting looks large, that does not mean you should invest before your foundation is stable. High-interest debt, no emergency fund, unstable income, or short-term goals can all change the right next step. Use the <a href="./money-order-of-operations.html">money order of operations</a>, <a href="./emergency-fund-calculator.html">emergency fund calculator</a>, and <a href="./debt-payoff-calculator.html">debt payoff calculator</a> if you are not sure whether investing should come first.</p>
+
+    <h3>Fees, taxes, and account choice</h3>
+    <p>This calculator does not subtract investment fees or taxes. Small fees can matter because they compound in the wrong direction. A fund with a high expense ratio, trading costs, advisory fees, or platform charges may leave less money invested each year. When comparing investments, review total fees, diversification, risk level, and whether the investment fits your time horizon.</p>
+    <p>Account choice also matters. In the United States, beginners may compare workplace retirement plans, Roth Individual Retirement Accounts, traditional Individual Retirement Accounts, and taxable brokerage accounts. In Canada, beginners may compare Tax-Free Savings Accounts, Registered Retirement Savings Plans, First Home Savings Accounts, and non-registered taxable accounts. Each account has its own contribution rules, withdrawal rules, tax treatment, and eligibility details. The calculator can show a growth estimate, but it cannot choose the account for you.</p>
+
+    <h3>What assumptions should beginners use?</h3>
+    <ul>
+      <li>Use a lower return assumption when you want a more conservative plan.</li>
+      <li>Use an inflation rate to compare future dollars with today's purchasing power.</li>
+      <li>Use a monthly contribution you can repeat through good months and hard months.</li>
+      <li>Use a longer time horizon only when the money is truly long term.</li>
+      <li>Review the result after major life changes, income changes, debt changes, or country-specific account rule changes.</li>
+    </ul>
+    <p>All outputs are simplified educational estimates. They are not personalized investment, tax, legal, debt, or retirement guidance, and they are not promises of future returns. Markets can rise, fall, or stay flat for long periods. Before making major decisions, verify account rules, current contribution limits, tax details, fees, and risk with reliable sources or a qualified professional.</p>
+  </section>
+
   <div style="margin-top:48px;">
     <div class="section-heading">Frequently asked questions</div>
     <div class="faq-list">
@@ -599,11 +822,19 @@
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is this calculator accounting for taxes and inflation?</button>
-        <div class="faq-a">No — this calculator shows nominal growth without adjusting for taxes or inflation. In reality: (1) Investments in taxable accounts are subject to capital gains tax when sold; (2) Investments in a Roth IRA grow tax-free; (3) Inflation of approximately 2–3% per year erodes purchasing power. To get an inflation-adjusted estimate, subtract 2–3 percentage points from your expected return rate. For tax-advantaged accounts like a Roth IRA, the numbers shown are closer to your real take-home result.</div>
+        <div class="faq-a">The growth mode includes an optional inflation adjustment so you can compare nominal value with an estimate in today's dollars. It does not subtract taxes, investment fees, trading costs, account fees, advisory fees, or changing contribution limits. Tax-advantaged and taxable accounts can produce different after-tax outcomes.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">What does monthly income at 4% mean?</button>
+        <div class="faq-a">It is a rough planning translation. The calculator multiplies the final balance by 4% per year and divides by 12 months. It can help you understand what a balance might mean as monthly income, but it is not guaranteed and does not replace retirement planning.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why compare starting now with waiting five years?</button>
+        <div class="faq-a">The delay comparison shows the estimated cost of missed compounding time. Waiting five years means fewer contributions and fewer years for those contributions to grow. The result can help beginners see why timing matters, while still leaving room to handle debt and emergency savings first.</div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">What is the best way to invest money long-term?</button>
-        <div class="faq-a">For many beginners, a common long-term approach is: (1) Learn whether a Roth IRA fits your situation; (2) Consider low-cost total market index funds such as VTI or FSKAX; (3) Set up automatic monthly contributions; (4) Avoid emotional trading during market downturns. This approach still carries risk, but it keeps costs low and reduces decision fatigue.</div>
+        <div class="faq-a">For many beginners, a common long-term approach is: (1) Learn whether a Roth Individual Retirement Account, workplace retirement plan, Tax-Free Savings Account, or taxable account fits your situation; (2) Consider broad low-cost total market index funds; (3) Set up automatic monthly contributions; (4) Avoid emotional trading during market downturns. This approach still carries risk, but it keeps costs low and reduces decision fatigue.</div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much should I invest each month?</button>
@@ -793,6 +1024,21 @@ function compoundGrowth(principal, monthlyContrib, annualRate, years, freqPerYea
   return data;
 }
 
+function realValue(nominal, inflationRate, years){
+  return inflationRate > 0 ? nominal / Math.pow(1 + inflationRate / 100, years) : nominal;
+}
+
+function monthlyIncomeAtFourPercent(balance){
+  return balance * 0.04 / 12;
+}
+
+function delayCost(principal, monthlyContrib, annualRate, years, freqPerYear, delayYears){
+  if (years <= delayYears) return 0;
+  const now = compoundGrowth(principal, monthlyContrib, annualRate, years, freqPerYear);
+  const delayed = compoundGrowth(principal, monthlyContrib, annualRate, years - delayYears, freqPerYear);
+  return now[now.length - 1].balance - delayed[delayed.length - 1].balance;
+}
+
 // ════════════════════════════════════════════
 // GROWTH MODE
 // ════════════════════════════════════════════
@@ -802,6 +1048,8 @@ function calculate(){
   const rate     = get('g-rate');
   const years    = Math.round(get('g-years'));
   const freq     = get('g-freq') || 12;
+  const inflationEnabled = document.getElementById('g-inflation-toggle').checked;
+  const inflation = get('g-inflation');
 
   document.getElementById('g-years-hint').textContent = years + (years===1?' year':' years');
 
@@ -810,16 +1058,20 @@ function calculate(){
   const totalContrib = final.contributed;
   const totalInterest = final.interest;
   const finalBalance = final.balance;
+  const realBalance = realValue(finalBalance, inflation, years);
+  const retirementMonthly = monthlyIncomeAtFourPercent(finalBalance);
+  const delayedCost = delayCost(initial, monthly, rate, years, freq, 5);
 
   renderResultCards([
-    { label:'Final Balance',           value: fmtK(finalBalance),    sub:'After '+years+' years', highlight:true },
-    { label:'Total Contributed',       value: fmtK(totalContrib),     sub:'Your actual money in'  },
-    { label:'Interest Earned',         value: fmtK(totalInterest),    sub:'Pure compound growth'  },
+    { label:'Final Balance',              value: fmtK(finalBalance),            sub:'Nominal value after '+years+' years', highlight:true },
+    { label: inflationEnabled ? 'Real Balance' : 'Total Contributed', value: inflationEnabled ? fmtK(realBalance) : fmtK(totalContrib), sub: inflationEnabled ? `Today-dollar estimate at ${inflation}% inflation` : 'Your actual money in' },
+    { label:'Monthly Income at 4%',        value: fmt(retirementMonthly),        sub:'Rough annual withdrawal shortcut' },
+    { label:'Cost of Waiting 5 Years',     value: fmtK(delayedCost),             sub: years > 5 ? 'Estimated smaller ending balance' : 'Use 6+ years to compare' },
   ]);
 
   renderChart(data, 'Investment Growth Over Time');
   renderBreakdown(data, years);
-  renderInsights(initial, monthly, rate, years, finalBalance, totalContrib, totalInterest);
+  renderInsights(initial, monthly, rate, years, finalBalance, totalContrib, totalInterest, realBalance, inflation, inflationEnabled, retirementMonthly, delayedCost);
   renderOpenAccount();
   trackCalculatorMode('growth');
 }
@@ -929,7 +1181,7 @@ function calculateMonthly(){
 function renderResultCards(cards){
   const cls = ['rc-primary','rc-secondary','rc-tertiary'];
   document.getElementById('result-cards').innerHTML = cards.map((c,i)=>`
-    <div class="result-card ${cls[i]||''}">
+    <div class="result-card ${cls[i]||'rc-tertiary'}">
       <div class="result-label">${c.label}</div>
       <div class="result-value">${c.value}</div>
       <div class="result-sub">${c.sub}</div>
@@ -949,18 +1201,37 @@ function renderBreakdown(data, years){
     </div>`).join('');
 }
 
-function renderInsights(initial, monthly, rate, years, finalBalance, totalContrib, totalInterest){
-  const multiplier = (finalBalance / (initial||1)).toFixed(1);
-  const doubleYears = (72/rate).toFixed(1);
-  const interestPct = Math.round(totalInterest/finalBalance*100);
+function renderInsights(initial, monthly, rate, years, finalBalance, totalContrib, totalInterest, realBalance, inflation, inflationEnabled, retirementMonthly, delayedCost){
+  const multiplier = initial > 0 ? (finalBalance / initial).toFixed(1) : 'many';
+  const doubleYears = rate > 0 ? (72/rate).toFixed(1) : 'not applicable';
+  const interestPct = finalBalance > 0 ? Math.max(0, Math.round(totalInterest/finalBalance*100)) : 0;
 
   document.getElementById('insights').innerHTML = `
     <div class="insight">
       <div class="insight-text">
-        Your money grows <strong>${multiplier}× in ${years} years</strong>.
+        Your money grows <strong>${multiplier}x in ${years} years</strong>.
         Of your final balance of <strong>${fmtK(finalBalance)}</strong>,
         <strong>${interestPct}% comes from compound interest</strong> — not from money you deposited.
         That is <strong>${fmtK(totalInterest)}</strong> earned without working for it.
+      </div>
+    </div>
+    ${inflationEnabled ? `
+    <div class="insight">
+      <div class="insight-text">
+        After adjusting for <strong>${inflation}% annual inflation</strong>, your estimated final balance feels closer to
+        <strong>${fmtK(realBalance)}</strong> in today's dollars. This is why nominal balances and purchasing power should be reviewed separately.
+      </div>
+    </div>` : ''}
+    <div class="insight">
+      <div class="insight-text">
+        Using a simple <strong>4% annual withdrawal shortcut</strong>, the final balance translates to about
+        <strong>${fmt(retirementMonthly)} per month</strong>. This is a rough planning translation, not a guaranteed retirement income amount.
+      </div>
+    </div>
+    <div class="insight">
+      <div class="insight-text">
+        Waiting five years to start with the same inputs may reduce the ending balance by about
+        <strong>${fmtK(delayedCost)}</strong>${years <= 5 ? ' once the horizon is longer than five years' : ''}. The cost is not just missed contributions; it is missed compounding time.
       </div>
     </div>
     <div class="insight">
