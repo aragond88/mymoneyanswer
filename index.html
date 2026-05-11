@@ -8,14 +8,14 @@
   <link rel="apple-touch-icon" href="./favicon.png" />
 
   <title>What Should I Do With My Money? Free Money Tool</title>
-  <meta name="description" content="Answer 4 questions and get a free country-aware educational money plan for the United States or Canada. Compare debt payoff, emergency savings, and beginner investing next steps." />
+  <meta name="description" content="Answer 4 questions and get a free country-aware educational money plan for the United States or Canada in about 5 minutes. No signup required." />
   <meta name="keywords" content="what to do with my money, personal finance tool, free financial guide, what should I do with my savings, how to invest money, emergency fund calculator, debt payoff plan" />
   <link rel="canonical" href="https://mymoneyanswer.com/" />
 
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://mymoneyanswer.com/" />
   <meta property="og:title"       content="What Should I Do With My Money? Free Money Tool" />
-  <meta property="og:description" content="4 questions. Get a free United States or Canada educational money plan and find your next best money move in 5 minutes." />
+  <meta property="og:description" content="Answer 4 questions and get a free country-aware educational money plan for the United States or Canada in about 5 minutes. No signup required." />
   <meta name="twitter:card"       content="summary" />
   <meta name="twitter:title"      content="What Should I Do With My Money? Free Money Tool" />
   <meta name="twitter:description"content="4 questions. Free country-aware educational money plan. No signup." />
@@ -27,10 +27,16 @@
       {
         "@type": "WebApplication",
         "name": "What Should I Do With My Money?",
-        "description": "A free personal finance tool that gives beginners general educational next steps for debt payoff, emergency savings, and investing in the United States or Canada.",
+        "description": "A free personal finance tool that gives beginners general educational next steps for debt payoff, emergency savings, and investing in the United States or Canada in about 5 minutes.",
         "url": "https://mymoneyanswer.com/",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Any",
+        "featureList": [
+          "Four-question money decision tool",
+          "United States and Canada country toggle",
+          "Educational next steps for debt payoff, emergency savings, and beginner investing",
+          "No signup required"
+        ],
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
       },
       {
@@ -176,9 +182,30 @@
       font-size: 17px;
       font-weight: 400;
       color: rgba(255,255,255,0.60);
-      max-width: 400px;
+      max-width: 560px;
       margin: 0 auto 0; /* no bottom margin — card takes over */
       line-height: 1.65;
+    }
+    .hero-proof {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      max-width: 620px;
+      margin: 22px auto 0;
+    }
+    .hero-proof span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.72);
+      font-size: 12px;
+      font-weight: 600;
+      backdrop-filter: blur(8px);
     }
 
     @keyframes up {
@@ -244,6 +271,32 @@
       border-radius: var(--r-2xl);
       overflow: hidden;
       box-shadow: 0 8px 40px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .trust-panel {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r-xl);
+      padding: 18px 20px;
+      margin: 16px 0 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .trust-kicker {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+    }
+    .trust-panel p {
+      color: var(--text-2);
+      font-size: 13px;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .trust-panel a {
+      color: var(--green-dark);
+      font-weight: 700;
     }
 
     /* ─── QUESTION ───────────────────────────────── */
@@ -913,6 +966,40 @@
       color: var(--text-2);
       line-height: 1.6;
     }
+    .decision-path-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 18px 0 22px;
+    }
+    .decision-path-card {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 16px 18px;
+      text-decoration: none;
+      transition: all .15s var(--ease);
+    }
+    .decision-path-card:hover {
+      border-color: var(--green);
+      background: var(--green-light);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    .decision-path-card strong {
+      display: block;
+      color: var(--text-1);
+      font-size: 14px;
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .decision-path-card span {
+      display: block;
+      color: var(--text-2);
+      font-size: 13px;
+      line-height: 1.55;
+    }
     .faq-list { margin-top: 8px; }
     .faq-item { border-bottom: 1px solid var(--border); }
     .faq-item:first-child { border-top: 1px solid var(--border); }
@@ -979,7 +1066,7 @@
       .share-bar { padding: 14px 20px; justify-content: stretch; }
       .share-btns { width: 100%; }
       .btn-action { flex: 1; justify-content: center; }
-      .res-grid, .aff-grid, .open-acct-grid, .ch-grid, .next-grid, .method-list { grid-template-columns: 1fr; }
+      .res-grid, .aff-grid, .open-acct-grid, .ch-grid, .next-grid, .method-list, .decision-path-grid { grid-template-columns: 1fr; }
       .al-label { min-width: 0; font-size: 13px; }
       .step-drawer-inner { padding-left: 20px; }
     }
@@ -1050,7 +1137,12 @@
     Free personal finance tool — no signup required
   </div>
   <h1>What should you do<br>with your <span class="hl">money?</span></h1>
-  <p class="hero-sub">4 questions. Country-aware educational next steps for debt, savings, and investing.</p>
+  <p class="hero-sub">Answer 4 questions and get a country-aware educational next step for debt payoff, emergency savings, or beginner investing in about 5 minutes.</p>
+  <div class="hero-proof" aria-label="Tool highlights">
+    <span>No signup</span>
+    <span>United States and Canada</span>
+    <span>General educational information</span>
+  </div>
   <div class="hero-ctry">
     <button type="button" class="ctry-btn active" id="ctry-us" data-c="US" onclick="setCountry('US')">🇺🇸 United States</button>
     <button type="button" class="ctry-btn" id="ctry-ca" data-c="CA" onclick="setCountry('CA')">🇨🇦 Canada</button>
@@ -1133,6 +1225,10 @@
       </div>
     </div>
   </div>
+  <aside class="trust-panel" aria-label="How this tool works">
+    <div class="trust-kicker">How this tool works</div>
+    <p>MyMoneyAnswer compares your answers against a beginner money order: required payments, emergency savings, high-interest debt, account rules, and goal timing. Results are general educational information only and link to calculators, official-source guides, and the <a href="./editorial-policy.html">editorial policy</a>.</p>
+  </aside>
 </div>
 
 <!-- ── OPEN AN ACCOUNT ───────────────────────────── -->
@@ -1256,7 +1352,27 @@
   <div class="sect-rule"></div>
   <h2>How to decide what to do with your money</h2>
   <p>Most people know they should be doing something with their savings — but figuring out the next step can feel overwhelming. Should you pay off debt or invest? Build an emergency fund or learn about tax-advantaged accounts? The answer depends on your country and situation, which is why generic money tips can feel hard to apply.</p>
-  <p>This free tool walks you through a 4-question educational framework: assess your debt, check your emergency fund, understand your goals, and deploy your money in the right order. The sequence matters more than the amounts.</p>
+  <p>This free tool walks you through a 4-question educational framework: assess your debt, check your emergency fund, understand your goals, and choose a practical research path. The sequence matters more than the amounts.</p>
+
+  <h3>Start with the decision in front of you</h3>
+  <div class="decision-path-grid">
+    <a class="decision-path-card" href="./pay-off-debt-or-save.html">
+      <strong>Debt or savings?</strong>
+      <span>Compare starter emergency savings, minimum payments, and high-interest debt payoff.</span>
+    </a>
+    <a class="decision-path-card" href="./emergency-fund-calculator.html">
+      <strong>How much cash?</strong>
+      <span>Estimate a starter fund, 3-month target, and 6-month target from essential expenses.</span>
+    </a>
+    <a class="decision-path-card" href="./debt-payoff-calculator.html">
+      <strong>Which payoff method?</strong>
+      <span>Model debt payoff timelines and compare avalanche versus snowball strategies.</span>
+    </a>
+    <a class="decision-path-card" href="./calculator.html">
+      <strong>Ready to invest?</strong>
+      <span>Test contribution amounts, time horizon, and long-term return assumptions.</span>
+    </a>
+  </div>
 
   <h3>What this tool checks first</h3>
   <div class="method-list">
@@ -1282,7 +1398,7 @@
   <p>Many educational money frameworks follow a similar order: reduce high-interest debt, build a 3–6 month emergency fund, understand tax-advantaged accounts, then invest additional savings in low-cost diversified funds. In the United States, that may include accounts such as a Roth Individual Retirement Account or a 401(k) retirement plan. In Canada, that may include a Tax-Free Savings Account or Registered Retirement Savings Plan. Skipping steps — investing while carrying high-interest credit card debt, for example — can be mathematically counterproductive regardless of how good the market is doing.</p>
 
   <h3>Where to go after your result</h3>
-  <p>Your result connects to related learning pages so you can keep moving without guessing. Start with the <a href="./budgeting.html">budgeting hub</a>, <a href="./emergency-fund.html">emergency fund hub</a>, <a href="./debt-payoff.html">debt payoff hub</a>, or <a href="./investing.html">investing hub</a> depending on the next decision in front of you.</p>
+  <p>Your result connects to related learning pages so you can keep moving without guessing. Start with the <a href="./money-order-of-operations.html">money order of operations</a>, <a href="./budgeting.html">budgeting hub</a>, <a href="./emergency-fund.html">emergency fund hub</a>, <a href="./debt-payoff.html">debt payoff hub</a>, or <a href="./investing.html">investing hub</a> depending on the next decision in front of you.</p>
 
   <h3>Frequently asked questions</h3>
   <div class="faq-list">
@@ -1537,24 +1653,24 @@ function getPlanInsight(sc){
 function getNextPages(sc){
   const common = [
     {label:"Tool", title:"Investment calculator", desc:"Model monthly contributions, time horizon, and long-term growth assumptions.", url:"./calculator.html"},
-    {label:"Lessons", title:"Money lessons", desc:"Browse beginner topics in a structured order.", url:"./money-lessons.html"},
-    {label:"Directory", title:"YouTube channel directory", desc:"Find beginner-friendly finance videos by topic.", url:"./directory.html"},
+    {label:"Guide", title:"Money order of operations", desc:"See the beginner sequence for debt, cash savings, accounts, and investing.", url:"./money-order-of-operations.html"},
+    {label:"Hub", title:"Tools hub", desc:"Open the budget planner, emergency fund calculator, debt payoff calculator, and investment calculator.", url:"./tools.html"},
   ];
   const sets = {
     debt: [
       {label:"Tool", title:"Debt payoff calculator", desc:"Estimate your payoff timeline and compare the debt avalanche and debt snowball methods.", url:"./debt-payoff-calculator.html"},
-      {label:"Hub", title:"Emergency fund guide", desc:"Build a starter cash buffer while paying down debt.", url:"./emergency-fund.html"},
-      common[0],
+      {label:"Guide", title:"Pay off debt or save?", desc:"Compare starter emergency savings with extra debt payoff before choosing one path.", url:"./pay-off-debt-or-save.html"},
+      {label:"Hub", title:"Debt payoff guide", desc:"Review payoff methods, minimum payments, and credit card debt basics.", url:"./debt-payoff.html"},
     ],
     no_emergency: [
+      {label:"Tool", title:"Emergency fund calculator", desc:"Estimate your starter, 3-month, and 6-month emergency savings targets.", url:"./emergency-fund-calculator.html"},
       {label:"Hub", title:"Emergency fund guide", desc:"Learn how much cash to keep and where to keep it.", url:"./emergency-fund.html"},
-      common[1],
-      common[2],
+      {label:"Guide", title:"Where to keep emergency cash", desc:"Compare access, stability, deposit coverage, fees, and transfer speed.", url:"./where-to-keep-emergency-fund.html"},
     ],
     partial: [
+      {label:"Tool", title:"Emergency fund calculator", desc:"Find the gap between your current savings and a full emergency fund.", url:"./emergency-fund-calculator.html"},
       {label:"Hub", title:"Emergency fund guide", desc:"Finish your safety net before increasing risk.", url:"./emergency-fund.html"},
       {label:"Hub", title:"Investing for beginners", desc:"Learn the basics before choosing investments.", url:"./investing.html"},
-      common[0],
     ],
     wealth: [
       {label:"Hub", title:"Investing for beginners", desc:"Understand diversified funds, fees, and automation.", url:"./investing.html"},
@@ -1567,9 +1683,9 @@ function getNextPages(sc){
       common[1],
     ],
     security: [
+      {label:"Tool", title:"Emergency fund calculator", desc:"Estimate how much stable cash can support your safety target.", url:"./emergency-fund-calculator.html"},
       {label:"Hub", title:"Emergency fund guide", desc:"Separate safety money from goal money.", url:"./emergency-fund.html"},
-      common[1],
-      common[2],
+      {label:"Guide", title:"Money market account vs savings account", desc:"Compare account types for stable cash before investing.", url:"./money-market-account-vs-savings-account.html"},
     ],
     balanced: common,
   };
@@ -2249,7 +2365,7 @@ function renderResult(){
       </div>
 
       <div class="sec">
-        <div class="sec-label">Next pages to read</div>
+        <div class="sec-label">Best next tools and guides</div>
         <div class="next-grid">
           ${nextPages.map(p=>`
             <a class="next-card" href="${p.url}">
