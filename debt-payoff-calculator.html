@@ -23,6 +23,14 @@
   <meta property="og:url" content="https://mymoneyanswer.com/debt-payoff-calculator.html" />
   <meta property="og:title" content="Debt Payoff Calculator | MyMoneyAnswer" />
   <meta property="og:description" content="Compare debt avalanche and debt snowball payoff plans in plain English." />
+  <meta property="og:image" content="https://mymoneyanswer.com/assets/money-logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MyMoneyAnswer Debt Payoff Calculator preview" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Debt Payoff Calculator | MyMoneyAnswer" />
+  <meta name="twitter:description" content="Compare debt avalanche and debt snowball payoff plans in plain English." />
+  <meta name="twitter:image" content="https://mymoneyanswer.com/assets/money-logo.png" />
 
   <script type="application/ld+json">
   {
@@ -85,6 +93,61 @@
               "@type": "Answer",
               "text": "No. Debt payoff calculators use simplified assumptions. Actual results can change because of fees, interest calculation rules, missed payments, new purchases, promotional rates, and payment timing."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Does the debt avalanche method always save more interest?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "When minimum payments are met and the extra payment is applied consistently, the avalanche method usually reduces estimated interest because it targets the highest annual percentage rate first. Results can vary if debts have special promotional terms, fees, or changing rates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What extra payment should I use in a debt payoff calculator?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Use an extra payment amount you can repeat without missing minimum payments, rent, food, insurance, or emergency savings. Even a small repeatable amount can change the payoff timeline."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I include student loans or auto loans?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can include installment loans for comparison, but make sure the minimum payment, interest rate, and payoff rules match your lender terms. Mortgages and loans with prepayment penalties may need a separate analysis."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to use the Debt Payoff Calculator",
+        "description": "Compare debt avalanche and debt snowball payoff timelines, estimated interest, and the interest difference between methods.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Choose your country",
+            "text": "Select United States or Canada so the calculator uses the matching currency and country context."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Enter each debt",
+            "text": "Add each balance, annual percentage rate, and required minimum monthly payment."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Set your extra payment",
+            "text": "Enter the amount you can pay above all minimum payments each month, or use the slider to test different extra payment amounts."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Compare avalanche and snowball",
+            "text": "Review the headline savings number, avalanche timeline, snowball timeline, estimated interest, and first target debt before choosing a payoff method."
           }
         ]
       }
@@ -154,6 +217,8 @@
     .hero h1 { max-width: 720px; margin: 0 auto 16px; color: #FFFFFF; font-size: clamp(34px, 5vw, 56px); line-height: 1.06; letter-spacing: -1.5px; font-weight: 800; }
     .hero h1 em { color: #4ade80; font-style: italic; font-weight: 800; }
     .hero-sub { max-width: 560px; margin: 0 auto; color: rgba(255,255,255,0.64); font-size: 17px; line-height: 1.65; }
+    .hero-meta { max-width: 560px; margin: 14px auto 0; color: rgba(255,255,255,0.5); font-size: 12px; letter-spacing: 0.2px; }
+    .hero-meta time { color: rgba(255,255,255,0.72); font-weight: 600; }
     .wrap { max-width: 980px; margin: -80px auto 0; padding: 0 20px 80px; position: relative; z-index: 10; }
     .tool-grid { display: grid; grid-template-columns: 440px 1fr; align-items: stretch; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-2xl); box-shadow: var(--shadow); overflow: hidden; }
     .panel { background: var(--surface); }
@@ -167,6 +232,23 @@
     .toggle-btn.active { color: var(--green-dark); border-color: var(--green-mid); background: var(--green-light); font-weight: 600; }
     .country-note { border: 1px solid var(--border); border-radius: var(--r-md); background: #FFFFFF; color: var(--text-2); font-size: 13px; line-height: 1.55; padding: 12px 14px; margin-bottom: 20px; }
     .country-note strong { color: var(--green); }
+    .preset-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 0 0 20px; }
+    .preset-btn {
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      background: #FFFFFF;
+      color: var(--text-2);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: left;
+      line-height: 1.35;
+      padding: 11px 13px;
+      cursor: pointer;
+      transition: border-color .12s, background .12s, color .12s, transform .15s var(--ease);
+    }
+    .preset-btn span { display: block; color: var(--text-3); font-size: 12px; font-weight: 500; margin-top: 3px; }
+    .preset-btn:hover { border-color: var(--green-mid); background: var(--green-light); color: var(--green); transform: translateY(-1px); }
     .debt-list { display: grid; gap: 14px; }
     .debt-card { border: 1px solid var(--border); border-radius: var(--r-xl); background: #FFFFFF; padding: 18px; box-shadow: 0 8px 24px rgba(9,9,11,0.06); }
     .debt-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 14px; }
@@ -230,6 +312,16 @@
       outline: none;
     }
     input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+    input[type="range"] {
+      width: 100%;
+      height: 6px;
+      padding: 0;
+      margin-top: 12px;
+      accent-color: var(--green-main);
+      cursor: pointer;
+    }
+    .range-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 8px; color: var(--text-3); font-size: 12px; }
+    .range-value { color: var(--green); font-weight: 800; }
     .actions { display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 24px; }
     .btn {
       display: inline-flex;
@@ -288,14 +380,19 @@
     .plan-box { border: 1px solid var(--border-2); border-radius: var(--r-md); padding: 12px 14px; background: var(--bg); }
     .plan-box h2 { font-size: 13px; font-weight: 700; color: var(--text-1); letter-spacing: -0.1px; margin-bottom: 6px; }
     .plan-box p { color: var(--text-2); font-size: 13px; line-height: 1.55; }
+    .source-note { color: var(--text-3); font-size: 12px; line-height: 1.55; margin-top: 8px; }
+    .source-note a { color: var(--green); font-weight: 700; }
     .warning { background: var(--amber-light); border: 1px solid var(--amber-border); border-radius: var(--r-md); color: var(--amber-text); padding: 12px 14px; font-size: 13px; line-height: 1.55; }
     .content { max-width: 960px; margin: 48px auto 0; }
     .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
-    .info-card, .related, .faq { background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--r-xl); padding: 24px; }
-    .info-card h2, .related h2, .faq h2 { font-size: 20px; letter-spacing: -0.3px; margin-bottom: 10px; }
-    .info-card p, .info-card li { color: var(--text-3); font-size: 14px; line-height: 1.65; }
+    .info-card, .education-card, .related, .faq { background: #FFFFFF; border: 1px solid var(--border); border-radius: var(--r-xl); padding: 24px; }
+    .info-card h2, .education-card h2, .related h2, .faq h2 { font-size: 20px; letter-spacing: -0.3px; margin-bottom: 10px; }
+    .info-card h3, .education-card h3 { font-size: 17px; letter-spacing: -0.2px; margin: 24px 0 8px; }
+    .info-card p, .info-card li, .education-card p, .education-card li { color: var(--text-3); font-size: 14px; line-height: 1.65; }
     .info-card ul { padding-left: 20px; margin-top: 10px; }
-    .related, .faq { margin-top: 24px; }
+    .education-card, .related, .faq { margin-top: 24px; }
+    .education-card ul { padding-left: 20px; margin: 10px 0 0; }
+    .education-card a { color: var(--green); font-weight: 700; }
     .related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
     .related-card { border: 1px solid var(--border); border-radius: var(--r-lg); padding: 15px; color: var(--text-1); text-decoration: none; font-size: 14px; font-weight: 700; line-height: 1.4; transition: border-color .12s, background .12s, transform .15s var(--ease); }
     .related-card:hover { border-color: var(--green-mid); background: var(--green-light); color: var(--green); }
@@ -347,7 +444,8 @@
   <section class="hero">
     <div class="hero-kicker"><span class="kicker-dot"></span> Free Debt Payoff Calculator</div>
     <h1>Compare your debt payoff<br><em>strategy</em></h1>
-    <p class="hero-sub">Enter your debts, minimum payments, interest rates, and the extra amount you can pay each month to compare avalanche and snowball payoff paths.</p>
+    <p class="hero-sub">Enter your debts, minimum payments, interest rates, and extra payment to see whether the debt avalanche method saves money versus the debt snowball method.</p>
+    <p class="hero-meta"><time datetime="2026-05-11">Last updated: May 2026</time> &middot; For general educational information</p>
   </section>
 
   <div class="wrap">
@@ -362,6 +460,13 @@
         </div>
         <div class="country-note" id="country-note"><strong>United States view:</strong> Amounts are shown in United States dollars. Credit cards, personal loans, and auto loans may calculate interest differently than this simple model.</div>
 
+        <div class="panel-title">Load an example</div>
+        <div class="preset-grid" aria-label="Debt example presets">
+          <button class="preset-btn" type="button" data-preset="two-cards-auto">Two cards plus auto loan<span>Credit cards with one lower-rate car loan.</span></button>
+          <button class="preset-btn" type="button" data-preset="three-cards">Three credit cards<span>Balances and rates that show avalanche savings clearly.</span></button>
+          <button class="preset-btn" type="button" data-preset="card-student">Credit card plus student loan<span>One high-rate card and one lower-rate installment loan.</span></button>
+        </div>
+
         <div class="method-toggle" role="group" aria-label="Payoff method">
           <button class="toggle-btn active" type="button" data-method="avalanche" aria-pressed="true">Avalanche</button>
           <button class="toggle-btn" type="button" data-method="snowball" aria-pressed="false">Snowball</button>
@@ -374,6 +479,8 @@
         <div class="field full" style="margin-top:16px;">
           <label for="extra">Extra amount you can pay toward debt each month</label>
           <div class="input-wrap"><span class="input-prefix currency-prefix">US$</span><input id="extra" type="number" min="0" inputmode="decimal" value="300" /></div>
+          <input id="extra-slider" type="range" min="0" max="1500" step="25" value="300" aria-label="Extra monthly debt payment slider" />
+          <div class="range-row"><span>Extra payment slider</span><span class="range-value" id="extra-slider-value">US$300</span></div>
           <p class="field-help">This is money above your required minimum payments. The calculator adds it to the target debt first.</p>
         </div>
 
@@ -384,11 +491,19 @@
 
       <aside class="panel result-panel" id="results-panel" aria-live="polite" tabindex="-1">
         <div class="metric-main">
-          <div class="metric-label">Estimated debt-free timeline</div>
-          <div class="metric-value" id="timeline">0 months</div>
-          <div class="metric-sub" id="timeline-copy">Your estimated payoff plan will appear here.</div>
+          <div class="metric-label">Avalanche versus snowball savings</div>
+          <div class="metric-value" id="savings-headline">$0</div>
+          <div class="metric-sub" id="savings-copy">Enter two or more debts to see whether avalanche saves interest versus snowball.</div>
         </div>
         <div class="summary-grid">
+          <div class="summary-card">
+            <div class="summary-label">Avalanche timeline</div>
+            <div class="summary-value" id="avalanche-timeline">0 months</div>
+          </div>
+          <div class="summary-card">
+            <div class="summary-label">Snowball timeline</div>
+            <div class="summary-value" id="snowball-timeline">0 months</div>
+          </div>
           <div class="summary-card">
             <div class="summary-label">Total debt</div>
             <div class="summary-value" id="total-debt">$0</div>
@@ -428,6 +543,7 @@
         <div class="plan-box">
           <h2 id="country-context-heading">United States debt context</h2>
           <p id="country-context-copy">For United States readers, credit cards and personal loans can have high annual percentage rates. Confirm your exact rates, fees, and minimum payment rules with each lender.</p>
+          <p class="source-note" id="apr-source-note">APR context is date-qualified and should be checked against current lender terms.</p>
         </div>
         <div class="warning"><strong>Educational information only:</strong> This calculator uses simplified monthly interest and assumes no new debt, no fees, no missed payments, and stable minimum payments.</div>
       </aside>
@@ -455,6 +571,25 @@
         </article>
       </div>
 
+      <section class="education-card" aria-labelledby="education-heading">
+        <h2 id="education-heading">How to use this debt payoff calculator</h2>
+        <p>This debt payoff calculator is designed for beginner planning, not lender-grade amortization. Add each consumer debt with its balance, annual percentage rate, and required minimum payment. Then enter the extra amount you can pay above all minimums each month. The calculator compares two common payoff orders: debt avalanche and debt snowball.</p>
+        <p>The key number is the headline savings estimate. Instead of making you compare two timelines manually, MyMoneyAnswer calculates how much estimated interest the avalanche method saves versus snowball for the same debts and same monthly payment. If that number is large, the math-first avalanche method may be worth the patience. If the number is small, the motivation-first snowball method may be easier to follow.</p>
+        <h3>What the extra payment slider shows</h3>
+        <p>The slider lets you test how an extra payment changes both payoff methods. A small increase can matter because debt interest compounds against you. If a balance has a high annual percentage rate, sending even an extra $50 or $100 to the target debt can shorten the timeline and lower interest. Use a number you can repeat without missing rent, food, insurance, minimum debt payments, or emergency savings.</p>
+        <h3>What to include</h3>
+        <ul>
+          <li>Credit cards, store cards, personal loans, auto loans, and similar consumer debt can fit this calculator.</li>
+          <li>Mortgages usually need a separate analysis because the balance, term, tax treatment, and prepayment rules can be different.</li>
+          <li>Student loans can be included for comparison, but check whether your loan has special repayment, subsidy, forgiveness, or prepayment rules.</li>
+        </ul>
+        <h3>United States and Canada context</h3>
+        <p>In the United States, Federal Reserve data for commercial banks showed credit card accounts assessed interest averaging above 20 percent in early 2026. In Canada, the Financial Consumer Agency of Canada explains common credit card interest examples around 19 percent for purchases and 22 percent for cash advances. These numbers are only context. Your exact annual percentage rate, promotional rate, fees, and minimum payment formula matter more than any national average.</p>
+        <p>If high-interest balances are crowding your budget, pair this page with the <a href="./minimum-payment-trap.html">minimum payment trap guide</a> and the <a href="./how-to-pay-off-credit-card-debt.html">credit card debt payoff guide</a>. If you are choosing between a small emergency fund and extra debt payments, read <a href="./pay-off-debt-or-save.html">pay off debt or save money first</a> before sending every spare dollar to one goal.</p>
+        <h3>Limitations</h3>
+        <p>This tool assumes no new debt, no late fees, no annual fees, stable minimum payments, and simplified monthly interest. Lenders may calculate interest daily, apply payments differently, change minimums as balances fall, or apply promotional rate rules. Use the result as a planning estimate, then confirm details with each lender before making a major debt decision.</p>
+      </section>
+
       <section class="related" aria-labelledby="related-heading">
         <h2 id="related-heading">Keep learning</h2>
         <div class="related-grid">
@@ -478,6 +613,14 @@
         <div class="faq-item">
           <button class="faq-q" type="button" aria-expanded="false">Why is this estimate different from my lender? <span class="faq-icon">+</span></button>
           <div class="faq-a">Lenders may calculate interest daily, add fees, change minimum payments, or apply promotional rules. This tool uses a simplified monthly model for educational planning.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">How much extra should I pay each month? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Use an amount you can repeat while keeping every minimum payment current and protecting basic expenses. The slider helps you test different amounts before committing.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button" aria-expanded="false">Can I use this for Canadian debt? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. Choose Canada to show Canadian dollars and Canada-specific context. The math is still simplified, so check your actual lender terms.</div>
         </div>
       </section>
     </section>
@@ -516,6 +659,9 @@ const debtList = document.getElementById('debt-list');
 const debtListStatus = document.getElementById('debt-list-status');
 const addDebtButton = document.getElementById('add-debt-btn');
 const downloadResultsButton = document.getElementById('download-results-btn');
+const extraInput = document.getElementById('extra');
+const extraSlider = document.getElementById('extra-slider');
+const extraSliderValue = document.getElementById('extra-slider-value');
 const maxDebtCount = 12;
 function readCountryPreference(defaultValue = 'US') {
   try {
@@ -545,7 +691,8 @@ const countrySettings = {
     countryName: 'United States',
     note: '<strong>United States view:</strong> Amounts are shown in United States dollars. Credit cards, personal loans, and auto loans may calculate interest differently than this simple model.',
     contextHeading: 'United States debt context',
-    contextCopy: 'For United States readers, credit cards and personal loans can have high annual percentage rates. Confirm your exact rates, fees, and minimum payment rules with each lender.'
+    contextCopy: 'For United States readers, Federal Reserve G.19 data showed credit card accounts assessed interest at 21.52% in February 2026. Confirm your exact rates, fees, and minimum payment rules with each lender.',
+    aprSource: 'Source: Federal Reserve G.19 Consumer Credit, February 2026 credit card accounts assessed interest.'
   },
   CA: {
     locale: 'en-CA',
@@ -553,7 +700,34 @@ const countrySettings = {
     countryName: 'Canada',
     note: '<strong>Canada view:</strong> Amounts are shown in Canadian dollars. Credit cards, lines of credit, and installment loans may calculate interest differently than this simple model.',
     contextHeading: 'Canada debt context',
-    contextCopy: 'For Canadian readers, compare each annual interest rate, fees, and minimum payment rules. If a debt is in collections or tied to a legal agreement, review the lender terms carefully.'
+    contextCopy: 'For Canadian readers, the Financial Consumer Agency of Canada gives examples of 19% purchase interest and 22% cash advance interest. Confirm your exact card, loan, and line of credit terms.',
+    aprSource: 'Source: Financial Consumer Agency of Canada credit card education, accessed May 2026.'
+  }
+};
+
+const debtPresets = {
+  'two-cards-auto': {
+    extra: 350,
+    debts: [
+      { id: 1, name: 'Rewards credit card', balance: 6200, rate: 24.9, minimum: 175 },
+      { id: 2, name: 'Store credit card', balance: 2100, rate: 29.9, minimum: 75 },
+      { id: 3, name: 'Auto loan', balance: 11800, rate: 7.9, minimum: 360 }
+    ]
+  },
+  'three-cards': {
+    extra: 300,
+    debts: [
+      { id: 1, name: 'Travel card', balance: 5200, rate: 22.9, minimum: 145 },
+      { id: 2, name: 'Cashback card', balance: 3400, rate: 19.9, minimum: 105 },
+      { id: 3, name: 'Store card', balance: 1200, rate: 28.9, minimum: 50 }
+    ]
+  },
+  'card-student': {
+    extra: 250,
+    debts: [
+      { id: 1, name: 'Credit card', balance: 4800, rate: 24.9, minimum: 135 },
+      { id: 2, name: 'Student loan', balance: 14500, rate: 6.8, minimum: 180 }
+    ]
   }
 };
 
@@ -583,6 +757,12 @@ function getDefaultDebts() {
   return [
     { id: 1, name: 'Credit card', balance: 4500, rate: 24.9, minimum: 120 }
   ];
+}
+
+function cloneDebts(debts) {
+  return debts.map(function(debt) {
+    return Object.assign({}, debt);
+  });
 }
 
 function debtLabel(debt, index) {
@@ -633,6 +813,12 @@ function renderDebts() {
   updateCountryContent();
 }
 
+function setDebtEntries(debts) {
+  debtEntries = cloneDebts(debts);
+  nextDebtId = debtEntries.reduce(function(max, debt) { return Math.max(max, debt.id); }, 0) + 1;
+  renderDebts();
+}
+
 function syncDebtEntries() {
   debtEntries = debtEntries.map(function(debt) {
     const nameInput = document.getElementById(`name-${debt.id}`);
@@ -655,6 +841,19 @@ function money(value) {
     maximumFractionDigits: 0
   }).format(Math.max(0, Math.round(value)));
   return `${settings.currencyPrefix}${amount}`;
+}
+
+function syncExtraSliderFromInput() {
+  const extra = readNumber('extra');
+  const clamped = Math.min(Number(extraSlider.max), Math.max(Number(extraSlider.min), extra));
+  extraSlider.value = clamped;
+  extraSliderValue.textContent = money(extra);
+}
+
+function timelineLabel(result) {
+  if (!result || result.totalDebt === 0) return 'Add debt';
+  if (result.isStalled) return '50+ years';
+  return result.months === 1 ? '1 month' : `${result.months} months`;
 }
 
 function readDebts() {
@@ -834,9 +1033,11 @@ function updateCountryContent() {
   document.getElementById('country-note').innerHTML = settings.note;
   document.getElementById('country-context-heading').textContent = settings.contextHeading;
   document.getElementById('country-context-copy').textContent = settings.contextCopy;
+  document.getElementById('apr-source-note').textContent = settings.aprSource;
   document.querySelectorAll('.currency-prefix').forEach(function(prefix) {
     prefix.textContent = settings.currencyPrefix;
   });
+  syncExtraSliderFromInput();
 }
 
 function calculate() {
@@ -851,9 +1052,14 @@ function calculate() {
   const alternateName = method === 'avalanche' ? 'snowball' : 'avalanche';
   const monthLabel = selected.isStalled ? 'More than 50 years' : (selected.months === 1 ? '1 month' : `${selected.months} months`);
   const interestDifference = Math.abs(selected.interestPaid - alternate.interestPaid);
+  const avalanche = method === 'avalanche' ? selected : alternate;
+  const snowball = method === 'snowball' ? selected : alternate;
+  const avalancheSavings = snowball.interestPaid - avalanche.interestPaid;
   updateMethodCards(selected, alternate, activeDebtCount);
 
-  document.getElementById('timeline').textContent = selected.totalDebt === 0 ? 'Add debt' : monthLabel;
+  document.getElementById('savings-headline').textContent = selected.totalDebt === 0 ? 'Add debt' : money(Math.max(0, avalancheSavings));
+  document.getElementById('avalanche-timeline').textContent = timelineLabel(avalanche);
+  document.getElementById('snowball-timeline').textContent = timelineLabel(snowball);
   document.getElementById('total-debt').textContent = money(selected.totalDebt);
   document.getElementById('monthly-payment').textContent = money(selected.monthlyPayment);
   document.getElementById('interest-paid').textContent = money(selected.interestPaid);
@@ -861,18 +1067,24 @@ function calculate() {
   downloadResultsButton.disabled = selected.totalDebt === 0;
 
   if (selected.totalDebt === 0) {
-    document.getElementById('timeline-copy').textContent = 'Add at least one debt balance to estimate a payoff timeline.';
+    document.getElementById('savings-copy').textContent = 'Add at least one debt balance to estimate a payoff timeline.';
     document.getElementById('comparison-copy').textContent = 'Enter your debts to compare payoff methods.';
     return;
   }
 
   if (selected.isStalled) {
-    document.getElementById('timeline-copy').textContent = `With these inputs, the ${methodName} method does not fully pay off the debt within this calculator's 50-year limit. Try a higher monthly payment, lower interest rate, or updated minimum payments.`;
+    document.getElementById('savings-copy').textContent = `With these inputs, the ${methodName} method does not fully pay off the debt within this calculator's 50-year limit. Try a higher monthly payment, lower interest rate, or updated minimum payments.`;
     document.getElementById('comparison-copy').textContent = 'This usually means the monthly payments are too low for the balances and interest rates entered.';
     return;
   }
 
-  document.getElementById('timeline-copy').textContent = `Using the ${methodName} method with ${money(selected.monthlyPayment)} per month, this simplified estimate reaches zero in about ${monthLabel}.`;
+  if (activeDebtCount < 2) {
+    document.getElementById('savings-copy').textContent = `With one debt, avalanche and snowball are the same. At ${money(selected.monthlyPayment)} per month, the estimate reaches zero in about ${monthLabel}.`;
+  } else if (avalancheSavings > 0) {
+    document.getElementById('savings-copy').textContent = `Avalanche estimates ${money(avalancheSavings)} less interest than snowball for the same ${money(selected.monthlyPayment)} monthly payment.`;
+  } else {
+    document.getElementById('savings-copy').textContent = `Both methods estimate similar interest for these inputs. Use the timeline and first target to choose the path you can follow.`;
+  }
 
   if (selected.interestPaid < alternate.interestPaid) {
     document.getElementById('comparison-copy').textContent = `The ${methodName} method estimates about ${money(interestDifference)} less interest than the ${alternateName} method for these inputs.`;
@@ -926,7 +1138,26 @@ debtList.addEventListener('click', function(event) {
   calculate();
 });
 
-document.getElementById('extra').addEventListener('input', calculate);
+extraInput.addEventListener('input', function() {
+  syncExtraSliderFromInput();
+  calculate();
+});
+extraSlider.addEventListener('input', function() {
+  extraInput.value = extraSlider.value;
+  syncExtraSliderFromInput();
+  calculate();
+});
+document.querySelectorAll('[data-preset]').forEach(function(button) {
+  button.addEventListener('click', function() {
+    const preset = debtPresets[button.dataset.preset];
+    if (!preset) return;
+    document.getElementById('extra').value = preset.extra;
+    method = 'avalanche';
+    setDebtEntries(preset.debts);
+    debtListStatus.textContent = 'Example debts loaded.';
+    calculate();
+  });
+});
 addDebtButton.addEventListener('click', function() {
   if (debtEntries.length >= maxDebtCount) return;
   syncDebtEntries();
@@ -940,11 +1171,9 @@ addDebtButton.addEventListener('click', function() {
   if (nameInput) nameInput.focus();
 });
 document.getElementById('reset-btn').addEventListener('click', function() {
-  debtEntries = getDefaultDebts();
-  nextDebtId = 2;
+  setDebtEntries(getDefaultDebts());
   document.getElementById('extra').value = 300;
   method = 'avalanche';
-  renderDebts();
   debtListStatus.textContent = 'Debt example reset.';
   calculate();
 });
