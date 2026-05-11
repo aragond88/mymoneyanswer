@@ -7,18 +7,23 @@
   <link rel="icon" type="image/svg+xml" href="./assets/money-logomark.svg" /><link rel="alternate icon" type="image/png" href="./favicon.png" />
   <link rel="apple-touch-icon" href="./favicon.png" />
 
-  <title>What Should I Do With My Money? Free Money Tool</title>
-  <meta name="description" content="Answer 4 questions and get a free country-aware educational money plan for the United States or Canada in about 5 minutes. No signup required." />
+  <title>What Should I Do With My Money? Next Money Move Tool</title>
+  <meta name="description" content="Get a free country-aware educational money path for debt payoff, emergency savings, short-term goals, or beginner investing in about 5 minutes. No signup required." />
   <meta name="keywords" content="what to do with my money, personal finance tool, free financial guide, what should I do with my savings, how to invest money, emergency fund calculator, debt payoff plan" />
   <link rel="canonical" href="https://mymoneyanswer.com/" />
 
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://mymoneyanswer.com/" />
-  <meta property="og:title"       content="What Should I Do With My Money? Free Money Tool" />
-  <meta property="og:description" content="Answer 4 questions and get a free country-aware educational money plan for the United States or Canada in about 5 minutes. No signup required." />
-  <meta name="twitter:card"       content="summary" />
-  <meta name="twitter:title"      content="What Should I Do With My Money? Free Money Tool" />
-  <meta name="twitter:description"content="4 questions. Free country-aware educational money plan. No signup." />
+  <meta property="og:title"       content="What Should I Do With My Money? Next Money Move Tool" />
+  <meta property="og:description" content="Get a free country-aware educational money path for debt payoff, emergency savings, short-term goals, or beginner investing in about 5 minutes. No signup required." />
+  <meta property="og:image"       content="https://mymoneyanswer.com/assets/money-logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"   content="MyMoneyAnswer money decision tool preview" />
+  <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:title"      content="What Should I Do With My Money? Next Money Move Tool" />
+  <meta name="twitter:description"content="4 questions. Free country-aware educational money path. No signup." />
+  <meta name="twitter:image"      content="https://mymoneyanswer.com/assets/money-logo.png" />
 
   <script type="application/ld+json">
   {
@@ -34,6 +39,8 @@
         "featureList": [
           "Four-question money decision tool",
           "United States and Canada country toggle",
+          "Visual recommended money path",
+          "Static decision logic for debt, emergency savings, goals, and investing",
           "Educational next steps for debt payoff, emergency savings, and beginner investing",
           "No signup required"
         ],
@@ -48,6 +55,37 @@
           { "@type": "Question", "name": "What is the best way to invest for beginners?", "acceptedAnswer": { "@type": "Answer", "text": "Many beginners start by learning about tax-advantaged accounts, diversified index funds, fees, and automatic contributions. The right account depends on whether you are in the United States or Canada." } },
           { "@type": "Question", "name": "Does this tool work for Canada and the United States?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The tool includes a manual country toggle for the United States and Canada. Results use country-specific language for savings accounts, retirement accounts, and account rules." } },
           { "@type": "Question", "name": "Does this replace a qualified professional?", "acceptedAnswer": { "@type": "Answer", "text": "No. MyMoneyAnswer provides general educational information only. It does not replace a qualified professional who can review your full financial, tax, legal, or investment situation." } }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to use the MyMoneyAnswer money decision tool",
+        "description": "Use four beginner-friendly questions to get a country-aware educational money path for debt payoff, emergency savings, short-term savings, or beginner investing.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Choose your country",
+            "text": "Select United States or Canada so the result uses the right account language and educational examples."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Answer the money amount question",
+            "text": "Choose the amount of savings, bonus, inheritance, tax refund, or extra money you want to put to work."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Answer the debt and emergency fund questions",
+            "text": "Tell the tool whether high-interest debt or emergency savings should come before investing."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Review your money path",
+            "text": "Read the educational action plan, visual path, recommended allocation, and related tools for your next step."
+          }
         ]
       }
     ]
@@ -185,6 +223,18 @@
       max-width: 560px;
       margin: 0 auto 0; /* no bottom margin — card takes over */
       line-height: 1.65;
+    }
+    .hero-meta {
+      color: rgba(255,255,255,0.58);
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 1.5;
+      margin: 14px auto 0;
+      max-width: 560px;
+    }
+    .hero-meta time {
+      color: rgba(255,255,255,0.82);
+      font-weight: 700;
     }
     .hero-proof {
       display: flex;
@@ -525,6 +575,54 @@
       color: var(--text-3);
       line-height: 1.6;
       margin-top: 10px;
+    }
+    .path-diagram {
+      display: grid;
+      gap: 10px;
+    }
+    .path-node {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      align-items: start;
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      background: var(--white);
+      padding: 14px 16px;
+      position: relative;
+    }
+    .path-node:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 32px;
+      bottom: -11px;
+      width: 2px;
+      height: 11px;
+      background: var(--green-mid);
+    }
+    .path-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--green-light);
+      border: 1px solid var(--green-mid);
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .path-name {
+      color: var(--text-1);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+    .path-copy {
+      color: var(--text-2);
+      font-size: 13px;
+      line-height: 1.6;
     }
 
     /* ─── ALLOCATION ─────────────────────────────── */
@@ -1000,6 +1098,43 @@
       font-size: 13px;
       line-height: 1.55;
     }
+    .static-path-list {
+      display: grid;
+      gap: 10px;
+      margin: 18px 0 22px;
+    }
+    .static-path-item {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 16px 18px;
+    }
+    .static-path-rank {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--green-light);
+      border: 1px solid var(--green-mid);
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .static-path-item h4 {
+      color: var(--text-1);
+      font-size: 15px;
+      line-height: 1.35;
+      margin: 0 0 5px;
+    }
+    .static-path-item p {
+      font-size: 13px;
+      line-height: 1.65;
+      margin: 0;
+    }
     .faq-list { margin-top: 8px; }
     .faq-item { border-bottom: 1px solid var(--border); }
     .faq-item:first-child { border-top: 1px solid var(--border); }
@@ -1134,10 +1269,11 @@
 <div class="hero">
   <div class="hero-announce">
     <span class="announce-dot"></span>
-    Free personal finance tool — no signup required
+    Free money decision tool — no signup required
   </div>
-  <h1>What should you do<br>with your <span class="hl">money?</span></h1>
-  <p class="hero-sub">Answer 4 questions and get a country-aware educational next step for debt payoff, emergency savings, or beginner investing in about 5 minutes.</p>
+  <h1>Get your next<br><span class="hl">money move</span></h1>
+  <p class="hero-sub">Answer 4 questions and get a country-aware educational path for debt payoff, emergency savings, short-term goals, or beginner investing in about 5 minutes.</p>
+  <p class="hero-meta"><time datetime="2026-05-11">Last updated: May 2026</time> &middot; General educational information for United States and Canada readers</p>
   <div class="hero-proof" aria-label="Tool highlights">
     <span>No signup</span>
     <span>United States and Canada</span>
@@ -1353,6 +1489,46 @@
   <h2>How to decide what to do with your money</h2>
   <p>Most people know they should be doing something with their savings — but figuring out the next step can feel overwhelming. Should you pay off debt or invest? Build an emergency fund or learn about tax-advantaged accounts? The answer depends on your country and situation, which is why generic money tips can feel hard to apply.</p>
   <p>This free tool walks you through a 4-question educational framework: assess your debt, check your emergency fund, understand your goals, and choose a practical research path. The sequence matters more than the amounts.</p>
+
+  <h3>Static decision path used by the quiz</h3>
+  <p>The interactive result above changes based on your answers, but the educational logic is visible here too. This keeps the page useful even before someone starts the quiz and helps search engines understand the decision framework.</p>
+  <div class="static-path-list" aria-label="Static money decision logic">
+    <article class="static-path-item">
+      <div class="static-path-rank">1</div>
+      <div>
+        <h4>If you have high-interest debt, start there</h4>
+        <p>Keep every minimum payment current, then compare avalanche versus snowball with the <a href="./debt-payoff-calculator.html">debt payoff calculator</a>. High annual percentage rate balances can cost more than many investments are likely to earn.</p>
+      </div>
+    </article>
+    <article class="static-path-item">
+      <div class="static-path-rank">2</div>
+      <div>
+        <h4>If you have no emergency fund, build the cash floor</h4>
+        <p>Before investing, estimate a starter fund and a 3-month target with the <a href="./emergency-fund-calculator.html">emergency fund calculator</a>. The goal is to avoid using new debt when a surprise expense appears.</p>
+      </div>
+    </article>
+    <article class="static-path-item">
+      <div class="static-path-rank">3</div>
+      <div>
+        <h4>If your emergency fund is partial, finish the gap</h4>
+        <p>Calculate monthly essential expenses, subtract current savings, and automate transfers until the safety target is complete. Then compare beginner investing accounts for your country.</p>
+      </div>
+    </article>
+    <article class="static-path-item">
+      <div class="static-path-rank">4</div>
+      <div>
+        <h4>If debt and cash are under control, learn account order</h4>
+        <p>United States readers may research Roth Individual Retirement Accounts and 401(k) retirement plans. Canada readers may research Tax-Free Savings Accounts and Registered Retirement Savings Plans. Then use the <a href="./calculator.html">investment calculator</a> to model contributions.</p>
+      </div>
+    </article>
+    <article class="static-path-item">
+      <div class="static-path-rank">5</div>
+      <div>
+        <h4>If you have a short-term goal, keep that money stable</h4>
+        <p>Money needed soon usually belongs in accessible savings rather than volatile investments. Separate emergency savings from house, car, travel, or wedding savings so each dollar has a clear job.</p>
+      </div>
+    </article>
+  </div>
 
   <h3>Start with the decision in front of you</h3>
   <div class="decision-path-grid">
@@ -1690,6 +1866,57 @@ function getNextPages(sc){
     balanced: common,
   };
   return sets[sc._key] || common;
+}
+
+function getPathNodes(sc){
+  const isCA = country === "CA";
+  const accountLabel = isCA ? "Tax-Free Savings Account or Registered Retirement Savings Plan" : "Roth Individual Retirement Account or 401(k) retirement plan";
+  const savingsLabel = isCA ? "high-interest savings account" : "high-yield savings account";
+  const paths = {
+    debt: [
+      { name:"Protect minimum payments", copy:"Keep every minimum current so fees and penalty rates do not erase progress." },
+      { name:"Attack high-interest debt", copy:"Use the debt payoff calculator to compare avalanche and snowball before sending extra money." },
+      { name:"Hold starter emergency cash", copy:`Keep a small buffer in a separate ${savingsLabel} while the expensive debt comes down.` },
+      { name:"Re-run the quiz debt-free", copy:"Your next best move changes once cash flow is no longer trapped by high interest." }
+    ],
+    no_emergency: [
+      { name:"Open a separate cash bucket", copy:`Keep safety money accessible in a ${savingsLabel}, away from daily spending.` },
+      { name:"Calculate the first target", copy:"Use essential expenses to set a starter fund, then a 3-month emergency fund." },
+      { name:"Automate the transfer", copy:"Move money on payday before it blends into spending money." },
+      { name:"Learn investing basics", copy:`Once the floor is stable, compare a beginner ${accountLabel}.` }
+    ],
+    partial: [
+      { name:"Find the emergency fund gap", copy:"Subtract current savings from your 3-month target so the goal is specific." },
+      { name:"Finish the cash floor", copy:"Prioritize the missing safety net before increasing investment risk." },
+      { name:"Research account rules", copy:`Learn how a ${accountLabel} may fit before choosing funds.` },
+      { name:"Automate both habits", copy:"Split future cash between savings and investing once the safety target is clear." }
+    ],
+    wealth: [
+      { name:"Confirm the foundation", copy:"No high-interest debt plus emergency savings means growth can move up the list." },
+      { name:"Check account priority", copy:`Compare contribution rules, fees, and tax treatment for a ${accountLabel}.` },
+      { name:"Choose diversified funds", copy:"Focus research on broad, low-cost index funds before individual stocks." },
+      { name:"Automate contributions", copy:"Turn the plan into a monthly system instead of a one-time decision." }
+    ],
+    large: [
+      { name:"Pause before moving money", copy:"Large balances make taxes, account rules, and timing more important." },
+      { name:"Review account limits", copy:`Check room, eligibility, and tradeoffs for a ${accountLabel} before investing.` },
+      { name:"Compare taxable options", copy:"Use simple diversified funds only after account order and tax questions are clear." },
+      { name:"Consider professional review", copy:"A qualified professional may help avoid expensive tax or account mistakes." }
+    ],
+    security: [
+      { name:"Define the safety number", copy:"Turn peace of mind into a specific cash target and timeline." },
+      { name:"Separate goal savings", copy:"Keep emergency savings and short-term goal money in different buckets." },
+      { name:"Use conservative growth carefully", copy:"Money needed soon should stay more stable than long-term investing money." },
+      { name:"Automate the plan", copy:"Move money on payday so security becomes a system." }
+    ],
+    balanced: [
+      { name:"Cover the basics", copy:"Confirm minimum payments, emergency cash, and near-term goals before investing." },
+      { name:"Split the next dollars", copy:"Use a simple split between savings, investing research, and cash buffer." },
+      { name:"Use the matching calculator", copy:"Model emergency fund, debt payoff, or investing numbers before acting." },
+      { name:"Review once a year", copy:"Update the plan when debt, savings, income, or country rules change." }
+    ]
+  };
+  return paths[sc._key] || paths.balanced;
 }
 
 // ════════════════════════════════════════════
@@ -2327,6 +2554,7 @@ function renderResult(){
   const sc=getScenario(ans);
   const resources=getLearningResources(sc);
   const nextPages=getNextPages(sc);
+  const pathNodes=getPathNodes(sc);
   const countryLabel = country === "CA" ? "Canada" : "United States";
 
   const acctCards = AFFS[country][sc.affKey] || [];
@@ -2350,6 +2578,21 @@ function renderResult(){
           <div class="result-insight-title">This result is based on your debt, emergency fund, goal, and country.</div>
           <div class="result-insight-text">${getPlanInsight(sc)}</div>
           <div class="result-disclaimer">This is general educational information only. It does not replace guidance from a qualified professional who can review your full situation.</div>
+        </div>
+      </div>
+
+      <div class="sec">
+        <div class="sec-label">Your recommended path</div>
+        <div class="path-diagram" aria-label="Recommended money decision path">
+          ${pathNodes.map((node,i)=>`
+            <div class="path-node">
+              <div class="path-num">${i+1}</div>
+              <div>
+                <div class="path-name">${node.name}</div>
+                <div class="path-copy">${node.copy}</div>
+              </div>
+            </div>
+          `).join('')}
         </div>
       </div>
 
