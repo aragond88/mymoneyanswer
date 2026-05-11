@@ -23,6 +23,14 @@
   <meta property="og:url" content="https://mymoneyanswer.com/tools.html" />
   <meta property="og:title" content="Free Personal Finance Tools for Beginners | MyMoneyAnswer" />
   <meta property="og:description" content="Budget, save, compare debt payoff, model investing, and choose a beginner-friendly next money step." />
+  <meta property="og:image" content="https://mymoneyanswer.com/assets/money-logo.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="MyMoneyAnswer free money tools preview" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Personal Finance Tools for Beginners | MyMoneyAnswer" />
+  <meta name="twitter:description" content="Use free beginner-friendly tools for budgeting, emergency savings, debt payoff, investing, and choosing your next money move." />
+  <meta name="twitter:image" content="https://mymoneyanswer.com/assets/money-logo.png" />
 
   <script type="application/ld+json">
   {
@@ -51,25 +59,25 @@
             {
               "@type": "ListItem",
               "position": 2,
-              "name": "Monthly Budget Planner",
+              "name": "Monthly Budget Planner with Budget Method Toggle",
               "url": "https://mymoneyanswer.com/budget-planner.html"
             },
             {
               "@type": "ListItem",
               "position": 3,
-              "name": "Emergency Fund Calculator",
+              "name": "Situation-Aware Emergency Fund Calculator",
               "url": "https://mymoneyanswer.com/emergency-fund-calculator.html"
             },
             {
               "@type": "ListItem",
               "position": 4,
-              "name": "Debt Payoff Calculator",
+              "name": "Debt Payoff Calculator with Avalanche Savings",
               "url": "https://mymoneyanswer.com/debt-payoff-calculator.html"
             },
             {
               "@type": "ListItem",
               "position": 5,
-              "name": "Investment Calculator",
+              "name": "Investment Calculator with Inflation and Delay Cost",
               "url": "https://mymoneyanswer.com/calculator.html"
             },
             {
@@ -124,6 +132,22 @@
               "@type": "Answer",
               "text": "No. These tools provide general educational information only. They do not provide personalized money, tax, legal, debt, credit, or investment guidance."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "What makes these money tools different?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The tools focus on decisions rather than generic calculations. The quiz gives a next money path, the emergency fund calculator adjusts targets by situation, the debt calculator highlights avalanche savings, the budget planner compares methods, and the investment calculator shows inflation, income, and delay cost."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do these tools work for Canada and the United States?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The tools use country-aware language and examples where relevant, with manual United States and Canada choices."
+            }
           }
         ]
       }
@@ -147,6 +171,8 @@
     .hero h1{max-width:700px;margin:0 auto 16px;color:#FFFFFF;font-size:clamp(34px,5vw,56px);line-height:1.06;letter-spacing:-1.5px;font-weight:800;}
     .hero h1 em{color:#4ade80;font-style:italic;font-weight:800;}
     .hero-sub{max-width:560px;margin:0 auto;color:rgba(255,255,255,.64);font-size:17px;line-height:1.65;}
+    .hero-meta{max-width:560px;margin:14px auto 0;color:rgba(255,255,255,.56);font-size:12px;line-height:1.5;font-weight:500;}
+    .hero-meta time{color:rgba(255,255,255,.82);font-weight:700;}
     .wrap{max-width:1040px;margin:-74px auto 0;padding:0 24px 80px;position:relative;z-index:10;}
     .tool-console{display:grid;grid-template-columns:.95fr 1.05fr;gap:0;background:#FFFFFF;border:1px solid #E4E4E7;border-radius:24px;overflow:hidden;margin-bottom:32px;box-shadow:0 14px 44px rgba(15,23,42,.1);}
     .console-primary{background-color:#052e16;background-image:radial-gradient(circle at 20% 20%,rgba(74,222,128,.26),transparent 34%),radial-gradient(circle at 90% 10%,rgba(22,163,74,.18),transparent 36%);padding:30px;color:#FFFFFF;display:flex;flex-direction:column;justify-content:space-between;min-height:360px;}
@@ -212,6 +238,14 @@
     .tool-button:hover{filter:brightness(.92);}
     .tool-button.secondary{background:#FFFFFF;color:#15803D;border-color:#16A34A;}
     .tool-button.secondary:hover{background:#F0FDF4;filter:none;}
+    .fit-section{background:#FFFFFF;border:1px solid #E4E4E7;border-radius:18px;padding:28px;margin-top:34px;}
+    .fit-section h2{font-size:24px;letter-spacing:-.45px;margin-bottom:10px;color:#09090B;}
+    .fit-section p{font-size:14px;color:#3F3F46;line-height:1.75;margin-bottom:14px;}
+    .fit-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:18px;}
+    .fit-step{border:1px solid #E4E4E7;border-radius:16px;background:#FAFAFA;padding:14px;}
+    .fit-num{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:10px;background:#F0FDF4;border:1px solid #BBF7D0;color:#15803D;font-size:12px;font-weight:900;margin-bottom:10px;}
+    .fit-step strong{display:block;color:#09090B;font-size:13px;line-height:1.35;margin-bottom:5px;}
+    .fit-step span{display:block;color:#52525B;font-size:12px;line-height:1.5;}
     .learning-strip{background:#FFFFFF;border:1px solid #E4E4E7;border-radius:18px;padding:24px;margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center;}
     .learning-strip h2{font-size:22px;letter-spacing:-.45px;margin-bottom:8px;color:#09090B;}
     .learning-strip p{font-size:14px;color:#3F3F46;line-height:1.7;}
@@ -223,8 +257,9 @@
     .faq-item p{font-size:14px;color:#3F3F46;line-height:1.65;}
     .disclaimer{margin-top:24px;border:1px solid #FED7AA;border-radius:18px;background:#FFF7ED;color:#7C2D12;padding:18px;font-size:13px;line-height:1.65;}
     .disclaimer strong{display:block;margin-bottom:5px;color:#7C2D12;}
+    @media(max-width:920px){.fit-grid{grid-template-columns:1fr 1fr;}}
     @media(max-width:820px){.tool-console,.learning-strip,.tool-card.featured{grid-template-columns:1fr;}.console-primary{min-height:0;}.learning-links{justify-content:flex-start;}}
-    @media(max-width:640px){.wrap{padding:0 18px 64px;}.hero{padding:58px 20px 104px;}.tool-grid{grid-template-columns:1fr;}.tool-card.featured{grid-column:span 1;}.section-head{flex-direction:column;}.section-cta{width:100%;}.tool-card{min-height:0;}.hero h1{font-size:30px;}}
+    @media(max-width:640px){.wrap{padding:0 18px 64px;}.hero{padding:58px 20px 104px;}.tool-grid,.fit-grid{grid-template-columns:1fr;}.tool-card.featured{grid-column:span 1;}.section-head{flex-direction:column;}.section-cta{width:100%;}.tool-card{min-height:0;}.hero h1{font-size:30px;}}
   </style>
 </head>
 <body>
@@ -256,7 +291,8 @@
   <section class="hero">
     <div class="hero-kicker"><span class="kicker-dot"></span> Free money tools</div>
     <h1>Plan your next money move<br><em>with simple tools</em></h1>
-    <p class="hero-sub">Use beginner-friendly calculators and planners for budgeting, emergency savings, debt payoff, investing, and choosing what to do next.</p>
+    <p class="hero-sub">Use decision-first calculators and planners for budgeting, emergency savings, debt payoff, investing, and choosing what to do next.</p>
+    <p class="hero-meta"><time datetime="2026-05-11">Last updated: May 2026</time> &middot; General educational information for United States and Canada readers</p>
   </section>
 
   <div class="wrap">
@@ -265,7 +301,7 @@
         <div>
           <div class="console-eyebrow"><span class="kicker-dot"></span> Decision hub</div>
           <h2>Choose the tool by the money problem.</h2>
-          <p>Start with the decision in front of you, then use the matching calculator or planner. The tools are built for beginners in the United States and Canada.</p>
+          <p>Start with the decision in front of you, then use the matching calculator or planner. Each core tool has a specific job: choose the next move, find leftover cash, set the emergency target, compare debt payoff methods, or translate investing into real outcomes.</p>
           <div class="console-stats" aria-label="Tool hub summary">
             <div class="console-stat"><strong>6</strong><span>free tools</span></div>
             <div class="console-stat"><strong>4</strong><span>decision steps</span></div>
@@ -288,22 +324,22 @@
         <div class="decision-list">
           <a class="decision-link" href="./budgeting.html">
             <span class="decision-number">01</span>
-            <span class="decision-copy"><strong>I need a monthly plan</strong><span>Build a simple budget before choosing savings or debt goals.</span></span>
+            <span class="decision-copy"><strong>I need a monthly plan</strong><span>Use the planner to compare 50/30/20, 70/20/10, and zero-based budgeting.</span></span>
             <span class="decision-arrow">→</span>
           </a>
           <a class="decision-link" href="./emergency-fund.html">
             <span class="decision-number">02</span>
-            <span class="decision-copy"><strong>I need a cash safety target</strong><span>Estimate starter, 3-month, and 6-month emergency savings.</span></span>
+            <span class="decision-copy"><strong>I need a cash safety target</strong><span>Estimate starter, 3-month, and 6-month targets based on your situation.</span></span>
             <span class="decision-arrow">→</span>
           </a>
           <a class="decision-link" href="./debt-payoff.html">
             <span class="decision-number">03</span>
-            <span class="decision-copy"><strong>I want to pay off debt</strong><span>Compare payoff timelines and debt payoff methods.</span></span>
+            <span class="decision-copy"><strong>I want to pay off debt</strong><span>Compare avalanche savings, snowball timeline, and extra payment scenarios.</span></span>
             <span class="decision-arrow">→</span>
           </a>
           <a class="decision-link" href="./investing.html">
             <span class="decision-number">04</span>
-            <span class="decision-copy"><strong>I want to model investing</strong><span>Estimate educational growth scenarios without guaranteed returns.</span></span>
+            <span class="decision-copy"><strong>I want to model investing</strong><span>Estimate growth, inflation-adjusted value, income at 4%, and delay cost.</span></span>
             <span class="decision-arrow">→</span>
           </a>
           <a class="decision-link" href="./roth-ira-vs-tfsa.html#account-chooser">
@@ -319,7 +355,7 @@
       <div class="section-head">
         <div>
           <h2 id="tools-heading">Choose a free money tool</h2>
-          <p>Pick the tool that matches the decision in front of you. Each tool is designed to be simple, practical, and easy to use at home.</p>
+          <p>Pick the tool that matches the decision in front of you. The goal is not just to calculate a number; it is to understand the next useful money move.</p>
         </div>
         <a class="section-cta" href="./blog.html">Browse all guides</a>
       </div>
@@ -329,11 +365,11 @@
           <div>
             <span class="tool-tag">Best first step</span>
             <h2>Money Decision Tool</h2>
-            <p>Answer four questions and get a beginner-friendly educational path for your next money move.</p>
+            <p>Answer four questions and get a country-aware educational path for your next money move.</p>
             <ul>
               <li>Good when you do not know whether to save, pay debt, invest, or learn first.</li>
-              <li>Includes United States and Canada paths.</li>
-              <li>Connects your result to related calculators and lessons.</li>
+              <li>Shows a visual recommended path instead of a personality quiz result.</li>
+              <li>Connects your result to calculators and static decision logic that search engines can read.</li>
             </ul>
             <div class="tool-actions">
               <a class="tool-button" href="./index.html">Use the tool</a>
@@ -407,10 +443,10 @@
           <div class="tool-content">
             <span class="tool-tag">Budgeting</span>
             <h2>Monthly Budget Planner</h2>
-            <p>Estimate income, needs, wants, savings, debt payments, and money left over in one simple planner.</p>
+            <p>Estimate income, needs, wants, savings, debt payments, and leftover cash in one simple planner.</p>
             <ul>
-              <li>Use it before choosing a savings or debt payoff goal.</li>
-              <li>Download a simple comma-separated values (CSV) file with your results.</li>
+              <li>Toggle between 50/30/20, 70/20/10, and zero-based budgeting.</li>
+              <li>Use the leftover number to choose emergency savings, debt payoff, or investing next.</li>
             </ul>
             <span class="tool-button">Open budget planner</span>
           </div>
@@ -435,10 +471,10 @@
           <div class="tool-content">
             <span class="tool-tag">Emergency savings</span>
             <h2>Emergency Fund Calculator</h2>
-            <p>Estimate starter, 3-month, and 6-month emergency fund targets from your essential monthly expenses.</p>
+            <p>Estimate starter, 3-month, and 6-month emergency fund targets from essential monthly expenses.</p>
             <ul>
-              <li>Helpful before deciding where to keep cash.</li>
-              <li>Useful for single-income, variable-income, and family budgets.</li>
+              <li>Situation selector adjusts target months for different household risks.</li>
+              <li>Compares target gaps and timelines across starter, 3-month, and 6-month tiers.</li>
             </ul>
             <span class="tool-button">Calculate emergency fund</span>
           </div>
@@ -465,8 +501,8 @@
             <h2>Debt Payoff Calculator</h2>
             <p>Compare payoff timelines and see how extra monthly debt payments may affect your plan.</p>
             <ul>
-              <li>Compare the debt avalanche and debt snowball methods.</li>
-              <li>Add multiple debts and edit debt names.</li>
+              <li>Shows avalanche interest savings versus snowball as the headline number.</li>
+              <li>Use presets, extra payment slider, and United States or Canada context.</li>
             </ul>
             <span class="tool-button">Calculate debt payoff</span>
           </div>
@@ -492,10 +528,10 @@
           <div class="tool-content">
             <span class="tool-tag">Investing</span>
             <h2>Investment Calculator</h2>
-            <p>Model how an initial amount, monthly contribution, time horizon, and assumed return can affect long-term growth.</p>
+            <p>Model how a starting amount, monthly contribution, time horizon, inflation, and assumed return can affect long-term growth.</p>
             <ul>
-              <li>Useful after high-interest debt and emergency savings are considered.</li>
-              <li>Shows educational scenarios, not guaranteed returns.</li>
+              <li>Shows nominal balance, real balance, monthly income at 4%, and cost of waiting.</li>
+              <li>Useful after debt, emergency savings, and short-term cash goals are considered.</li>
             </ul>
             <span class="tool-button">Use investment calculator</span>
           </div>
@@ -503,6 +539,39 @@
       </div>
 
       <aside class="ad-slot ad-slot--tool" aria-label="Advertisement space"></aside>
+    </section>
+
+    <section class="fit-section" aria-labelledby="tool-sequence-heading">
+      <h2 id="tool-sequence-heading">How the tools fit together</h2>
+      <p>MyMoneyAnswer is built around a simple beginner sequence: understand cash flow, protect against surprises, reduce expensive debt, then model long-term investing. You do not need every tool on the same day. Use the one that answers the question you have right now, then move to the next decision only when the first one is clear.</p>
+      <p>This is why the site is tool-first instead of article-first. The calculators create a result you can act on, while the guides explain the decision behind the result. The numbers are still educational estimates, but they make abstract money advice easier to compare.</p>
+      <div class="fit-grid" aria-label="Suggested tool sequence">
+        <div class="fit-step">
+          <div class="fit-num">1</div>
+          <strong>Choose the next move</strong>
+          <span>Use the quiz when you are unsure whether debt, savings, budgeting, or investing comes first.</span>
+        </div>
+        <div class="fit-step">
+          <div class="fit-num">2</div>
+          <strong>Find monthly leftover</strong>
+          <span>Use the budget planner to see what cash is actually available each month.</span>
+        </div>
+        <div class="fit-step">
+          <div class="fit-num">3</div>
+          <strong>Set the cash floor</strong>
+          <span>Use the emergency fund calculator to size a starter, 3-month, or 6-month target.</span>
+        </div>
+        <div class="fit-step">
+          <div class="fit-num">4</div>
+          <strong>Compare debt payoff</strong>
+          <span>Use the debt calculator to see whether avalanche saves meaningful interest versus snowball.</span>
+        </div>
+        <div class="fit-step">
+          <div class="fit-num">5</div>
+          <strong>Model investing</strong>
+          <span>Use the investment calculator to compare nominal growth, real value, income, and delay cost.</span>
+        </div>
+      </div>
     </section>
 
     <section class="learning-strip" aria-labelledby="tool-learning-heading">
@@ -540,6 +609,14 @@
         <div class="faq-item">
           <h3>Do these tools replace a professional?</h3>
           <p>No. These tools provide general educational information only. They do not replace personalized guidance from a qualified professional.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What makes these tools different from generic calculators?</h3>
+          <p>Each tool is built around a decision output. The quiz gives a next money path, the emergency fund calculator adjusts by situation, the debt calculator highlights avalanche savings, the budget planner compares methods, and the investment calculator shows inflation, income, and delay cost.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do these tools work for Canada and the United States?</h3>
+          <p>Yes. The core tools use country-aware labels, examples, or manual country choices where relevant. The content remains general educational information.</p>
         </div>
       </div>
     </section>
