@@ -1,6 +1,6 @@
 # Post-Deploy QA Checklist
 
-Last updated: 2026-05-11
+Last updated: 2026-05-12
 
 This checklist covers the tool-first pages that were upgraded for search and future display ads monetization. The goal is to confirm that the live site is crawlable, shareable, fast, and ready for Google Search Console reindexing before adding ads or creating more content.
 
@@ -97,6 +97,19 @@ After production is confirmed:
 - Inspect each URL and confirm it is indexable.
 - Check the canonical chosen by Google after crawling.
 - Monitor impressions and average position weekly.
+
+## GA4 Event Checks
+
+Use DebugView or Realtime after deploy and confirm these events fire on the matching interactions:
+
+- `tool_page_viewed` when opening the home tool, tools hub, and calculator pages.
+- `tool_started` after changing a calculator or planner input.
+- `money_tool_started`, `money_tool_answered`, and `money_tool_completed` through the quiz flow.
+- `internal_cta_clicked` when clicking prominent internal calls to action.
+- `emergency_results_downloaded`, `debt_results_downloaded`, `budget_csv_downloaded`, or `money_plan_downloaded` when downloading results.
+- `wealthsimple_affiliate_clicked` only when clicking the Wealthsimple invite link.
+
+Recommended GA4 key events are documented in `docs/GA4_EVENT_TRACKING.md`.
 
 ## Do Not Add Yet
 
