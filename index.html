@@ -2970,6 +2970,16 @@ function toggleStep(el){
 }
 function pick(qId,val,el){
   ans[qId]=val;
+  window.trackOnce && window.trackOnce('money_tool_started', 'money_tool_started', {
+    tool_name: 'money_decision_tool',
+    start_source: 'answer'
+  });
+  window.trackEvent && window.trackEvent('money_tool_answered', {
+    country: country,
+    question_id: qId,
+    answer_value: val,
+    step_number: step + 1
+  });
   document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
   el.classList.add('sel');
   updateProgress(false);
