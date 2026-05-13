@@ -9,6 +9,17 @@
     '/emergency-fund-calculator.html': 'emergency_fund_calculator'
   };
   var trackedOnce = {};
+  var ahrefsAnalyticsKey = 'mVdGLqmc3H9Ja8AnUwhA4w';
+
+  function loadAhrefsAnalytics() {
+    if (document.querySelector('script[src="https://analytics.ahrefs.com/analytics.js"][data-key="' + ahrefsAnalyticsKey + '"]')) return;
+
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://analytics.ahrefs.com/analytics.js';
+    script.setAttribute('data-key', ahrefsAnalyticsKey);
+    document.head.appendChild(script);
+  }
 
   function currentPath() {
     return window.location.pathname || '/';
@@ -100,6 +111,8 @@
   window.toggleMenu = toggleMenu;
 
   document.addEventListener('DOMContentLoaded', function () {
+    loadAhrefsAnalytics();
+
     var toolName = currentToolName();
     if (toolName) {
       trackEvent('tool_page_viewed', {
