@@ -1098,6 +1098,50 @@
       font-size: 13px;
       line-height: 1.55;
     }
+    .priority-path-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 16px 0 28px;
+    }
+    .priority-path-card {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 18px;
+      text-decoration: none;
+      color: inherit;
+      transition: all .15s var(--ease);
+    }
+    .priority-path-card:hover {
+      border-color: var(--green);
+      background: var(--green-light);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    .priority-path-card span {
+      display: inline-flex;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+    }
+    .priority-path-card strong {
+      display: block;
+      font-size: 16px;
+      color: var(--text-1);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .priority-path-card p {
+      font-size: 13px;
+      margin: 0;
+      color: var(--text-2);
+      line-height: 1.6;
+    }
     .static-path-list {
       display: grid;
       gap: 10px;
@@ -1201,7 +1245,7 @@
       .share-bar { padding: 14px 20px; justify-content: stretch; }
       .share-btns { width: 100%; }
       .btn-action { flex: 1; justify-content: center; }
-      .res-grid, .aff-grid, .open-acct-grid, .ch-grid, .next-grid, .method-list, .decision-path-grid { grid-template-columns: 1fr; }
+      .res-grid, .aff-grid, .open-acct-grid, .ch-grid, .next-grid, .method-list, .decision-path-grid, .priority-path-grid { grid-template-columns: 1fr; }
       .al-label { min-width: 0; font-size: 13px; }
       .step-drawer-inner { padding-left: 20px; }
     }
@@ -1547,6 +1591,41 @@
     <a class="decision-path-card" href="./calculator.html">
       <strong>Ready to invest?</strong>
       <span>Test contribution amounts, time horizon, and long-term return assumptions.</span>
+    </a>
+  </div>
+
+  <h3>Popular beginner paths</h3>
+  <p>Use these guides when you already know the topic and want a more direct next step than the quiz.</p>
+  <div class="priority-path-grid" aria-label="Popular beginner money paths">
+    <a class="priority-path-card" href="./roth-ira-vs-tfsa.html">
+      <span>Account comparison</span>
+      <strong>TFSA vs Roth IRA comparison</strong>
+      <p>Compare Canada and United States tax-free account concepts before choosing an investing account to research.</p>
+    </a>
+    <a class="priority-path-card" href="./wealthsimple-review.html">
+      <span>Canada platform</span>
+      <strong>Wealthsimple review and fees</strong>
+      <p>Review trading fees, currency conversion, account types, Cash, and safety basics for Canadian beginners.</p>
+    </a>
+    <a class="priority-path-card" href="./starter-emergency-fund.html">
+      <span>Emergency savings</span>
+      <strong>Starter emergency fund</strong>
+      <p>Choose a first cash buffer before building a larger 3-month or 6-month emergency fund.</p>
+    </a>
+    <a class="priority-path-card" href="./how-much-emergency-fund-do-i-need.html">
+      <span>Savings target</span>
+      <strong>How much emergency fund do I need?</strong>
+      <p>Compare starter, 1-month, 3-month, and 6-month emergency fund targets by household risk.</p>
+    </a>
+    <a class="priority-path-card" href="./debt-payoff-plan.html">
+      <span>Debt payoff</span>
+      <strong>Debt payoff plan</strong>
+      <p>Build a payoff system using balances, rates, minimums, extra cash, and a monthly review habit.</p>
+    </a>
+    <a class="priority-path-card" href="./how-to-start-investing.html">
+      <span>Investing basics</span>
+      <strong>How to start investing</strong>
+      <p>Learn accounts, diversification, fees, risk, and contribution habits before choosing investments.</p>
     </a>
   </div>
 
